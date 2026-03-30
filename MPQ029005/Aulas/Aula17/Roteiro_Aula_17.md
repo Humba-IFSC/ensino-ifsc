@@ -1,0 +1,3 @@
+# Roteiro da Aula 17 - Seminários (Apresentações)
+
+**Aviso:** As fontes fornecidas não contêm informações referentes à "Aula 17", nem ao tema "Seminários (Apresentações)". Os documentos disponibilizados abordam tópicos como teoria de erros, algarismos significativos, linearização, construção de gráficos, revisão bibliográfica, formatação de trabalhos acadêmicos e método científico (com referências até a Aula 07). Portanto, não é possível extrair os objetivos de aprendizagem, cronograma, metodologias ou sumário teórico para esta aula específica a partir do material consultado.

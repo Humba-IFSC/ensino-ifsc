@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 16 — Aula 16 - Avaliação Escrita (P1 + P2) (08/06/2026)
+
+Bem-vindos à Aula 16! Este material foi elaborado para servir como um guia completo de revisão para a nossa Avaliação Escrita (P1 + P2). Ele sintetiza os principais conceitos discutidos ao longo da disciplina, abordando desde o tratamento matemático de medidas e teoria de erros até a construção de gráficos, linearização e conceitos de metodologia científica. 
+
+---
+
+#1. Medidas e Algarismos Significativos
+Na física e na pesquisa quantitativa, é fundamental compreender que nenhuma medida pode ser feita com certeza absoluta; sempre haverá uma dúvida associada ao processo [1]. 
+* **Algarismos Significativos:** Correspondem a todos os algarismos que o experimentador tem certeza, mais um único algarismo (o último), que é o duvidoso [1]. 
+* **Regras dos Zeros:** Zeros posicionados à esquerda não são significativos, mas zeros à direita são [1]. 
+* **Arredondamento:** O critério de arredondamento só deve ser aplicado ao final das operações, nunca durante os cálculos intermediários [1]. A regra dita que, se o número após o duvidoso for maior que 5, arredonda-se para cima; se for menor que 5, mantém-se inalterado; e se for exatamente 5, o duvidoso deve ficar par (se for ímpar, aumenta-se uma unidade) [1].
+* **Operações:** Na soma e subtração, o resultado final deve ter o menor número de casas decimais entre as parcelas [1]. Na multiplicação e divisão, o resultado deve ficar com o menor número de algarismos significativos [1].
+
+#2. Teoria de Erros
+As medidas experimentais devem sempre quantificar a incerteza associada. A forma padrão de escrita de um resultado é: **$\text{Grandeza} = \text{resultado} \pm \text{erro} \text{ (unidade)}$** [2, 3]. 
+* **Representação do Erro:** O erro do resultado deve obrigatoriamente ter **apenas um algarismo significativo** [4, 5]. Além disso, caso seja necessário arredondar o erro, este arredondamento deve ser sempre feito para **mais** [4, 5]. 
+* **Tipos de Erros:**
+  * **Erro de Escala:** Relacionado à escala do instrumento de medida [2, 3]. Para instrumentos analógicos, é calculado como a metade da Menor Divisão de Escala (MDE/2); já para instrumentos digitais, é igual à própria MDE [2, 3].
+  * **Erro Aleatório:** Decorre de perturbações estatísticas imprevisíveis e é minimizado aumentando o número de medidas e fazendo um tratamento estatístico (como desvio padrão) [6, 7].
+  * **Erro Sistemático:** Afeta as medidas sempre em um mesmo sentido (por exemplo, um instrumento descalibrado) e pode ser eliminado quando a origem é descoberta [6].
+* **Exatidão x Precisão:** Precisão refere-se a medidas próximas entre si (pequena barra de erro), enquanto exatidão significa que as medidas concordam com o valor padrão ou tabelado [8, 9]. O erro percentual ($E\%$) quantifica "quão longe" a medida está desse valor padrão [4, 5].
+
+#3. Construção de Gráficos e Linearização
+A visualização de dados experimentais através de gráficos é essencial na física. 
+* **Regras Básicas:** Para a construção manual, deve-se identificar claramente os eixos coordenados, determinar uma escala proporcional adequada, marcar os pontos experimentais com símbolos (nunca escrevendo as coordenadas ao lado do ponto) e traçar a melhor curva de tendência [10, 11]. Se houver conjuntos distintos de dados, símbolos diferentes devem ser utilizados [11].
+* **Papéis Especiais:** Além do papel milimetrado padrão, podemos usar o papel mono-log (semilog) e o papel di-log (log-log) [10]. O papel mono-log é especialmente útil para linearizar funções exponenciais, pois o logaritmo aplicado ao eixo transforma a curva em uma reta [12, 13].
+* **Linearização e Mínimos Quadrados:** Freqüentemente as variáveis não possuem relação linear. A linearização (ou anamorfose) consiste em trocar as variáveis (ex: plotar $y$ versus $x^2$, ou $\ln(y)$ versus $x$) para "desentortar" a curva original, transformando-a em uma reta [14, 15]. Uma vez linearizada, utiliza-se o **Método dos Mínimos Quadrados (MMQ)** para determinar os coeficientes angular ($A$) e linear ($B$) que compõem a equação da reta de melhor ajuste ($Y = A + BX$), minimizando assim o somatório dos quadrados dos resíduos [16-19].
+
+#4. O Método Científico e Trabalhos Acadêmicos
+Por fim, é crucial entender os princípios metodológicos que guiam a pesquisa e a confecção de trabalhos em laboratório.
+* **O Método:** O processo de produção de conhecimento envolve uma constante interação entre pensar, sentir e fazer [20]. A ciência segue um método que engloba a observação de um problema, enunciação de uma hipótese, realização de experimentos controlados e formulação de leis ou teorias a partir da conclusão [20]. 
+* **Raciocínio:** O método *dedutivo* aplica princípios gerais a casos particulares (se as premissas são verdadeiras, a dedução é segura), enquanto o método *indutivo* observa amostras particulares para generalizar regras (é menos seguro, mas muitas vezes a única via em pesquisas empíricas) [21].
+* **Relatórios e Revisão Bibliográfica:** Ao redigir relatórios e resenhas bibliográficas, é necessário embasar teoricamente a pesquisa, recorrendo a periódicos, anais de congressos e bases de dados abertas e fechadas [22-24].
+* **Citações (ABNT):** O rigor acadêmico exige citação adequada. Citações diretas curtas (até 3 linhas) devem ser mantidas no corpo do texto entre aspas [25, 26]. Citações diretas com mais de 3 linhas recebem um formato especial: devem ter recuo de 4 cm à esquerda, fonte menor (tamanho 10) e entrelinhamento simples, sem aspas [27-29].
+
+Desejo a todos excelentes estudos. Utilizem os simuladores sugeridos e as listas de exercícios anteriores para fixar o conhecimento sobre escalas (paquímetro e micrômetro) e operações com precisão matemática. Boa prova!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Markdown Styles */
+        .prose h1 { font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; line-height: 1.2; }
+        .prose h2 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; color: #334155; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1.25rem; color: #475569; line-height: 1.75; }
+        .prose ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.25rem; color: #475569; }
+        .prose ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 1.25rem; color: #475569; }
+        .prose li { margin-bottom: 0.5rem; }
+        .prose strong { font-weight: 600; color: #0f172a; }
+        .prose a { color: #2563eb; text-decoration: underline; }
+        .prose blockquote { border-left: 4px solid #cbd5e1; padding-left: 1rem; font-style: italic; color: #64748b; margin-bottom: 1.25rem; }
+        .prose code { background-color: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; color: #b91c1c; }
+        .prose pre { background-color: #1e293b; color: #f8fafc; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1.25rem; }
+        .prose pre code { background-color: transparent; color: inherit; padding: 0; }
+        .prose table { width: 100%; border-collapse: collapse; margin-bottom: 1.25rem; }
+        .prose th, .prose td { border: 1px solid #e2e8f0; padding: 0.75rem; text-align: left; }
+        .prose th { background-color: #f8fafc; font-weight: 600; color: #334155; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col antialiased">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-slate-900 to-slate-800 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <a href="../../index.html" class="text-slate-300 hover:text-white transition flex items-center cursor-pointer">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Voltar
+                </a>
+                <span class="text-slate-500">|</span>
+                <span class="font-semibold text-sm tracking-wide text-brand-300 uppercase">MPQ029005</span>
+            </div>
+            <div class="text-sm font-medium text-slate-300 hidden sm:block">
+                Aula 16
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        <article class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 sm:p-12 mb-10 prose prose-slate max-w-none">
+            <h1>Aula 16 - Avaliação Escrita (P1 + P2) (08/06/2026)</h1>
+<p>Bem-vindos à Aula 16! Este material foi elaborado para servir como um guia completo de revisão para a nossa Avaliação Escrita (P1 + P2). Ele sintetiza os principais conceitos discutidos ao longo da disciplina, abordando desde o tratamento matemático de medidas e teoria de erros até a construção de gráficos, linearização e conceitos de metodologia científica. </p>
+<hr />
+<h2>1. Medidas e Algarismos Significativos</h2>
+<p>Na física e na pesquisa quantitativa, é fundamental compreender que nenhuma medida pode ser feita com certeza absoluta; sempre haverá uma dúvida associada ao processo [1]. 
+* <strong>Algarismos Significativos:</strong> Correspondem a todos os algarismos que o experimentador tem certeza, mais um único algarismo (o último), que é o duvidoso [1]. 
+* <strong>Regras dos Zeros:</strong> Zeros posicionados à esquerda não são significativos, mas zeros à direita são [1]. 
+* <strong>Arredondamento:</strong> O critério de arredondamento só deve ser aplicado ao final das operações, nunca durante os cálculos intermediários [1]. A regra dita que, se o número após o duvidoso for maior que 5, arredonda-se para cima; se for menor que 5, mantém-se inalterado; e se for exatamente 5, o duvidoso deve ficar par (se for ímpar, aumenta-se uma unidade) [1].
+* <strong>Operações:</strong> Na soma e subtração, o resultado final deve ter o menor número de casas decimais entre as parcelas [1]. Na multiplicação e divisão, o resultado deve ficar com o menor número de algarismos significativos [1].</p>
+<h2>2. Teoria de Erros</h2>
+<p>As medidas experimentais devem sempre quantificar a incerteza associada. A forma padrão de escrita de um resultado é: <strong>$\text{Grandeza} = \text{resultado} \pm \text{erro} \text{ (unidade)}$</strong> [2, 3]. 
+* <strong>Representação do Erro:</strong> O erro do resultado deve obrigatoriamente ter <strong>apenas um algarismo significativo</strong> [4, 5]. Além disso, caso seja necessário arredondar o erro, este arredondamento deve ser sempre feito para <strong>mais</strong> [4, 5]. 
+* <strong>Tipos de Erros:</strong>
+  * <strong>Erro de Escala:</strong> Relacionado à escala do instrumento de medida [2, 3]. Para instrumentos analógicos, é calculado como a metade da Menor Divisão de Escala (MDE/2); já para instrumentos digitais, é igual à própria MDE [2, 3].
+  * <strong>Erro Aleatório:</strong> Decorre de perturbações estatísticas imprevisíveis e é minimizado aumentando o número de medidas e fazendo um tratamento estatístico (como desvio padrão) [6, 7].
+  * <strong>Erro Sistemático:</strong> Afeta as medidas sempre em um mesmo sentido (por exemplo, um instrumento descalibrado) e pode ser eliminado quando a origem é descoberta [6].
+* <strong>Exatidão x Precisão:</strong> Precisão refere-se a medidas próximas entre si (pequena barra de erro), enquanto exatidão significa que as medidas concordam com o valor padrão ou tabelado [8, 9]. O erro percentual ($E\%$) quantifica "quão longe" a medida está desse valor padrão [4, 5].</p>
+<h2>3. Construção de Gráficos e Linearização</h2>
+<p>A visualização de dados experimentais através de gráficos é essencial na física. 
+* <strong>Regras Básicas:</strong> Para a construção manual, deve-se identificar claramente os eixos coordenados, determinar uma escala proporcional adequada, marcar os pontos experimentais com símbolos (nunca escrevendo as coordenadas ao lado do ponto) e traçar a melhor curva de tendência [10, 11]. Se houver conjuntos distintos de dados, símbolos diferentes devem ser utilizados [11].
+* <strong>Papéis Especiais:</strong> Além do papel milimetrado padrão, podemos usar o papel mono-log (semilog) e o papel di-log (log-log) [10]. O papel mono-log é especialmente útil para linearizar funções exponenciais, pois o logaritmo aplicado ao eixo transforma a curva em uma reta [12, 13].
+* <strong>Linearização e Mínimos Quadrados:</strong> Freqüentemente as variáveis não possuem relação linear. A linearização (ou anamorfose) consiste em trocar as variáveis (ex: plotar $y$ versus $x^2$, ou $\ln(y)$ versus $x$) para "desentortar" a curva original, transformando-a em uma reta [14, 15]. Uma vez linearizada, utiliza-se o <strong>Método dos Mínimos Quadrados (MMQ)</strong> para determinar os coeficientes angular ($A$) e linear ($B$) que compõem a equação da reta de melhor ajuste ($Y = A + BX$), minimizando assim o somatório dos quadrados dos resíduos [16-19].</p>
+<h2>4. O Método Científico e Trabalhos Acadêmicos</h2>
+<p>Por fim, é crucial entender os princípios metodológicos que guiam a pesquisa e a confecção de trabalhos em laboratório.
+* <strong>O Método:</strong> O processo de produção de conhecimento envolve uma constante interação entre pensar, sentir e fazer [20]. A ciência segue um método que engloba a observação de um problema, enunciação de uma hipótese, realização de experimentos controlados e formulação de leis ou teorias a partir da conclusão [20]. 
+* <strong>Raciocínio:</strong> O método <em>dedutivo</em> aplica princípios gerais a casos particulares (se as premissas são verdadeiras, a dedução é segura), enquanto o método <em>indutivo</em> observa amostras particulares para generalizar regras (é menos seguro, mas muitas vezes a única via em pesquisas empíricas) [21].
+* <strong>Relatórios e Revisão Bibliográfica:</strong> Ao redigir relatórios e resenhas bibliográficas, é necessário embasar teoricamente a pesquisa, recorrendo a periódicos, anais de congressos e bases de dados abertas e fechadas [22-24].
+* <strong>Citações (ABNT):</strong> O rigor acadêmico exige citação adequada. Citações diretas curtas (até 3 linhas) devem ser mantidas no corpo do texto entre aspas [25, 26]. Citações diretas com mais de 3 linhas recebem um formato especial: devem ter recuo de 4 cm à esquerda, fonte menor (tamanho 10) e entrelinhamento simples, sem aspas [27-29].</p>
+<p>Desejo a todos excelentes estudos. Utilizem os simuladores sugeridos e as listas de exercícios anteriores para fixar o conhecimento sobre escalas (paquímetro e micrômetro) e operações com precisão matemática. Boa prova!</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-sm border-t border-slate-800 mt-auto">
+        <p>&copy; 2026 MPQ029005 — Metodologia de Pesquisa | IFSC Campus São José</p>
+    </footer>
+
+</body>
+</html>

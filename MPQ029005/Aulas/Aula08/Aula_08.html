@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 08 — Aula 08 - Teoria de Erros III (06/04/2026)
+
+Bem-vindos à Aula 08! Neste material, vamos aprofundar nossos conhecimentos sobre a Teoria de Erros, abordando como quantificar, propagar e representar as incertezas inerentes a qualquer processo de medição científica.
+
+#1. Introdução: A Incerteza na Medida
+Nenhuma medida pode ser feita com certeza absoluta; sempre haverá uma dúvida associada [1, 2]. O objetivo da Teoria de Erros é justamente quantificar essas incertezas para que possamos avaliar a confiabilidade dos nossos dados [3, 4]. Em um laboratório, buscamos atingir tanto a **precisão** (medidas próximas entre si, com pequena barra de erro) quanto a **exatidão** (medidas concordantes com os valores padrões teóricos) [3-5].
+
+Para isso, dividimos as fontes de incerteza em três categorias principais:
+*   **Erro de Escala ($E_e$):** Relacionado ao limite de resolução do próprio instrumento. Em instrumentos digitais, equivale à menor divisão de escala (MDE); em analógicos, equivale a MDE/2; e em instrumentos com nônio (como o paquímetro), divide-se a menor divisão principal pelo número de divisões do nônio [6-8].
+*   **Erro Aleatório ($E_a$):** Originário de fatores imprevisíveis e estatísticos presentes em todo experimento (como reflexo do operador ou rajadas de vento) [9, 10]. É minimizado pelo controle do experimento e repetição de medidas, sendo calculado com base no desvio padrão da média ($\sigma_m$): $E_a = t \cdot \sigma_m$ [8, 11, 12].
+*   **Erro Sistemático ($E_s$):** Desvia as medidas sempre em um mesmo sentido, geralmente devido a falhas de calibração ou fatores instrumentais conhecidos, podendo muitas vezes ser eliminado [9, 10].
+
+#2. Erro Total e Escrita do Resultado
+Quando um experimento está sujeito a múltiplas fontes de incerteza que puderam ser quantificadas, o **Erro Total** ($\Delta G$) da medida é assumido como a soma desses erros: $\Delta G = E_e + E_a + E_s$ [10, 13].
+
+A regra de ouro da Teoria de Erros dita a forma padrão de escrever o resultado final:
+**O erro do resultado deve ter apenas UM algarismo significativo** [13-15]. 
+Como o erro já representa a incerteza (o algarismo duvidoso), não faz sentido apresentar vários dígitos de dúvida [1, 13]. Se os cálculos fornecerem um erro com vários dígitos, você deve **arredondar sempre PARA MAIS** [13-15]. 
+
+A medida final deve ter concordância de casas decimais com o seu erro. A forma padrão é expressa como: $Grandeza = (resultado \pm erro) \ unidade$ [6, 7].
+
+#3. Propagação de Erros
+A propagação de erros é utilizada quando precisamos determinar a incerteza de uma grandeza "$y$" que não foi medida diretamente, mas sim **calculada** a partir de outras grandezas medidas experimentalmente ($x_1, x_2, x_3...$) [16, 17].
+
+A determinação do erro máximo propagado é feita tomando-se o módulo das derivadas parciais da função em relação a cada variável independente [17]. A fórmula geral (equação do erro indeterminado) é [17, 18]:
+$\Delta y = \left|\frac{\partial y}{\partial x_1}\right|\Delta x_1 + \left|\frac{\partial y}{\partial x_2}\right|\Delta x_2 + ... + \left|\frac{\partial y}{\partial x_n}\right|\Delta x_n$
+
+A partir dessa derivada, derivam-se regras práticas para operações básicas [16]:
+*   **Soma ou Subtração ($y = x_1 \pm x_2$):** $E_p = E_1 + E_2$
+*   **Multiplicação ($y = x_1 \cdot x_2$):** $E_p = x_1 \cdot E_2 + x_2 \cdot E_1$
+*   **Divisão ($y = x_1 / x_2$):** $E_p = \frac{x_1 \cdot E_2 + x_2 \cdot E_1}{x_2^2}$
+
+*Nota: Não se esqueça de que o erro propagado final também deve ser arredondado para mais, mantendo apenas um algarismo significativo* [18, 19].
+
+#4. Erro Percentual (Relativo)
+Para analisar "quão longe" a nossa medida final ficou do valor padrão (teórico ou tabelado), utilizamos o erro relativo percentual [14, 15, 18].
+Sua fórmula é: 
+**$E\% = \frac{|medida - padrão|}{padrão} \cdot 100$** [14, 15].
+
+#5. Ajuste de Curvas e Método dos Mínimos Quadrados (MMQ)
+Muitas vezes, a relação teórica entre grandezas é demonstrada através de gráficos. Quando os pontos experimentais sugerem uma curva que não é reta, aplicamos a técnica de **linearização** (anamorfose) para "desentortar" a curva, transformando-a em uma equação do tipo $Y = A + BX$ [20, 21]. Isso pode envolver gráficos em papel mono-log ou di-log, dependendo se a função original era exponencial ou de potência [22-24].
+
+Uma vez linearizada a relação, utilizamos o **Método dos Mínimos Quadrados (MMQ)**. Este método estatístico serve para determinar os estimadores estatísticos ótimos para os coeficientes angular ($B$) e linear ($A$) da reta que melhor representa os pontos experimentais, minimizando os desvios (resíduos) entre os dados medidos e a reta teórica [25-27].</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Markdown Styles */
+        .prose h1 { font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; line-height: 1.2; }
+        .prose h2 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; color: #334155; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1.25rem; color: #475569; line-height: 1.75; }
+        .prose ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.25rem; color: #475569; }
+        .prose ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 1.25rem; color: #475569; }
+        .prose li { margin-bottom: 0.5rem; }
+        .prose strong { font-weight: 600; color: #0f172a; }
+        .prose a { color: #2563eb; text-decoration: underline; }
+        .prose blockquote { border-left: 4px solid #cbd5e1; padding-left: 1rem; font-style: italic; color: #64748b; margin-bottom: 1.25rem; }
+        .prose code { background-color: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; color: #b91c1c; }
+        .prose pre { background-color: #1e293b; color: #f8fafc; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1.25rem; }
+        .prose pre code { background-color: transparent; color: inherit; padding: 0; }
+        .prose table { width: 100%; border-collapse: collapse; margin-bottom: 1.25rem; }
+        .prose th, .prose td { border: 1px solid #e2e8f0; padding: 0.75rem; text-align: left; }
+        .prose th { background-color: #f8fafc; font-weight: 600; color: #334155; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col antialiased">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-slate-900 to-slate-800 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <a href="../../index.html" class="text-slate-300 hover:text-white transition flex items-center cursor-pointer">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Voltar
+                </a>
+                <span class="text-slate-500">|</span>
+                <span class="font-semibold text-sm tracking-wide text-brand-300 uppercase">MPQ029005</span>
+            </div>
+            <div class="text-sm font-medium text-slate-300 hidden sm:block">
+                Aula 08
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        <article class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 sm:p-12 mb-10 prose prose-slate max-w-none">
+            <h1>Aula 08 - Teoria de Erros III (06/04/2026)</h1>
+<p>Bem-vindos à Aula 08! Neste material, vamos aprofundar nossos conhecimentos sobre a Teoria de Erros, abordando como quantificar, propagar e representar as incertezas inerentes a qualquer processo de medição científica.</p>
+<h2>1. Introdução: A Incerteza na Medida</h2>
+<p>Nenhuma medida pode ser feita com certeza absoluta; sempre haverá uma dúvida associada [1, 2]. O objetivo da Teoria de Erros é justamente quantificar essas incertezas para que possamos avaliar a confiabilidade dos nossos dados [3, 4]. Em um laboratório, buscamos atingir tanto a <strong>precisão</strong> (medidas próximas entre si, com pequena barra de erro) quanto a <strong>exatidão</strong> (medidas concordantes com os valores padrões teóricos) [3-5].</p>
+<p>Para isso, dividimos as fontes de incerteza em três categorias principais:
+*   <strong>Erro de Escala ($E_e$):</strong> Relacionado ao limite de resolução do próprio instrumento. Em instrumentos digitais, equivale à menor divisão de escala (MDE); em analógicos, equivale a MDE/2; e em instrumentos com nônio (como o paquímetro), divide-se a menor divisão principal pelo número de divisões do nônio [6-8].
+*   <strong>Erro Aleatório ($E_a$):</strong> Originário de fatores imprevisíveis e estatísticos presentes em todo experimento (como reflexo do operador ou rajadas de vento) [9, 10]. É minimizado pelo controle do experimento e repetição de medidas, sendo calculado com base no desvio padrão da média ($\sigma_m$): $E_a = t \cdot \sigma_m$ [8, 11, 12].
+*   <strong>Erro Sistemático ($E_s$):</strong> Desvia as medidas sempre em um mesmo sentido, geralmente devido a falhas de calibração ou fatores instrumentais conhecidos, podendo muitas vezes ser eliminado [9, 10].</p>
+<h2>2. Erro Total e Escrita do Resultado</h2>
+<p>Quando um experimento está sujeito a múltiplas fontes de incerteza que puderam ser quantificadas, o <strong>Erro Total</strong> ($\Delta G$) da medida é assumido como a soma desses erros: $\Delta G = E_e + E_a + E_s$ [10, 13].</p>
+<p>A regra de ouro da Teoria de Erros dita a forma padrão de escrever o resultado final:
+<strong>O erro do resultado deve ter apenas UM algarismo significativo</strong> [13-15]. 
+Como o erro já representa a incerteza (o algarismo duvidoso), não faz sentido apresentar vários dígitos de dúvida [1, 13]. Se os cálculos fornecerem um erro com vários dígitos, você deve <strong>arredondar sempre PARA MAIS</strong> [13-15]. </p>
+<p>A medida final deve ter concordância de casas decimais com o seu erro. A forma padrão é expressa como: $Grandeza = (resultado \pm erro) \ unidade$ [6, 7].</p>
+<h2>3. Propagação de Erros</h2>
+<p>A propagação de erros é utilizada quando precisamos determinar a incerteza de uma grandeza "$y$" que não foi medida diretamente, mas sim <strong>calculada</strong> a partir de outras grandezas medidas experimentalmente ($x_1, x_2, x_3...$) [16, 17].</p>
+<p>A determinação do erro máximo propagado é feita tomando-se o módulo das derivadas parciais da função em relação a cada variável independente [17]. A fórmula geral (equação do erro indeterminado) é [17, 18]:
+$\Delta y = \left|\frac{\partial y}{\partial x_1}\right|\Delta x_1 + \left|\frac{\partial y}{\partial x_2}\right|\Delta x_2 + ... + \left|\frac{\partial y}{\partial x_n}\right|\Delta x_n$</p>
+<p>A partir dessa derivada, derivam-se regras práticas para operações básicas [16]:
+*   <strong>Soma ou Subtração ($y = x_1 \pm x_2$):</strong> $E_p = E_1 + E_2$
+*   <strong>Multiplicação ($y = x_1 \cdot x_2$):</strong> $E_p = x_1 \cdot E_2 + x_2 \cdot E_1$
+*   <strong>Divisão ($y = x_1 / x_2$):</strong> $E_p = \frac{x_1 \cdot E_2 + x_2 \cdot E_1}{x_2^2}$</p>
+<p><em>Nota: Não se esqueça de que o erro propagado final também deve ser arredondado para mais, mantendo apenas um algarismo significativo</em> [18, 19].</p>
+<h2>4. Erro Percentual (Relativo)</h2>
+<p>Para analisar "quão longe" a nossa medida final ficou do valor padrão (teórico ou tabelado), utilizamos o erro relativo percentual [14, 15, 18].
+Sua fórmula é: 
+<strong>$E\% = \frac{|medida - padrão|}{padrão} \cdot 100$</strong> [14, 15].</p>
+<h2>5. Ajuste de Curvas e Método dos Mínimos Quadrados (MMQ)</h2>
+<p>Muitas vezes, a relação teórica entre grandezas é demonstrada através de gráficos. Quando os pontos experimentais sugerem uma curva que não é reta, aplicamos a técnica de <strong>linearização</strong> (anamorfose) para "desentortar" a curva, transformando-a em uma equação do tipo $Y = A + BX$ [20, 21]. Isso pode envolver gráficos em papel mono-log ou di-log, dependendo se a função original era exponencial ou de potência [22-24].</p>
+<p>Uma vez linearizada a relação, utilizamos o <strong>Método dos Mínimos Quadrados (MMQ)</strong>. Este método estatístico serve para determinar os estimadores estatísticos ótimos para os coeficientes angular ($B$) e linear ($A$) da reta que melhor representa os pontos experimentais, minimizando os desvios (resíduos) entre os dados medidos e a reta teórica [25-27].</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-sm border-t border-slate-800 mt-auto">
+        <p>&copy; 2026 MPQ029005 — Metodologia de Pesquisa | IFSC Campus São José</p>
+    </footer>
+
+</body>
+</html>

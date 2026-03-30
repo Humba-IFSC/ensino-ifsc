@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 07 — Aula 07 - Teoria de Erros II (30/03/2026)
+
+Bem-vindos à Aula 07. Neste encontro, aprofundaremos nossos estudos em **Teoria de Erros**, abordando o tratamento matemático das incertezas, a diferença estatística dos erros e a forma como eles se propagam em cálculos indiretos.
+
+Em qualquer pesquisa quantitativa ou prática de laboratório, devemos ter em mente que nenhuma medida pode ser feita com certeza absoluta [1]. A palavra "erro", no contexto científico, não indica falha ou incompetência do experimentador, mas sim a **incerteza inerente** associada ao processo de medição [1, 2].
+
+##1. Precisão e Exatidão
+Antes de quantificarmos as incertezas, é crucial distinguir dois conceitos básicos:
+* **Precisão:** Refere-se à qualidade da medida. Se uma medida puder ser repetida várias vezes com uma grande concordância entre os resultados, e se o instrumento possui pequena barra de erro, a medida é considerada precisa [2-4].
+* **Exatidão:** Relaciona-se com a concordância da medida realizada em relação ao valor padrão ou valor teórico esperado [2-4]. 
+
+A Teoria de Erros nos ajuda a lidar com essas variáveis, identificando as fontes de erro para diminuir suas causas [3, 4].
+
+##2. Fontes de Incerteza (Tipos de Erros)
+Quando medimos, nosso resultado está sujeito a diferentes categorias de erros, que podem se somar [5, 6].
+
+###2.1 Erro de Escala (EE)
+É a quantificação da incerteza relacionada à escala do próprio instrumento de medida utilizado [7-9]. 
+* Para **instrumentos analógicos** (como uma régua), o erro é convencionalmente estabelecido como a metade da Menor Divisão de Escala ($E = \frac{MDE}{2}$) [7, 8, 10, 11]. 
+* Em **instrumentos digitais**, o erro corresponde à própria Menor Divisão de Escala ($E = MDE$) [7, 8, 10].
+
+###2.2 Erro Aleatório (EA)
+É o erro originário de fatores aleatórios e flutuações estatísticas presentes em todo experimento (reflexos humanos, variação de vento, etc.) [9, 12]. Como ele não segue uma regra definida e dispersa os valores tanto para mais quanto para menos, é impossível de ser totalmente evitado [9, 12, 13]. 
+
+A quantificação do Erro Aleatório exige a repetição das medidas (em laboratório, é comum o uso de triplicatas ou mais repetições) [9, 14]. O tratamento estatístico destas repetições segue as etapas [14, 15]:
+1. **Média:** Calcula-se a média aritmética simples das medidas, que representa o valor mais provável [12, 14, 15].
+2. **Desvio Padrão ($\sigma$):** Indica a tendência de distribuição dos dados em torno do valor mais provável [10, 15].
+3. **Desvio Padrão da Média ($\sigma_m$):** Obtido dividindo o desvio padrão pela raiz quadrada do número de medições ($n$) executadas ($\sigma_m = \frac{\sigma}{\sqrt{n}}$) [10, 11, 15].
+4. **Erro Aleatório Provável ($E_a$):** Encontrado multiplicando o desvio padrão da média pelo coeficiente de Student ($t$). A fórmula é $E_a = \pm t \cdot \sigma_m$ [10, 15]. (Na ausência de instrução específica, geralmente adota-se o coeficiente $t = 1$ [10, 11]).
+
+##3. Erro Total e Escrita do Resultado Final
+O Erro Total é a composição das incertezas presentes e, quando aplicável, é calculado pela soma dos erros existentes: $E_{total} = E_{escala} + E_{aleatorio} + E_{sistematico}$ [5, 6, 12, 16]. 
+
+Existem regras rigorosíssimas de arredondamento que definem o padrão correto de escrita do trabalho científico [1, 16]:
+* **O erro do resultado deve ter APENAS UM algarismo significativo** (que será o algarismo duvidoso) [5, 6, 16].
+* Sempre que precisar arredondar um erro para deixá-lo com apenas um algarismo, **arredonde PARA MAIS** e somente ao final das contas [5, 6, 16].
+* É necessário haver concordância nas casas decimais (concordância no duvidoso) entre a medida final e o seu erro [7, 8].
+
+A grandeza sempre será expressa no formato padrão: 
+$Grandeza = (resultado \pm erro) unidade$ [7, 8].
+
+##4. Propagação de Erros
+Se precisarmos determinar a incerteza de uma grandeza "$y$" que não é medida diretamente, mas **calculada** a partir de outras grandezas (como $x_1, x_2, x_3$) que foram medidas previamente (por exemplo, calcular a velocidade a partir da distância e do tempo), precisamos usar a **Propagação de Erros** [17, 18].
+
+Esse cálculo da incerteza indireta é baseado em diferenciais e nas derivadas parciais da função utilizada, em módulo [18, 19]:
+$\Delta y = |\frac{\partial y}{\partial x_1}| \Delta x_1 + |\frac{\partial y}{\partial x_2}| \Delta x_2 + ...$ 
+
+Para as operações matemáticas básicas, as equações da propagação já são conhecidas [17, 20]:
+* **Soma / Subtração** ($y = x_1 \pm x_2$): $E_p = E_1 + E_2$
+* **Multiplicação** ($y = x_1 \cdot x_2$): $E_p = x_1 \cdot E_2 + x_2 \cdot E_1$
+* **Potência** ($y = x_1^n$): $E_p = n \cdot x_1^{n-1} \cdot E_1$
+
+Assim como no Erro Total, no fim das contas o Erro Propagado ($E_p$) final deve ser arredondado para mais, mantendo apenas 1 algarismo significativo [19, 21].</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Markdown Styles */
+        .prose h1 { font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; line-height: 1.2; }
+        .prose h2 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; color: #334155; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1.25rem; color: #475569; line-height: 1.75; }
+        .prose ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.25rem; color: #475569; }
+        .prose ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 1.25rem; color: #475569; }
+        .prose li { margin-bottom: 0.5rem; }
+        .prose strong { font-weight: 600; color: #0f172a; }
+        .prose a { color: #2563eb; text-decoration: underline; }
+        .prose blockquote { border-left: 4px solid #cbd5e1; padding-left: 1rem; font-style: italic; color: #64748b; margin-bottom: 1.25rem; }
+        .prose code { background-color: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; color: #b91c1c; }
+        .prose pre { background-color: #1e293b; color: #f8fafc; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1.25rem; }
+        .prose pre code { background-color: transparent; color: inherit; padding: 0; }
+        .prose table { width: 100%; border-collapse: collapse; margin-bottom: 1.25rem; }
+        .prose th, .prose td { border: 1px solid #e2e8f0; padding: 0.75rem; text-align: left; }
+        .prose th { background-color: #f8fafc; font-weight: 600; color: #334155; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col antialiased">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-slate-900 to-slate-800 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <a href="../../index.html" class="text-slate-300 hover:text-white transition flex items-center cursor-pointer">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Voltar
+                </a>
+                <span class="text-slate-500">|</span>
+                <span class="font-semibold text-sm tracking-wide text-brand-300 uppercase">MPQ029005</span>
+            </div>
+            <div class="text-sm font-medium text-slate-300 hidden sm:block">
+                Aula 07
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        <article class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 sm:p-12 mb-10 prose prose-slate max-w-none">
+            <h1>Aula 07 - Teoria de Erros II (30/03/2026)</h1>
+<p>Bem-vindos à Aula 07. Neste encontro, aprofundaremos nossos estudos em <strong>Teoria de Erros</strong>, abordando o tratamento matemático das incertezas, a diferença estatística dos erros e a forma como eles se propagam em cálculos indiretos.</p>
+<p>Em qualquer pesquisa quantitativa ou prática de laboratório, devemos ter em mente que nenhuma medida pode ser feita com certeza absoluta [1]. A palavra "erro", no contexto científico, não indica falha ou incompetência do experimentador, mas sim a <strong>incerteza inerente</strong> associada ao processo de medição [1, 2].</p>
+<h3>1. Precisão e Exatidão</h3>
+<p>Antes de quantificarmos as incertezas, é crucial distinguir dois conceitos básicos:
+* <strong>Precisão:</strong> Refere-se à qualidade da medida. Se uma medida puder ser repetida várias vezes com uma grande concordância entre os resultados, e se o instrumento possui pequena barra de erro, a medida é considerada precisa [2-4].
+* <strong>Exatidão:</strong> Relaciona-se com a concordância da medida realizada em relação ao valor padrão ou valor teórico esperado [2-4]. </p>
+<p>A Teoria de Erros nos ajuda a lidar com essas variáveis, identificando as fontes de erro para diminuir suas causas [3, 4].</p>
+<h3>2. Fontes de Incerteza (Tipos de Erros)</h3>
+<p>Quando medimos, nosso resultado está sujeito a diferentes categorias de erros, que podem se somar [5, 6].</p>
+<h4>2.1 Erro de Escala (EE)</h4>
+<p>É a quantificação da incerteza relacionada à escala do próprio instrumento de medida utilizado [7-9]. 
+* Para <strong>instrumentos analógicos</strong> (como uma régua), o erro é convencionalmente estabelecido como a metade da Menor Divisão de Escala ($E = \frac{MDE}{2}$) [7, 8, 10, 11]. 
+* Em <strong>instrumentos digitais</strong>, o erro corresponde à própria Menor Divisão de Escala ($E = MDE$) [7, 8, 10].</p>
+<h4>2.2 Erro Aleatório (EA)</h4>
+<p>É o erro originário de fatores aleatórios e flutuações estatísticas presentes em todo experimento (reflexos humanos, variação de vento, etc.) [9, 12]. Como ele não segue uma regra definida e dispersa os valores tanto para mais quanto para menos, é impossível de ser totalmente evitado [9, 12, 13]. </p>
+<p>A quantificação do Erro Aleatório exige a repetição das medidas (em laboratório, é comum o uso de triplicatas ou mais repetições) [9, 14]. O tratamento estatístico destas repetições segue as etapas [14, 15]:
+1. <strong>Média:</strong> Calcula-se a média aritmética simples das medidas, que representa o valor mais provável [12, 14, 15].
+2. <strong>Desvio Padrão ($\sigma$):</strong> Indica a tendência de distribuição dos dados em torno do valor mais provável [10, 15].
+3. <strong>Desvio Padrão da Média ($\sigma_m$):</strong> Obtido dividindo o desvio padrão pela raiz quadrada do número de medições ($n$) executadas ($\sigma_m = \frac{\sigma}{\sqrt{n}}$) [10, 11, 15].
+4. <strong>Erro Aleatório Provável ($E_a$):</strong> Encontrado multiplicando o desvio padrão da média pelo coeficiente de Student ($t$). A fórmula é $E_a = \pm t \cdot \sigma_m$ [10, 15]. (Na ausência de instrução específica, geralmente adota-se o coeficiente $t = 1$ [10, 11]).</p>
+<h3>3. Erro Total e Escrita do Resultado Final</h3>
+<p>O Erro Total é a composição das incertezas presentes e, quando aplicável, é calculado pela soma dos erros existentes: $E_{total} = E_{escala} + E_{aleatorio} + E_{sistematico}$ [5, 6, 12, 16]. </p>
+<p>Existem regras rigorosíssimas de arredondamento que definem o padrão correto de escrita do trabalho científico [1, 16]:
+* <strong>O erro do resultado deve ter APENAS UM algarismo significativo</strong> (que será o algarismo duvidoso) [5, 6, 16].
+* Sempre que precisar arredondar um erro para deixá-lo com apenas um algarismo, <strong>arredonde PARA MAIS</strong> e somente ao final das contas [5, 6, 16].
+* É necessário haver concordância nas casas decimais (concordância no duvidoso) entre a medida final e o seu erro [7, 8].</p>
+<p>A grandeza sempre será expressa no formato padrão: 
+$Grandeza = (resultado \pm erro) unidade$ [7, 8].</p>
+<h3>4. Propagação de Erros</h3>
+<p>Se precisarmos determinar a incerteza de uma grandeza "$y$" que não é medida diretamente, mas <strong>calculada</strong> a partir de outras grandezas (como $x_1, x_2, x_3$) que foram medidas previamente (por exemplo, calcular a velocidade a partir da distância e do tempo), precisamos usar a <strong>Propagação de Erros</strong> [17, 18].</p>
+<p>Esse cálculo da incerteza indireta é baseado em diferenciais e nas derivadas parciais da função utilizada, em módulo [18, 19]:
+$\Delta y = |\frac{\partial y}{\partial x_1}| \Delta x_1 + |\frac{\partial y}{\partial x_2}| \Delta x_2 + ...$ </p>
+<p>Para as operações matemáticas básicas, as equações da propagação já são conhecidas [17, 20]:
+* <strong>Soma / Subtração</strong> ($y = x_1 \pm x_2$): $E_p = E_1 + E_2$
+* <strong>Multiplicação</strong> ($y = x_1 \cdot x_2$): $E_p = x_1 \cdot E_2 + x_2 \cdot E_1$
+* <strong>Potência</strong> ($y = x_1^n$): $E_p = n \cdot x_1^{n-1} \cdot E_1$</p>
+<p>Assim como no Erro Total, no fim das contas o Erro Propagado ($E_p$) final deve ser arredondado para mais, mantendo apenas 1 algarismo significativo [19, 21].</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-sm border-t border-slate-800 mt-auto">
+        <p>&copy; 2026 MPQ029005 — Metodologia de Pesquisa | IFSC Campus São José</p>
+    </footer>
+
+</body>
+</html>

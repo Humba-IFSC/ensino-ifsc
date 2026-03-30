@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+ <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>
+   MPQ029005 &mdash; Metodologia de Pesquisa | Dashboard do Curso
+  </title>
+  <meta content="Painel do curso MPQ029005 - Metodologia de Pesquisa, Engenharia de Telecomunica&ccedil;&otilde;es, IFSC S&atilde;o Jos&eacute;, 2026.1." name="description">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script>
+   tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4', 100: '#dcfce7',
+                            200: '#bbf7d0', 300: '#86efac',
+                            500: '#22c55e', 600: '#16a34a',
+                            700: '#15803d', 800: '#166534',
+                            900: '#14532d',
+                        },
+                        ifsc: { dark: '#0d3320', medium: '#166534', light: '#22c55e' },
+                        accent: { 500: '#f59e0b', 600: '#d97706' }
+                    }
+                }
+            }
+        }
+  </script>
+  <style>
+   body { font-family: 'Inter', sans-serif; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+        .badge-active { background: #dcfce7; color: #166534; }
+        .badge-future { background: #f1f5f9; color: #64748b; }
+        .badge-exam { background: #fee2e2; color: #991b1b; }
+        .badge-project { background: #dbeafe; color: #1e40af; }
+        .mobile-menu { display: none; }
+        .mobile-menu.open { display: block; }
+        .hamburger-line { transition: all 0.3s ease; }
+        .hamburger.open .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.open .hamburger-line:nth-child(2) { opacity: 0; }
+        .hamburger.open .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+  </style>
+ </head>
+ <body class="antialiased bg-slate-50 min-h-screen flex flex-col">
+  <!-- Navigation -->
+  <nav class="bg-ifsc-dark text-white shadow-md sticky top-0 z-50">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+     <div class="flex items-center">
+      <span class="text-2xl mr-2">
+       🔬
+      </span>
+      <span class="font-bold text-lg sm:text-xl tracking-tight">
+       MPQ029005 | Metodologia de Pesquisa
+      </span>
+     </div>
+     <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+      <a class="hover:text-green-300 transition" href="#cronograma">
+       📋 Cronograma
+      </a>
+      <a class="hover:text-green-300 transition" href="#avaliacao">
+       📊 Avalia&ccedil;&atilde;o
+      </a>
+      <a class="hover:text-green-300 transition" href="#recursos">
+       🛠 Recursos
+      </a>
+     </div>
+     <!-- Hamburger Button (Mobile) -->
+     <button aria-expanded="false" aria-label="Menu" class="hamburger md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none" id="hamburgerBtn">
+      <span class="hamburger-line block w-6 h-0.5 bg-white rounded">
+      </span>
+      <span class="hamburger-line block w-6 h-0.5 bg-white rounded">
+      </span>
+      <span class="hamburger-line block w-6 h-0.5 bg-white rounded">
+      </span>
+     </button>
+    </div>
+   </div>
+   <!-- Mobile Menu Panel -->
+   <div class="mobile-menu md:hidden bg-brand-800 border-t border-ifsc-dark/50" id="mobileMenu">
+    <div class="px-4 py-3 space-y-1">
+     <a class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-white hover:bg-brand-700 transition" href="#cronograma">
+      📋 Cronograma
+     </a>
+     <a class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-white hover:bg-brand-700 transition" href="#avaliacao">
+      📊 Avalia&ccedil;&atilde;o
+     </a>
+     <a class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-white hover:bg-brand-700 transition" href="#recursos">
+      🛠 Recursos
+     </a>
+    </div>
+   </div>
+  </nav>
+  <!-- Hero Section -->
+  <header class="bg-gradient-to-br from-ifsc-dark via-brand-800 to-brand-700 text-white py-16 px-4 sm:px-6 lg:px-8">
+   <div class="max-w-5xl mx-auto text-center">
+    <p class="text-green-300 font-semibold tracking-wide uppercase text-sm mb-3">
+     Engenharia de Telecomunica&ccedil;&otilde;es &mdash; IFSC S&atilde;o Jos&eacute;
+    </p>
+    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+     Metodologia de Pesquisa
+    </h1>
+    <h2 class="text-xl md:text-2xl text-green-100 font-light mb-8">
+     Ci&ecirc;ncia, Escrita Cient&iacute;fica, Medidas e An&aacute;lise de Dados
+    </h2>
+    <div class="flex flex-wrap justify-center gap-3">
+     <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium">
+      📅 Semestre 2026/1
+     </span>
+     <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium">
+      🕐 Seg 13:30 &ndash; 15:20
+     </span>
+     <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium">
+      👨&zwj;🏫 Prof. Humberto Oliveira
+     </span>
+     <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium">
+      ⏱ 36h (19 aulas)
+     </span>
+    </div>
+   </div>
+  </header>
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+   <!-- Cronograma -->
+   <section class="scroll-mt-24" id="cronograma">
+    <div class="mb-8">
+     <h3 class="text-2xl font-bold text-slate-800 mb-2 flex items-center">
+      <span class="text-brand-600 mr-2">
+       📋
+      </span>
+      Cronograma de Aulas
+     </h3>
+     <p class="text-slate-600 max-w-3xl">
+      Todas as 19 aulas do semestre com suas datas e temas. As aulas com painel ativo possuem materiais interativos dispon&iacute;veis.
+     </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+     <!-- Bloco 1: Fundamentos -->
+     <div class="sm:col-span-2 lg:col-span-3 mt-2 mb-1">
+      <span class="text-xs font-bold text-brand-700 uppercase tracking-wider bg-brand-50 px-3 py-1 rounded-full">
+       🧠 Bloco 1 &mdash; Fundamentos & Comunica&ccedil;&atilde;o Cient&iacute;fica
+      </span>
+     </div>
+     <!-- Aula 01 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-green-200 overflow-hidden">
+      <div class="border-t-4 border-green-500">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 01
+        </span>
+        <span class="text-xs font-semibold badge-active px-2 py-0.5 rounded-full">
+         ✅ Conclu&iacute;da
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Apresenta&ccedil;&atilde;o e Tipos de Conhecimento
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Cient&iacute;fico, Filos&oacute;fico, Religioso, Senso Comum
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 09/02/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula01/Aula_01.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula01/Roteiro_Aula_01.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 02 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-green-200 overflow-hidden">
+      <div class="border-t-4 border-green-500">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 02
+        </span>
+        <span class="text-xs font-semibold badge-active px-2 py-0.5 rounded-full">
+         ✅ Conclu&iacute;da
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Conhecimento Cient&iacute;fico e Pesquisa
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Pseudoci&ecirc;ncia, Indu&ccedil;&atilde;o vs Dedu&ccedil;&atilde;o, Tipos de Pesquisa
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 23/02/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula02/Aula_02.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula02/Roteiro_Aula_02.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 03 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-green-200 overflow-hidden">
+      <div class="border-t-4 border-green-500">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 03
+        </span>
+        <span class="text-xs font-semibold badge-active px-2 py-0.5 rounded-full">
+         ✅ Conclu&iacute;da
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Comunica&ccedil;&atilde;o Cient&iacute;fica I
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Fichamento, Bases de Dados, Revis&atilde;o Bibliogr&aacute;fica
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 02/03/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula03/Aula_03.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula03/Roteiro_Aula_03.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 04 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-green-200 overflow-hidden">
+      <div class="border-t-4 border-green-500">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 04
+        </span>
+        <span class="text-xs font-semibold badge-active px-2 py-0.5 rounded-full">
+         ✅ Conclu&iacute;da
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Comunica&ccedil;&atilde;o Cient&iacute;fica II
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Normas ABNT, Tabelas, Figuras, Equa&ccedil;&otilde;es
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 09/03/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula04/Aula_04.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula04/Roteiro_Aula_04.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 05 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-green-200 overflow-hidden">
+      <div class="border-t-4 border-green-500">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 05
+        </span>
+        <span class="text-xs font-semibold badge-active px-2 py-0.5 rounded-full">
+         ✅ Conclu&iacute;da
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        &Eacute;tica e Qualis
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        &Eacute;tica na Pesquisa, Qualis, Financiamento
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 16/03/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula05/Aula_05.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula05/Roteiro_Aula_05.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Bloco 2: Teoria de Erros -->
+     <div class="sm:col-span-2 lg:col-span-3 mt-6 mb-1">
+      <span class="text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-50 px-3 py-1 rounded-full">
+       📏 Bloco 2 &mdash; Teoria de Erros e Medidas
+      </span>
+     </div>
+     <!-- Aula 06 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-amber-200 overflow-hidden">
+      <div class="border-t-4 border-amber-400">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 06
+        </span>
+        <span class="text-xs font-semibold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">
+         ▶ Pr&oacute;xima
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Teoria de Erros I
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Medidas e Algarismos Significativos
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 23/03/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula06/Aula_06.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula06/Roteiro_Aula_06.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 07 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="border-t-4 border-slate-200">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 07
+        </span>
+        <span class="text-xs font-semibold badge-future px-2 py-0.5 rounded-full">
+         Em breve
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Teoria de Erros II
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Erro de Escala, Paqu&iacute;metro e Micr&ocirc;metro
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 30/03/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula07/Aula_07.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula07/Roteiro_Aula_07.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 08 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="border-t-4 border-slate-200">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 08
+        </span>
+        <span class="text-xs font-semibold badge-future px-2 py-0.5 rounded-full">
+         Em breve
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Teoria de Erros III
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Erro Sistem&aacute;tico e Aleat&oacute;rio
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 06/04/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula08/Aula_08.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula08/Roteiro_Aula_08.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 09 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="border-t-4 border-slate-200">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 09
+        </span>
+        <span class="text-xs font-semibold badge-future px-2 py-0.5 rounded-full">
+         Em breve
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Teoria de Erros IV
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Erro Propagado
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 13/04/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula09/Aula_09.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula09/Roteiro_Aula_09.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Bloco 3: Análise Gráfica e MMQ -->
+     <div class="sm:col-span-2 lg:col-span-3 mt-6 mb-1">
+      <span class="text-xs font-bold text-blue-700 uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-full">
+       📊 Bloco 3 &mdash; An&aacute;lise Gr&aacute;fica e MMQ
+      </span>
+     </div>
+     <!-- Aula 10 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="border-t-4 border-blue-300">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 10
+        </span>
+        <span class="text-xs font-semibold badge-future px-2 py-0.5 rounded-full">
+         Em breve
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        An&aacute;lise Gr&aacute;fica I
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Constru&ccedil;&atilde;o de Gr&aacute;ficos, Fun&ccedil;&otilde;es Especiais
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 27/04/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula10/Aula_10.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula10/Roteiro_Aula_10.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 11 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="border-t-4 border-blue-300">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 11
+        </span>
+        <span class="text-xs font-semibold badge-future px-2 py-0.5 rounded-full">
+         Em breve
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Pr&aacute;tica de Laborat&oacute;rio
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Coleta de Dados e An&aacute;lise Inicial
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 04/05/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula11/Aula_11.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula11/Roteiro_Aula_11.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 12 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="border-t-4 border-blue-300">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 12
+        </span>
+        <span class="text-xs font-semibold badge-future px-2 py-0.5 rounded-full">
+         Em breve
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        M&eacute;todo dos M&iacute;nimos Quadrados
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        MMQ, Melhor Reta de Ajuste, Coeficientes
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 11/05/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula12/Aula_12.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula12/Roteiro_Aula_12.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 13 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="border-t-4 border-blue-300">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 13
+        </span>
+        <span class="text-xs font-semibold badge-future px-2 py-0.5 rounded-full">
+         Em breve
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Lineariza&ccedil;&atilde;o de Gr&aacute;ficos
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Ajustes de Fun&ccedil;&otilde;es N&atilde;o-Lineares via MMQ
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 18/05/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula13/Aula_13.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula13/Roteiro_Aula_13.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Bloco 4: Projeto & Avaliações -->
+     <div class="sm:col-span-2 lg:col-span-3 mt-6 mb-1">
+      <span class="text-xs font-bold text-purple-700 uppercase tracking-wider bg-purple-50 px-3 py-1 rounded-full">
+       🎯 Bloco 4 &mdash; Projeto, Avalia&ccedil;&otilde;es & Semin&aacute;rios
+      </span>
+     </div>
+     <!-- Aula 14 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-blue-200 overflow-hidden">
+      <div class="border-t-4 border-blue-400">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 14
+        </span>
+        <span class="text-xs font-semibold badge-project px-2 py-0.5 rounded-full">
+         📝 Projeto
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Projeto MPQ &mdash; Etapa 1
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Defini&ccedil;&atilde;o de Tema, Problema, Pesquisa Bibliogr&aacute;fica
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 25/05/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula14/Aula_14.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula14/Roteiro_Aula_14.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 15 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-blue-200 overflow-hidden">
+      <div class="border-t-4 border-blue-400">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 15
+        </span>
+        <span class="text-xs font-semibold badge-project px-2 py-0.5 rounded-full">
+         📝 Projeto
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Projeto MPQ &mdash; Etapa 2
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Referencial Te&oacute;rico, Metodologia, Resultados Preliminares
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 01/06/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula15/Aula_15.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula15/Roteiro_Aula_15.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 16 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-red-200 overflow-hidden">
+      <div class="border-t-4 border-red-400">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 16
+        </span>
+        <span class="text-xs font-semibold badge-exam px-2 py-0.5 rounded-full">
+         📝 Avalia&ccedil;&atilde;o
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Avalia&ccedil;&atilde;o Escrita (P1 + P2)
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Prova de Escrita Cient&iacute;fica + Teoria de Erros/MMQ
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 08/06/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula16/Aula_16.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula16/Roteiro_Aula_16.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 17 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-purple-200 overflow-hidden">
+      <div class="border-t-4 border-purple-400">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 17
+        </span>
+        <span class="text-xs font-semibold bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full">
+         🎤 Semin&aacute;rios
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Semin&aacute;rios &mdash; Apresenta&ccedil;&otilde;es
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Apresenta&ccedil;&atilde;o Oral + Entrega Artigo/Banner
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 15/06/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula17/Aula_17.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula17/Roteiro_Aula_17.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 18 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-purple-200 overflow-hidden">
+      <div class="border-t-4 border-purple-400">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 18
+        </span>
+        <span class="text-xs font-semibold bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full">
+         🎤 Semin&aacute;rios
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Semin&aacute;rios &mdash; Continua&ccedil;&atilde;o
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Continua&ccedil;&atilde;o das Apresenta&ccedil;&otilde;es Orais
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 22/06/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula18/Aula_18.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula18/Roteiro_Aula_18.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Aula 19 -->
+     <div class="card-hover bg-white rounded-xl shadow-sm border border-red-200 overflow-hidden">
+      <div class="border-t-4 border-red-400">
+      </div>
+      <div class="p-5">
+       <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold text-slate-400">
+         AULA 19
+        </span>
+        <span class="text-xs font-semibold badge-exam px-2 py-0.5 rounded-full">
+         📝 Final
+        </span>
+       </div>
+       <h4 class="font-bold text-slate-800 mb-1">
+        Avalia&ccedil;&atilde;o Final / Recupera&ccedil;&atilde;o
+       </h4>
+       <p class="text-sm text-slate-500 mb-3">
+        Substitutiva / Recupera&ccedil;&atilde;o (MF &lt; 6,0)
+       </p>
+       <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-medium">
+         📅 29/06/2026
+        </span>
+       </div>
+       <div class="mt-4 flex flex-wrap gap-2 w-full border-t border-slate-100 pt-3">
+        <a class="flex-1 text-center text-xs bg-brand-50 text-brand-700 px-2 py-1.5 rounded hover:bg-brand-100 font-semibold transition border border-brand-200" href="Aulas/Aula19/Aula_19.html">
+         ▶ HTML
+        </a>
+        <a class="flex-1 text-center text-xs bg-slate-50 text-slate-700 px-2 py-1.5 rounded hover:bg-slate-100 font-semibold transition border border-slate-200" href="Aulas/Aula19/Roteiro_Aula_19.pdf">
+         📥 PDF
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Avaliação -->
+   <section class="scroll-mt-24" id="avaliacao">
+    <div class="mb-8">
+     <h3 class="text-2xl font-bold text-slate-800 mb-2 flex items-center">
+      <span class="text-brand-600 mr-2">
+       📊
+      </span>
+      Sistema de Avalia&ccedil;&atilde;o
+     </h3>
+     <p class="text-slate-600 max-w-3xl">
+      A m&eacute;dia final &eacute; composta por tr&ecirc;s partes que totalizam 10,0 pontos. Aprova&ccedil;&atilde;o requer MF &ge; 6,0 e frequ&ecirc;ncia &ge; 75%.
+     </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+     <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition">
+      <div class="w-14 h-14 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-2xl font-bold mb-4">
+       P1
+      </div>
+      <h4 class="text-lg font-bold text-slate-800 mb-1">
+       Escrita Cient&iacute;fica
+      </h4>
+      <p class="text-3xl font-extrabold text-brand-700 mb-3">
+       3,0
+       <span class="text-base font-normal text-slate-400">
+        pontos
+       </span>
+      </p>
+      <p class="text-sm text-slate-600">
+       Texto dissertativo sobre tema sorteado. Crit&eacute;rios: pertin&ecirc;ncia, dom&iacute;nio do assunto, l&oacute;gica argumentativa, linguagem formal.
+      </p>
+     </div>
+     <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition">
+      <div class="w-14 h-14 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-2xl font-bold mb-4">
+       P2
+      </div>
+      <h4 class="text-lg font-bold text-slate-800 mb-1">
+       Teoria de Erros e Gr&aacute;ficos
+      </h4>
+      <p class="text-3xl font-extrabold text-amber-600 mb-3">
+       3,0
+       <span class="text-base font-normal text-slate-400">
+        pontos
+       </span>
+      </p>
+      <p class="text-sm text-slate-600">
+       Resolu&ccedil;&atilde;o de quest&otilde;es sobre algarismos significativos, constru&ccedil;&atilde;o de gr&aacute;ficos, MMQ, erros de medida e propaga&ccedil;&atilde;o. Consulta impressa permitida.
+      </p>
+     </div>
+     <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition">
+      <div class="w-14 h-14 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-2xl font-bold mb-4">
+       S
+      </div>
+      <h4 class="text-lg font-bold text-slate-800 mb-1">
+       Semin&aacute;rios + Artigo/Banner
+      </h4>
+      <p class="text-3xl font-extrabold text-purple-600 mb-3">
+       4,0
+       <span class="text-base font-normal text-slate-400">
+        pontos
+       </span>
+      </p>
+      <p class="text-sm text-slate-600">
+       Apresenta&ccedil;&atilde;o oral + trabalho escrito (artigo ou banner). Formata&ccedil;&atilde;o ABNT. Atraso desconta 0,5 pt/dia.
+      </p>
+     </div>
+    </div>
+    <div class="mt-6 bg-slate-50 rounded-xl border border-slate-200 p-6">
+     <div class="flex flex-col md:flex-row md:items-center gap-4">
+      <div class="flex-grow">
+       <p class="font-bold text-slate-800 text-lg mb-1">
+        M&eacute;dia Final (MF) = P1 + P2 + Semin&aacute;rios
+       </p>
+       <p class="text-sm text-slate-600">
+        Aprova&ccedil;&atilde;o: MF &ge; 6,0 e Frequ&ecirc;ncia &ge; 75%. Recupera&ccedil;&atilde;o substitui a menor nota (P1, P2 ou Semin&aacute;rios), prevalecendo a MAIOR nota.
+       </p>
+      </div>
+      <div class="text-center bg-white rounded-lg shadow-sm border border-slate-200 px-6 py-3 min-w-[120px]">
+       <p class="text-xs text-slate-500 uppercase font-bold">
+        Meta
+       </p>
+       <p class="text-3xl font-extrabold text-brand-700">
+        &ge; 6,0
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Recursos -->
+   <section class="scroll-mt-24 mb-10" id="recursos">
+    <div class="mb-8">
+     <h3 class="text-2xl font-bold text-slate-800 mb-2 flex items-center">
+      <span class="text-brand-600 mr-2">
+       🛠
+      </span>
+      Recursos e Ferramentas
+     </h3>
+     <p class="text-slate-600 max-w-3xl">
+      Materiais de apoio dispon&iacute;veis para download e consulta.
+     </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+     <a class="flex flex-col items-center p-5 bg-white border border-slate-200 rounded-xl hover:border-brand-500 hover:shadow-lg transition-all text-center group" href="Plano_de_Ensino_MPQ029005_2026_1.md">
+      <span class="text-3xl mb-2">
+       📄
+      </span>
+      <span class="font-bold text-slate-800 group-hover:text-brand-600">
+       Plano de Ensino
+      </span>
+      <span class="text-xs text-slate-500 mt-1">
+       Documento oficial 2026.1
+      </span>
+     </a>
+     <a class="flex flex-col items-center p-5 bg-white border border-slate-200 rounded-xl hover:border-brand-500 hover:shadow-lg transition-all text-center group" href="Script_MMQ.py">
+      <span class="text-3xl mb-2">
+       🐍
+      </span>
+      <span class="font-bold text-slate-800 group-hover:text-brand-600">
+       Script MMQ
+      </span>
+      <span class="text-xs text-slate-500 mt-1">
+       Python &mdash; M&iacute;nimos Quadrados
+      </span>
+     </a>
+     <a class="flex flex-col items-center p-5 bg-white border border-slate-200 rounded-xl hover:border-brand-500 hover:shadow-lg transition-all text-center group" href="Template_Artigo_Seminario.md">
+      <span class="text-3xl mb-2">
+       📝
+      </span>
+      <span class="font-bold text-slate-800 group-hover:text-brand-600">
+       Template Artigo
+      </span>
+      <span class="text-xs text-slate-500 mt-1">
+       Estrutura para Semin&aacute;rio
+      </span>
+     </a>
+     <a class="flex flex-col items-center p-5 bg-white border border-slate-200 rounded-xl hover:border-brand-500 hover:shadow-lg transition-all text-center group" href="Info_Disciplina.md">
+      <span class="text-3xl mb-2">
+       ℹ️
+      </span>
+      <span class="font-bold text-slate-800 group-hover:text-brand-600">
+       Info da Disciplina
+      </span>
+      <span class="text-xs text-slate-500 mt-1">
+       Dados e ferramentas
+      </span>
+     </a>
+    </div>
+   </section>
+  </main>
+  <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm border-t border-slate-800 mt-auto">
+   <div class="max-w-7xl mx-auto px-4">
+    <p>
+     &copy; 2026 MPQ029005 &mdash; Metodologia de Pesquisa | Engenharia de Telecomunica&ccedil;&otilde;es
+    </p>
+    <p class="mt-2 text-slate-500">
+     Prof. Humberto Oliveira &middot; IFSC Campus S&atilde;o Jos&eacute; &middot;
+     <a class="text-green-400 hover:underline" href="mailto:humberto.oliveira@ifsc.edu.br">
+      humberto.oliveira@ifsc.edu.br
+     </a>
+    </p>
+   </div>
+  </footer>
+  <script>
+   document.addEventListener('DOMContentLoaded', () => {
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            hamburgerBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.toggle('open');
+                hamburgerBtn.classList.toggle('open');
+                hamburgerBtn.setAttribute('aria-expanded', isOpen);
+            });
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    hamburgerBtn.classList.remove('open');
+                });
+            });
+        });
+  </script>
+ </body>
+</html>

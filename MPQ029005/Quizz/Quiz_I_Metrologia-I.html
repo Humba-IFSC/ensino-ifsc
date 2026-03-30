@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz MPQ - Metrologia (Aulas 06 e 07)</title>
+    <style>
+        :root {
+            --ifsc-green: #32a041;
+            --ifsc-red: #c62828;
+            --bg: #f4f4f9;
+            --text: #2c3e50;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        #quiz-card {
+            background: var(--card-bg);
+            max-width: 700px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-top: 8px solid var(--ifsc-green);
+        }
+
+        .header { border-bottom: 2px solid #eee; margin-bottom: 20px; padding-bottom: 10px; }
+        .header h1 { font-size: 1.4rem; margin: 0; color: var(--ifsc-green); }
+        .progress { font-size: 0.85rem; color: #7f8c8d; font-weight: bold; margin-top: 5px; }
+
+        .question { font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; line-height: 1.5; }
+
+        /* BOTÃO E BOX DE DICA */
+        .hint-section { margin-bottom: 20px; }
+        .hint-toggle-btn {
+            background: #f1f2f6;
+            border: 1px solid #dcdde1;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #57606f;
+            transition: 0.2s;
+        }
+        .hint-toggle-btn:hover { background: #dfe4ea; }
+        
+        .hint-box {
+            display: none;
+            background: #e8f5e9;
+            border-left: 5px solid var(--ifsc-green);
+            padding: 12px 15px;
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: #1b5e20;
+            font-style: italic;
+        }
+
+        .options-grid { display: grid; gap: 10px; }
+
+        .option-btn {
+            background: #fff;
+            border: 1px solid #dcdde1;
+            padding: 14px;
+            border-radius: 6px;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .option-btn:hover:not(:disabled) { border-color: var(--ifsc-green); background: #f9f9f9; }
+        .option-btn.correct { background: var(--ifsc-green) !important; color: white; border-color: var(--ifsc-green); }
+        .option-btn.wrong { background: var(--ifsc-red) !important; color: white; border-color: var(--ifsc-red); }
+
+        .next-btn {
+            margin-top: 25px;
+            width: 100%;
+            padding: 14px;
+            background: #2f3640;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
+        }
+
+        #result-screen { text-align: center; display: none; padding: 20px; }
+        .score-circle { 
+            width: 100px; height: 100px; border-radius: 50%; 
+            background: var(--ifsc-green); color: white; 
+            line-height: 100px; font-size: 2rem; font-weight: 800;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="quiz-card">
+    <div id="game-container">
+        <div class="header">
+            <h1>Metrologia: Algarismos e Erros (Aulas 06/07)</h1>
+            <div class="progress" id="progress-text">Questão 1 de 10</div>
+        </div>
+
+        <div id="question-text" class="question"></div>
+
+        <div class="hint-section">
+            <button class="hint-toggle-btn" id="hint-btn" onclick="toggleHint()">💡 Precisa de uma ajuda extra?</button>
+            <div id="hint-box" class="hint-box">
+                <strong>Dica:</strong> <span id="hint-text"></span>
+            </div>
+        </div>
+
+        <div id="options-container" class="options-grid"></div>
+        
+        <button id="next-btn" class="next-btn" onclick="nextStep()">PRÓXIMA QUESTÃO &rarr;</button>
+    </div>
+
+    <div id="result-screen">
+        <h2>Resultado Final</h2>
+        <div class="score-circle" id="final-score">0</div>
+        <p id="feedback-msg"></p>
+        <button class="next-btn" style="display:block" onclick="location.reload()">RECOMEÇAR QUIZ</button>
+    </div>
+</div>
+
+<script>
+    const questions = [
+        {
+            q: "Ao realizar a soma das medidas 12,1 mm e 3,052 mm, qual deve ser o resultado final respeitando as regras de arredondamento e significativos?",
+            options: ["15,152 mm", "15,15 mm", "15,2 mm", "15,1 mm", "15 mm"],
+            correct: 2,
+            hint: "Na soma e subtração, o resultado deve ter o mesmo número de casas decimais que a parcela com menos casas decimais."
+        },
+        {
+            q: "Um aluno mede a largura de uma bancada e obtém o valor de 0,04050 m. Quantos algarismos significativos existem nesta medida?",
+            options: ["2", "3", "4", "5", "6"],
+            correct: 2,
+            hint: "Zeros à esquerda nunca são significativos; zeros à direita, após a vírgula, indicam a precisão do instrumento."
+        },
+        {
+            q: "Utilizando uma régua milimetrada analógica, um estudante lê um valor entre 15 e 16 mm. Qual a forma correta de expressar a medida com seu erro de escala?",
+            options: ["(15,5 ± 1,0) mm", "(15,50 ± 0,50) mm", "(15,5 ± 0,1) mm", "(15,5 ± 0,5) mm", "(15,525 ± 0,005) mm"],
+            correct: 3,
+            hint: "No instrumento analógico, o erro de escala (σ esc) é a metade da menor divisão da escala."
+        },
+        {
+            q: "O número 7,450 precisa ser arredondado para uma casa decimal. Pela regra do '5' precedido por par, qual o valor correto?",
+            options: ["7,4", "7,5", "7,45", "7,0", "8,0"],
+            correct: 0,
+            hint: "Se o algarismo a ser descartado é exatamente 5 e o anterior for par, ele permanece inalterado."
+        },
+        {
+            q: "Considere a divisão: 15,0 / 3,000. Qual a apresentação correta do resultado?",
+            options: ["5", "5,0", "5,00", "5,000", "5,0000"],
+            correct: 2,
+            hint: "Na divisão, o resultado deve ter o mesmo número de significativos do fator com menor quantidade de significativos."
+        },
+        {
+            q: "Um cronômetro digital indica 12,48 s. Qual o erro de escala (σ esc) associado?",
+            options: ["0,005 s", "0,01 s", "0,05 s", "0,1 s", "0,5 s"],
+            correct: 1,
+            hint: "Em instrumentos digitais, o erro de escala é igual à menor variação possível no último dígito do visor."
+        },
+        {
+            q: "Qual alternativa define corretamente um Erro Sistemático?",
+            options: ["Erro que flutua aleatoriamente.", "Erro que diminui com a média.", "Erro imprevisível de temperatura.", "Erro constante por falha de calibração.", "Erro de distração momentânea."],
+            correct: 3,
+            hint: "Erros sistemáticos 'viciam' a medida sempre no mesmo sentido e não diminuem com o cálculo da média."
+        },
+        {
+            q: "Na medida (9,72 ± 0,05) m/s², o algarismo '2' é:",
+            options: ["Exato", "Duvidoso (estimado)", "De escala", "Sistemático", "Irrelevante"],
+            correct: 1,
+            hint: "O último algarismo significativo de uma medida física é sempre o algarismo duvidoso."
+        },
+        {
+            q: "Converta 4,2 cm para µm mantendo os significativos corretos:",
+            options: ["42.000 µm", "4,2 x 10⁴ µm", "42 x 10³ µm", "0,000042 µm", "4,200 x 10⁴ µm"],
+            correct: 1,
+            hint: "Use a notação científica para manter o número original de algarismos significativos (neste caso, dois)."
+        },
+        {
+            q: "Um voltímetro analógico tem menor divisão de 0,2 V. Qual o erro de escala?",
+            options: ["0,2 V", "0,1 V", "0,02 V", "0,01 V", "0,05 V"],
+            correct: 1,
+            hint: "Para escalas analógicas, aplique a regra: Erro = (Menor Divisão) / 2."
+        }
+    ];
+
+    let currentIdx = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const q = questions[currentIdx];
+        document.getElementById("progress-text").innerText = `Questão ${currentIdx + 1} de ${questions.length}`;
+        document.getElementById("question-text").innerText = q.q;
+        document.getElementById("hint-text").innerText = q.hint;
+        document.getElementById("hint-box").style.display = "none"; // Reset da dica
+        document.getElementById("next-btn").style.display = "none";
+        
+        const container = document.getElementById("options-container");
+        container.innerHTML = "";
+        
+        q.options.forEach((opt, i) => {
+            const btn = document.createElement("button");
+            btn.className = "option-btn";
+            btn.innerHTML = `<strong>${String.fromCharCode(65 + i)})</strong> &nbsp; ${opt}`;
+            btn.onclick = () => checkAnswer(i, btn);
+            container.appendChild(btn);
+        });
+    }
+
+    function toggleHint() {
+        const box = document.getElementById("hint-box");
+        box.style.display = (box.style.display === "block") ? "none" : "block";
+    }
+
+    function checkAnswer(idx, btn) {
+        const q = questions[currentIdx];
+        const allBtns = document.querySelectorAll(".option-btn");
+        
+        allBtns.forEach(b => b.disabled = true);
+        document.getElementById("next-btn").style.display = "block";
+        document.getElementById("hint-box").style.display = "block"; // Mostra a dica após responder também
+
+        if(idx === q.correct) {
+            btn.classList.add("correct");
+            score++;
+        } else {
+            btn.classList.add("wrong");
+            allBtns[q.correct].classList.add("correct");
+        }
+    }
+
+    function nextStep() {
+        currentIdx++;
+        if(currentIdx < questions.length) {
+            loadQuestion();
+        } else {
+            showResults();
+        }
+    }
+
+    function showResults() {
+        document.getElementById("game-container").style.display = "none";
+        document.getElementById("result-screen").style.display = "block";
+        document.getElementById("final-score").innerText = `${score}/${questions.length}`;
+        
+        let msg = score >= 7 ? "Excelente! Você domina os conceitos das aulas 06 e 07." : "Bom esforço. Recomendo revisar os slides das Aulas 06 e 07.";
+        document.getElementById("feedback-msg").innerText = msg;
+    }
+
+    loadQuestion();
+</script>
+
+</body>
+</html>

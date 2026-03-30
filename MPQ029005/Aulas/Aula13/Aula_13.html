@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 13 — Aula 13 - Linearização de Gráficos (18/05/2026)
+
+#1. O que é a Linearização de Gráficos?
+A linearização (ou anamorfose) é um procedimento matemático e gráfico utilizado para transformar uma curva que não é uma reta em um gráfico linear [1, 2]. O objetivo central dessa técnica é encontrar uma relação matemática entre duas variáveis experimentais que satisfaça a equação reduzida da reta, geralmente expressa como $Y = AX + B$ [2, 3].
+
+**Por que devemos linearizar?** 
+Em ciências experimentais, a análise de uma reta é consideravelmente mais simples do que a análise de uma curva [2]. O processo de linearização facilita a extração de parâmetros físicos importantes, permitindo determinar as leis empíricas que governam o experimento através do cálculo dos coeficientes angular ($A$) e linear ($B$) da reta ajustada [1, 2].
+
+#2. O Princípio do Método
+O método consiste fundamentalmente em fazer uma mudança de variáveis conveniente [4, 5]. Nós comparamos a função teórica que descreve o fenômeno com a equação da reta $Y' = A \cdot X' + B'$, onde $Y'$ e $X'$ representam as nossas novas variáveis linearizadas [3, 4].
+
+Vejamos como isso se aplica a diferentes tipos de funções:
+
+##Exemplo A: Função Quadrática
+Suponha que os dados do seu experimento sigam o modelo de uma parábola: $y(x) = a \cdot x^2 + c$ [6]. 
+Para linearizar, comparamos com a equação da reta $Y' = A \cdot X' + B'$:
+* Variável dependente: $Y' = y(x)$
+* Variável independente: $X' = x^2$
+* Coeficiente angular: $A = a$
+* Coeficiente linear: $B = c$ [3].
+Na prática, você deve calcular uma nova coluna na sua tabela de dados contendo os valores de $x^2$ e, em seguida, plotar um gráfico de $y(x)$ versus $x^2$, o que resultará em uma linha reta [7].
+
+##Exemplo B: Função Inversa
+Se a relação entre as variáveis for do tipo $y(x) = \frac{g}{x} + h$ [4], a troca de variáveis será:
+* $Y' = y(x)$
+* $X' = \frac{1}{x}$
+* $A = g$ (coeficiente angular)
+* $B = h$ (coeficiente linear) [4, 8].
+O gráfico linearizado será obtido traçando $y(x)$ versus $1/x$ [8].
+
+##Exemplo C: Função Exponencial
+Muitos fenômenos, como o resfriamento de um corpo ou o descarregamento de um capacitor, seguem a lei exponencial: $y(x) = b \cdot e^{ax}$ [9]. 
+Para linearizar esta função, aplicamos o logaritmo neperiano ($\ln$) em ambos os lados da igualdade: 
+$\ln(y) = \ln(b) + a \cdot x$ [10].
+Comparando com a reta:
+* $Y' = \ln(y)$
+* $X' = x$
+* $A = a$
+* $B = \ln(b)$ [10].
+Portanto, o gráfico será linear se plotarmos $\ln(y)$ versus $x$ [10].
+
+#3. Passo a Passo para a Prática de Laboratório
+Quando estiver elaborando seu relatório ou analisando seus dados, siga esta receita [3, 7, 11, 12]:
+1. **Identificação:** Identifique a função teórica e compare-a com a equação da reta ($Y = AX + B$).
+2. **Nova Tabela:** A partir dos dados brutos ($x$ e $y$), calcule os novos valores para a sua variável independente e/ou dependente (ex: $x^2$, $1/x$, $\ln(y)$). Lembre-se de respeitar os algarismos significativos.
+3. **Construção do Gráfico:** Plote as novas variáveis em um papel milimetrado. A tendência dos pontos deverá ser linear.
+4. **Cálculo dos Parâmetros:** Utilize o Método dos Mínimos Quadrados (M.M.Q.) ou o método gráfico para calcular os coeficientes angular ($A$) e linear ($B$) da melhor reta. Com eles, determine as constantes originais do seu problema físico.
+
+#4. O Uso de Papéis Especiais
+Embora possamos recalcular os dados e usar papel milimetrado padrão, existem papéis gráficos especiais que "fazem o cálculo" matematicamente nas próprias escalas:
+* **Papel Mono-log (Semilog):** Possui um eixo linear e outro logarítmico. É ideal para linearizar funções exponenciais ($y = C \cdot e^{\alpha x}$) sem a necessidade de calcular os logaritmos dos dados manualmente na tabela [13-15].
+* **Papel Di-log (Log-log):** Possui ambos os eixos em escala logarítmica. É excelente para fenômenos regidos por leis de potência ($y = k \cdot x^n$), transformando a curva em reta ao se traçar simplesmente $y$ versus $x$ neste papel [16-18].
+
+#5. Tabela Resumo de Linearizações Comuns
+Para facilitar seus estudos, aqui está um guia rápido de como linearizar as funções mais frequentes no laboratório [19]:
+
+| Função do Fenômeno | Gráfico Original (Não linear) | Como Linearizar (O que plotar) |
+| :--- | :--- | :--- |
+| $y(x) = Ax^2 + B$ | $y$ versus $x$ | $y$ versus $x^2$ |
+| $y(x) = Ax^{1/2} + B$ | $y$ versus $x$ | $y$ versus $x^{1/2}$ |
+| $y(x) = Ax^{-1} + B$ | $y$ versus $x$ | $y$ versus $x^{-1}$ |
+| $y(x) = Ax^3 + B$ | $y$ versus $x$ | $y$ versus $x^3$ |
+| $y(x) = B \cdot e^{Ax}$ | $y$ versus $x$ | $\ln(y)$ versus $x$ |
+| $y(x) = A \cdot x^n$ | $y$ versus $x$ | $\ln(y)$ versus $\ln(x)$ |
+| $y(x) = A\cos(x) + B$| $y$ versus $x$ | $y$ versus $\cos(x)$ |
+
+Bons estudos e aproveitem ao máximo o processo de descoberta no laboratório analisando e retificando seus gráficos!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Markdown Styles */
+        .prose h1 { font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; line-height: 1.2; }
+        .prose h2 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; color: #334155; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1.25rem; color: #475569; line-height: 1.75; }
+        .prose ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.25rem; color: #475569; }
+        .prose ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 1.25rem; color: #475569; }
+        .prose li { margin-bottom: 0.5rem; }
+        .prose strong { font-weight: 600; color: #0f172a; }
+        .prose a { color: #2563eb; text-decoration: underline; }
+        .prose blockquote { border-left: 4px solid #cbd5e1; padding-left: 1rem; font-style: italic; color: #64748b; margin-bottom: 1.25rem; }
+        .prose code { background-color: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; color: #b91c1c; }
+        .prose pre { background-color: #1e293b; color: #f8fafc; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1.25rem; }
+        .prose pre code { background-color: transparent; color: inherit; padding: 0; }
+        .prose table { width: 100%; border-collapse: collapse; margin-bottom: 1.25rem; }
+        .prose th, .prose td { border: 1px solid #e2e8f0; padding: 0.75rem; text-align: left; }
+        .prose th { background-color: #f8fafc; font-weight: 600; color: #334155; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col antialiased">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-slate-900 to-slate-800 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <a href="../../index.html" class="text-slate-300 hover:text-white transition flex items-center cursor-pointer">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Voltar
+                </a>
+                <span class="text-slate-500">|</span>
+                <span class="font-semibold text-sm tracking-wide text-brand-300 uppercase">MPQ029005</span>
+            </div>
+            <div class="text-sm font-medium text-slate-300 hidden sm:block">
+                Aula 13
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        <article class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 sm:p-12 mb-10 prose prose-slate max-w-none">
+            <h1>Aula 13 - Linearização de Gráficos (18/05/2026)</h1>
+<h2>1. O que é a Linearização de Gráficos?</h2>
+<p>A linearização (ou anamorfose) é um procedimento matemático e gráfico utilizado para transformar uma curva que não é uma reta em um gráfico linear [1, 2]. O objetivo central dessa técnica é encontrar uma relação matemática entre duas variáveis experimentais que satisfaça a equação reduzida da reta, geralmente expressa como $Y = AX + B$ [2, 3].</p>
+<p><strong>Por que devemos linearizar?</strong> 
+Em ciências experimentais, a análise de uma reta é consideravelmente mais simples do que a análise de uma curva [2]. O processo de linearização facilita a extração de parâmetros físicos importantes, permitindo determinar as leis empíricas que governam o experimento através do cálculo dos coeficientes angular ($A$) e linear ($B$) da reta ajustada [1, 2].</p>
+<h2>2. O Princípio do Método</h2>
+<p>O método consiste fundamentalmente em fazer uma mudança de variáveis conveniente [4, 5]. Nós comparamos a função teórica que descreve o fenômeno com a equação da reta $Y' = A \cdot X' + B'$, onde $Y'$ e $X'$ representam as nossas novas variáveis linearizadas [3, 4].</p>
+<p>Vejamos como isso se aplica a diferentes tipos de funções:</p>
+<h3>Exemplo A: Função Quadrática</h3>
+<p>Suponha que os dados do seu experimento sigam o modelo de uma parábola: $y(x) = a \cdot x^2 + c$ [6]. 
+Para linearizar, comparamos com a equação da reta $Y' = A \cdot X' + B'$:
+* Variável dependente: $Y' = y(x)$
+* Variável independente: $X' = x^2$
+* Coeficiente angular: $A = a$
+* Coeficiente linear: $B = c$ [3].
+Na prática, você deve calcular uma nova coluna na sua tabela de dados contendo os valores de $x^2$ e, em seguida, plotar um gráfico de $y(x)$ versus $x^2$, o que resultará em uma linha reta [7].</p>
+<h3>Exemplo B: Função Inversa</h3>
+<p>Se a relação entre as variáveis for do tipo $y(x) = \frac{g}{x} + h$ [4], a troca de variáveis será:
+* $Y' = y(x)$
+* $X' = \frac{1}{x}$
+* $A = g$ (coeficiente angular)
+* $B = h$ (coeficiente linear) [4, 8].
+O gráfico linearizado será obtido traçando $y(x)$ versus $1/x$ [8].</p>
+<h3>Exemplo C: Função Exponencial</h3>
+<p>Muitos fenômenos, como o resfriamento de um corpo ou o descarregamento de um capacitor, seguem a lei exponencial: $y(x) = b \cdot e^{ax}$ [9]. 
+Para linearizar esta função, aplicamos o logaritmo neperiano ($\ln$) em ambos os lados da igualdade: 
+$\ln(y) = \ln(b) + a \cdot x$ [10].
+Comparando com a reta:
+* $Y' = \ln(y)$
+* $X' = x$
+* $A = a$
+* $B = \ln(b)$ [10].
+Portanto, o gráfico será linear se plotarmos $\ln(y)$ versus $x$ [10].</p>
+<h2>3. Passo a Passo para a Prática de Laboratório</h2>
+<p>Quando estiver elaborando seu relatório ou analisando seus dados, siga esta receita [3, 7, 11, 12]:
+1. <strong>Identificação:</strong> Identifique a função teórica e compare-a com a equação da reta ($Y = AX + B$).
+2. <strong>Nova Tabela:</strong> A partir dos dados brutos ($x$ e $y$), calcule os novos valores para a sua variável independente e/ou dependente (ex: $x^2$, $1/x$, $\ln(y)$). Lembre-se de respeitar os algarismos significativos.
+3. <strong>Construção do Gráfico:</strong> Plote as novas variáveis em um papel milimetrado. A tendência dos pontos deverá ser linear.
+4. <strong>Cálculo dos Parâmetros:</strong> Utilize o Método dos Mínimos Quadrados (M.M.Q.) ou o método gráfico para calcular os coeficientes angular ($A$) e linear ($B$) da melhor reta. Com eles, determine as constantes originais do seu problema físico.</p>
+<h2>4. O Uso de Papéis Especiais</h2>
+<p>Embora possamos recalcular os dados e usar papel milimetrado padrão, existem papéis gráficos especiais que "fazem o cálculo" matematicamente nas próprias escalas:
+* <strong>Papel Mono-log (Semilog):</strong> Possui um eixo linear e outro logarítmico. É ideal para linearizar funções exponenciais ($y = C \cdot e^{\alpha x}$) sem a necessidade de calcular os logaritmos dos dados manualmente na tabela [13-15].
+* <strong>Papel Di-log (Log-log):</strong> Possui ambos os eixos em escala logarítmica. É excelente para fenômenos regidos por leis de potência ($y = k \cdot x^n$), transformando a curva em reta ao se traçar simplesmente $y$ versus $x$ neste papel [16-18].</p>
+<h2>5. Tabela Resumo de Linearizações Comuns</h2>
+<p>Para facilitar seus estudos, aqui está um guia rápido de como linearizar as funções mais frequentes no laboratório [19]:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Função do Fenômeno</th>
+<th style="text-align: left;">Gráfico Original (Não linear)</th>
+<th style="text-align: left;">Como Linearizar (O que plotar)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">$y(x) = Ax^2 + B$</td>
+<td style="text-align: left;">$y$ versus $x$</td>
+<td style="text-align: left;">$y$ versus $x^2$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$y(x) = Ax^{1/2} + B$</td>
+<td style="text-align: left;">$y$ versus $x$</td>
+<td style="text-align: left;">$y$ versus $x^{1/2}$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$y(x) = Ax^{-1} + B$</td>
+<td style="text-align: left;">$y$ versus $x$</td>
+<td style="text-align: left;">$y$ versus $x^{-1}$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$y(x) = Ax^3 + B$</td>
+<td style="text-align: left;">$y$ versus $x$</td>
+<td style="text-align: left;">$y$ versus $x^3$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$y(x) = B \cdot e^{Ax}$</td>
+<td style="text-align: left;">$y$ versus $x$</td>
+<td style="text-align: left;">$\ln(y)$ versus $x$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$y(x) = A \cdot x^n$</td>
+<td style="text-align: left;">$y$ versus $x$</td>
+<td style="text-align: left;">$\ln(y)$ versus $\ln(x)$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$y(x) = A\cos(x) + B$</td>
+<td style="text-align: left;">$y$ versus $x$</td>
+<td style="text-align: left;">$y$ versus $\cos(x)$</td>
+</tr>
+</tbody>
+</table>
+<p>Bons estudos e aproveitem ao máximo o processo de descoberta no laboratório analisando e retificando seus gráficos!</p>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-sm border-t border-slate-800 mt-auto">
+        <p>&copy; 2026 MPQ029005 — Metodologia de Pesquisa | IFSC Campus São José</p>
+    </footer>
+
+</body>
+</html>
