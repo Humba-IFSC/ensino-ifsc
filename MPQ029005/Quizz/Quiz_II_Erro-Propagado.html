@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz MPQ - Metrologia (Aulas 06 e 07)</title>
+    <title>Quiz II MPQ - Erro Propagado (Aula 08)</title>
     <style>
         :root {
             --ifsc-green: #32a041;
@@ -151,10 +151,10 @@
     <!-- TELA 1: IDENTIFICAÇÃO DO ALUNO -->
     <div id="id-screen">
         <div class="header">
-            <h1>Metrologia: Algarismos e Erros (Aulas 06/07)</h1>
+            <h1>Erro Propagado: Teoria de Erros III (Aula 08)</h1>
         </div>
         <h2>📋 Identificação do Aluno</h2>
-        <p>Preencha os campos abaixo para iniciar o Quiz I. Seus resultados serão registrados.</p>
+        <p>Preencha os campos abaixo para iniciar o Quiz II. Seus resultados serão registrados.</p>
 
         <div class="form-group">
             <label for="student-name">Nome Completo *</label>
@@ -174,7 +174,7 @@
     <!-- TELA 2: QUIZ -->
     <div id="game-container" style="display:none;">
         <div class="header">
-            <h1>Metrologia: Algarismos e Erros (Aulas 06/07)</h1>
+            <h1>Erro Propagado: Teoria de Erros III (Aula 08)</h1>
             <div class="progress" id="progress-text">Questão 1 de 10</div>
         </div>
 
@@ -207,69 +207,129 @@
     //  CONFIGURAÇÃO — Cole aqui a URL do seu Google Apps Script
     // ============================================================
     const APPS_SCRIPT_URL = "COLE_SUA_URL_AQUI";
-    const QUIZ_NAME = "Quiz I";
+    const QUIZ_NAME = "Quiz II";
     // ============================================================
 
     const questions = [
         {
-            q: "Ao realizar a soma das medidas 12,1 mm e 3,052 mm, qual deve ser o resultado final respeitando as regras de arredondamento e significativos?",
-            options: ["15,152 mm", "15,15 mm", "15,2 mm", "15,1 mm", "15 mm"],
+            q: "Em pesquisas quantitativas e práticas de laboratório, lidamos constantemente com a Teoria de Erros. Sobre a natureza do \"erro\" científico, assinale a alternativa VERDADEIRA:",
+            options: [
+                "O erro indica invariavelmente uma falha no equipamento ou incompetência do experimentador.",
+                "Medidas de altíssima precisão são aquelas feitas com certeza absoluta, com margem de erro nula.",
+                "Nenhuma medida pode ser feita com certeza absoluta, pois a dúvida (ou incerteza) é inerente ao próprio processo de medição.",
+                "Zeros posicionados à esquerda do primeiro algarismo não nulo são sempre considerados algarismos significativos.",
+                "O erro total de uma medida não necessita ser arredondado."
+            ],
             correct: 2,
-            hint: "Na soma e subtração, o resultado deve ter o mesmo número de casas decimais que a parcela com menos casas decimais."
+            hint: "Lembre-se: a incerteza não é um defeito — é uma propriedade fundamental de qualquer processo de medição. A Teoria de Erros existe justamente para quantificá-la."
         },
         {
-            q: "Um aluno mede a largura de uma bancada e obtém o valor de 0,04050 m. Quantos algarismos significativos existem nesta medida?",
-            options: ["2", "3", "4", "5", "6"],
-            correct: 2,
-            hint: "Zeros à esquerda nunca são significativos; zeros à direita, após a vírgula, indicam a precisão do instrumento."
+            q: "Ao determinar o erro propagado (incerteza indireta) de uma grandeza física calculada a partir de várias outras, existe uma \"regra de ouro\" para a apresentação numérica final do erro. Assinale a alternativa VERDADEIRA:",
+            options: [
+                "O erro propagado final deve ser arredondado mantendo-se sempre 3 algarismos significativos para garantir a exatidão.",
+                "O erro final deve sempre ser arredondado para mais, mantendo-se apenas 1 algarismo significativo.",
+                "O critério de arredondamento deve ser aplicado a cada passo intermediário de uma equação extensa.",
+                "O erro propagado deve sempre ser arredondado para menos, visando não superestimar a incerteza do experimento.",
+                "O erro é mantido inalterado, preservando todas as casas decimais fornecidas pela calculadora."
+            ],
+            correct: 1,
+            hint: "O erro já representa a dúvida. Manter vários dígitos de dúvida é contradição. Arredonde sempre PARA MAIS com apenas 1 algarismo significativo."
         },
         {
-            q: "Utilizando uma régua milimetrada analógica, um estudante lê um valor entre 15 e 16 mm. Qual a forma correta de expressar a medida com seu erro de escala?",
-            options: ["(15,5 ± 1,0) mm", "(15,50 ± 0,50) mm", "(15,5 ± 0,1) mm", "(15,5 ± 0,5) mm", "(15,525 ± 0,005) mm"],
+            q: "Para calcular a velocidade em um Movimento Retilíneo Uniforme (v = Δx / Δt), aplicamos a regra de propagação de erros para a divisão (y = x₁ / x₂). Assinale a alternativa cuja equação represente de forma VERDADEIRA o erro propagado (Ep) da divisão:",
+            options: [
+                "Ep = E₁ + E₂",
+                "Ep = x₁ · E₂ + x₂ · E₁",
+                "Ep = (x₁ · E₂ + x₂ · E₁) / x₂²",
+                "Ep = E₂ / E₁",
+                "Ep = n · x₁ⁿ⁻¹ · E₁"
+            ],
+            correct: 2,
+            hint: "A fórmula da divisão vem da derivada parcial de y = x₁/x₂. Aplique |∂y/∂x₁|·E₁ + |∂y/∂x₂|·E₂ e simplifique."
+        },
+        {
+            q: "O método das derivadas parciais é extremamente útil para equações com várias variáveis. Se uma grandeza y depende das variáveis medidas x₁ e x₂, assinale a fórmula VERDADEIRA para encontrar o erro propagado (E):",
+            options: [
+                "E = (∂y/∂x₁) + (∂y/∂x₂)",
+                "E = |∂y/∂x₁| · E₁ + |∂y/∂x₂| · E₂",
+                "E = |∂y/∂x₁| / E₁ + |∂y/∂x₂| / E₂",
+                "E = (∂y/∂x₁) · x₁ + (∂y/∂x₂) · x₂",
+                "E = E₁ · E₂ · |∂y/∂x₁|"
+            ],
+            correct: 1,
+            hint: "A fórmula geral do erro indeterminado utiliza o MÓDULO das derivadas parciais multiplicado pelos respectivos erros de cada variável, somados."
+        },
+        {
+            q: "Desejamos encontrar o volume de uma esfera através da medida do seu diâmetro, utilizando V = πD³/6. Aplicando o método das derivadas parciais, qual é a equação VERDADEIRA para o cálculo do erro propagado do volume (Ev)?",
+            options: [
+                "Ev = (π · D³ / 6) · E_D",
+                "Ev = 3 · π · D · E_D",
+                "Ev = (π · D² / 2) · E_D",
+                "Ev = π · D² + E_D",
+                "Ev = (π · D / 4) · E_D"
+            ],
+            correct: 2,
+            hint: "Derive V = πD³/6 em relação a D: dV/dD = π·3D²/6 = πD²/2. Então Ev = |dV/dD| · E_D = (πD²/2) · E_D."
+        },
+        {
+            q: "O modelo do pêndulo simples assume que a força restauradora é proporcional ao ângulo, usando a aproximação sen(θ) ≈ θ. Sobre o limite para que o isocronismo seja válido mantendo um erro aceitável (até 5%), assinale a afirmação VERDADEIRA:",
+            options: [
+                "O isocronismo só é válido até o ângulo de 10 graus, marca em que o erro já atinge os 5%.",
+                "O limite máximo aceitável de tolerância (aproximadamente 4,8% de erro) ocorre para ângulos de abertura de até 30 graus.",
+                "A partir de 35 graus de inclinação, a aproximação matemática melhora, reduzindo o erro para menos de 1%.",
+                "O isocronismo se mantém perfeitamente com 0% de erro em qualquer amplitude de oscilação.",
+                "Um pêndulo solto a 45 graus preserva um erro percentual excelente, muito inferior a 2%."
+            ],
+            correct: 1,
+            hint: "Compare sen(30°) = 0,500 com θ em radianos = 0,5236. A diferença percentual é ≈4,72%, ainda dentro do limite de 5%. A partir de 31° já extrapola."
+        },
+        {
+            q: "Considere a regra oficial de algarismos significativos aplicada a operações de multiplicação e divisão de medidas. Assinale a alternativa VERDADEIRA:",
+            options: [
+                "O resultado deve apresentar a soma de todos os algarismos significativos das variáveis envolvidas.",
+                "O resultado deverá ter o menor número de casas decimais dentre os fatores envolvidos.",
+                "O resultado deverá ter o mesmo número de algarismos significativos que a medida mais pobre em significativos.",
+                "Multiplicações por constantes alteram diretamente a quantidade de algarismos significativos do resultado.",
+                "A regra de ouro é sempre manter dois algarismos significativos ao final da multiplicação, independente das medidas originais."
+            ],
+            correct: 2,
+            hint: "Na multiplicação/divisão, o fator limitante é o valor com MENOS algarismos significativos. O resultado deve respeitar essa limitação."
+        },
+        {
+            q: "Para avaliar a qualidade de um experimento, muitas vezes utilizamos o Erro Relativo (ou Erro Percentual). Sobre este conceito, assinale a alternativa VERDADEIRA:",
+            options: [
+                "É calculado somando-se os erros aleatórios de todas as medidas efetuadas em laboratório.",
+                "É a razão direta entre o erro de escala e a incerteza estatística.",
+                "Não serve para informar \"quão longe\" a medida está do padrão, apenas para identificar o desvio padrão.",
+                "Trata-se de um indicador de \"quão longe\" uma medida está do valor padrão/tabelado, calculado por: E% = |medida − padrão| / padrão × 100.",
+                "O Erro Percentual e o Erro Propagado referem-se estritamente à mesma fórmula matemática."
+            ],
             correct: 3,
-            hint: "No instrumento analógico, o erro de escala (σ esc) é a metade da menor divisão da escala."
+            hint: "O erro percentual compara a diferença absoluta entre a medida e o valor padrão, dividindo pelo padrão e multiplicando por 100."
         },
         {
-            q: "O número 7,450 precisa ser arredondado para uma casa decimal. Pela regra do '5' precedido por par, qual o valor correto?",
-            options: ["7,4", "7,5", "7,45", "7,0", "8,0"],
-            correct: 0,
-            hint: "Se o algarismo a ser descartado é exatamente 5 e o anterior for par, ele permanece inalterado."
-        },
-        {
-            q: "Considere a divisão: 15,0 / 3,000. Qual a apresentação correta do resultado?",
-            options: ["5", "5,0", "5,00", "5,000", "5,0000"],
-            correct: 2,
-            hint: "Na divisão, o resultado deve ter o mesmo número de significativos do fator com menor quantidade de significativos."
-        },
-        {
-            q: "Um cronômetro digital indica 12,48 s. Qual o erro de escala (σ esc) associado?",
-            options: ["0,005 s", "0,01 s", "0,05 s", "0,1 s", "0,5 s"],
-            correct: 1,
-            hint: "Em instrumentos digitais, o erro de escala é igual à menor variação possível no último dígito do visor."
-        },
-        {
-            q: "Qual alternativa define corretamente um Erro Sistemático?",
-            options: ["Erro que flutua aleatoriamente.", "Erro que diminui com a média.", "Erro imprevisível de temperatura.", "Erro constante por falha de calibração.", "Erro de distração momentânea."],
+            q: "Embora sejam frequentemente confundidos no cotidiano, os conceitos de \"Precisão\" e \"Exatidão\" são distintos na Teoria de Erros. Assinale a alternativa VERDADEIRA:",
+            options: [
+                "Exatidão significa que as medidas estão muito próximas entre si (pequena barra de erro), mesmo que distantes do valor real.",
+                "Precisão indica que as medidas obtidas são extremamente próximas do valor padrão ou tabelado.",
+                "Uma medida obtida no laboratório jamais pode ser, simultaneamente, exata e precisa.",
+                "A precisão refere-se a medidas próximas entre si (pequena dispersão), enquanto a exatidão refere-se à concordância com o valor padrão ou teórico.",
+                "Um experimento com alto erro sistemático terá sempre excelente exatidão, mas baixa precisão."
+            ],
             correct: 3,
-            hint: "Erros sistemáticos 'viciam' a medida sempre no mesmo sentido e não diminuem com o cálculo da média."
+            hint: "Precisão = dispersão baixa (medidas próximas entre si). Exatidão = concordância com o valor verdadeiro. São conceitos independentes."
         },
         {
-            q: "Na medida (9,72 ± 0,05) m/s², o algarismo '2' é:",
-            options: ["Exato", "Duvidoso (estimado)", "De escala", "Sistemático", "Irrelevante"],
-            correct: 1,
-            hint: "O último algarismo significativo de uma medida física é sempre o algarismo duvidoso."
-        },
-        {
-            q: "Converta 4,2 cm para µm mantendo os significativos corretos:",
-            options: ["42.000 µm", "4,2 x 10⁴ µm", "42 x 10³ µm", "0,000042 µm", "4,200 x 10⁴ µm"],
-            correct: 1,
-            hint: "Use a notação científica para manter o número original de algarismos significativos (neste caso, dois)."
-        },
-        {
-            q: "Um voltímetro analógico tem menor divisão de 0,2 V. Qual o erro de escala?",
-            options: ["0,2 V", "0,1 V", "0,02 V", "0,01 V", "0,05 V"],
-            correct: 1,
-            hint: "Para escalas analógicas, aplique a regra: Erro = (Menor Divisão) / 2."
+            q: "Se uma grandeza for calculada a partir de uma potência y = x₁ⁿ, as tabelas de propagação de erro fornecem a equação direta. Assinale a alternativa VERDADEIRA que corresponde ao erro propagado (Ep) de uma potência:",
+            options: [
+                "Ep = E₁ⁿ",
+                "Ep = n · x₁ · E₁",
+                "Ep = x₁ⁿ · E₁",
+                "Ep = (x₁ⁿ⁺¹ / (n+1)) · E₁",
+                "Ep = n · x₁ⁿ⁻¹ · E₁"
+            ],
+            correct: 4,
+            hint: "Derivando y = x₁ⁿ em relação a x₁, obtemos dy/dx₁ = n·x₁ⁿ⁻¹. Logo, Ep = |dy/dx₁| · E₁ = n·x₁ⁿ⁻¹ · E₁."
         }
     ];
 
@@ -278,9 +338,9 @@
     let score = 0;
     let studentName = "";
     let studentId = "";
-    let playerAnswers = [];
-    let playerCorrects = [];
-    let playerHints = [];
+    let playerAnswers = [];   // Letra escolhida por questão  (ex: "C")
+    let playerCorrects = [];  // Acertou? (true/false)
+    let playerHints = [];     // Usou dica? (true/false por questão)
     let hintOpenedThisQ = false;
 
     // ---- TELA DE IDENTIFICAÇÃO ----
@@ -352,6 +412,7 @@
         document.getElementById("next-btn").style.display = "block";
         document.getElementById("hint-box").style.display = "block";
 
+        // Registra a resposta
         playerAnswers.push(String.fromCharCode(65 + idx));
         playerHints.push(hintOpenedThisQ);
 
@@ -380,9 +441,12 @@
         document.getElementById("result-screen").style.display = "block";
         document.getElementById("final-score").innerText = `${score}/${questions.length}`;
         
-        let msg = score >= 7 ? "Excelente! Você domina os conceitos das aulas 06 e 07." : "Bom esforço. Recomendo revisar os slides das Aulas 06 e 07.";
+        let msg = score >= 7 
+            ? "Excelente! Você domina os conceitos de Erro Propagado da Aula 08." 
+            : "Bom esforço. Recomendo revisar os slides e o conteúdo da Aula 08 sobre Erro Propagado.";
         document.getElementById("feedback-msg").innerText = msg;
 
+        // Envia resultados para a planilha
         sendResults();
     }
 
@@ -390,6 +454,7 @@
     function sendResults() {
         const statusEl = document.getElementById("send-status");
 
+        // Verifica se a URL foi configurada
         if (APPS_SCRIPT_URL === "COLE_SUA_URL_AQUI") {
             statusEl.className = "send-status error";
             statusEl.textContent = "⚠️ URL do Google Apps Script não configurada. Resultados NÃO foram salvos.";
