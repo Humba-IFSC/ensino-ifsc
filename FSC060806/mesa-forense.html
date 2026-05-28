@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesa Forense Termodinâmica | Operação Vento Solar</title>
+    <meta name="description" content="Briefing oficial e laudo de perícia termodinâmica para a Operação Vento Solar (Atacama-9). Atividade acadêmica forense da disciplina FSC060806.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    },
+                    colors: {
+                        cyber: {
+                            bg: '#0f172a',
+                            panel: '#1e293b',
+                            red: '#ef4444',
+                            orange: '#f97316',
+                            green: '#22c55e',
+                            text: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .terminal-glow { box-shadow: 0 0 20px rgba(239, 68, 68, 0.15); }
+        .badge-amber { background: rgba(249, 115, 22, 0.1); color: #f97316; border: 1px solid rgba(249, 115, 22, 0.2); }
+        .badge-green { background: rgba(34, 197, 94, 0.1); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.2); }
+        .badge-red { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .grid-bg { background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 0); background-size: 24px 24px; }
+    </style>
+</head>
+<body class="antialiased bg-slate-950 text-slate-100 min-h-screen flex flex-col grid-bg">
+
+    <!-- Navigation -->
+    <nav class="bg-slate-900 border-b border-slate-800 text-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl mr-2">🛡️</span>
+                    <span class="font-bold text-lg sm:text-xl font-mono tracking-wider text-red-500">OPERAÇÃO VENTO SOLAR</span>
+                </div>
+                <div class="flex items-center space-x-6 text-sm font-medium">
+                    <a href="index.html" class="hover:text-red-400 transition flex items-center gap-1">
+                        <span>← Voltar ao Painel</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top Alert Bar -->
+    <div class="bg-red-950/60 border-b border-red-900/50 text-red-400 py-3 px-4 text-center text-xs font-mono tracking-widest uppercase">
+        🚨 CLASSIFICAÇÃO: DOCUMENTO MILITAR FORENSE RESTRITO — REVELAÇÃO APENAS À BANCA DE INQUÉRITO 🚨
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+
+        <!-- Case Title Header -->
+        <header class="text-center space-y-4">
+            <p class="text-amber-500 font-mono tracking-widest uppercase text-sm">Estudo de Caso Forense Termodinâmico (ABP)</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white font-mono">ENGENHARIA FORENSE DE DESASTRES TÉRMICOS</h1>
+            <h2 class="text-lg text-slate-400 font-light max-w-3xl mx-auto">Julgamento de Inquérito às Cegas: Incidente da Estação Atacama-9 e Colapso das Soldas do Guia de Ondas</h2>
+        </header>
+
+        <!-- Briefing Section -->
+        <section class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 md:p-8 terminal-glow space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div class="flex items-center space-x-3">
+                    <span class="w-3.5 h-3.5 bg-red-500 rounded-full animate-ping"></span>
+                    <h3 class="text-xl font-bold font-mono text-white">📋 Briefing Tático do Incidente</h3>
+                </div>
+                <span class="badge-red text-xs font-mono font-bold px-3 py-1 rounded">Delta Umbra Corp.</span>
+            </div>
+
+            <div class="prose prose-invert max-w-none text-slate-300 space-y-4 text-sm leading-relaxed">
+                <p>
+                    No deserto do Atacama, a 5.000 metros de altitude, na estação **Atacama-9**, ocorreu um desastre técnico crítico. Um vírus digital sabotador denominado **KALORIS** desativou o sistema de exaustão ativo do contêiner técnico de telecomunicações. A cabine técnica, exposta a um sol escaldante, ficou hermeticamente fechada por $30\text{ segundos}$ sem refrigeração.
+                </p>
+                <p>
+                    O calor extremo injetado pelo amplificador de RF e pela radiação solar provocou uma pane severa. As comunicações táticas de satélite caíram devido a uma fratura no **guia de ondas rígido de cobre**. O duto de cobre estava lacrado hermeticamente, contendo ar seco sob pressão. A perícia técnica agora precisa decidir o que ruiu primeiro: os **selos mecânicos de Teflon** ou as **soldas de ligação de estanho**!
+                </p>
+            </div>
+
+            <!-- Terminal Paramétrico -->
+            <div class="bg-slate-950 border border-slate-800 rounded-xl p-5 font-mono text-xs text-red-400 space-y-3">
+                <div class="flex justify-between border-b border-slate-900 pb-2 text-slate-500">
+                    <span>PARAMETRIC_LOG_v1.0.4</span>
+                    <span>SYSTEM_STATUS: CORRUPTED</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    <div><span class="text-slate-500">&gt; QUANTIDADE DE AR (n):</span> 4.0 mols</div>
+                    <div><span class="text-slate-500">&gt; VOLUME DO DUTO (V):</span> Constante (Isocórico)</div>
+                    <div><span class="text-slate-500">&gt; ESTADO TÉRMICO T1:</span> 290 K</div>
+                    <div><span class="text-slate-500">&gt; PRESSÃO INICIAL p1:</span> 8.0 x 10^5 Pa (8 bar)</div>
+                    <div><span class="text-slate-500">&gt; CAPACIDADE TÉRMICA AR:</span> Cv = 2.5 R (Diatômico)</div>
+                    <div><span class="text-slate-500">&gt; CONSTANTE DOS GASES (R):</span> 8.31 J/(mol K)</div>
+                    <div><span class="text-slate-500">&gt; POTÊNCIA RF AMP:</span> 1200 W (Calor Interno)</div>
+                    <div><span class="text-slate-500">&gt; POTÊNCIA SOLAR CHAPA:</span> 400 W (Calor Externo)</div>
+                    <div><span class="text-slate-500">&gt; TEMPO DE SABOTAGEM (t):</span> 30 s</div>
+                    <div><span class="text-slate-500">&gt; LIMITE PRESSÃO TEFLON:</span> 1.6 x 10^6 Pa (16 bar)</div>
+                    <div><span class="text-slate-500">&gt; LIMITE T FUSÃO SOLDA:</span> 456 K (183 °C)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study Questions -->
+        <section class="space-y-6">
+            <h3 class="text-2xl font-bold font-mono text-white flex items-center gap-2">
+                <span>🔍 Perguntas do Laudo Técnico (O Caso)</span>
+            </h3>
+            <p class="text-slate-400 text-sm">
+                Sua equipe deve responder e demonstrar formalmente os cálculos e diagramas no quadro de inquérito:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Q1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 space-y-3">
+                    <span class="badge-amber text-xs font-mono font-bold px-2 py-0.5 rounded">Etapa 1 — Caloria</span>
+                    <h4 class="font-bold text-white font-mono text-sm">1. Modelagem da Energia Térmica Injetada ($Q$)</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Calcule a energia térmica líquida total ($Q$) absorvida pelo ar seco confinado no guia de ondas durante os $30\text{ s}$ de pane. Considere a soma das fontes externa (solar) e interna (amplificador).
+                    </p>
+                </div>
+                <!-- Q2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 space-y-3">
+                    <span class="badge-amber text-xs font-mono font-bold px-2 py-0.5 rounded">Etapa 2 — 1ª Lei</span>
+                    <h4 class="font-bold text-white font-mono text-sm">2. Balanço Energético pela Primeira Lei</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Esboce o diagrama de transformações gasosas $p \times V$ para a transformação sofrida pelo ar. Deduza o trabalho termodinâmico mecânico ($\tau$) realizado e a variação da energia interna ($\Delta U$) sofrida pelo gás.
+                    </p>
+                </div>
+                <!-- Q3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 space-y-3">
+                    <span class="badge-amber text-xs font-mono font-bold px-2 py-0.5 rounded">Etapa 3 — Estados</span>
+                    <h4 class="font-bold text-white font-mono text-sm">3. Condições de Temperatura e Pressão Finais</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Determine a temperatura final ($T_2$) do gás em Kelvin e a pressão final teórica ($p_2$) no término da pane de $30\text{ s}$, considerando a capacidade térmica molecular do ar diatômico.
+                    </p>
+                </div>
+                <!-- Q4 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 space-y-3">
+                    <span class="badge-amber text-xs font-mono font-bold px-2 py-0.5 rounded">Etapa 4 — Perícia</span>
+                    <h4 class="font-bold text-white font-mono text-sm">4. Diagnóstico Forense da Causa Raiz</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Compare os limites físicos das soldas de estanho e dos selos de Teflon. Justifique matematicamente qual elemento físico entrou em falha térmica/mecânica primeiro, detalhando a pressão e temperatura reais do rompimento.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Rules Section -->
+        <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
+            <h3 class="text-2xl font-bold font-mono text-white flex items-center gap-2">
+                <span>⚖️ Regras do Julgamento de Auditoria às Cegas</span>
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+                <div class="space-y-4">
+                    <div class="flex gap-3">
+                        <span class="text-red-500 font-bold font-mono">01.</span>
+                        <p class="text-slate-300">
+                            <strong>Divisão às Cegas:</strong> As Equipes 01 a 04 serão os Peritos (Sala A) e as Equipes 05 a 07 serão a Mesa de Auditores do Tribunal (Sala B).
+                        </p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-red-500 font-bold font-mono">02.</span>
+                        <p class="text-slate-300">
+                            <strong>Isolamento Físico:</strong> Os Peritos ficarão confinados em uma sala separada sem comunicação externa e serão chamados individualmente para apresentar à diretoria.
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex gap-3">
+                        <span class="text-red-500 font-bold font-mono">03.</span>
+                        <p class="text-slate-300">
+                            <strong>10 min de Lousa:</strong> O Perito sorteado tem exatamente 10 minutos para desenhar o diagrama $p \times V$ na lousa e provar os cálculos.
+                        </p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-red-500 font-bold font-mono">04.</span>
+                        <p class="text-slate-300">
+                            <strong>5 min de Duelo:</strong> O Auditor sorteado atua como Juiz, aponta erros na lousa e lê a pergunta surpresa do envelope de sabatina para o perito responder sob pressão.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Double Evaluation Rubrics -->
+        <section class="space-y-8">
+            <div>
+                <h3 class="text-2xl font-bold font-mono text-white mb-2">📊 Matrizes de Rubricas para Lançamento de Notas</h3>
+                <p class="text-slate-400 text-sm">O sistema de pontuação é baseado no nível cognitivo demonstrado na rodada. Cada papel possui sua própria planilha de notas de 2.0 pontos.</p>
+            </div>
+
+            <!-- Rubrica 1: Peritos -->
+            <div class="space-y-4">
+                <h4 class="text-lg font-bold font-mono text-red-400 border-l-4 border-red-500 pl-3">🛡️ Matriz do Papel A: Peritos Forenses (Equipes 01 a 04)</h4>
+                <div class="overflow-x-auto border border-slate-800 rounded-xl bg-slate-900/40">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="bg-slate-900 border-b border-slate-800 font-mono text-slate-300">
+                                <th class="p-4 w-1/4">Critério de Avaliação</th>
+                                <th class="p-4 w-1/4">Desempenho Insuficiente (0,0 - 0,1 pts)</th>
+                                <th class="p-4 w-1/4">Desempenho Parcial (0,2 - 0,3 pts)</th>
+                                <th class="p-4 w-1/4">Desempenho Pleno (0,4 - 0,5 pts)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800 text-slate-400">
+                            <tr>
+                                <td class="p-4 font-bold text-white bg-slate-900/30">Conhecimento Factual/Conceitual (0.5 pt)</td>
+                                <td class="p-4">Confunde trabalho, calor e energia interna na explanação conceitual.</td>
+                                <td class="p-4">Cita a termologia geral, mas vacila nas deduções da conservação de energia.</td>
+                                <td class="p-4 text-emerald-400 font-medium">Domínio e fluidez ao justificar cada termo e leis termodinâmicas no quadro.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-bold text-white bg-slate-900/30">Conhecimento Procedimental (0.5 pt)</td>
+                                <td class="p-4">Erros graves nos cálculos térmicos ou falha crítica em esboçar o gráfico.</td>
+                                <td class="p-4">Monta as equações ideais, mas falha nas conversões ou eixos do gráfico.</td>
+                                <td class="p-4 text-emerald-400 font-medium">Resolução matemática impecável, eixos corretos e gráfico preciso na lousa.</td>
+                            </tr>
+                            <tr class="bg-slate-900/10">
+                                <td class="p-4 font-bold text-white bg-slate-900/30">Conhecimento Metacognitivo (1.0 pt)</td>
+                                <td class="p-4 text-slate-500" colspan="2">Incapaz de justificar fisicamente sob sabatina ou cai em contradição teórica profunda. (0.0 a 0.8 pts)</td>
+                                <td class="p-4 text-emerald-400 font-medium">Réplica sob a sabatina do auditor com alto rigor científico e física conceitual. (1.0 pt)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Rubrica 2: Auditores -->
+            <div class="space-y-4">
+                <h4 class="text-lg font-bold font-mono text-amber-400 border-l-4 border-amber-500 pl-3">⚖️ Matriz do Papel B: Tribunal de Auditoria (Equipes 05 a 07)</h4>
+                <div class="overflow-x-auto border border-slate-800 rounded-xl bg-slate-900/40">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="bg-slate-900 border-b border-slate-800 font-mono text-slate-300">
+                                <th class="p-4 w-1/4">Critério de Avaliação</th>
+                                <th class="p-4 w-1/4">Desempenho Insuficiente (0,0 - 0,1 pts)</th>
+                                <th class="p-4 w-1/4">Desempenho Parcial (0,2 - 0,3 pts)</th>
+                                <th class="p-4 w-1/4">Desempenho Pleno (0,4 - 0,5 pts)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800 text-slate-400">
+                            <tr>
+                                <td class="p-4 font-bold text-white bg-slate-900/30">Conhecimento Factual/Conceitual (0.5 pt)</td>
+                                <td class="p-4">Não detecta nenhum desvio conceitual do perito ou erra termos básicos na inquisa.</td>
+                                <td class="p-4">Assinala imprecisões no perito, mas sem explicar a correção física de forma consistente.</td>
+                                <td class="p-4 text-emerald-400 font-medium">Detecta de imediato imprecisões teóricas e as corrige na lousa sob as leis físicas.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-bold text-white bg-slate-900/30">Conhecimento Procedimental (0.5 pt)</td>
+                                <td class="p-4">Incapaz de verificar a álgebra do perito ou de assinalar desvios nas conversões.</td>
+                                <td class="p-4">Consegue apontar problemas nas contas do perito, mas erra contas de apoio.</td>
+                                <td class="p-4 text-emerald-400 font-medium">Audita e valida com precisão de investigador toda a matemática e gráfico do perito.</td>
+                            </tr>
+                            <tr class="bg-slate-900/10">
+                                <td class="p-4 font-bold text-white bg-slate-900/30">Conhecimento Metacognitivo (1.0 pt)</td>
+                                <td class="p-4 text-slate-500" colspan="2">Pergunta da sabatina lida de forma confusa, demonstrando não dominar o sentido da inquirição. (0.0 a 0.8 pts)</td>
+                                <td class="p-4 text-emerald-400 font-medium">Formula a inquirição da sabatina com clareza e julga a resposta do perito de forma exemplar. (1.0 pt)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-600 border-t border-slate-900 py-10 text-center text-xs mt-auto">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p>&copy; 2026 Operação Vento Solar — Inquérito Forense Termodinâmico</p>
+            <p>Instituto Federal de Santa Catarina (IFSC) · Disciplina FSC060806 · Prof. Humberto L. Oliveira</p>
+        </div>
+    </footer>
+
+</body>
+</html>

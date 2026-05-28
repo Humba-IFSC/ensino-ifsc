@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSC060806 | Física IV — Termologia</title>
+    <meta name="description" content="Dashboard da disciplina FSC060806 — Física IV (Termologia) do IFSC Campus São José. Acompanhe o cronograma, notas, laboratórios e atividades maker.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            800: '#991b1b',
+                            900: '#7f1d1d'
+                        },
+                        accent: {
+                            500: '#f59e0b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+        .badge-active { background: #fee2e2; color: #991b1b; border: 1px solid #fee2e2; }
+        .badge-done { background: #f1f5f9; color: #475569; }
+        .badge-future { background: #f8fafc; color: #94a3b8; border: 1px solid #f1f5f9; }
+        .mobile-menu { display: none; }
+        .mobile-menu.open { display: block; }
+        .hamburger-line { transition: all 0.3s ease; }
+        .hamburger.open .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.open .hamburger-line:nth-child(2) { opacity: 0; }
+        .hamburger.open .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    </style>
+</head>
+<body class="antialiased bg-slate-50 min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="bg-brand-900 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl mr-2">🔥</span>
+                    <span class="font-bold text-lg sm:text-xl tracking-tight">FSC060806 | Física IV</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="../index.html" class="hover:text-red-200 transition">🏠 Portal Ensino</a>
+                    <a href="#cronograma" class="hover:text-red-200 transition">Cronograma</a>
+                    <a href="#avaliacao" class="hover:text-red-200 transition">Avaliação</a>
+                    <a href="mesa-forense.html" class="bg-amber-500 hover:bg-amber-400 text-slate-900 px-4 py-2 rounded-md font-bold transition flex items-center shadow-sm">
+                        <span class="mr-2">🛡️</span> Duelo Forense
+                    </a>
+                </div>
+                <!-- Hamburger Button (Mobile) -->
+                <button id="hamburgerBtn" class="hamburger md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none" aria-label="Menu" aria-expanded="false">
+                    <span class="hamburger-line block w-6 h-0.5 bg-white rounded"></span>
+                    <span class="hamburger-line block w-6 h-0.5 bg-white rounded"></span>
+                    <span class="hamburger-line block w-6 h-0.5 bg-white rounded"></span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-brand-800 border-t border-brand-900/50">
+            <div class="px-4 py-3 space-y-1">
+                <a href="../index.html" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-white hover:bg-brand-700 transition">🏠 Portal Ensino</a>
+                <a href="#cronograma" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-white hover:bg-brand-700 transition">📋 Cronograma</a>
+                <a href="#avaliacao" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-white hover:bg-brand-700 transition">📊 Avaliação</a>
+                <a href="mesa-forense.html" class="block px-3 py-2.5 rounded-lg text-sm font-medium bg-amber-500 text-slate-900 hover:bg-amber-400 transition">🛡️ Duelo Forense</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="bg-gradient-to-br from-brand-900 via-brand-800 to-red-950 text-white py-16 px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <p class="text-red-300 font-semibold tracking-widest uppercase text-xs mb-4">Técnico Integrado em Telecomunicações — IFSC Câmpus São José</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Física IV — Termologia<br>Turma FSC060806</h1>
+            <h2 class="text-lg md:text-xl text-red-200 mb-8 font-light max-w-2xl mx-auto">Alfabetização científica, termodinâmica aplicada, engenharia forense e metodologias ativas</h2>
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+                <span class="bg-white/10 backdrop-blur px-4 py-2 rounded-full border border-white/20">📅 Semestre 2026/1</span>
+                <span class="bg-white/10 backdrop-blur px-4 py-2 rounded-full border border-white/20">🕐 Quartas-feiras · 10:10 — 11:50</span>
+                <span class="bg-white/10 backdrop-blur px-4 py-2 rounded-full border border-white/20">👨‍🏫 Prof. Humberto L. Oliveira</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+        <!-- Cronograma -->
+        <section id="cronograma">
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-2">📋 Cronograma de Aulas</h3>
+                <p class="text-slate-600 max-w-3xl">Acompanhe os blocos de conteúdo e acesse as atividades práticas. A semana ativa da aula presencial está destacada com uma borda colorida.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <!-- Aula 01 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">04/02</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 01 — Apresentação e Conceitos</h4>
+                    <p class="text-sm text-slate-500">Introdução ao plano de ensino, contratos pedagógicos, calor e temperatura.</p>
+                </div>
+
+                <!-- Aula 02 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">11/02</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 02 — Calor Específico e Sensível</h4>
+                    <p class="text-sm text-slate-500">Análise de variação de temperatura de substâncias e equações fundamentais.</p>
+                </div>
+
+                <!-- Aula 03 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">25/02</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 03 — Capacidade Térmica</h4>
+                    <p class="text-sm text-slate-500">Estudo de equilíbrio térmico de corpos integrados. Aplicação do Quiz 1 (Cap. 4).</p>
+                </div>
+
+                <!-- Aula 04 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">04/03</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 04 — Trocas de Calor</h4>
+                    <p class="text-sm text-slate-500">Resolução de problemas de conservação de energia e balanço térmico.</p>
+                </div>
+
+                <!-- Aula 05 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">11/03</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 05 — Lab 1: Calorimetria</h4>
+                    <p class="text-sm text-slate-500">Prática experimental de calorímetro físico e capacidade térmica (Nota Lab 1).</p>
+                </div>
+
+                <!-- Aula 06 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">18/03</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 06 — Mudança de Fase e Diagramas</h4>
+                    <p class="text-sm text-slate-500">Calor Latente, curvas de aquecimento e superfusão. Quiz 2 (Caps. 5/6).</p>
+                </div>
+
+                <!-- Aula 07 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">25/03</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-950 mb-1 font-extrabold">Aula 07 — AVA 1 (Presencial)</h4>
+                    <p class="text-sm text-slate-500">Primeira Avaliação Escrita Semestral cobrindo Bloco 1 (Calorimetria - 2,0 pts).</p>
+                </div>
+
+                <!-- Aula 08 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">01/04</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 08 — Propagação: Lei de Fourier</h4>
+                    <p class="text-sm text-slate-500">Transmissão de calor por condução térmica em regime estacionário.</p>
+                </div>
+
+                <!-- Aula 09 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">08/04</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 09 — Convecção e Irradiação</h4>
+                    <p class="text-sm text-slate-500">Dinâmica de convecção de fluidos e irradiação (Stefan-Boltzmann). Quiz 3 (Cap. 7).</p>
+                </div>
+
+                <!-- Aula 10 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">15/04</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 10 — Gases: Equação de Clapeyron</h4>
+                    <p class="text-sm text-slate-500">Variáveis de estado, modelo de gás ideal e constante universal. Início do P.T.</p>
+                </div>
+
+                <!-- Aula 11 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">22/04</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 11 — Transformações Gasosas</h4>
+                    <p class="text-sm text-slate-500">Processos isotérmico, isobárico e isocórico com Quiz 4 (Cap. 8 Pt 1).</p>
+                </div>
+
+                <!-- Aula 12 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">29/04</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 12 — Lab 2: Leis dos Gases</h4>
+                    <p class="text-sm text-slate-500">Simulações de laboratório PhET sobre dinâmica gasosa microscópica (Nota Lab 2).</p>
+                </div>
+
+                <!-- Aula 13 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">06/05</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 13 — Teoria Cinética dos Gases</h4>
+                    <p class="text-sm text-slate-500">Energia cinética das moléculas, velocidade média e Quiz 5 (Cap. 8 Pt 2).</p>
+                </div>
+
+                <!-- Aula 14 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">13/05</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-950 mb-1 font-extrabold">Aula 14 — AVA 2 (Presencial)</h4>
+                    <p class="text-sm text-slate-500">Segunda Avaliação Escrita Semestral sobre Bloco 2 (Gases e Propagação - 2,0 pts).</p>
+                </div>
+
+                <!-- Aula 15 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">20/05</span>
+                        <span class="badge-done text-xs font-bold px-2 py-0.5 rounded-full">✓ Concluída</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 15 — Trabalho e a 1ª Lei</h4>
+                    <p class="text-sm text-slate-500">Trabalho mecânico de expansão gasosa e variação da energia interna.</p>
+                </div>
+
+                <!-- Aula 16 - ATIVA HOJE -->
+                <a href="mesa-forense.html" class="card-hover bg-white rounded-xl shadow-md border-2 border-red-500 ring-4 ring-red-100 p-5 block">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-red-600">27/05 · Hoje</span>
+                        <span class="badge-active text-xs font-bold px-2 py-0.5 rounded-full flex items-center animate-pulse">
+                            <span class="w-1.5 h-1.5 bg-red-600 rounded-full mr-1.5 inline-block"></span>
+                            Duelo Forense Ativo
+                        </span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 16 — 2ª Lei e Ciclo Forense</h4>
+                    <p class="text-sm text-slate-600 mb-2 font-medium">Ciclo de Carnot, entropia, e realização do Duelo de Auditoria Termodinâmica.</p>
+                    <span class="text-xs text-red-700 font-bold flex items-center hover:underline">
+                        ⚡ Acessar Briefing do Caso (Atacama-9) →
+                    </span>
+                </a>
+
+                <!-- Aula 17 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">03/06</span>
+                        <span class="badge-future text-xs font-bold px-2 py-0.5 rounded-full">Em breve</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 17 — Máquinas Térmicas e Carnot</h4>
+                    <p class="text-sm text-slate-500">Estudo de rendimento térmico máximo, refrigeradores e ciclo térmico inverso.</p>
+                </div>
+
+                <!-- Sábado Letivo -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">06/06 (Sáb)</span>
+                        <span class="badge-future text-xs font-bold px-2 py-0.5 rounded-full">Em breve</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Sábado Letivo — Plantão P.T.</h4>
+                    <p class="text-sm text-slate-500">Tira-dúvidas presencial focado no design e montagem dos protótipos de Produto Térmico.</p>
+                </div>
+
+                <!-- Aula 18 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">10/06</span>
+                        <span class="badge-future text-xs font-bold px-2 py-0.5 rounded-full">Em breve</span>
+                    </div>
+                    <h4 class="font-bold text-slate-950 mb-1 font-extrabold">Aula 18 — AVA 3 (Presencial)</h4>
+                    <p class="text-sm text-slate-500">Terceira Avaliação Escrita Semestral sobre Bloco 3 (Termodinâmica - 2,0 pts).</p>
+                </div>
+
+                <!-- Aula 19 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">17/06</span>
+                        <span class="badge-future text-xs font-bold px-2 py-0.5 rounded-full">Em breve</span>
+                    </div>
+                    <h4 class="font-bold text-slate-950 mb-1 font-extrabold">Aula 19 — Apresentação P.T.</h4>
+                    <p class="text-sm text-slate-500">Exposição do Produto Térmico (Dia D). Apresentação em equipe e testes dos protótipos (2,0 pts).</p>
+                </div>
+
+                <!-- Aula 20 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">24/06</span>
+                        <span class="badge-future text-xs font-bold px-2 py-0.5 rounded-full">Em breve</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 20 — Recuperação Final</h4>
+                    <p class="text-sm text-slate-500">Prova escrita individual concentrando todo o conteúdo para alunos elegíveis.</p>
+                </div>
+
+                <!-- Aula 21 -->
+                <div class="card-hover bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400">01/07</span>
+                        <span class="badge-future text-xs font-bold px-2 py-0.5 rounded-full">Em breve</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1">Aula 21 — Encerramento</h4>
+                    <p class="text-sm text-slate-500">Divulgação de conceitos finais integrados e devolução comentada de relatórios.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Avaliação -->
+        <section id="avaliacao">
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-2">📊 Sistema de Avaliação</h3>
+                <p class="text-slate-600">Composto por uma série de instrumentos para ponderar o percurso individual e coletivo do discente.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8 max-w-3xl">
+                <p class="text-slate-700 mb-6 text-xl font-bold font-mono tracking-tight text-red-800">
+                    A.S. = AVA1 (2,0) + AVA2 (2,0) + AVA3 (2,0) + Lab (1,0) + P.T. (2,0) + Quiz (1,0)
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <span class="bg-red-100 text-red-800 font-bold text-sm px-3 py-1 rounded-full mt-0.5">60%</span>
+                        <div>
+                            <strong class="text-slate-800">Avaliações Escritas (AVA1, AVA2, AVA3)</strong>
+                            <p class="text-sm text-slate-500">Provas teóricas estilo somatória + questão analítica com eixos de física térmica.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="bg-amber-100 text-amber-800 font-bold text-sm px-3 py-1 rounded-full mt-0.5">20%</span>
+                        <div>
+                            <strong class="text-slate-800">Produto Térmico Maker (P.T.)</strong>
+                            <p class="text-sm text-slate-500">Dispositivo térmico construído e testado em equipe de até 3 membros.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="bg-sky-100 text-sky-800 font-bold text-sm px-3 py-1 rounded-full mt-0.5">10%</span>
+                        <div>
+                            <strong class="text-slate-800">Atividades de Laboratório (Lab)</strong>
+                            <p class="text-sm text-slate-500">Práticas de laboratório reportadas sob o formato estrutural do Diagrama V de Gowin.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="bg-emerald-100 text-emerald-800 font-bold text-sm px-3 py-1 rounded-full mt-0.5">10%</span>
+                        <div>
+                            <strong class="text-slate-800">Avaliação Contínua (Quiz)</strong>
+                            <p class="text-sm text-slate-500">Seis testes rápidos de conteúdo baseados na bibliografia Os Fundamentos da Física.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 bg-red-50 border border-red-200 rounded-lg p-4 text-sm text-red-950 font-medium">
+                    ⚠️ <strong>Frequência Escolar:</strong> É obrigatória a presença mínima em 75% dos encontros presenciais sob pena de reprovação direta por faltas.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-950 text-slate-500 py-12 text-center text-sm border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2026 Painel Interativo de Termologia — Técnico de Telecomunicações</p>
+            <p class="mt-2 text-slate-600">Prof. Dr. Humberto Luz Oliveira — Campus São José · IFSC</p>
+            <div class="mt-6 flex justify-center space-x-6">
+                <a href="../index.html" class="hover:text-white transition">Portal Ensino</a>
+                <a href="mailto:humberto.oliveira@ifsc.edu.br" class="hover:text-white transition">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            hamburgerBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.toggle('open');
+                hamburgerBtn.classList.toggle('open');
+                hamburgerBtn.setAttribute('aria-expanded', isOpen);
+            });
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    hamburgerBtn.classList.remove('open');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
