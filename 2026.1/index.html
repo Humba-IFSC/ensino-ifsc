@@ -11,6 +11,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/style.css">
+    <script>
+        var pass = prompt("Página restrita do semestre encerrado. Digite a senha de acesso:");
+        if (pass !== "p@ssw0rd!") {
+            document.documentElement.innerHTML = "<h1 style='text-align: center; margin-top: 20%; font-family: sans-serif; color: #333;'>Acesso Negado</h1><p style='text-align: center; font-family: sans-serif; color: #666;'>Esta página foi encerrada e requer uma senha para ser acessada.</p>";
+            window.stop();
+        }
+    </script>
 </head>
 <body>
     <div class="bg-grid"></div>
