@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCA060905 | Magnetismo e Eletromagnetismo — RAC 5ª Fase</title>
+    <meta name="description" content="Dashboard da disciplina FCA060905 — Magnetismo e Eletromagnetismo, Curso Técnico Integrado em Refrigeração e Ar Condicionado, 5ª Fase. IFSC Campus São José, 2026.2.">
+    <meta name="author" content="Prof. Humberto Luz Oliveira">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- MathJax para renderização de LaTeX -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../../assets/style.css">
+
+    <style>
+        :root {
+            --c-surface: rgba(15,23,42,0.7);
+            --c-border: rgba(255,255,255,0.08);
+        }
+        body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #f0f4f8; }
+        .hero-badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: .4rem 1.1rem; border-radius: 9999px; font-size: .78rem; font-weight: 500; }
+        .bloco-header { display: flex; align-items: center; gap: .75rem; margin: 2.5rem 0 1rem; }
+        .bloco-label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: .35rem 1rem; border-radius: 9999px; }
+        .bloco-1 { background: rgba(34,197,94,.12); color: #4ade80; border: 1px solid rgba(34,197,94,.25); }
+        .bloco-2 { background: rgba(245,158,11,.12); color: #fbbf24; border: 1px solid rgba(245,158,11,.25); }
+        .bloco-3 { background: rgba(59,130,246,.12); color: #93c5fd; border: 1px solid rgba(59,130,246,.25); }
+        .card-aula { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; gap: .75rem; transition: all .3s cubic-bezier(.4,0,.2,1); }
+        .card-aula:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.4); border-color: rgba(14,165,233,.25); }
+        .card-feriado { background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 1rem; padding: 1.5rem; opacity: .7; }
+        .badge { font-size: .68rem; font-weight: 700; padding: .25rem .7rem; border-radius: 9999px; }
+        .badge-done { background: rgba(34,197,94,.15); color: #4ade80; border: 1px solid rgba(34,197,94,.25); }
+        .badge-next { background: rgba(14,165,233,.15); color: #38bdf8; border: 1px solid rgba(14,165,233,.25); }
+        .badge-soon { background: rgba(255,255,255,.07); color: #94a3b8; border: 1px solid rgba(255,255,255,.1); }
+        .badge-ava { background: rgba(239,68,68,.15); color: #f87171; border: 1px solid rgba(239,68,68,.25); }
+        .badge-holiday { background: rgba(148,163,184,.1); color: #94a3b8; border: 1px solid rgba(148,163,184,.15); }
+        .badge-lab { background: rgba(139,92,246,.15); color: #c4b5fd; border: 1px solid rgba(139,92,246,.25); }
+        .resources-box { background: rgba(0,0,0,.3); border: 1px solid rgba(255,255,255,.06); border-radius: .6rem; padding: .9rem 1rem; font-size: .75rem; }
+        .btn-nm { background: rgba(14,165,233,.12); color: #38bdf8; border: 1px solid rgba(14,165,233,.25); padding: .4rem .9rem; border-radius: .5rem; font-size: .75rem; font-weight: 600; text-decoration: none; transition: all .2s; display: inline-block; }
+        .btn-nm:hover { background: rgba(14,165,233,.22); }
+        .btn-drive { background: rgba(255,255,255,.07); color: #cbd5e1; border: 1px solid rgba(255,255,255,.1); padding: .4rem .9rem; border-radius: .5rem; font-size: .75rem; font-weight: 600; text-decoration: none; transition: all .2s; display: inline-block; }
+        .btn-drive:hover { background: rgba(255,255,255,.13); }
+        .section-title { font-size: 1.4rem; font-weight: 700; color: #f1f5f9; margin-bottom: .4rem; }
+        .section-sub { color: #64748b; font-size: .9rem; }
+        details summary { cursor: pointer; padding: 1.1rem 1.4rem; display: flex; justify-content: space-between; align-items: center; }
+        details summary::-webkit-details-marker { display: none; }
+        details[open] summary { border-bottom: 1px solid rgba(255,255,255,.07); }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+        @media (max-width: 640px) { .grid-3 { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+<div class="bg-grid"></div>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <a href="../index.html" class="navbar-brand">
+            <span class="emoji">🏠</span>
+            <span>Semestre 2026.2</span>
+        </a>
+        <ul class="navbar-links">
+            <li><a href="#cronograma">📋 Cronograma</a></li>
+            <li><a href="#exercicios">📝 Exercícios</a></li>
+            <li><a href="#avaliacao">📊 Avaliação</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<header style="background: linear-gradient(135deg, #0c4a6e 0%, #0f172a 50%, #0a0e17 100%); padding: 4rem 1rem 3rem; border-bottom: 1px solid rgba(14,165,233,.15); position: relative; overflow: hidden;">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1;">
+        <p style="color: #38bdf8; font-size: .75rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 1rem;">
+            Técnico Integrado em Refrigeração e Ar Condicionado · 5ª Fase · IFSC Câmpus São José
+        </p>
+        <h1 style="font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; margin-bottom: .75rem;">
+            FCA060905<br>
+            <span style="color: #7dd3fc;">Magnetismo e Eletromagnetismo</span>
+        </h1>
+        <p style="color: #94a3b8; font-size: 1.05rem; font-weight: 300; max-width: 650px; margin: 0 auto 2rem;">
+            Campos magnéticos, força magnética, propriedades magnéticas da matéria,
+            indução eletromagnética e corrente alternada.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-bottom: 2rem;">
+            <span class="hero-badge">📅 Semestre 2026.2</span>
+            <span class="hero-badge" style="color: #38bdf8; border-color: rgba(14,165,233,.3);">❄️ Terça-feira · 07:30–09:20</span>
+            <span class="hero-badge">⏱ 40 horas · 5ª Fase</span>
+            <span class="hero-badge">👨‍🏫 Prof. Humberto L. Oliveira</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem;">
+            <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" rel="noopener"
+               style="background: #0369a1; color: #fff; padding: .75rem 1.6rem; border-radius: .7rem; font-weight: 700; font-size: .9rem; text-decoration: none; transition: background .2s; display: flex; align-items: center; gap: .5rem;">
+                🧠 Estúdio NotebookLM
+            </a>
+            <a href="https://drive.google.com/drive/folders/1nOFIJpc8Gu-3kuClHt5PHq2xg-9xnHDR?usp=sharing" target="_blank" rel="noopener"
+               style="background: rgba(255,255,255,.08); color: #e2e8f0; padding: .75rem 1.6rem; border-radius: .7rem; font-weight: 700; font-size: .9rem; text-decoration: none; border: 1px solid rgba(255,255,255,.12); display: flex; align-items: center; gap: .5rem;">
+                📁 Google Drive
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- ═══ MAIN ═══ -->
+<div style="max-width: 1100px; margin: 0 auto; padding: 3rem 1rem 5rem;" id="cronograma">
+
+    <!-- INFOBANNER -->
+    <div style="background: rgba(14,165,233,.06); border: 1px solid rgba(14,165,233,.18); border-radius: .9rem; padding: 1rem 1.4rem; margin-bottom: 2.5rem; font-size: .85rem; color: #cbd5e1;">
+        💡 <strong style="color: #7dd3fc;">Grade Semanal:</strong>
+        As aulas da turma de <strong>Refrigeração e Ar Condicionado (FCA060905)</strong> ocorrem às
+        <strong>terças-feiras</strong>, no período matutino (07:30–09:20).
+        Carga horária semestral de <strong>40 horas</strong>.
+        O cronograma segue o plano semestral 2026.2 baseado em
+        <em>Fundamentos da Física</em> (Ramalho, Vol. 3).
+    </div>
+
+    <!-- ══ BLOCO 1 ══ -->
+    <div class="bloco-header">
+        <span class="bloco-label bloco-1">⚡ Bloco 1 — Campo Magnético e Suas Fontes</span>
+    </div>
+    <div class="grid-3">
+
+        <!-- Aula 01 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">28/07 · Semana 1</span>
+                <span class="badge badge-done">✓ Concluída</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 01 — Introdução aos Campos Magnéticos</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Polos magnéticos, inseparabilidade, vetor indução magnética $\vec{B}$,
+                linhas de indução e campo magnético terrestre (declinação e inclinação).
+            </p>
+            <div class="resources-box">
+                <strong style="color:#38bdf8; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Estúdio:</strong>
+                <span style="color:#94a3b8;">Resumo: <code>Aula01-27Jun</code> · Podcast: <code>Podcast-Aula01</code></span><br>
+                <span style="color:#94a3b8;">Quiz: <code>Quiz-Aula01</code> · Flashcards: <code>Flashcards-Aula01</code></span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-nm">▶ NotebookLM</a>
+                <a href="https://drive.google.com/open?id=1nOFIJpc8Gu-3kuClHt5PHq2xg-9xnHDR" target="_blank" class="btn-drive">📥 Slides PDF</a>
+            </div>
+        </div>
+
+        <!-- Aula 02 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">04/08 · Semana 2</span>
+                <span class="badge badge-done">✓ Concluída</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 02 — Campo das Correntes Elétricas</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Experiência de Oersted, Lei de Biot-Savart, campo em condutor reto
+                ($B = \frac{\mu_0 I}{2\pi d}$), espira circular e solenoide.
+            </p>
+            <div class="resources-box">
+                <strong style="color:#38bdf8; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Estúdio:</strong>
+                <span style="color:#94a3b8;">Resumo: <code>Aula02-03Ago</code> · Podcast: <code>Podcast-Aula02</code></span><br>
+                <span style="color:#94a3b8;">Quiz: <code>Quiz-Aula02</code> · Flashcards: <code>Flashcards-Aula02</code></span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-nm">▶ NotebookLM</a>
+                <a href="https://drive.google.com/open?id=1nOFIJpc8Gu-3kuClHt5PHq2xg-9xnHDR" target="_blank" class="btn-drive">📥 Slides PDF</a>
+            </div>
+        </div>
+
+        <!-- Lab 01 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">11/08 · Semana 3</span>
+                <span class="badge badge-lab">🔬 Laboratório</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Lab 01 — Espectro Magnético e Experiência de Oersted</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Mapeamento do espectro com limalha de ferro, reprodução da Experiência de Oersted
+                com bússola e condutor, mapeamento de solenoide.
+            </p>
+            <div class="resources-box">
+                <strong style="color:#38bdf8; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Estúdio:</strong>
+                <span style="color:#94a3b8;">Resumo: <code>Aula03-10Ago</code> · Podcast: <code>Podcast-Aula03</code></span><br>
+                <span style="color:#94a3b8;">Quiz: <code>Quiz-Aula03</code> · Flashcards: <code>Flashcards-Aula03</code></span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-nm">▶ NotebookLM</a>
+                <a href="https://drive.google.com/open?id=1nOFIJpc8Gu-3kuClHt5PHq2xg-9xnHDR" target="_blank" class="btn-drive">📥 Roteiro PDF</a>
+            </div>
+        </div>
+
+        <!-- Aula 04 EP -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">18/08 · Semana 4</span>
+                <span class="badge badge-done">✓ Concluída</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 04 — Exercícios de Fixação (Bloco 1)</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Resolução de problemas: cálculo de $\vec{B}$ em configurações geométricas diversas,
+                regra da mão direita nº 1. Cap. 13 — Ramalho Vol. 3.
+            </p>
+            <div class="resources-box">
+                <strong style="color:#38bdf8; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Estúdio:</strong>
+                <span style="color:#94a3b8;">Resumo: <code>Aula04-17Ago</code> · Podcast: <code>Podcast-Aula04</code></span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-nm">▶ NotebookLM</a>
+                <a href="https://drive.google.com/open?id=1nOFIJpc8Gu-3kuClHt5PHq2xg-9xnHDR" target="_blank" class="btn-drive">📥 Lista PDF</a>
+            </div>
+        </div>
+
+        <!-- AVA 1 -->
+        <div class="card-aula" style="border-color: rgba(239,68,68,.2);">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">25/08 · Semana 5</span>
+                <span class="badge badge-ava">📝 Avaliação 1</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Avaliação 1 — Fontes de Campo Magnético</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Prova escrita individual sem consulta. Conteúdo: Cap. 13 completo — polos, campo terrestre,
+                Oersted, Biot-Savart, condutor reto, espira e solenoide.
+            </p>
+            <div class="resources-box">
+                <strong style="color:#f87171; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Revisão:</strong>
+                <span style="color:#94a3b8;">Resumo: <code>Aula05-17Ago</code> · Podcast: <code>Podcast-Aula05</code></span><br>
+                <span style="color:#94a3b8;">Quiz: <code>Quiz-Aula05</code> · Flashcards: <code>Flashcards-Aula05</code></span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-nm">▶ NotebookLM</a>
+            </div>
+        </div>
+
+    </div><!-- /grid bloco 1 -->
+
+    <!-- ══ BLOCO 2 ══ -->
+    <div class="bloco-header">
+        <span class="bloco-label bloco-2">📏 Bloco 2 — Força Magnética e Propriedades da Matéria</span>
+    </div>
+    <div class="grid-3">
+
+        <!-- Aula 06 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">01/09 · Semana 6</span>
+                <span class="badge badge-next">Em breve</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 06 — Força sobre Cargas em Movimento</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Força de Lorentz: $\vec{F}_m = q\vec{v}\times\vec{B}$.
+                Regra da mão direita nº 2. Trajetórias: MCU, MRU e MHU.
+            </p>
+            <div class="resources-box">
+                <strong style="color:#fbbf24; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Estúdio:</strong>
+                <span style="color:#94a3b8;">Resumo: <code>Aula06-31Ago</code> · Podcast: <code>Podcast-Aula06</code></span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-nm">▶ NotebookLM</a>
+                <a href="https://drive.google.com/open?id=1nOFIJpc8Gu-3kuClHt5PHq2xg-9xnHDR" target="_blank" class="btn-drive">📥 Slides PDF</a>
+            </div>
+        </div>
+
+        <!-- Feriado 08/09 (antecipado por cair terça) -->
+        <div class="card-feriado">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.5rem;">
+                <span style="font-size:.72rem; color:#475569; font-weight:600;">08/09 · Semana 7</span>
+                <span class="badge badge-holiday">🔴 Feriado</span>
+            </div>
+            <p style="font-size:.9rem; font-weight:600; color:#64748b; margin:0;">Independência do Brasil</p>
+            <p style="font-size:.78rem; color:#475569; margin:0;">Sem atividades presenciais letivas.</p>
+        </div>
+
+        <!-- Aula 07 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">15/09 · Semana 8</span>
+                <span class="badge badge-soon">Em breve</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 07 — Força sobre Condutores</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Força magnética em condutores retilíneos, força entre fios paralelos,
+                substâncias diamagnéticas, paramagnéticas e ferromagnéticas.
+            </p>
+            <div class="resources-box">
+                <strong style="color:#fbbf24; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Estúdio:</strong>
+                <span style="color:#94a3b8;">Resumo: <code>Aula07-14Set</code> · Podcast: <code>Podcast-Aula07</code></span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-nm">▶ NotebookLM</a>
+                <a href="https://drive.google.com/open?id=1nOFIJpc8Gu-3kuClHt5PHq2xg-9xnHDR" target="_blank" class="btn-drive">📥 Slides PDF</a>
+            </div>
+        </div>
+
+        <!-- Lab 02 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">22/09 · Semana 9</span>
+                <span class="badge badge-lab">🔬 Laboratório</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Lab 02 — Construção de Eletroímã</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Montagem de eletroímã com prego de ferro e espiras de cobre.
+                Medição de força de atração em função da corrente e número de espiras.
+            </p>
+            <div class="resources-box">
+                <strong style="color:#fbbf24; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Estúdio:</strong>
+                <span style="color:#94a3b8;">Resumo: <code>Aula08-21Set</code> · Podcast: <code>Podcast-Aula08</code></span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-nm">▶ NotebookLM</a>
+                <a href="https://drive.google.com/open?id=1nOFIJpc8Gu-3kuClHt5PHq2xg-9xnHDR" target="_blank" class="btn-drive">📥 Guia PDF</a>
+            </div>
+        </div>
+
+        <!-- Aula 09 EP -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">29/09 · Semana 10</span>
+                <span class="badge badge-soon">Em breve</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 09 — Exercícios de Fixação (Bloco 2)</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Resolução de problemas: força de Lorentz, força entre condutores e classificação magnética dos materiais. Cap. 14.
+            </p>
+            <div class="resources-box">
+                <strong style="color:#fbbf24; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Estúdio:</strong>
+                <span style="color:#94a3b8;">Resumo: <code>Aula09-28Set</code></span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-nm">▶ NotebookLM</a>
+            </div>
+        </div>
+
+        <!-- Feriado 13/10 (terça) -->
+        <div class="card-feriado">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.5rem;">
+                <span style="font-size:.72rem; color:#475569; font-weight:600;">13/10 · Semana 12</span>
+                <span class="badge badge-holiday">🔴 Feriado</span>
+            </div>
+            <p style="font-size:.9rem; font-weight:600; color:#64748b; margin:0;">Nossa Senhora Aparecida (compensado)</p>
+            <p style="font-size:.78rem; color:#475569; margin:0;">Sem atividades presenciais letivas.</p>
+        </div>
+
+        <!-- Aula 11 Ava2 / 20/10 -->
+        <div class="card-aula" style="border-color: rgba(239,68,68,.2);">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">20/10 · Semana 13</span>
+                <span class="badge badge-ava">📝 Avaliação 2</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Avaliação 2 — Força Magnética e Matéria</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Prova escrita individual. Conteúdo: força de Lorentz, força entre condutores,
+                materiais magnéticos. Cap. 14 — Ramalho Vol. 3.
+            </p>
+            <div class="resources-box">
+                <strong style="color:#f87171; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Revisão:</strong>
+                <span style="color:#94a3b8;">Todos os recursos do Bloco 2.</span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-nm">▶ NotebookLM</a>
+            </div>
+        </div>
+
+    </div><!-- /grid bloco 2 -->
+
+    <!-- ══ BLOCO 3 ══ -->
+    <div class="bloco-header">
+        <span class="bloco-label bloco-3">📡 Bloco 3 — Indução Eletromagnética e Corrente Alternada</span>
+    </div>
+    <div class="grid-3">
+
+        <!-- Recesso 27/10 (terça) -->
+        <div class="card-feriado">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.5rem;">
+                <span style="font-size:.72rem; color:#475569; font-weight:600;">27/10 · Semana 14</span>
+                <span class="badge badge-holiday">🔴 Recesso</span>
+            </div>
+            <p style="font-size:.9rem; font-weight:600; color:#64748b; margin:0;">Recesso Acadêmico</p>
+            <p style="font-size:.78rem; color:#475569; margin:0;">Sem atividades presenciais.</p>
+        </div>
+
+        <!-- Feriado 03/11 (terça) -->
+        <div class="card-feriado">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.5rem;">
+                <span style="font-size:.72rem; color:#475569; font-weight:600;">03/11 · Semana 15</span>
+                <span class="badge badge-holiday">🔴 Feriado</span>
+            </div>
+            <p style="font-size:.9rem; font-weight:600; color:#64748b; margin:0;">Dia de Finados (terça)</p>
+            <p style="font-size:.78rem; color:#475569; margin:0;">Sem atividades presenciais letivas.</p>
+        </div>
+
+        <!-- Aula 12 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">10/11 · Semana 16</span>
+                <span class="badge badge-soon">Em breve</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 12 — Indução Eletromagnética</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Corrente induzida, fluxo magnético $\Phi = B \cdot A \cdot \cos\theta$ (Wb),
+                Lei de Lenz e sentido da corrente induzida.
+            </p>
+            <div class="resources-box">
+                <strong style="color:#93c5fd; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Estúdio:</strong>
+                <span style="color:#94a3b8;">Resumo: <code>Aula11-09Nov</code> · Podcast: <code>Podcast-Aula11</code></span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-nm">▶ NotebookLM</a>
+                <a href="https://drive.google.com/open?id=1nOFIJpc8Gu-3kuClHt5PHq2xg-9xnHDR" target="_blank" class="btn-drive">📥 Slides PDF</a>
+            </div>
+        </div>
+
+        <!-- Aula 13 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">17/11 · Semana 17</span>
+                <span class="badge badge-soon">Em breve</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 13 — Leis da Indução e Corrente Alternada</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Lei de Faraday-Neumann: $\varepsilon = -\dfrac{\Delta\Phi}{\Delta t}$.
+                Correntes de Foucault, geradores elétricos, transformadores e corrente alternada.
+            </p>
+            <div class="resources-box">
+                <strong style="color:#93c5fd; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Estúdio:</strong>
+                <span style="color:#94a3b8;">Resumo: <code>Aula12-16Nov</code> · Podcast: <code>Podcast-Aula12</code></span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-nm">▶ NotebookLM</a>
+                <a href="https://drive.google.com/open?id=1nOFIJpc8Gu-3kuClHt5PHq2xg-9xnHDR" target="_blank" class="btn-drive">📥 Slides PDF</a>
+            </div>
+        </div>
+
+        <!-- Aula 14 EP -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">24/11 · Semana 18</span>
+                <span class="badge badge-soon">Em breve</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 14 — Exercícios de Fixação (Bloco 3)</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Resolução de problemas: fluxo magnético, fem induzida, Lei de Felici,
+                relação de transformação $\frac{U_p}{U_s} = \frac{N_p}{N_s}$.
+            </p>
+            <div class="resources-box">
+                <strong style="color:#93c5fd; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Estúdio:</strong>
+                <span style="color:#94a3b8;">Exercícios resolvidos abaixo ↓</span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="#exercicios" class="btn-nm" style="background:rgba(59,130,246,.15);color:#93c5fd;border-color:rgba(59,130,246,.3);">🔍 Ver Exercícios</a>
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-drive">▶ NotebookLM</a>
+            </div>
+        </div>
+
+        <!-- AVA 3 -->
+        <div class="card-aula" style="border-color: rgba(239,68,68,.2);">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">01/12 · Semana 19</span>
+                <span class="badge badge-ava">📝 Avaliação 3</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Avaliação 3 — Indução e Corrente Alternada</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Prova escrita individual. Conteúdo: fluxo magnético, Lei de Faraday-Neumann,
+                Lei de Lenz, geradores e transformadores.
+            </p>
+            <div class="resources-box">
+                <strong style="color:#f87171; display:block; margin-bottom:.4rem;">🧠 NotebookLM — Revisão:</strong>
+                <span style="color:#94a3b8;">Todos os recursos do Bloco 3.</span>
+            </div>
+            <div style="display:flex; gap:.5rem; margin-top:.25rem;">
+                <a href="https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650" target="_blank" class="btn-nm">▶ NotebookLM</a>
+            </div>
+        </div>
+
+        <!-- Reposição -->
+        <div class="card-aula" style="border-color: rgba(239,68,68,.15);">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">08/12 · Semana 20</span>
+                <span class="badge badge-ava">📝 Reposição</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Avaliação de Reposição Final</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Prova de recuperação de conceito com todo o conteúdo semestral. Sem consulta.
+            </p>
+        </div>
+
+    </div><!-- /grid bloco 3 -->
+
+    <!-- ══ EXERCÍCIOS RESOLVIDOS ══ -->
+    <div style="margin-top: 4rem;" id="exercicios">
+        <h2 class="section-title">📝 Exercícios Resolvidos com LaTeX</h2>
+        <p class="section-sub" style="margin-bottom:1.5rem;">Clique em cada enunciado para ver o desenvolvimento matemático completo. Equações renderizadas pelo MathJax.</p>
+
+        <div style="display:flex; flex-direction:column; gap:.75rem; max-width:800px;">
+
+            <details style="background:var(--c-surface); border:1px solid var(--c-border); border-radius:.9rem; overflow:hidden;">
+                <summary>
+                    <div style="display:flex; align-items:center; gap:.8rem;">
+                        <span style="background:rgba(14,165,233,.15); color:#38bdf8; border:1px solid rgba(14,165,233,.25); font-weight:700; font-size:.7rem; padding:.25rem .6rem; border-radius:.4rem;">⚡ Ex 1</span>
+                        <span style="font-weight:600;">Corrente Induzida — Variação de Campo (P. 375)</span>
+                    </div>
+                    <span style="color:#64748b; font-size:1.1rem;">▾</span>
+                </summary>
+                <div style="padding:1.4rem; background:rgba(0,0,0,.25); border-top:1px solid rgba(255,255,255,.06);">
+                    <p style="color:#cbd5e1;"><strong>Enunciado:</strong> Uma espira circular de área $A = 1\text{ m}^2$ e resistência $R = 4\,\Omega$ está em uma região com campo $\vec{B}$ perpendicular ao plano da espira. O módulo do campo diminui a uma taxa constante de $2\text{ T/s}$. Calcule a intensidade e o sentido da corrente elétrica induzida.</p>
+                    <div style="background:rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.07); border-radius:.6rem; padding:1.2rem; margin-top:1rem;">
+                        <p style="color:#7dd3fc; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin:0 0 .8rem;">Resolução:</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:.5rem 0;">1. Fluxo magnético (superfície perpendicular, $\cos 0° = 1$):</p>
+                        <p style="text-align:center;">$$\Phi = B \cdot A$$</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:.5rem 0;">2. Taxa de variação:</p>
+                        <p style="text-align:center;">$$\frac{\Delta\Phi}{\Delta t} = A \cdot \frac{\Delta B}{\Delta t} = 1 \cdot (-2) = -2\,\text{Wb/s}$$</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:.5rem 0;">3. Lei de Faraday-Neumann:</p>
+                        <p style="text-align:center;">$$|\varepsilon| = \left|-\frac{\Delta\Phi}{\Delta t}\right| = 2\,\text{V}$$</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:.5rem 0;">4. Lei de Ohm:</p>
+                        <p style="text-align:center;">$$i = \frac{|\varepsilon|}{R} = \frac{2}{4} = 0{,}5\,\text{A}$$</p>
+                        <p style="color:#94a3b8; font-size:.85rem; margin:.5rem 0;">5. <strong>Lei de Lenz:</strong> corrente induzida opõe à variação do fluxo — sentido pela regra da mão direita.</p>
+                    </div>
+                </div>
+            </details>
+
+            <details style="background:var(--c-surface); border:1px solid var(--c-border); border-radius:.9rem; overflow:hidden;">
+                <summary>
+                    <div style="display:flex; align-items:center; gap:.8rem;">
+                        <span style="background:rgba(14,165,233,.15); color:#38bdf8; border:1px solid rgba(14,165,233,.25); font-weight:700; font-size:.7rem; padding:.25rem .6rem; border-radius:.4rem;">🔋 Ex 2</span>
+                        <span style="font-weight:600;">Lei de Felici — Carga Elétrica Escoada (P. 377)</span>
+                    </div>
+                    <span style="color:#64748b; font-size:1.1rem;">▾</span>
+                </summary>
+                <div style="padding:1.4rem; background:rgba(0,0,0,.25); border-top:1px solid rgba(255,255,255,.06);">
+                    <p style="color:#cbd5e1;"><strong>Enunciado:</strong> Uma espira de área $A = 6\times10^{-3}\,\text{m}^2$ e resistência $R = 2\times10^{-2}\,\Omega$. O campo varia de $B_i = 5\times10^{-3}\,\text{T}$ a $B_f = 2\times10^{-3}\,\text{T}$. Determine: (a) o fluxo inicial; (b) a carga total escoada.</p>
+                    <div style="background:rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.07); border-radius:.6rem; padding:1.2rem; margin-top:1rem;">
+                        <p style="color:#7dd3fc; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin:0 0 .8rem;">Resolução:</p>
+                        <p style="color:#cbd5e1; font-size:.9rem;"><strong>(a)</strong> $\Phi_i = 5\times10^{-3} \cdot 6\times10^{-3} = 3\times10^{-5}\,\text{Wb}$</p>
+                        <p style="color:#cbd5e1; font-size:.9rem;"><strong>(b) Lei de Felici:</strong></p>
+                        <p style="text-align:center;">$$\Delta q = \frac{|\Delta\Phi|}{R} = \frac{6\times10^{-3} \cdot 3\times10^{-3}}{2\times10^{-2}} = 9\times10^{-4}\,\text{C}$$</p>
+                    </div>
+                </div>
+            </details>
+
+            <details style="background:var(--c-surface); border:1px solid var(--c-border); border-radius:.9rem; overflow:hidden;">
+                <summary>
+                    <div style="display:flex; align-items:center; gap:.8rem;">
+                        <span style="background:rgba(14,165,233,.15); color:#38bdf8; border:1px solid rgba(14,165,233,.25); font-weight:700; font-size:.7rem; padding:.25rem .6rem; border-radius:.4rem;">🔌 Ex 3</span>
+                        <span style="font-weight:600;">Transformador — Relação de Tensões (T. 409)</span>
+                    </div>
+                    <span style="color:#64748b; font-size:1.1rem;">▾</span>
+                </summary>
+                <div style="padding:1.4rem; background:rgba(0,0,0,.25); border-top:1px solid rgba(255,255,255,.06);">
+                    <p style="color:#cbd5e1;"><strong>Enunciado:</strong> Transformador com $N_p = 200$ e $N_s = 400$ espiras. $U_p = 120\,\text{V}$. Calcule $U_s$.</p>
+                    <div style="background:rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.07); border-radius:.6rem; padding:1.2rem; margin-top:1rem;">
+                        <p style="color:#7dd3fc; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin:0 0 .8rem;">Resolução:</p>
+                        <p style="text-align:center;">$$\frac{U_p}{U_s} = \frac{N_p}{N_s} \implies U_s = 120 \cdot \frac{400}{200} = 240\,\text{V}$$</p>
+                        <p style="color:#94a3b8; font-size:.85rem;"><strong>Transformador elevador</strong> de tensão ($N_s > N_p$).</p>
+                    </div>
+                </div>
+            </details>
+
+        </div>
+    </div>
+
+    <!-- ══ AVALIAÇÃO ══ -->
+    <div style="margin-top: 4rem;" id="avaliacao">
+        <h2 class="section-title">📊 Critérios de Avaliação</h2>
+        <div style="background:var(--c-surface); border:1px solid var(--c-border); border-radius:1rem; padding:2rem; max-width:700px; margin-top:1rem;">
+            <p style="color:#38bdf8; font-size:1.05rem; font-weight:700; font-family:monospace; margin-bottom:1.2rem;">
+                Média = AVA1 (3,0) + AVA2 (3,0) + AVA3 (3,0) + Labs (1,0) = 10,0
+            </p>
+            <div style="display:flex; flex-direction:column; gap:1rem;">
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <span style="background:rgba(14,165,233,.15); color:#38bdf8; border:1px solid rgba(14,165,233,.25); font-weight:700; font-size:.8rem; padding:.3rem .8rem; border-radius:9999px; white-space:nowrap;">90%</span>
+                    <div>
+                        <strong style="color:#f1f5f9; font-size:.95rem;">3 Provas Teóricas Individuais (AVA1, AVA2, AVA3)</strong>
+                        <p style="color:#64748b; font-size:.83rem; margin:.3rem 0 0;">Escritas, sem consulta, ao fim de cada bloco didático (3,0 pontos cada).</p>
+                    </div>
+                </div>
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <span style="background:rgba(139,92,246,.15); color:#c4b5fd; border:1px solid rgba(139,92,246,.25); font-weight:700; font-size:.8rem; padding:.3rem .8rem; border-radius:9999px; white-space:nowrap;">10%</span>
+                    <div>
+                        <strong style="color:#f1f5f9; font-size:.95rem;">Relatórios de Laboratório</strong>
+                        <p style="color:#64748b; font-size:.83rem; margin:.3rem 0 0;">Lab 01 + Lab 02 — entrega em equipe (1,0 ponto).</p>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:1.4rem; background:rgba(239,68,68,.08); border:1px solid rgba(239,68,68,.2); border-radius:.6rem; padding:.85rem 1rem; font-size:.83rem; color:#fca5a5;">
+                ⚠️ <strong>Frequência mínima obrigatória:</strong> 75% das aulas dadas. Abaixo disso implica reprovação por falta.
+            </div>
+        </div>
+    </div>
+
+</div><!-- /main -->
+
+<!-- ═══ FOOTER ═══ -->
+<footer style="background:#050810; border-top:1px solid rgba(255,255,255,.06); padding:2.5rem 1rem; text-align:center; color:#475569; font-size:.82rem;">
+    <p>&copy; 2026 Prof. Humberto Luz Oliveira — IFSC Câmpus São José</p>
+    <p style="margin:.4rem 0;">
+        <a href="../index.html" style="color:#64748b; text-decoration:none; margin:0 .75rem;">Portal 2026.2</a>
+        <a href="../../index.html" style="color:#64748b; text-decoration:none; margin:0 .75rem;">Portal Ensino</a>
+        <a href="mailto:humberto.oliveira@ifsc.edu.br" style="color:#64748b; text-decoration:none; margin:0 .75rem;">Contato</a>
+    </p>
+</footer>
+
+</body>
+</html>

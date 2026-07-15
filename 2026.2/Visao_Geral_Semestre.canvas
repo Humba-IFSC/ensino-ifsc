@@ -1,0 +1,70 @@
+{
+  "nodes": [
+    {
+      "id": "d0123456789abcde",
+      "type": "file",
+      "file": "Dashboard_2026_2.md",
+      "x": -150,
+      "y": -75,
+      "width": 300,
+      "height": 150,
+      "color": "3"
+    },
+    {
+      "id": "m0123456789abcde",
+      "type": "file",
+      "file": "Magnetismo_Eletromag/Magnetismo_Eletromag.md",
+      "x": -600,
+      "y": -75,
+      "width": 300,
+      "height": 150,
+      "color": "1"
+    },
+    {
+      "id": "o0123456789abcde",
+      "type": "file",
+      "file": "Óptica_Acústica/Óptica_Acústica.md",
+      "x": -150,
+      "y": 200,
+      "width": 300,
+      "height": 150,
+      "color": "5"
+    },
+    {
+      "id": "t0123456789abcde",
+      "type": "file",
+      "file": "Termodinâmica/Termodinâmica.md",
+      "x": 300,
+      "y": -75,
+      "width": 300,
+      "height": 150,
+      "color": "2"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e000000000000001",
+      "fromNode": "d0123456789abcde",
+      "fromSide": "left",
+      "toNode": "m0123456789abcde",
+      "toSide": "right",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e000000000000002",
+      "fromNode": "d0123456789abcde",
+      "fromSide": "bottom",
+      "toNode": "o0123456789abcde",
+      "toSide": "top",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e000000000000003",
+      "fromNode": "d0123456789abcde",
+      "fromSide": "right",
+      "toNode": "t0123456789abcde",
+      "toSide": "left",
+      "toEnd": "arrow"
+    }
+  ]
+}

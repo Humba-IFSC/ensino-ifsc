@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ensino IFSC — Prof. Humberto Oliveira | Portal de Cursos</title>
-    <meta name="description" content="Portal de disciplinas e semestres do Prof. Humberto Oliveira — IFSC Campus São José. Navegue entre os semestres letivos e acesse o material didático.">
+    <title>Semestre 2026.2 | Portal de Ensino IFSC</title>
+    <meta name="description" content="Dashboard de disciplinas do Prof. Humberto Oliveira para o semestre 2026.2 no IFSC Campus São José.">
     <meta name="author" content="Humberto Luz Oliveira">
-    <meta name="keywords" content="IFSC, São José, Física, Telecomunicações, Ensino, 2026, Magnetismo, Termologia">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
     <div class="bg-grid"></div>
@@ -18,12 +17,13 @@
     <!-- ═══ NAVBAR ═══ -->
     <nav class="navbar" id="navbar">
         <div class="container">
-            <a href="https://humba-ifsc.github.io/" class="navbar-brand">
+            <a href="../index.html" class="navbar-brand">
                 <span class="emoji">🏠</span>
-                <span>Humba-IFSC</span>
+                <span>Portal Ensino</span>
             </a>
             <ul class="navbar-links">
-                <li><a href="#semestres">📅 Semestres Letivos</a></li>
+                <li><a href="#telecom">📗 Telecomunicações</a></li>
+                <li><a href="#refrigeracao">❄️ Refrigeração</a></li>
                 <li><a href="mailto:humberto.oliveira@ifsc.edu.br">✉️ Contato</a></li>
             </ul>
         </div>
@@ -41,14 +41,14 @@
             >
             <h1>Portal de Ensino</h1>
             <p class="hero-subtitle">Prof. Dr. Humberto Luz Oliveira</p>
-            <p class="hero-institution">IFSC — Campus São José · Portal Geral</p>
+            <p class="hero-institution">IFSC — Campus São José · Semestre 2026.2</p>
             <div class="hero-badges">
                 <span class="hero-badge">
                     <span class="dot"></span>
-                    Semestre Ativo: 2026.2
+                    2 Disciplinas Ativas
                 </span>
-                <span class="hero-badge" style="background: rgba(59,130,246,0.12); border-color: rgba(59,130,246,0.25); color: #60a5fa;">
-                    📅 Ano Letivo: 2026
+                <span class="hero-badge" style="background: rgba(16,185,129,0.12); border-color: rgba(16,185,129,0.25); color: #34d399;">
+                    📅 Jul — Dez 2026
                 </span>
             </div>
         </header>
@@ -57,75 +57,89 @@
         <div class="stats-bar fade-in">
             <div class="stat">
                 <div class="stat-value">2</div>
-                <div class="stat-label">Semestres</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">3</div>
                 <div class="stat-label">Disciplinas</div>
             </div>
             <div class="stat">
-                <div class="stat-value">8ª Fase</div>
-                <div class="stat-label">Nível Principal</div>
+                <div class="stat-value">2</div>
+                <div class="stat-label">Cursos</div>
             </div>
             <div class="stat">
-                <div class="stat-value">IFSC</div>
-                <div class="stat-label">Instituição</div>
+                <div class="stat-value">6h</div>
+                <div class="stat-label">Carga Total Semanal</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">2026.2</div>
+                <div class="stat-label">Período</div>
             </div>
         </div>
 
         <!-- ═══════════════════════════════════════════════ -->
-        <!-- SEÇÃO: SEMESTRES LETIVOS                      -->
+        <!-- SEÇÃO: TÉCNICO INTEGRADO EM TELECOMUNICAÇÕES   -->
         <!-- ═══════════════════════════════════════════════ -->
-        <section class="section" id="semestres">
+        <section class="section" id="telecom">
             <div class="section-header">
-                <span class="section-icon">📚</span>
-                <h2 class="section-title">Semestres Letivos</h2>
-                <span class="section-count">2 semestres</span>
+                <span class="section-icon">📗</span>
+                <h2 class="section-title">Técnico Integrado em Telecomunicações</h2>
+                <span class="section-count">1 disciplina</span>
             </div>
             <div class="cards-grid">
 
-                <!-- Semestre 2026.2 — ATUAL -->
-                <a href="2026.2/" class="card card--green fade-in">
+                <!-- FSC060804 — Magnetismo e Eletromagnetismo (80h) -->
+                <a href="FSC060804/" class="card card--green fade-in">
                     <div class="card-emoji">🧲</div>
                     <div class="card-header">
-                        <span class="card-code">Semestre 2026.2</span>
-                        <span class="card-status card-status--active">🟢 Em Andamento</span>
+                        <span class="card-code">FSC060804</span>
+                        <span class="card-status card-status--active">✅ Ativo</span>
                     </div>
-                    <h3 class="card-title">Semestre Atual — 2026.2</h3>
+                    <h3 class="card-title">Magnetismo e Eletromagnetismo</h3>
                     <p class="card-desc">
-                        Portal de disciplinas ativas do semestre letivo 2026.2. Inclui a unidade curricular de <strong>Magnetismo e Eletromagnetismo</strong>, com cronogramas, PDFs de apresentações, exercícios práticos e autoestudo interativo via NotebookLM.
+                        Campos Magnéticos, Lei de Biot-Savart, Experiência de Oersted, Força Magnética em condutores, Propriedades Magnéticas da Matéria, Indução Eletromagnética (Lenz e Faraday-Neumann), Corrente Alternada e Transformadores.
                     </p>
                     <div class="card-meta">
-                        <span class="card-meta-item">📅 Jul — Dez 2026</span>
-                        <span class="card-meta-item">📚 1 UC Ativa</span>
+                        <span class="card-meta-item">📅 Seg · 07:30 — 09:20 e 13:30 — 15:40</span>
+                        <span class="card-meta-item">⏱ 80h · 20 encontros</span>
                     </div>
                     <div class="card-footer">
-                        <span class="card-tag">FSC060804 / FCA060905</span>
+                        <span class="card-tag">4ª Fase · Ramalho Vol.3</span>
                         <span class="card-arrow">→</span>
                     </div>
-                    <div class="progress-bar"><div class="progress-bar-fill" style="width: 20%; background: var(--ifsc-green-light);"></div></div>
+                    <div class="progress-bar"><div class="progress-bar-fill" style="width: 15%; background: var(--ifsc-green-light);"></div></div>
                 </a>
 
-                <!-- Semestre 2026.1 — CONCLUÍDO -->
-                <a href="2026.1/" class="card card--blue fade-in">
-                    <div class="card-emoji">🌡️</div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- SEÇÃO: TÉCNICO EM REFRIGERAÇÃO E AR CONDICIONADO-->
+        <!-- ═══════════════════════════════════════════════ -->
+        <section class="section" id="refrigeracao">
+            <div class="section-header">
+                <span class="section-icon">❄️</span>
+                <h2 class="section-title">Técnico em Refrigeração e Ar Condicionado (RAC)</h2>
+                <span class="section-count">1 disciplina</span>
+            </div>
+            <div class="cards-grid">
+
+                <!-- FCA060905 — Magnetismo e Eletromagnetismo (40h) -->
+                <a href="FCA060905/" class="card card--emerald fade-in">
+                    <div class="card-emoji">⚡</div>
                     <div class="card-header">
-                        <span class="card-code">Semestre 2026.1</span>
-                        <span class="card-status card-status--soon" style="background: rgba(59,130,246,0.15); color: #60a5fa;">⚪ Concluído</span>
+                        <span class="card-code">FCA060905</span>
+                        <span class="card-status card-status--active">✅ Ativo</span>
                     </div>
-                    <h3 class="card-title">Semestre Anterior — 2026.1</h3>
+                    <h3 class="card-title">Magnetismo e Eletromagnetismo</h3>
                     <p class="card-desc">
-                        Histórico de disciplinas do primeiro semestre letivo de 2026. Contém os materiais didáticos e painéis de **Física IV (Termologia)** com o projeto do Produto Térmico e o Duelo Forense, além de **Metodologia de Pesquisa**.
+                        Fundamentos teóricos e práticos de campos magnéticos, indução eletromagnética, leis de Faraday e Lenz, correntes alternadas e funcionamento básico de transformadores aplicados a sistemas térmicos e elétricos de refrigeração.
                     </p>
                     <div class="card-meta">
-                        <span class="card-meta-item">📅 Fev — Jul 2026</span>
-                        <span class="card-meta-item">📚 2 UCs Concluídas</span>
+                        <span class="card-meta-item">📅 Ter · 07:30 — 09:20</span>
+                        <span class="card-meta-item">⏱ 40h · ~10 encontros</span>
                     </div>
                     <div class="card-footer">
-                        <span class="card-tag">FSC060806 / MPQ029005</span>
+                        <span class="card-tag">5ª Fase · Ramalho Vol.3</span>
                         <span class="card-arrow">→</span>
                     </div>
-                    <div class="progress-bar"><div class="progress-bar-fill" style="width: 100%; background: var(--accent-blue);"></div></div>
+                    <div class="progress-bar"><div class="progress-bar-fill" style="width: 15%; background: var(--accent-emerald);"></div></div>
                 </a>
 
             </div>
@@ -142,9 +156,9 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                     humberto.oliveira@ifsc.edu.br
                 </a>
-                <a href="https://humba-ifsc.github.io/" target="_blank" rel="noopener">
+                <a href="../index.html">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    Portal Principal
+                    Portal Ensino
                 </a>
                 <a href="https://www.ifsc.edu.br/web/campus-sao-jose" target="_blank" rel="noopener">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>

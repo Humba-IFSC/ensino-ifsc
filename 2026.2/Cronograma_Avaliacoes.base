@@ -1,0 +1,32 @@
+filters:
+  and:
+    - 'file.ext == "md"'
+    - 'course != null'
+    - 'type == "Avaliação" || type == "Final"'
+
+formulas:
+  days_until: 'if(date, (date(date) - today()).days, "")'
+
+properties:
+  course:
+    displayName: "Curso"
+  date:
+    displayName: "Data"
+  block:
+    displayName: "Bloco"
+  type:
+    displayName: "Tipo"
+  file.name:
+    displayName: "Avaliação"
+  formula.days_until:
+    displayName: "Dias Restantes"
+
+views:
+  - type: table
+    name: "Cronograma Geral de Avaliações"
+    order:
+      - date
+      - course
+      - block
+      - file.name
+      - formula.days_until

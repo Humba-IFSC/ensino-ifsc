@@ -1,0 +1,30 @@
+filters:
+  and:
+    - 'file.ext == "md"'
+    - 'course != null'
+    - 'type == "Teórica" || type == "Prática" || type == "Reserva" || type == "Feriado" || type == "Recesso"'
+
+properties:
+  course:
+    displayName: "Curso"
+  date:
+    displayName: "Data"
+  block:
+    displayName: "Bloco"
+  type:
+    displayName: "Tipo"
+  file.name:
+    displayName: "Aula"
+
+views:
+  - type: table
+    name: "Cronograma Geral de Aulas"
+    order:
+      - date
+      - course
+      - block
+      - type
+      - file.name
+    groupBy:
+      property: course
+      direction: ASC
