@@ -18,7 +18,7 @@ tags:
 ---
 
 ## 📖 Referência do Livro
-- Consulte o roteiro experimental em: [[Óptica_Acústica/Caps_Ramalho/Lentes_Delgadas_Física_Vol2.pdf|Capítulo 14 - Lentes Delgadas]]
+- Consulte o roteiro experimental em: [[Óptica_Acústica/Caps_Ramalho/Cap.14-Lentes-Delgadas.pdf|Capítulo 14 - Lentes Delgadas]]
 
 ---
 

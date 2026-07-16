@@ -28,6 +28,6 @@ tags:
 ---
 
 ## 🔗 Navegação
-- ⬅️ Aula anterior: [[Óptica_Acústica/Aulas/Aula_2026-08-21|Aula para Exercícios de Fixação - Acústica]]
+- ⬅️ Aula anterior: [[Óptica_Acústica/Aulas/Bloco-1/Aula04-EP/Aula_2026-08-21|Aula para Exercícios de Fixação - Acústica]]
 - 🏠 [[Óptica_Acústica/Óptica_Acústica|Plano de Ensino (Hub)]]
-- ➡️ Próxima aula: [[Óptica_Acústica/Aulas/Aula_2026-09-04|Teórica 1: Princípios da Óptica e Espelhos Planos]]
+- ➡️ Próxima aula: [[Óptica_Acústica/Aulas/Bloco-2/Aula06/Aula_2026-09-04|Teórica 1: Princípios da Óptica e Espelhos Planos]]

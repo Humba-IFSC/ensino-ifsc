@@ -32,6 +32,6 @@ tags:
 ---
 
 ## 🔗 Navegação
-- ⬅️ Aula anterior (Feriado): [[Óptica_Acústica/Aulas/Feriado_2026-11-20|Feriado: 20/11]]
+- ⬅️ Aula anterior (Feriado): [[Óptica_Acústica/Aulas/Feriados/Feriado_2026-11-20|Feriado: 20/11]]
 - 🏠 [[Óptica_Acústica/Óptica_Acústica|Plano de Ensino (Hub)]]
-- ➡️ Próxima aula: [[Óptica_Acústica/Aulas/Aula_2026-12-04|Reserva 2]]
+- ➡️ Próxima aula: [[Óptica_Acústica/Aulas/Bloco-3/Aula16-Reserva/Aula_2026-12-04|Reserva 2]]

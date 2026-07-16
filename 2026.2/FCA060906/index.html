@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCA060906 | Acústica e Óptica Geométrica — Refrigeração 6ª Fase</title>
+    <meta name="description" content="Dashboard da disciplina FCA060906 — Acústica e Óptica Geométrica, Curso Técnico Integrado em Refrigeração e Ar Condicionado, 6ª Fase. IFSC Campus São José, 2026.2.">
+    <meta name="author" content="Prof. Humberto Luz Oliveira">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- MathJax para renderização de LaTeX -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../../assets/style.css">
+
+    <style>
+        :root {
+            --c-surface: rgba(15,23,42,0.7);
+            --c-border: rgba(255,255,255,0.08);
+        }
+        body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #f0f4f8; }
+        .hero-badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: .4rem 1.1rem; border-radius: 9999px; font-size: .78rem; font-weight: 500; }
+        .bloco-header { display: flex; align-items: center; gap: .75rem; margin: 2.5rem 0 1rem; }
+        .bloco-label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: .35rem 1rem; border-radius: 9999px; }
+        .bloco-1 { background: rgba(34,197,94,.12); color: #4ade80; border: 1px solid rgba(34,197,94,.25); }
+        .bloco-2 { background: rgba(245,158,11,.12); color: #fbbf24; border: 1px solid rgba(245,158,11,.25); }
+        .bloco-3 { background: rgba(59,130,246,.12); color: #93c5fd; border: 1px solid rgba(59,130,246,.25); }
+        .card-aula { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; gap: .75rem; transition: all .3s cubic-bezier(.4,0,.2,1); }
+        .card-aula:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.4); border-color: rgba(6,182,212,.25); }
+        .card-feriado { background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 1rem; padding: 1.5rem; opacity: .7; }
+        .badge { font-size: .68rem; font-weight: 700; padding: .25rem .7rem; border-radius: 9999px; }
+        .badge-done { background: rgba(34,197,94,.15); color: #4ade80; border: 1px solid rgba(34,197,94,.25); }
+        .badge-next { background: rgba(6,182,212,.15); color: #22d3ee; border: 1px solid rgba(6,182,212,.25); }
+        .badge-soon { background: rgba(255,255,255,.07); color: #94a3b8; border: 1px solid rgba(255,255,255,.1); }
+        .badge-ava { background: rgba(239,68,68,.15); color: #f87171; border: 1px solid rgba(239,68,68,.25); }
+        .badge-holiday { background: rgba(148,163,184,.1); color: #94a3b8; border: 1px solid rgba(148,163,184,.15); }
+        .badge-lab { background: rgba(139,92,246,.15); color: #c4b5fd; border: 1px solid rgba(139,92,246,.25); }
+        .resources-box { background: rgba(0,0,0,.3); border: 1px solid rgba(255,255,255,.06); border-radius: .6rem; padding: .9rem 1rem; font-size: .75rem; }
+        .btn-nm { background: rgba(6,182,212,.12); color: #22d3ee; border: 1px solid rgba(6,182,212,.25); padding: .4rem .9rem; border-radius: .5rem; font-size: .75rem; font-weight: 600; text-decoration: none; transition: all .2s; display: inline-block; }
+        .btn-nm:hover { background: rgba(6,182,212,.22); }
+        .btn-drive { background: rgba(255,255,255,.07); color: #cbd5e1; border: 1px solid rgba(255,255,255,.1); padding: .4rem .9rem; border-radius: .5rem; font-size: .75rem; font-weight: 600; text-decoration: none; transition: all .2s; display: inline-block; }
+        .btn-drive:hover { background: rgba(255,255,255,.13); }
+        .section-title { font-size: 1.4rem; font-weight: 700; color: #f1f5f9; margin-bottom: .4rem; }
+        .section-sub { color: #64748b; font-size: .9rem; }
+        details summary { cursor: pointer; padding: 1.1rem 1.4rem; display: flex; justify-content: space-between; align-items: center; }
+        details summary::-webkit-details-marker { display: none; }
+        details[open] summary { border-bottom: 1px solid rgba(255,255,255,.07); }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+        @media (max-width: 640px) { .grid-3 { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+<div class="bg-grid"></div>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <a href="../index.html" class="navbar-brand">
+            <span class="emoji">🏠</span>
+            <span>Semestre 2026.2</span>
+        </a>
+        <ul class="navbar-links">
+            <li><a href="#cronograma">📋 Cronograma</a></li>
+            <li><a href="#exercicios">📝 Exercícios</a></li>
+            <li><a href="#avaliacao">📊 Avaliação</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<header style="background: linear-gradient(135deg, #083344 0%, #0f172a 50%, #0a0e17 100%); padding: 4rem 1rem 3rem; border-bottom: 1px solid rgba(6,182,212,.15); position: relative; overflow: hidden;">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1;">
+        <p style="color: #22d3ee; font-size: .75rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 1rem;">
+            Técnico Integrado em Refrigeração e Ar Condicionado · 6ª Fase · IFSC Câmpus São José
+        </p>
+        <h1 style="font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; margin-bottom: .75rem;">
+            FCA060906<br>
+            <span style="color: #a5f3fc;">Acústica e Óptica Geométrica</span>
+        </h1>
+        <p style="color: #94a3b8; font-size: 1.05rem; font-weight: 300; max-width: 650px; margin: 0 auto 2rem;">
+            Ondas sonoras, qualidades fisiológicas do som, propagação da luz,
+            espelhos planos e esféricos, refração e comportamento de lentes delgadas.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-bottom: 2rem;">
+            <span class="hero-badge">📅 Semestre 2026.2</span>
+            <span class="hero-badge" style="color: #22d3ee; border-color: rgba(6,182,212,.3);">🟢 Sexta-feira · 15:40–17:30</span>
+            <span class="hero-badge">⏱ 40 horas · 6ª Fase</span>
+            <span class="hero-badge">👨‍🏫 Prof. Humberto L. Oliveira</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem;">
+            <a href="https://notebooklm.google.com/notebook/8391c3ba-9b88-483c-93bb-58c10658e6a7" target="_blank" rel="noopener" class="btn-nm">
+                🧠 Estúdio NotebookLM
+            </a>
+            <a href="https://drive.google.com/drive/folders/1kGwopaxTf13HOGt3ZEEhtNGzvo7Tu4No?usp=sharing" target="_blank" rel="noopener" class="btn-drive">
+                📁 Google Drive
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- ═══ MAIN ═══ -->
+<div style="max-width: 1100px; margin: 0 auto; padding: 3rem 1rem 5rem;" id="cronograma">
+
+    <!-- INFOBANNER -->
+    <div style="background: rgba(6,182,212,.06); border: 1px solid rgba(6,182,212,.18); border-radius: .9rem; padding: 1rem 1.4rem; margin-bottom: 2.5rem; font-size: .85rem; color: #cbd5e1;">
+        💡 <strong style="color: #a5f3fc;">Grade Semanal:</strong>
+        As aulas da turma de <strong>Refrigeração e Ar Condicionado (FCA060906)</strong> ocorrem às
+        <strong>sextas-feiras</strong>, no período vespertino (15:40–17:30).
+        Carga horária semestral de <strong>40 horas</strong>.
+        O cronograma segue o plano semestral baseado em
+        <em>Fundamentos da Física</em> (Ramalho, Vol. 2).
+    </div>
+
+    <!-- ══ BLOCO 1 ══ -->
+    <div class="bloco-header">
+        <span class="bloco-label bloco-1">🔊 Bloco 1 — Acústica</span>
+    </div>
+    <div class="grid-3">
+
+        <!-- Aula 01 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">24/07 · Semana 1</span>
+                <span class="badge badge-done">✓ Concluída</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 01 — Apresentação e Contrato Didático</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Apresentação do plano de ensino, cronograma, regulamento didático institucional (RDP)
+                e contrato pedagógico da sala.
+            </p>
+            <div class="resources-box">
+                <span style="color:#94a3b8;">Ver nota da aula em: <code>Aulas/Bloco-1/Aula01/</code></span>
+            </div>
+        </div>
+
+        <!-- Aula 02 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">31/07 · Semana 2</span>
+                <span class="badge badge-done">✓ Concluída</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 02 — Fundamentos da Acústica</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Origem das ondas sonoras, velocidade do som em meios sólidos, líquidos e gasosos;
+                qualidades fisiológicas (altura, timbre, nível em dB). Cap. 19.
+            </p>
+            <div class="resources-box">
+                <span style="color:#94a3b8;">Livro base: <code>Capítulo 19 - Acústica.pdf</code></span>
+            </div>
+        </div>
+
+        <!-- Aula 03 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">07/08 · Semana 3</span>
+                <span class="badge badge-done">✓ Concluída</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 03 — Fenômenos Acústicos e Fontes</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Reflexão das ondas sonoras, eco e reverberação. Cordas vibrantes,
+                tubos sonoros abertos/fechados e Efeito Doppler.
+            </p>
+            <div class="resources-box">
+                <span style="color:#94a3b8;">Livro base: <code>Capítulo 19 - Acústica.pdf</code></span>
+            </div>
+        </div>
+
+        <!-- Lab 01 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">14/08 · Semana 4</span>
+                <span class="badge badge-lab">🔬 Laboratório</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Lab 01 — Copos Cantantes e Frequência</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Atividade prática no laboratório. Relação entre o volume de líquido em copos de cristal
+                e a frequência do som produzido por atrito.
+            </p>
+            <div class="resources-box">
+                <span style="color:#94a3b8;">Roteiro: <code>Lab_2026-08-14_Copos_Cantantes.md</code></span>
+            </div>
+        </div>
+
+        <!-- Aula 04 EP -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">21/08 · Semana 5</span>
+                <span class="badge badge-done">✓ Concluída</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 04 — Exercícios de Acústica</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Resolução de problemas envolvendo eco, intensidade sonora, decibéis,
+                equação de Taylor e harmônicos em cordas/tubos.
+            </p>
+        </div>
+
+        <!-- AVA 1 -->
+        <div class="card-aula" style="border-color: rgba(239,68,68,.2);">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">28/08 · Semana 6</span>
+                <span class="badge badge-ava">📝 Avaliação 1</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Avaliação 1 — Acústica</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Prova teórica escrita individual sem consulta. Ondas sonoras, qualidades do som,
+                tubos/cordas e Efeito Doppler.
+            </p>
+        </div>
+
+    </div><!-- /grid bloco 1 -->
+
+    <!-- ══ BLOCO 2 ══ -->
+    <div class="bloco-header">
+        <span class="bloco-label bloco-2">🕯️ Bloco 2 — Óptica Geométrica e Espelhos</span>
+    </div>
+    <div class="grid-3">
+
+        <!-- Aula 05 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">04/09 · Semana 7</span>
+                <span class="badge badge-next">Próxima</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 05 — Princípios da Óptica e Espelhos Planos</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Propagação retilínea, sombra/penumbra, eclipses. Leis da reflexão da luz,
+                espelho plano, formação de imagens e campo visual. Cap. 10 e 11.
+            </p>
+            <div class="resources-box">
+                <span style="color:#94a3b8;">Livro base: <code>Cap.11-Reflexao-Espelhos.pdf</code></span><br>
+                <span style="color:#94a3b8; display:block; margin-top:.4rem;">💬 Bate-papo: <code>Discussão e Modelagem</code></span>
+            </div>
+            <div style="display:flex; gap:.5rem;">
+                <a href="../Óptica_Acústica/reflexão-da-luz-e-espelhos-planos-20260716.md" target="_blank" class="btn-drive" style="background:rgba(236,72,153,.1); color:#f472b6; border-color:rgba(236,72,153,.2);">
+                    💬 Ler Bate-Papo
+                </a>
+            </div>
+        </div>
+
+        <!-- Aula 06 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">11/09 · Semana 8</span>
+                <span class="badge badge-soon">Em breve</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 06 — Espelhos Esféricos Côncavos e Convexos</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Calotas esféricas, raios principais, focos virtuais e reais. Construção gráfica de imagens
+                e estudo analítico (Equação de Gauss). Cap. 12.
+            </p>
+            <div class="resources-box">
+                <span style="color:#94a3b8;">Livro base: <code>Cap.12-Espelhos-Esfericos.pdf</code></span>
+            </div>
+        </div>
+
+        <!-- Lab 02 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">18/09 · Semana 9</span>
+                <span class="badge badge-lab">🔬 Laboratório</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Lab 02 — Simetria no Espelho Plano</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Mapeamento prático da distância objeto-espelho e espelho-imagem usando placa de vidro,
+                velas e alfinetes.
+            </p>
+            <div class="resources-box">
+                <span style="color:#94a3b8;">Roteiro: <code>Lab_2026-09-18_Propriedades_Espelho_Plano.md</code></span><br>
+                <span style="color:#94a3b8; display:block; margin-top:.4rem;">💬 Bate-papo: <code>Discussão de Modelagem</code></span>
+            </div>
+            <div style="display:flex; gap:.5rem;">
+                <a href="../Óptica_Acústica/reflexão-da-luz-e-espelhos-planos-20260716.md" target="_blank" class="btn-drive" style="background:rgba(236,72,153,.1); color:#f472b6; border-color:rgba(236,72,153,.2);">
+                    💬 Ler Bate-Papo
+                </a>
+            </div>
+        </div>
+
+        <!-- Aula 07 EP -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">25/09 · Semana 10</span>
+                <span class="badge badge-soon">Em breve</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 07 — Exercícios de Espelhos</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Cálculos analíticos usando o referencial de Gauss: formação de imagem virtual/real,
+                espelhos convexos/côncavos, vergência.
+            </p>
+        </div>
+
+        <!-- AVA 2 -->
+        <div class="card-aula" style="border-color: rgba(239,68,68,.2);">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">02/10 · Semana 11</span>
+                <span class="badge badge-ava">📝 Avaliação 2</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Avaliação 2 — Óptica e Espelhos</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Prova escrita individual sem consulta. Leis de reflexão, simetria em espelhos planos
+                e equações de espelhos esféricos (Gauss).
+            </p>
+        </div>
+
+        <!-- Conselho 09/10 -->
+        <div class="card-feriado">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.5rem;">
+                <span style="font-size:.72rem; color:#475569; font-weight:600;">09/10 · Semana 12</span>
+                <span class="badge badge-holiday">📅 Conselho</span>
+            </div>
+            <p style="font-size:.9rem; font-weight:600; color:#64748b; margin:0;">Conselhos de Classe Intermediários</p>
+            <p style="font-size:.78rem; color:#475569; margin:0;">Sem atividades letivas regulares de sexta-feira.</p>
+        </div>
+
+        <!-- Reserva 1 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">16/10 · Semana 13</span>
+                <span class="badge badge-soon">Reserva</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Reserva 1 / Não Programada</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Aula reservada para compensação de cronogramas, atrasos de laboratório ou outras
+                necessidades institucionais imprevistas.
+            </p>
+        </div>
+
+    </div><!-- /grid bloco 2 -->
+
+    <!-- ══ BLOCO 3 ══ -->
+    <div class="bloco-header">
+        <span class="bloco-label bloco-3">👓 Bloco 3 — Refração e Lentes</span>
+    </div>
+    <div class="grid-3">
+
+        <!-- Aula 08 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">23/10 · Semana 14</span>
+                <span class="badge badge-soon">Em breve</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 08 — Refração Luminosa</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Índice de refração, Lei de Snell-Descartes. Ângulo limite, reflexão total e o
+                funcionamento de cabos de fibra óptica. Cap. 13.
+            </p>
+            <div class="resources-box">
+                <span style="color:#94a3b8;">Livro base: <code>Cap.13-Refracao.pdf</code></span>
+            </div>
+        </div>
+
+        <!-- Aula 09 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">30/10 · Semana 15</span>
+                <span class="badge badge-soon">Em breve</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 09 — Lentes Esféricas Delgadas</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Lentes convergentes/divergentes, raios luminosos principais. Estudo analítico das lentes
+                (Gauss) e vergência (grau: $C = 1/f$). Cap. 14.
+            </p>
+            <div class="resources-box">
+                <span style="color:#94a3b8;">Livro base: <code>Cap.14-Lentes-Delgadas.pdf</code></span>
+            </div>
+        </div>
+
+        <!-- Lab 03 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">06/11 · Semana 16</span>
+                <span class="badge badge-lab">🔬 Laboratório</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Lab 03 — Distância Focal de Lente Convergente</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Projeção da imagem de uma chama de vela sobre um anteparo utilizando lentes convergentes delgadas.
+                Determinação experimental da distância focal.
+            </p>
+            <div class="resources-box">
+                <span style="color:#94a3b8;">Roteiro: <code>Lab_2026-11-06_Distancia_Focal_Lente.md</code></span>
+            </div>
+        </div>
+
+        <!-- Aula 10 EP -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">13/11 · Semana 17</span>
+                <span class="badge badge-soon">Em breve</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Aula 10 — Exercícios de Refração e Lentes</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Cálculos de índice de refração absoluto e relativo, ângulo limite para reflexão total,
+                vergência de lentes (dioptria) e tamanho/características de imagens.
+            </p>
+        </div>
+
+        <!-- Feriado 20/11 -->
+        <div class="card-feriado">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.5rem;">
+                <span style="font-size:.72rem; color:#475569; font-weight:600;">20/11 · Semana 18</span>
+                <span class="badge badge-holiday">🔴 Feriado</span>
+            </div>
+            <p style="font-size:.9rem; font-weight:600; color:#64748b; margin:0;">Dia da Consciência Negra</p>
+            <p style="font-size:.78rem; color:#475569; margin:0;">Sem atividades letivas presenciais.</p>
+        </div>
+
+        <!-- AVA 3 -->
+        <div class="card-aula" style="border-color: rgba(239,68,68,.2);">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">27/11 · Semana 19</span>
+                <span class="badge badge-ava">📝 Avaliação 3</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Avaliação 3 — Refração e Lentes</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Prova escrita individual sem consulta. Snell-Descartes, ângulo limite,
+                lentes delgadas e defeitos visuais (correção óptica).
+            </p>
+        </div>
+
+        <!-- Reserva 2 -->
+        <div class="card-aula">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">04/12 · Semana 20</span>
+                <span class="badge badge-soon">Reserva</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Reserva 2 / Fechamento</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Esclarecimento de dúvidas para a prova de reposição final e
+                fechamento de relatórios pendentes.
+            </p>
+        </div>
+
+        <!-- Reposição / Final -->
+        <div class="card-aula" style="border-color: rgba(239,68,68,.25);">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:.72rem; color:#64748b; font-weight:600;">11/12 · Semana 21</span>
+                <span class="badge badge-ava">📝 Final</span>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; margin:0;">Avaliação de Reposição Final</h3>
+            <p style="font-size:.83rem; color:#94a3b8; margin:0;">
+                Prova teórica escrita individual abrangendo todo o conteúdo programático do semestre
+                para alunos em recuperação ou reposição.
+            </p>
+        </div>
+
+    </div><!-- /grid bloco 3 -->
+
+    <!-- ══ EXERCÍCIOS RESOLVIDOS ══ -->
+    <div style="margin-top: 4rem;" id="exercicios">
+        <h2 class="section-title">📝 Exercícios Resolvidos com LaTeX</h2>
+        <p class="section-sub" style="margin-bottom:1.5rem;">Clique em cada enunciado para ver o desenvolvimento matemático completo das questões conceituais e analíticas.</p>
+
+        <div style="display:flex; flex-direction:column; gap:.75rem; max-width:800px;">
+
+            <details style="background:var(--c-surface); border:1px solid var(--c-border); border-radius:.9rem; overflow:hidden;">
+                <summary>
+                    <div style="display:flex; align-items:center; gap:.8rem;">
+                        <span style="background:rgba(6,182,212,.15); color:#22d3ee; border:1px solid rgba(6,182,212,.25); font-weight:700; font-size:.7rem; padding:.25rem .6rem; border-radius:.4rem;">🔊 Ex 1</span>
+                        <span style="font-weight:600;">Acústica — Nível Sonoro em Decibéis (Cap. 19)</span>
+                    </div>
+                    <span style="color:#64748b; font-size:1.1rem;">▾</span>
+                </summary>
+                <div style="padding:1.4rem; background:rgba(0,0,0,.25); border-top:1px solid rgba(255,255,255,.06);">
+                    <p style="color:#cbd5e1;"><strong>Enunciado:</strong> Uma fonte de som emite ondas com intensidade sonora física de $I = 10^{-6}\text{ W/m}^2$. Sabendo que a intensidade do limiar de audibilidade é $I_0 = 10^{-12}\text{ W/m}^2$, determine o nível de intensidade sonora ($\beta$) em decibéis (dB).</p>
+                    <div style="background:rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.07); border-radius:.6rem; padding:1.2rem; margin-top:1rem;">
+                        <p style="color:#22d3ee; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin:0 0 .8rem;">Resolução:</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:.5rem 0;">1. Relação logarítmica do nível sonoro:</p>
+                        <p style="text-align:center;">$$\beta = 10 \cdot \log_{10}\left(\frac{I}{I_0}\right)$$</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:.5rem 0;">2. Substituindo os valores conhecidos:</p>
+                        <p style="text-align:center;">$$\beta = 10 \cdot \log_{10}\left(\frac{10^{-6}}{10^{-12}}\right)$$</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:.5rem 0;">3. Aplicando as propriedades de potenciação:</p>
+                        <p style="text-align:center;">$$\beta = 10 \cdot \log_{10}(10^6)$$</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:.5rem 0;">4. Como $\log_{10}(10^6) = 6$:</p>
+                        <p style="text-align:center;">$$\beta = 10 \cdot 6 = 60\text{ dB}$$</p>
+                        <p style="color:#94a3b8; font-size:.85rem; margin:.5rem 0;">O nível correspondente é de **60 decibéis**, equivalente a uma conversa comum.</p>
+                    </div>
+                </div>
+            </details>
+
+            <details style="background:var(--c-surface); border:1px solid var(--c-border); border-radius:.9rem; overflow:hidden;">
+                <summary>
+                    <div style="display:flex; align-items:center; gap:.8rem;">
+                        <span style="background:rgba(6,182,212,.15); color:#22d3ee; border:1px solid rgba(6,182,212,.25); font-weight:700; font-size:.7rem; padding:.25rem .6rem; border-radius:.4rem;">🔎 Ex 2</span>
+                        <span style="font-weight:600;">Espelhos Esféricos — Equação de Gauss (Cap. 12)</span>
+                    </div>
+                    <span style="color:#64748b; font-size:1.1rem;">▾</span>
+                </summary>
+                <div style="padding:1.4rem; background:rgba(0,0,0,.25); border-top:1px solid rgba(255,255,255,.06);">
+                    <p style="color:#cbd5e1;"><strong>Enunciado:</strong> Um objeto de $5\text{ cm}$ de altura é posicionado a $20\text{ cm}$ de um espelho esférico côncavo cujo raio de curvatura mede $30\text{ cm}$. Encontre a distância da imagem ao espelho ($p'$) e o tamanho da imagem ($i$).</p>
+                    <div style="background:rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.07); border-radius:.6rem; padding:1.2rem; margin-top:1rem;">
+                        <p style="color:#22d3ee; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin:0 0 .8rem;">Resolução:</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:.5rem 0;">1. Cálculo do foco ($f$), sabendo que $f = R/2$ e que para espelho côncavo o foco é positivo:</p>
+                        <p style="text-align:center;">$$f = \frac{30}{2} = 15\text{ cm}$$</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:.5rem 0;">2. Equação de Gauss para pontos conjugados:</p>
+                        <p style="text-align:center;">$$\frac{1}{f} = \frac{1}{p} + \frac{1}{p'} \implies \frac{1}{15} = \frac{1}{20} + \frac{1}{p'}$$</p>
+                        <p style="text-align:center;">$$\frac{1}{p'} = \frac{1}{15} - \frac{1}{20} \implies \frac{1}{p'} = \frac{4 - 3}{60} = \frac{1}{60} \implies p' = 60\text{ cm}$$</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:.5rem 0;">3. Cálculo do aumento linear transversal ($A$):</p>
+                        <p style="text-align:center;">$$A = -\frac{p'}{p} = -\frac{60}{20} = -3$$</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:.5rem 0;">4. Cálculo da altura da imagem ($i$):</p>
+                        <p style="text-align:center;">$$A = \frac{i}{o} \implies -3 = \frac{i}{5} \implies i = -15\text{ cm}$$</p>
+                        <p style="color:#94a3b8; font-size:.85rem;">A imagem está localizada a **60 cm** à frente do espelho (real, pois $p' > 0$), é **invertida** (sinal negativo) e possui **15 cm** de altura (ampliada 3 vezes).</p>
+                    </div>
+                </div>
+            </details>
+
+            <details style="background:var(--c-surface); border:1px solid var(--c-border); border-radius:.9rem; overflow:hidden;">
+                <summary>
+                    <div style="display:flex; align-items:center; gap:.8rem;">
+                        <span style="background:rgba(6,182,212,.15); color:#22d3ee; border:1px solid rgba(6,182,212,.25); font-weight:700; font-size:.7rem; padding:.25rem .6rem; border-radius:.4rem;">🌈 Ex 3</span>
+                        <span style="font-weight:600;">Refração — Lei de Snell-Descartes & Ângulo Limite (Cap. 13)</span>
+                    </div>
+                    <span style="color:#64748b; font-size:1.1rem;">▾</span>
+                </summary>
+                <div style="padding:1.4rem; background:rgba(0,0,0,.25); border-top:1px solid rgba(255,255,255,.06);">
+                    <p style="color:#cbd5e1;"><strong>Enunciado:</strong> Um raio de luz monocromático incide a partir do ar ($n_1 = 1{,}0$) sobre a face plana de um bloco de vidro com índice de refração $n_2 = 1{,}5$. Sendo o ângulo de incidência de $30°$, calcule: (a) o seno do ângulo de refração no vidro; (b) o seno do ângulo limite para reflexão total do vidro para o ar.</p>
+                    <div style="background:rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.07); border-radius:.6rem; padding:1.2rem; margin-top:1rem;">
+                        <p style="color:#22d3ee; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin:0 0 .8rem;">Resolução:</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:.5rem 0;"><strong>(a)</strong> Aplicando a Lei de Snell-Descartes:</p>
+                        <p style="text-align:center;">$$n_1 \cdot \sin\theta_1 = n_2 \cdot \sin\theta_2$$</p>
+                        <p style="text-align:center;">$$1{,}0 \cdot \sin(30°) = 1{,}5 \cdot \sin\theta_r$$</p>
+                        <p style="text-align:center;">$$1{,}0 \cdot 0{,}5 = 1{,}5 \cdot \sin\theta_r \implies \sin\theta_r = \frac{0{,}5}{1{,}5} = \frac{1}{3} \approx 0{,}33$$</p>
+                        <p style="color:#cbd5e1; font-size:.9rem; margin:1rem 0 .5rem;"><strong>(b)</strong> Determinando o ângulo limite de reflexão interna total:</p>
+                        <p style="text-align:center;">$$\sin\theta_L = \frac{n_{\text{menor}}}{n_{\text{maior}}}$$</p>
+                        <p style="text-align:center;">$$\sin\theta_L = \frac{n_{\text{ar}}}{n_{\text{vidro}}} = \frac{1{,}0}{1{,}5} = \frac{2}{3} \approx 0{,}67$$</p>
+                    </div>
+                </div>
+            </details>
+
+        </div>
+    </div>
+
+    <!-- ══ AVALIAÇÃO ══ -->
+    <div style="margin-top: 4rem;" id="avaliacao">
+        <h2 class="section-title">📊 Critérios de Avaliação</h2>
+        <div style="background:var(--c-surface); border:1px solid var(--c-border); border-radius:1rem; padding:2rem; max-width:700px; margin-top:1rem;">
+            <p style="color:#22d3ee; font-size:1.05rem; font-weight:700; font-family:monospace; margin-bottom:1.2rem;">
+                Média = AVA1 (3,0) + AVA2 (3,0) + AVA3 (3,0) + Labs (1,0) = 10,0
+            </p>
+            <div style="display:flex; flex-direction:column; gap:1rem;">
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <span style="background:rgba(6,182,212,.15); color:#22d3ee; border:1px solid rgba(6,182,212,.25); font-weight:700; font-size:.8rem; padding:.3rem .8rem; border-radius:9999px; white-space:nowrap;">90%</span>
+                    <div>
+                        <strong style="color:#f1f5f9; font-size:.95rem;">3 Provas Teóricas Individuais (AVA1, AVA2, AVA3)</strong>
+                        <p style="color:#64748b; font-size:.83rem; margin:.3rem 0 0;">Escritas, sem consulta, ao término de cada bloco didático (3,0 pontos cada).</p>
+                    </div>
+                </div>
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <span style="background:rgba(139,92,246,.15); color:#c4b5fd; border:1px solid rgba(139,92,246,.25); font-weight:700; font-size:.8rem; padding:.3rem .8rem; border-radius:9999px; white-space:nowrap;">10%</span>
+                    <div>
+                        <strong style="color:#f1f5f9; font-size:.95rem;">Relatórios de Práticas de Laboratório</strong>
+                        <p style="color:#64748b; font-size:.83rem; margin:.3rem 0 0;">Lab 01 + Lab 02 + Lab 03 — entrega em equipe (1,0 ponto no total).</p>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:1.4rem; background:rgba(239,68,68,.08); border:1px solid rgba(239,68,68,.2); border-radius:.6rem; padding:.85rem 1rem; font-size:.83rem; color:#fca5a5;">
+                ⚠️ <strong>Frequência mínima obrigatória:</strong> 75% das aulas dadas. O descumprimento leva à reprovação direta por faltas.
+            </div>
+        </div>
+    </div>
+
+</div><!-- /main -->
+
+<!-- ═══ FOOTER ═══ -->
+<footer style="background:#050810; border-top:1px solid rgba(255,255,255,.06); padding:2.5rem 1rem; text-align:center; color:#475569; font-size:.82rem;">
+    <p>&copy; 2026 Prof. Humberto Luz Oliveira — IFSC Câmpus São José</p>
+    <p style="margin:.4rem 0;">
+        <a href="../index.html" style="color:#64748b; text-decoration:none; margin:0 .75rem;">Portal 2026.2</a>
+        <a href="../../index.html" style="color:#64748b; text-decoration:none; margin:0 .75rem;">Portal Ensino</a>
+        <a href="mailto:humberto.oliveira@ifsc.edu.br" style="color:#64748b; text-decoration:none; margin:0 .75rem;">Contato</a>
+    </p>
+</footer>
+
+</body>
+</html>

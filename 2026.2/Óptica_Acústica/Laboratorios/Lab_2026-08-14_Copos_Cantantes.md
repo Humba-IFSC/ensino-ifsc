@@ -18,7 +18,7 @@ tags:
 ---
 
 ## 📖 Referência do Livro
-- Consulte o roteiro experimental em: [[Óptica_Acústica/Caps_Ramalho/Acustica_Física_Vol2.pdf|Capítulo 19 - Acústica]]
+- Consulte o roteiro experimental em: [[Óptica_Acústica/Caps_Ramalho/Cap.19-Acustica.pdf|Capítulo 19 - Acústica]]
 
 ---
 

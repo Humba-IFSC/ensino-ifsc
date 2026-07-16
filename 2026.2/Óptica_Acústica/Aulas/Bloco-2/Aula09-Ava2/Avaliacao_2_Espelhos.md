@@ -29,6 +29,6 @@ tags:
 ---
 
 ## 🔗 Navegação
-- ⬅️ Aula anterior: [[Óptica_Acústica/Aulas/Aula_2026-09-25|Aula para Exercícios de Fixação - Espelhos]]
+- ⬅️ Aula anterior: [[Óptica_Acústica/Aulas/Bloco-2/Aula08-EP/Aula_2026-09-25|Aula para Exercícios de Fixação - Espelhos]]
 - 🏠 [[Óptica_Acústica/Óptica_Acústica|Plano de Ensino (Hub)]]
-- ➡️ Próxima aula: [[Óptica_Acústica/Aulas/Aula_2026-10-09|Aula Extra / Conselho de Classe]]
+- ➡️ Próxima aula: [[Óptica_Acústica/Aulas/Bloco-2/Aula10-Extra/Aula_2026-10-09|Aula Extra / Conselho de Classe]]

@@ -19,8 +19,9 @@ tags:
 
 ## 📖 Referência do Livro
 - Consulte os roteiros experimentais em:
-  - [[Óptica_Acústica/Caps_Ramalho/Reflexo-Espelhos_Física_Vol2.pdf|Capítulo 11 - Reflexão]]
-  - [[Óptica_Acústica/Caps_Ramalho/Espelhos_Física_Vol2.pdf|Capítulo 12 - Espelhos Esféricos]]
+  - [[Óptica_Acústica/Caps_Ramalho/Cap.11-Reflexao-Espelhos.pdf|Capítulo 11 - Reflexão]]
+  - [[Óptica_Acústica/Caps_Ramalho/Cap.12-Espelhos-Esfericos.pdf|Capítulo 12 - Espelhos Esféricos]]
+- 💬 **Bate-papo/Chat sobre a prática:** Consulte a [[Óptica_Acústica/reflexão-da-luz-e-espelhos-planos-20260716|Discussão sobre Espelhos Planos]] para sugestões de modelagem computacional e integração com Tracker, VPython, Arduino e simuladores.
 
 ---
 
