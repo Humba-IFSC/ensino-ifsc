@@ -1,0 +1,48 @@
+{
+  "title": "Flashcards-EP",
+  "cards": [
+    {
+      "front": "Qual é a fórmula da Equação de Gauss utilizada para determinar a distância focal de uma lente delgada?",
+      "back": "$\\frac{1}{f} = \\frac{1}{p} + \\frac{1}{p'}$"
+    },
+    {
+      "front": "Na Equação de Gauss, o que representam as variáveis $p$ e $p'$, respectivamente?",
+      "back": "A distância do objeto à lente ($p$) e a distância da imagem à lente ($p'$)."
+    },
+    {
+      "front": "Quais são as características da imagem de um objeto colocado antes do ponto antiprincipal ($C$) em uma lente convergente?",
+      "back": "Real, invertida e menor que o objeto."
+    },
+    {
+      "front": "Quando o objeto está posicionado exatamente sobre o ponto $C$ de uma lente convergente, qual é o tamanho da imagem em relação ao objeto?",
+      "back": "A imagem apresenta o mesmo tamanho que o objeto."
+    },
+    {
+      "front": "Ao colocar um objeto entre os pontos $C$ e $F$ de uma lente convergente, a imagem projetada será _____ que o objeto.",
+      "back": "maior"
+    },
+    {
+      "front": "É possível projetar em um anteparo a imagem de uma vela posicionada entre o foco ($F$) e o centro óptico ($O$) de uma lente convergente?",
+      "back": "Não, pois a imagem formada nessa posição é virtual."
+    },
+    {
+      "front": "Quais são as três características da imagem formada quando o objeto está entre o foco ($F$) e a lente ($O$)?",
+      "back": "Virtual, direita e maior que o objeto."
+    },
+    {
+      "front": "Cite três materiais necessários para a montagem do experimento de determinação da distância focal conforme o roteiro.",
+      "back": "Lente convergente (lupa), vela com suporte e anteparo (folha de papel branca)."
+    },
+    {
+      "front": "Qual é o objetivo principal da atividade prática descrita no roteiro de laboratório do dia 06/11?",
+      "back": "Determinar a distância focal ($f$) de uma lente delgada convergente por meio de projeção."
+    },
+    {
+      "front": "Que objeto do cotidiano é citado no roteiro como um exemplo comum de lente convergente para o experimento?",
+      "back": "Lupa de leitura."
+    }
+  ],
+  "cardCount": 10,
+  "exportedAt": "2026-07-18T20:51:00.055Z",
+  "source": "Web Clipper for NotebookLM"
+}

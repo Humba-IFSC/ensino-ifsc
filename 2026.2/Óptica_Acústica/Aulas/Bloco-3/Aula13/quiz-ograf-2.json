@@ -1,0 +1,318 @@
+{
+  "title": "Quiz-OGRaf-2",
+  "questions": [
+    {
+      "question": "De acordo com a nomenclatura e a geometria das lentes esféricas, como são classificadas as lentes que possuem a parte central mais espessa do que a periferia?",
+      "answerOptions": [
+        {
+          "text": "Lentes de bordas delgadas",
+          "isCorrect": true,
+          "rationale": "Essas lentes, como a biconvexa e a plano-convexa, apresentam uma espessura central superior à das bordas no critério geométrico."
+        },
+        {
+          "text": "Lentes de bordas espessas",
+          "isCorrect": false,
+          "rationale": "Este termo descreve lentes onde a periferia é mais larga que o centro, como a bicôncava."
+        },
+        {
+          "text": "Lentes cilíndricas convergentes",
+          "isCorrect": false,
+          "rationale": "Embora possam ser convergentes, a classificação geométrica primária baseia-se na espessura das bordas em relação ao centro."
+        },
+        {
+          "text": "Lentes de faces paralelas",
+          "isCorrect": false,
+          "rationale": "Lâminas de faces paralelas mantêm a mesma espessura em toda a sua extensão, não sendo classificadas como esféricas delgadas."
+        },
+        {
+          "text": "Lentes divergentes absolutas",
+          "isCorrect": false,
+          "rationale": "A convergência ou divergência depende do índice de refração do meio, enquanto a classificação de bordas é estritamente geométrica."
+        }
+      ],
+      "hint": "Considere a relação visual entre a periferia da lente e sua parte central."
+    },
+    {
+      "question": "Uma lente de bordas espessas é imersa em um líquido cujo índice de refração é maior que o do material da lente ($n_{meio} > n_{lente}$). Qual será o comportamento óptico dessa lente?",
+      "answerOptions": [
+        {
+          "text": "Convergente",
+          "isCorrect": true,
+          "rationale": "Quando o meio é mais refringente que a lente, o comportamento óptico se inverte, transformando uma lente de bordas espessas em convergente."
+        },
+        {
+          "text": "Divergente",
+          "isCorrect": false,
+          "rationale": "Esse seria o comportamento se a lente estivesse no ar ou em um meio menos refringente."
+        },
+        {
+          "text": "Apolar",
+          "isCorrect": false,
+          "rationale": "O termo apolar refere-se a propriedades químicas de moléculas e não ao comportamento de refração de lentes."
+        },
+        {
+          "text": "Neutro (sem desvio)",
+          "isCorrect": false,
+          "rationale": "A luz sempre sofre desvio se houver diferença entre os índices de refração das superfícies curvas."
+        },
+        {
+          "text": "Reflexivo",
+          "isCorrect": false,
+          "rationale": "Lentes operam primordialmente por refração (transmissão de luz) e não por reflexão."
+        }
+      ],
+      "hint": "Lembre-se da regra de inversão do comportamento óptico quando o meio externo é mais refringente que a lente."
+    },
+    {
+      "question": "Qual é a propriedade fundamental de um raio de luz que incide exatamente sobre o centro óptico ($O$) de uma lente esférica delgada?",
+      "answerOptions": [
+        {
+          "text": "Atravessa a lente sem sofrer desvio em sua trajetória.",
+          "isCorrect": true,
+          "rationale": "Por definição, em lentes delgadas, qualquer raio que passe pelo centro óptico emerge mantendo a direção original."
+        },
+        {
+          "text": "Emerge passando pelo foco principal imagem ($F'$).",
+          "isCorrect": false,
+          "rationale": "Essa propriedade pertence aos raios que incidem paralelamente ao eixo principal."
+        },
+        {
+          "text": "Reflete-se voltando pelo mesmo caminho.",
+          "isCorrect": false,
+          "rationale": "Lentes são sistemas de refração; a reflexão total no centro óptico não é um comportamento padrão de raios particulares."
+        },
+        {
+          "text": "Emerge paralelamente ao eixo principal.",
+          "isCorrect": false,
+          "rationale": "Este comportamento é típico de raios que incidem passando pelo foco principal objeto ($F$)."
+        },
+        {
+          "text": "Sofre um desvio lateral proporcional à espessura.",
+          "isCorrect": false,
+          "rationale": "Em lentes consideradas 'delgadas', a espessura é desprezível e o desvio lateral é nulo."
+        }
+      ],
+      "hint": "Pense no ponto de cruzamento entre a lente e o eixo principal."
+    },
+    {
+      "question": "Sobre a formação de imagens por uma lente divergente a partir de um objeto real, é correto afirmar que a imagem será sempre:",
+      "answerOptions": [
+        {
+          "text": "Virtual, direita e menor que o objeto.",
+          "isCorrect": true,
+          "rationale": "Independentemente da posição do objeto, a lente divergente sempre conjuga uma imagem com essas três características."
+        },
+        {
+          "text": "Real, invertida e menor que o objeto.",
+          "isCorrect": false,
+          "rationale": "Lentes divergentes não conseguem projetar imagens reais de objetos reais."
+        },
+        {
+          "text": "Virtual, direita e maior que o objeto.",
+          "isCorrect": false,
+          "rationale": "Essa configuração é característica de uma lente convergente quando o objeto está entre o foco e o centro óptico."
+        },
+        {
+          "text": "Real, direita e de mesmo tamanho.",
+          "isCorrect": false,
+          "rationale": "Imagens reais são obrigatoriamente invertidas em sistemas de lente única."
+        },
+        {
+          "text": "Imprópria (formada no infinito).",
+          "isCorrect": false,
+          "rationale": "A imagem só é imprópria quando o objeto está posicionado exatamente sobre o foco de uma lente convergente."
+        }
+      ],
+      "hint": "Considere que lentes divergentes espalham os raios, forçando a formação da imagem através de prolongamentos."
+    },
+    {
+      "question": "Um objeto é colocado sobre o ponto antiprincipal objeto ($C$) de uma lente convergente. Quais são as características da imagem formada?",
+      "answerOptions": [
+        {
+          "text": "Real, invertida e de mesmo tamanho que o objeto.",
+          "isCorrect": true,
+          "rationale": "Quando o objeto está a uma distância $2f$ da lente, a imagem é projetada simetricamente no ponto $C'$ do outro lado."
+        },
+        {
+          "text": "Real, invertida e maior que o objeto.",
+          "isCorrect": false,
+          "rationale": "Isso ocorreria se o objeto estivesse posicionado entre o ponto antiprincipal ($C$) e o foco ($F$)."
+        },
+        {
+          "text": "Virtual, direita e maior que o objeto.",
+          "isCorrect": false,
+          "rationale": "Esta é a configuração de uma lupa, onde o objeto está mais próximo da lente que o foco."
+        },
+        {
+          "text": "Real, invertida e menor que o objeto.",
+          "isCorrect": false,
+          "rationale": "Essa característica pertence a objetos situados além do ponto antiprincipal ($C$)."
+        },
+        {
+          "text": "Virtual, invertida e menor que o objeto.",
+          "isCorrect": false,
+          "rationale": "Imagens virtuais formadas por lentes delgadas de objetos reais são sempre direitas."
+        }
+      ],
+      "hint": "O ponto antiprincipal situa-se a uma distância igual ao dobro da distância focal."
+    },
+    {
+      "question": "Uma lupa, que consiste em uma lente convergente, é utilizada para observar pequenos detalhes. Para que ela funcione como lente de aumento, onde o objeto deve ser posicionado?",
+      "answerOptions": [
+        {
+          "text": "Entre o foco principal objeto ($F$) e o centro óptico ($O$).",
+          "isCorrect": true,
+          "rationale": "Nesta posição, os raios emergem divergentes e seus prolongamentos formam uma imagem virtual, direita e ampliada."
+        },
+        {
+          "text": "Exatamente sobre o foco principal objeto ($F$).",
+          "isCorrect": false,
+          "rationale": "Nesta posição, a imagem formada é imprópria, não sendo possível visualizá-la nitidamente."
+        },
+        {
+          "text": "Além do ponto antiprincipal ($C$).",
+          "isCorrect": false,
+          "rationale": "Nesta distância, a imagem seria real e reduzida, o oposto do objetivo de uma lupa."
+        },
+        {
+          "text": "Entre o ponto antiprincipal ($C$) e o foco ($F$).",
+          "isCorrect": false,
+          "rationale": "Embora a imagem seja maior, ela seria real e invertida, o que dificulta o uso como lente de mão para leitura."
+        },
+        {
+          "text": "No centro óptico da lente.",
+          "isCorrect": false,
+          "rationale": "Se o objeto estiver no centro óptico, ele coincide com a lente e não há refração útil para ampliação."
+        }
+      ],
+      "hint": "Pense na posição que gera uma imagem que não pode ser projetada, mas é vista através da lente."
+    },
+    {
+      "question": "No referencial analítico de Gauss, qual é a convenção de sinais correta para a distância focal ($f$) e para a abscissa da imagem ($p'$)?",
+      "answerOptions": [
+        {
+          "text": "$f > 0$ para lentes convergentes e $p' > 0$ para imagens reais.",
+          "isCorrect": true,
+          "rationale": "Lentes convergentes possuem focos reais (positivos) e imagens projetadas do lado oposto ao objeto são consideradas reais."
+        },
+        {
+          "text": "$f < 0$ para lentes convergentes e $p' < 0$ para imagens reais.",
+          "isCorrect": false,
+          "rationale": "A distância focal é negativa apenas para lentes divergentes, e imagens reais têm abscissa positiva."
+        },
+        {
+          "text": "$f > 0$ para lentes divergentes e $p' > 0$ para imagens virtuais.",
+          "isCorrect": false,
+          "rationale": "Lentes divergentes têm $f < 0$ e imagens virtuais têm sempre $p' < 0$."
+        },
+        {
+          "text": "$f < 0$ para lentes divergentes e $p' > 0$ para imagens virtuais.",
+          "isCorrect": false,
+          "rationale": "Imagens virtuais situam-se do mesmo lado do objeto e, portanto, possuem abscissa negativa."
+        },
+        {
+          "text": "$f = 0$ para lentes delgadas e $p' = p$ para qualquer imagem.",
+          "isCorrect": false,
+          "rationale": "A distância focal nunca é nula em lentes esféricas, e $p'$ só é igual a $p$ em módulo no ponto antiprincipal."
+        }
+      ],
+      "hint": "Considere o sentido da luz incidente e a natureza real ou virtual dos pontos."
+    },
+    {
+      "question": "Se uma lente possui uma distância focal de $20$ cm, qual é a sua vergência ($C$) em dioptrias (di)?",
+      "answerOptions": [
+        {
+          "text": "$5$ di",
+          "isCorrect": true,
+          "rationale": "A vergência é o inverso da distância focal em metros: $C = \\frac{1}{0,20} = 5$ di."
+        },
+        {
+          "text": "$0,05$ di",
+          "isCorrect": false,
+          "rationale": "Este valor seria obtido se a distância focal fosse de $20$ metros e não centímetros."
+        },
+        {
+          "text": "$20$ di",
+          "isCorrect": false,
+          "rationale": "Este erro ocorre ao não converter a unidade de centímetros para metros antes de calcular o inverso."
+        },
+        {
+          "text": "$0,5$ di",
+          "isCorrect": false,
+          "rationale": "Resultado de um erro de cálculo decimal ao dividir $1$ por $0,2$."
+        },
+        {
+          "text": "$-5$ di",
+          "isCorrect": false,
+          "rationale": "A vergência só seria negativa se a lente fosse divergente (foco negativo)."
+        }
+      ],
+      "hint": "Utilize a fórmula $C = \\frac{1}{f}$, lembrando de converter a distância para o Sistema Internacional (metros)."
+    },
+    {
+      "question": "A Equação dos Fabricantes de Lentes (Fórmula de Halley) permite calcular a distância focal baseada nos raios de curvatura. Se uma das faces da lente for plana, como esse raio ($R$) é tratado na fórmula $\\frac{1}{f} = (\\frac{n_2}{n_1} - 1) \\cdot (\\frac{1}{R_1} + \\frac{1}{R_2})$?",
+      "answerOptions": [
+        {
+          "text": "O termo $\\frac{1}{R}$ correspondente à face plana torna-se zero.",
+          "isCorrect": true,
+          "rationale": "Uma face plana tem um raio de curvatura tendendo ao infinito, e o inverso do infinito é zero."
+        },
+        {
+          "text": "O raio é considerado igual a $1$, simplificando a soma.",
+          "isCorrect": false,
+          "rationale": "Atribuir valor $1$ alteraria drasticamente a vergência, ignorando a ausência de curvatura."
+        },
+        {
+          "text": "A fórmula não pode ser aplicada a lentes planas.",
+          "isCorrect": false,
+          "rationale": "A fórmula é universal para superfícies esféricas e planas (esferas de raio infinito)."
+        },
+        {
+          "text": "O valor de $R$ é substituído pela espessura central da lente.",
+          "isCorrect": false,
+          "rationale": "Raios de curvatura e espessura são grandezas geométricas distintas no referencial de Gauss."
+        },
+        {
+          "text": "O termo $\\frac{1}{R}$ torna-se negativo para compensar a face curva.",
+          "isCorrect": false,
+          "rationale": "O sinal depende apenas se a face é côncava ou convexa; faces planas são o limite neutro entre ambas."
+        }
+      ],
+      "hint": "Considere o comportamento matemático de uma fração cujo denominador é infinitamente grande."
+    },
+    {
+      "question": "Um objeto real é colocado a $30$ cm de uma lente convergente de distância focal $f = 10$ cm. Utilizando a Equação de Gauss, determine a posição da imagem ($p'$).",
+      "answerOptions": [
+        {
+          "text": "$15$ cm",
+          "isCorrect": true,
+          "rationale": "Aplicando $\\frac{1}{10} = \\frac{1}{30} + \\frac{1}{p'}$, temos $\\frac{1}{p'} = \\frac{3-1}{30} = \\frac{2}{30}$, logo $p' = 15$ cm."
+        },
+        {
+          "text": "$7,5$ cm",
+          "isCorrect": false,
+          "rationale": "Valor incorreto resultante de erro na manipulação das frações da equação dos pontos conjugados."
+        },
+        {
+          "text": "$-15$ cm",
+          "isCorrect": false,
+          "rationale": "O sinal negativo indicaria uma imagem virtual, mas um objeto além do foco em lente convergente gera imagem real."
+        },
+        {
+          "text": "$30$ cm",
+          "isCorrect": false,
+          "rationale": "A imagem só estaria a $30$ cm se o objeto estivesse no ponto antiprincipal ($20$ cm)."
+        },
+        {
+          "text": "$20$ cm",
+          "isCorrect": false,
+          "rationale": "Este valor não satisfaz a igualdade da Equação de Gauss para os dados fornecidos."
+        }
+      ],
+      "hint": "Aplique a equação $\\frac{1}{f} = \\frac{1}{p} + \\frac{1}{p'}$ com os valores fornecidos."
+    }
+  ],
+  "questionCount": 10,
+  "exportedAt": "2026-07-18T20:40:33.910Z",
+  "source": "Web Clipper for NotebookLM"
+}

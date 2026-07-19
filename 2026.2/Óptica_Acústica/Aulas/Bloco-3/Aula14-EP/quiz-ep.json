@@ -1,0 +1,268 @@
+{
+  "title": "Quiz-EP",
+  "questions": [
+    {
+      "question": "De acordo com a Equação de Gauss apresentada no roteiro de laboratório, como se calcula a relação entre a distância focal ($f$), a distância do objeto ($p$) e a distância da imagem ($p'$)?",
+      "answerOptions": [
+        {
+          "text": "$\\frac{1}{f} = \\frac{1}{p} + \\frac{1}{p'}$",
+          "isCorrect": true,
+          "rationale": "Esta é a forma clássica da Equação de Gauss para lentes delgadas, relacionando os inversos das distâncias envolvidas no processo de formação de imagem."
+        },
+        {
+          "text": "$f = p + p'$",
+          "isCorrect": false,
+          "rationale": "A distância focal não é a simples soma das distâncias do objeto e da imagem, mas sim relacionada através de seus inversos."
+        },
+        {
+          "text": "$\\frac{1}{f} = \\frac{1}{p} - \\frac{1}{p'}$",
+          "isCorrect": false,
+          "rationale": "O sinal de subtração é comumente confundido com a equação dos fabricantes de lentes ou em convenções de sinais específicas para lentes divergentes em contextos diferentes."
+        },
+        {
+          "text": "$f = \\frac{p \\cdot p'}{p - p'}$",
+          "isCorrect": false,
+          "rationale": "Embora pareça uma simplificação algébrica, o sinal negativo no denominador está incorreto para a relação padrão de uma imagem real em lente convergente."
+        }
+      ],
+      "hint": "Lembre-se que a relação envolve o inverso de cada uma das grandezas físicas mencionadas."
+    },
+    {
+      "question": "Ao realizar o experimento com a vela posicionada antes do ponto antiprincipal ($C$), quais características da imagem devem ser observadas no anteparo?",
+      "answerOptions": [
+        {
+          "text": "Real, invertida e menor que o objeto.",
+          "isCorrect": true,
+          "rationale": "Para objetos situados além de $C$, a lente convergente projeta uma imagem real entre $F'$ e $C'$, apresentando orientação invertida e tamanho reduzido."
+        },
+        {
+          "text": "Virtual, direita e maior que o objeto.",
+          "isCorrect": false,
+          "rationale": "Imagens virtuais e direitas só ocorrem em lentes convergentes quando o objeto está entre o foco e a lente, e elas não podem ser projetadas em anteparos."
+        },
+        {
+          "text": "Real, invertida e maior que o objeto.",
+          "isCorrect": false,
+          "rationale": "Esta característica ocorre quando o objeto está posicionado entre o centro antiprincipal ($C$) e o foco ($F$)."
+        },
+        {
+          "text": "Real, direita e menor que o objeto.",
+          "isCorrect": false,
+          "rationale": "Toda imagem real formada por uma única lente delgada é obrigatoriamente invertida em relação ao objeto."
+        }
+      ],
+      "hint": "Pense no comportamento dos raios de luz quando o objeto está muito distante da lente."
+    },
+    {
+      "question": "O que acontece com a imagem da vela quando ela é colocada entre o foco ($F$) e o centro óptico ($O$) da lente convergente?",
+      "answerOptions": [
+        {
+          "text": "A imagem torna-se virtual e não pode ser projetada no anteparo.",
+          "isCorrect": true,
+          "rationale": "Nesta posição, os raios emergentes são divergentes, fazendo com que a imagem seja formada pelo prolongamento dos raios, o que caracteriza uma imagem virtual e não projetável."
+        },
+        {
+          "text": "A imagem projetada no anteparo torna-se infinitamente grande.",
+          "isCorrect": false,
+          "rationale": "Uma imagem só tende ao infinito (imagem imprópria) quando o objeto é colocado exatamente sobre o foco ($F$)."
+        },
+        {
+          "text": "A imagem aparece no anteparo de forma direita e menor.",
+          "isCorrect": false,
+          "rationale": "Imagens direitas em lentes convergentes são virtuais e maiores, e o anteparo só capta imagens reais (formadas pelo cruzamento efetivo de raios)."
+        },
+        {
+          "text": "A imagem inverte sua orientação no anteparo, tornando-se menor.",
+          "isCorrect": false,
+          "rationale": "Ao cruzar o foco em direção à lente, a imagem deixa de ser real e invertida para se tornar virtual e direita."
+        }
+      ],
+      "hint": "Considere se os raios de luz realmente se cruzam ou se apenas seus prolongamentos o fazem nesta configuração."
+    },
+    {
+      "question": "Se o objeto (vela) for posicionado exatamente sobre o ponto antiprincipal ($C$), qual será a característica da imagem em relação ao seu tamanho?",
+      "answerOptions": [
+        {
+          "text": "Terá o mesmo tamanho que o objeto.",
+          "isCorrect": true,
+          "rationale": "No ponto antiprincipal, a distância do objeto e da imagem à lente são iguais, resultando em um aumento linear transversal igual a $1$ (em módulo)."
+        },
+        {
+          "text": "Será duas vezes maior que o objeto.",
+          "isCorrect": false,
+          "rationale": "O tamanho dobrado ocorreria em uma posição intermediária entre $C$ e $F$, não exatamente em $C$."
+        },
+        {
+          "text": "Será reduzida à metade do tamanho original.",
+          "isCorrect": false,
+          "rationale": "A redução de tamanho só ocorre quando o objeto está a uma distância superior à do ponto antiprincipal."
+        },
+        {
+          "text": "Não haverá formação de imagem nítida.",
+          "isCorrect": false,
+          "rationale": "A imagem em $C$ é perfeitamente nítida, real e invertida, sendo um ponto de referência clássico em óptica geométrica."
+        }
+      ],
+      "hint": "Nesta posição específica, existe uma simetria entre as distâncias $p$ e $p'$."
+    },
+    {
+      "question": "No contexto da atividade experimental, qual é a função primordial do anteparo translúcido ou da folha de papel branca?",
+      "answerOptions": [
+        {
+          "text": "Servir como superfície para a visualização da imagem real formada pelos raios de luz convergentes.",
+          "isCorrect": true,
+          "rationale": "O anteparo é necessário para interceptar os raios de luz que convergem após atravessar a lente, permitindo a observação da imagem real."
+        },
+        {
+          "text": "Atuar como uma segunda lente para ampliar a imagem da vela.",
+          "isCorrect": false,
+          "rationale": "O papel é uma superfície opaca ou translúcida de projeção e não possui propriedades de refração para atuar como lente."
+        },
+        {
+          "text": "Bloquear a luz ambiente para que a lente funcione corretamente.",
+          "isCorrect": false,
+          "rationale": "Embora a escuridão ajude na visibilidade, a função técnica do anteparo é a recepção da imagem projetada, não o bloqueio de luz externa."
+        },
+        {
+          "text": "Medir a intensidade da chama da vela através da transparência.",
+          "isCorrect": false,
+          "rationale": "A atividade foca na geometria da formação de imagens e distâncias, não na medição de grandezas fotométricas como a intensidade luminosa."
+        }
+      ],
+      "hint": "Pense no que acontece quando você tenta ver um filme de um projetor sem uma tela."
+    },
+    {
+      "question": "Qual dos materiais listados no roteiro de laboratório de 06/11 desempenha o papel de lente delgada convergente?",
+      "answerOptions": [
+        {
+          "text": "Lupa comum de leitura.",
+          "isCorrect": true,
+          "rationale": "Lupas são exemplos clássicos de lentes convergentes (geralmente biconvexas) utilizadas para ampliar imagens ou projetar luz."
+        },
+        {
+          "text": "Folha de papel branca rígida.",
+          "isCorrect": false,
+          "rationale": "A folha de papel atua como o anteparo onde a imagem é projetada, e não como o elemento refrator."
+        },
+        {
+          "text": "Vela pequena com suporte.",
+          "isCorrect": false,
+          "rationale": "A vela é o objeto luminoso cujos raios de luz serão organizados pela lente para formar a imagem."
+        },
+        {
+          "text": "Régua métrica ou trena.",
+          "isCorrect": false,
+          "rationale": "A régua é um instrumento de medição utilizado para determinar as distâncias $p$ e $p'$, não possuindo função óptica de convergência."
+        }
+      ],
+      "hint": "Identifique o componente que possui a capacidade de desviar raios de luz para um foco comum."
+    },
+    {
+      "question": "Para que uma imagem seja considerada 'invertida' em relação ao objeto no experimento da vela, o que deve ser observado?",
+      "answerOptions": [
+        {
+          "text": "A chama da vela na imagem deve apontar para baixo no anteparo.",
+          "isCorrect": true,
+          "rationale": "A inversão refere-se à orientação espacial; se o objeto aponta para cima, a imagem real projetada apontará para o sentido oposto."
+        },
+        {
+          "text": "A imagem deve aparecer do mesmo lado da lente que o objeto.",
+          "isCorrect": false,
+          "rationale": "Isso descreveria uma imagem virtual, que costuma ser direita, e não necessariamente explica a inversão."
+        },
+        {
+          "text": "A luz da vela deve mudar de cor ao passar pela lente.",
+          "isCorrect": false,
+          "rationale": "A inversão é um fenômeno geométrico de posicionamento, não uma alteração cromática ou de frequência da luz."
+        },
+        {
+          "text": "A imagem deve ser refletida de volta para a fonte de luz.",
+          "isCorrect": false,
+          "rationale": "O fenômeno descrito é a reflexão, enquanto o experimento trata da refração através de uma lente."
+        }
+      ],
+      "hint": "Considere o sentido de crescimento vertical da chama do objeto comparado ao da imagem."
+    },
+    {
+      "question": "Quando o objeto é colocado entre $C$ e $F$, a imagem formada é real, invertida e maior. Qual a aplicação prática dessa configuração mencionada indiretamente pela natureza do experimento?",
+      "answerOptions": [
+        {
+          "text": "Projeção de imagens ampliadas em uma tela.",
+          "isCorrect": true,
+          "rationale": "Esta configuração é a base do funcionamento de projetores, onde o objetivo é obter uma imagem real (projetável) e ampliada."
+        },
+        {
+          "text": "Uso da lente como óculos para correção de miopia.",
+          "isCorrect": false,
+          "rationale": "A correção de miopia utiliza lentes divergentes, e o funcionamento de óculos não envolve a projeção de imagens em anteparos externos."
+        },
+        {
+          "text": "Criação de um espelho retrovisor.",
+          "isCorrect": false,
+          "rationale": "Espelhos retrovisores baseiam-se em reflexão (espelhos), não em refração através de lentes delgadas."
+        },
+        {
+          "text": "Redução de documentos para microfilmes.",
+          "isCorrect": false,
+          "rationale": "Para reduzir imagens, o objeto deveria estar antes de $C$, resultando em uma imagem menor, e não entre $C$ e $F$."
+        }
+      ],
+      "hint": "Pense no objetivo de ver uma imagem maior do que o objeto original, mas que ainda possa ser projetada."
+    },
+    {
+      "question": "No banco óptico montado na prática, qual é a importância de manter a lente e o papel na vertical?",
+      "answerOptions": [
+        {
+          "text": "Para garantir que o eixo óptico principal passe perpendicularmente pelo centro da lente e da imagem.",
+          "isCorrect": true,
+          "rationale": "O alinhamento vertical assegura que as leis da óptica geométrica para lentes delgadas sejam aplicadas corretamente, evitando distorções por inclinação."
+        },
+        {
+          "text": "Para evitar que a vela se apague com o vento lateral.",
+          "isCorrect": false,
+          "rationale": "Embora manter a vela acesa seja importante, o alinhamento vertical dos suportes é uma exigência da precisão geométrica do experimento óptico."
+        },
+        {
+          "text": "Para permitir que a gravidade não desvie os raios de luz.",
+          "isCorrect": false,
+          "rationale": "A gravidade não possui efeito perceptível na trajetória da luz em experimentos de laboratório escolares."
+        },
+        {
+          "text": "Para que a régua métrica possa medir a altura da chama mais facilmente.",
+          "isCorrect": false,
+          "rationale": "A régua no banco óptico mede as distâncias horizontais ($p$ e $p'$) e não necessariamente a altura vertical da chama."
+        }
+      ],
+      "hint": "Considere o alinhamento necessário entre o objeto, o centro da lente e o ponto de projeção."
+    },
+    {
+      "question": "Se a distância focal ($f$) de uma lupa for de $10\\text{ cm}$ e a vela for colocada a $20\\text{ cm}$ da lente ($p = 20\\text{ cm}$), onde a imagem será formada?",
+      "answerOptions": [
+        {
+          "text": "A $20\\text{ cm}$ da lente, no lado oposto.",
+          "isCorrect": true,
+          "rationale": "Neste caso, $p = 2f$ (ponto antiprincipal), logo a imagem é formada também em $p' = 2f = 20\\text{ cm}$."
+        },
+        {
+          "text": "A $10\\text{ cm}$ da lente, no mesmo lado do objeto.",
+          "isCorrect": false,
+          "rationale": "Uma imagem a $10\\text{ cm}$ no mesmo lado seria virtual, mas em $p = 20\\text{ cm}$ a lente forma uma imagem real do outro lado."
+        },
+        {
+          "text": "A uma distância infinita, pois os raios saem paralelos.",
+          "isCorrect": false,
+          "rationale": "Os raios só saem paralelos se o objeto for colocado exatamente no foco ($p = f = 10\\text{ cm}$)."
+        },
+        {
+          "text": "A $5\\text{ cm}$ da lente, entre o foco e o centro óptico.",
+          "isCorrect": false,
+          "rationale": "Pela Equação de Gauss, se $p > f$, então $p'$ deve ser maior que $f$ para lentes convergentes formando imagens reais."
+        }
+      ],
+      "hint": "Observe que a distância informada ($20\\text{ cm}$) é exatamente o dobro da distância focal ($10\\text{ cm}$)."
+    }
+  ],
+  "questionCount": 10,
+  "exportedAt": "2026-07-18T20:51:04.592Z",
+  "source": "Web Clipper for NotebookLM"
+}

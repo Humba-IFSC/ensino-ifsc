@@ -1,0 +1,15 @@
+Qual é a classificação das ondas sonoras quanto à sua natureza e direção de vibração?,São ondas mecânicas longitudinais.
+"Como a velocidade de propagação do som varia entre os estados físicos da matéria (sólido, líquido e gasoso)?","A velocidade é maior nos sólidos, seguida pelos líquidos e menor nos gases."
+"Qual é a faixa de frequências, expressa em hertz ($Hz$), que delimita o som audível para o ser humano?",Aproximadamente entre $20$ $Hz$ e $20.000$ $Hz$.
+A qualidade fisiológica do som que permite ao ouvido diferenciar sons graves (baixas frequências) de sons agudos (altas frequências) é a _____.,Altura
+Qual é a definição de 'timbre' no contexto das qualidades fisiológicas do som?,É a característica que permite distinguir sons de mesma altura e intensidade emitidos por fontes diferentes.
+"Para que um ouvinte perceba o fenômeno do eco no ar, qual deve ser a distância mínima aproximada entre ele e o obstáculo refletor?",$17$ metros.
+Fórmula: Velocidade aproximada do som ($v$) no ar em função da temperatura ($T$) em $^{\circ}C$.,"$v \approx 331,5 + (0,6 \cdot T)$"
+"Em um tubo sonoro fechado em ressonância, o que ocorre fisicamente na superfície da água e na extremidade aberta?",Forma-se um nó de deslocamento na água e um ventre (antinó) na extremidade aberta.
+Qual é a relação entre o comprimento da coluna de ar ($L$) e o comprimento de onda ($\lambda$) para o primeiro harmônico de um tubo fechado?,$L = \frac{\lambda}{4}$
+O que define o fenômeno da 'Ressonância' acústica?,"Ocorre quando a frequência de uma fonte coincide com a frequência natural de oscilação de um corpo, aumentando sua amplitude."
+"Na prática laboratorial, a 'correção de extremidade' para tubos sonoros equivale a adicionar aproximadamente quantos por cento do diâmetro ($D$) ao comprimento ($L$)?",$30\%$ do diâmetro físico do tubo.
+Como se calcula a frequência de batimento ($f_{b}$) resultante da interferência de duas ondas com frequências $f_{1}$ e $f_{2}$ muito próximas?,$f_{b} = |f_{2} - f_{1}|$
+O fenômeno da variação aparente da frequência recebida por um observador devido ao movimento relativo entre ele e a fonte sonora é o _____.,Efeito Doppler
+Como a frequência fundamental de uma corda vibrante se comporta em relação à tensão ($T$) a que está submetida?,A frequência é diretamente proporcional à raiz quadrada da tensão ($f \propto \sqrt{T}$).
+Qual é a unidade de medida utilizada para expressar o nível sonoro ou intensidade auditiva na escala logarítmica?,Decibel ($dB$).

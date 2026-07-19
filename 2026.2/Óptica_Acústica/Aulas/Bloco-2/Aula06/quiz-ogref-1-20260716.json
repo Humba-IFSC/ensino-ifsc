@@ -1,0 +1,268 @@
+{
+  "title": "Quiz-OGRef-1",
+  "questions": [
+    {
+      "question": "De acordo com os princípios da Óptica Geométrica, o que acontece quando dois raios de luz se cruzam em um mesmo ponto do espaço?",
+      "answerOptions": [
+        {
+          "text": "Eles seguem suas trajetórias de forma independente, sem alterar a direção ou a energia um do outro.",
+          "isCorrect": true,
+          "rationale": "O princípio da independência estabelece que a propagação de um raio de luz não é afetada pelo cruzamento com outros raios."
+        },
+        {
+          "text": "Eles sofrem um desvio em suas trajetórias originais devido à colisão de fótons.",
+          "isCorrect": false,
+          "rationale": "Na Óptica Geométrica, os raios de luz não interagem mecanicamente entre si ao se cruzarem."
+        },
+        {
+          "text": "A cor de ambos os raios é alterada permanentemente no ponto de intersecção.",
+          "isCorrect": false,
+          "rationale": "A cor é uma propriedade da frequência da luz e não muda simplesmente pelo cruzamento de feixes."
+        },
+        {
+          "text": "Eles se fundem em um único raio cuja direção é a resultante vetorial das direções iniciais.",
+          "isCorrect": false,
+          "rationale": "Raios de luz mantêm suas identidades individuais e direções de propagação após passarem uns pelos outros."
+        }
+      ],
+      "hint": "Pense no comportamento de feixes de luz em um show ou teatro quando eles se interceptam."
+    },
+    {
+      "question": "Um observador está em uma região da Terra onde ocorre um eclipse solar parcial. O que define a visão deste observador em termos de Óptica Geométrica?",
+      "answerOptions": [
+        {
+          "text": "Ele se encontra na região de penumbra projetada pela Lua sobre a superfície terrestre.",
+          "isCorrect": true,
+          "rationale": "A penumbra é a região que recebe luz de apenas alguns pontos da fonte extensa (Sol), resultando em uma ocultação parcial."
+        },
+        {
+          "text": "Ele está localizado exatamente no cone de sombra total da Lua.",
+          "isCorrect": false,
+          "rationale": "Na região de sombra total, o observador presenciaria um eclipse total, não parcial."
+        },
+        {
+          "text": "Ele está na região de sombra própria da Terra, impedindo a visão do Sol.",
+          "isCorrect": false,
+          "rationale": "A sombra própria da Terra define a noite, e não o fenômeno de eclipse solar causado pela Lua."
+        },
+        {
+          "text": "Ele visualiza a Lua entrando na sombra projetada pela Terra no espaço.",
+          "isCorrect": false,
+          "rationale": "Este cenário descreve um eclipse lunar, onde a Lua é o anteparo da sombra terrestre."
+        }
+      ],
+      "hint": "Considere a diferença entre as regiões de bloqueio total e parcial da luz de uma fonte extensa."
+    },
+    {
+      "question": "Considere uma câmara escura de orifício com comprimento $b$. Se um objeto de altura $m$ for afastado para uma distância que é o triplo da distância inicial $a$, o que ocorrerá com a altura da imagem $n$?",
+      "answerOptions": [
+        {
+          "text": "A altura da imagem será reduzida a um terço do seu valor original.",
+          "isCorrect": true,
+          "rationale": "Pela relação de semelhança $\\frac{m}{n} = \\frac{a}{b}$, a altura da imagem $n$ é inversamente proporcional à distância $a$ do objeto."
+        },
+        {
+          "text": "A altura da imagem triplicará para compensar o afastamento do objeto.",
+          "isCorrect": false,
+          "rationale": "O aumento da distância do objeto reduz o ângulo visual, resultando em uma imagem menor no anteparo."
+        },
+        {
+          "text": "A altura da imagem permanecerá constante, alterando apenas sua nitidez.",
+          "isCorrect": false,
+          "rationale": "O tamanho da imagem projetada depende diretamente das proporções geométricas entre objeto, orifício e anteparo."
+        },
+        {
+          "text": "A imagem se tornará virtual e direita devido à grande distância.",
+          "isCorrect": false,
+          "rationale": "Câmaras escuras de orifício sempre produzem imagens reais e invertidas no anteparo oposto."
+        }
+      ],
+      "hint": "Lembre-se da semelhança de triângulos formada pelos raios que atravessam o orifício."
+    },
+    {
+      "question": "Por que um corpo iluminado pela luz solar (branca) é percebido com a cor verde?",
+      "answerOptions": [
+        {
+          "text": "Porque o corpo reflete difusamente a componente verde da luz branca e absorve as demais cores.",
+          "isCorrect": true,
+          "rationale": "A cor de um corpo opaco por reflexão é determinada pela luz que ele não absorve e reenvia ao meio."
+        },
+        {
+          "text": "Porque o corpo transforma todas as radiações incidentes em luz monocromática verde.",
+          "isCorrect": false,
+          "rationale": "Objetos não alteram a frequência da luz refletida; eles apenas selecionam quais frequências refletir."
+        },
+        {
+          "text": "Porque a luz verde é a única que consegue atravessar meios opacos por refração.",
+          "isCorrect": false,
+          "rationale": "Meios opacos não permitem a passagem de luz (refração); a visualização ocorre pela reflexão."
+        },
+        {
+          "text": "Porque o corpo emite luz própria na frequência do verde ao ser aquecido pelo Sol.",
+          "isCorrect": false,
+          "rationale": "Nesse caso, o corpo é iluminado (fonte secundária), não luminoso (fonte primária)."
+        }
+      ],
+      "hint": "Pense no processo de absorção e reflexão seletiva das cores componentes da luz branca."
+    },
+    {
+      "question": "Um raio de luz incide sobre um espelho plano e o raio refletido forma um ângulo de $60^\\circ$ com a reta normal à superfície. Qual é o ângulo formado entre o raio incidente e o raio refletido?",
+      "answerOptions": [
+        {
+          "text": "$120^\\circ$",
+          "isCorrect": true,
+          "rationale": "Pela lei da reflexão, $\\theta_i = \\theta_r = 60^\\circ$. O ângulo entre os raios é a soma de $\\theta_i$ e $\\theta_r$."
+        },
+        {
+          "text": "$60^\\circ$",
+          "isCorrect": false,
+          "rationale": "Este é apenas o ângulo de um dos raios em relação à normal, não o ângulo total entre eles."
+        },
+        {
+          "text": "$30^\\circ$",
+          "isCorrect": false,
+          "rationale": "Este seria o ângulo entre o raio e a superfície do espelho, e não entre os dois raios."
+        },
+        {
+          "text": "$90^\\circ$",
+          "isCorrect": false,
+          "rationale": "Isso ocorreria apenas se o ângulo de incidência fosse de $45^\\circ$."
+        }
+      ],
+      "hint": "Aplique a primeira lei da reflexão e some os ângulos de incidência e reflexão."
+    },
+    {
+      "question": "O princípio da reversibilidade dos raios de luz pode ser melhor exemplificado por qual das seguintes situações cotidianas?",
+      "answerOptions": [
+        {
+          "text": "Um passageiro no banco de trás de um carro vê o rosto do motorista pelo retrovisor interno e vice-versa.",
+          "isCorrect": true,
+          "rationale": "O princípio afirma que a trajetória da luz é a mesma, independentemente do sentido de propagação entre dois pontos."
+        },
+        {
+          "text": "A formação de uma sombra nítida de um objeto quando iluminado por uma lanterna pequena.",
+          "isCorrect": false,
+          "rationale": "Isso exemplifica o princípio da propagação retilínea da luz."
+        },
+        {
+          "text": "O cruzamento de dois feixes de luz de lanternas diferentes sem que eles se desviem.",
+          "isCorrect": false,
+          "rationale": "Isso exemplifica o princípio da independência dos raios de luz."
+        },
+        {
+          "text": "A mudança de cor de um objeto quando ele passa da luz do dia para uma lâmpada de mercúrio.",
+          "isCorrect": false,
+          "rationale": "Isso se refere à composição da luz e propriedades de reflexão seletiva, não à trajetória."
+        }
+      ],
+      "hint": "Procure uma situação onde o caminho da luz é percorrido nos dois sentidos."
+    },
+    {
+      "question": "Sobre a formação de imagens em espelhos planos, qual afirmação descreve corretamente a natureza da imagem?",
+      "answerOptions": [
+        {
+          "text": "A imagem é virtual e se localiza atrás do espelho, a uma distância igual à do objeto em relação ao plano refletor.",
+          "isCorrect": true,
+          "rationale": "Imagens em espelhos planos são formadas pelo prolongamento dos raios refletidos, mantendo a simetria em relação ao espelho."
+        },
+        {
+          "text": "A imagem é real, pois pode ser projetada em uma tela colocada na frente do espelho.",
+          "isCorrect": false,
+          "rationale": "Imagens reais são formadas pelo encontro direto de raios; espelhos planos formam apenas imagens virtuais de objetos reais."
+        },
+        {
+          "text": "A imagem é invertida verticalmente (de cabeça para baixo) em relação ao objeto.",
+          "isCorrect": false,
+          "rationale": "Espelhos planos produzem imagens direitas (não invertidas verticalmente), embora sejam enantiomorfas (troca direita/esquerda)."
+        },
+        {
+          "text": "A imagem possui tamanho reduzido quando o objeto se afasta do espelho.",
+          "isCorrect": false,
+          "rationale": "O tamanho da imagem em um espelho plano é sempre igual ao tamanho do objeto, embora o ângulo visual diminua com a distância."
+        }
+      ],
+      "hint": "Considere o conceito de simetria e onde os raios de luz parecem se originar."
+    },
+    {
+      "question": "No vácuo, diferentes cores de luz monocromática, como a vermelha e a violeta, apresentam qual comportamento comum?",
+      "answerOptions": [
+        {
+          "text": "Elas se propagam com a mesma velocidade de aproximadamente $300.000\\ km/s$.",
+          "isCorrect": true,
+          "rationale": "No vácuo, a velocidade da luz é uma constante universal independente da cor (frequência) da luz."
+        },
+        {
+          "text": "Elas sofrem difração de forma idêntica ao atravessarem o mesmo orifício.",
+          "isCorrect": false,
+          "rationale": "A difração depende do comprimento de onda, que é diferente para o vermelho e o violeta."
+        },
+        {
+          "text": "A luz violeta se propaga mais rápido por ter maior energia que a vermelha.",
+          "isCorrect": false,
+          "rationale": "Embora a luz violeta tenha mais energia/frequência, a velocidade no vácuo é idêntica para todas as radiações eletromagnéticas."
+        },
+        {
+          "text": "Ambas perdem velocidade gradualmente conforme se distanciam da fonte luminosa.",
+          "isCorrect": false,
+          "rationale": "Em um meio homogêneo como o vácuo, a velocidade da luz permanece constante durante a propagação."
+        }
+      ],
+      "hint": "Pense na constante física fundamental que define a velocidade da luz no espaço vazio."
+    },
+    {
+      "question": "Uma fonte de luz extensa é capaz de produzir sombra e penumbra. Qual é a definição correta de penumbra nesse contexto?",
+      "answerOptions": [
+        {
+          "text": "Região do espaço que recebe luz de apenas alguns pontos da fonte luminosa.",
+          "isCorrect": true,
+          "rationale": "A penumbra ocorre quando a obstrução é parcial, permitindo que parte da luz da fonte extensa atinja a região."
+        },
+        {
+          "text": "Região do espaço que não recebe luz de nenhum ponto da fonte.",
+          "isCorrect": false,
+          "rationale": "Essa descrição corresponde à definição de sombra (ou umbra)."
+        },
+        {
+          "text": "Região onde a luz sofreu reflexão difusa antes de atingir o anteparo.",
+          "isCorrect": false,
+          "rationale": "A penumbra é um fenômeno de propagação retilínea e bloqueio parcial, não de reflexão secundária."
+        },
+        {
+          "text": "Ponto exato onde os raios tangentes ao objeto se cruzam antes de chegar ao anteparo.",
+          "isCorrect": false,
+          "rationale": "O cruzamento de raios tangentes define o vértice do cone de sombra, não a região de penumbra."
+        }
+      ],
+      "hint": "Diferencie entre a ausência total de luz e a iluminação parcial por uma fonte grande."
+    },
+    {
+      "question": "O que acontece com a nitidez e a luminosidade da imagem em uma câmara escura se aumentarmos o diâmetro do orifício?",
+      "answerOptions": [
+        {
+          "text": "A luminosidade aumenta, mas a nitidez da imagem diminui.",
+          "isCorrect": true,
+          "rationale": "Um orifício maior permite a entrada de mais raios de luz (mais brilho), mas cada ponto do objeto passa a projetar uma mancha maior no anteparo (menos foco)."
+        },
+        {
+          "text": "A nitidez aumenta significativamente devido à maior entrada de raios de luz.",
+          "isCorrect": false,
+          "rationale": "Raios extras de diferentes ângulos causam sobreposição de imagens no anteparo, borrando a figura final."
+        },
+        {
+          "text": "Tanto a luminosidade quanto a nitidez aumentam proporcionalmente.",
+          "isCorrect": false,
+          "rationale": "Há um compromisso físico entre esses dois fatores em uma câmara de orifício simples."
+        },
+        {
+          "text": "A imagem torna-se menor e mais nítida, concentrando a luz em um ponto único.",
+          "isCorrect": false,
+          "rationale": "O tamanho da imagem depende das distâncias $a$ e $b$, não do diâmetro do orifício."
+        }
+      ],
+      "hint": "Pense no efeito da sobreposição de vários raios de luz vindos do mesmo ponto do objeto."
+    }
+  ],
+  "questionCount": 10,
+  "exportedAt": "2026-07-17T00:56:57.323Z",
+  "source": "Web Clipper for NotebookLM"
+}

@@ -1,0 +1,268 @@
+{
+  "title": "Quiz-OGRaf-1",
+  "questions": [
+    {
+      "question": "Qual é a definição fundamental do fenômeno da refração da luz?",
+      "answerOptions": [
+        {
+          "text": "A mudança na velocidade de propagação da luz ao passar de um meio para outro.",
+          "isCorrect": true,
+          "rationale": "A refração é definida pela variação da velocidade da luz quando esta atravessa a interface entre meios com propriedades ópticas distintas."
+        },
+        {
+          "text": "O simples retorno da luz ao meio de origem após atingir uma superfície.",
+          "isCorrect": false,
+          "rationale": "Esta descrição refere-se ao fenômeno da reflexão, não da refração, onde a luz efetivamente penetra no segundo meio."
+        },
+        {
+          "text": "A mudança obrigatória na direção da luz, independentemente do ângulo de incidência.",
+          "isCorrect": false,
+          "rationale": "Embora comum, a mudança de direção não ocorre na incidência normal, tornando a mudança de velocidade o fator universal da refração."
+        },
+        {
+          "text": "A absorção total da energia luminosa pela superfície de separação.",
+          "isCorrect": false,
+          "rationale": "A absorção é um fenômeno concomitante, mas a refração foca na transmissão da luz para o novo meio."
+        }
+      ],
+      "hint": "Foque na grandeza física que se altera em qualquer tipo de passagem entre meios transparentes."
+    },
+    {
+      "question": "Na incidência normal, onde a luz atinge a superfície de separação fazendo um ângulo de $90^\\circ$, o que ocorre com o raio luminoso?",
+      "answerOptions": [
+        {
+          "text": "Ocorre mudança de velocidade, mas não há desvio na trajetória.",
+          "isCorrect": true,
+          "rationale": "Na incidência perpendicular, a luz sofre refração alterando sua rapidez, mas mantém a direção original de propagação."
+        },
+        {
+          "text": "A luz sofre reflexão total e não penetra no segundo meio.",
+          "isCorrect": false,
+          "rationale": "A reflexão total requer ângulos de incidência superiores ao ângulo limite e não ocorre na incidência normal."
+        },
+        {
+          "text": "Não ocorre refração, pois a velocidade permanece constante.",
+          "isCorrect": false,
+          "rationale": "A refração ocorre sempre que há mudança de meio, mesmo sem desvio, devido à diferença nos índices de refração."
+        },
+        {
+          "text": "O raio sofre o desvio máximo possível em relação à reta normal.",
+          "isCorrect": false,
+          "rationale": "O desvio máximo ocorre em incidências oblíquas próximas de $90^\\circ$ (rasantes), não na incidência normal ($0^\\circ$ com a normal)."
+        }
+      ],
+      "hint": "Diferencie a trajetória (direção) da rapidez (módulo da velocidade) da luz."
+    },
+    {
+      "question": "Como é calculado o índice de refração absoluto ($n$) de um meio material?",
+      "answerOptions": [
+        {
+          "text": "$n = \\frac{c}{v}$",
+          "isCorrect": true,
+          "rationale": "O índice de refração absoluto é a razão entre a velocidade da luz no vácuo ($c$) e a velocidade da luz no meio ($v$)."
+        },
+        {
+          "text": "$n = \\frac{v}{c}$",
+          "isCorrect": false,
+          "rationale": "Como $c$ é a velocidade máxima universal, essa fórmula resultaria em um valor menor que 1, o que é impossível para o índice absoluto."
+        },
+        {
+          "text": "$n = c \\cdot v$",
+          "isCorrect": false,
+          "rationale": "O índice de refração é uma grandeza adimensional que expressa uma proporção, e não o produto das velocidades."
+        },
+        {
+          "text": "$n = \\sin(i) \\cdot \\sin(r)$",
+          "isCorrect": false,
+          "rationale": "Esta é uma interpretação incorreta da Lei de Snell; os senos dos ângulos relacionam-se de forma inversamente proporcional aos índices."
+        }
+      ],
+      "hint": "O índice de refração indica quantas vezes a luz é mais rápida no vácuo do que no meio em questão."
+    },
+    {
+      "question": "O que ocorre quando dois meios físicos diferentes apresentam 'continuidade óptica'?",
+      "answerOptions": [
+        {
+          "text": "A luz não sofre desvios ao passar de um meio para o outro e os materiais tornam-se 'invisíveis' entre si.",
+          "isCorrect": true,
+          "rationale": "A continuidade óptica acontece quando os índices de refração são iguais, fazendo com que a luz se propague como se estivesse em um meio único."
+        },
+        {
+          "text": "Ocorre a reflexão total da luz na interface entre os dois meios.",
+          "isCorrect": false,
+          "rationale": "Para haver reflexão total, deve haver uma diferença significativa de refringência entre os meios, o que é o oposto da continuidade óptica."
+        },
+        {
+          "text": "A velocidade da luz aumenta bruscamente ao atravessar a fronteira.",
+          "isCorrect": false,
+          "rationale": "Se os índices são iguais, as velocidades também são iguais, logo não há variação brusca na rapidez da luz."
+        },
+        {
+          "text": "A luz é completamente absorvida na superfície de contato.",
+          "isCorrect": false,
+          "rationale": "Continuidade óptica refere-se à transparência e transmissão sem desvios, não à absorção de energia."
+        }
+      ],
+      "hint": "Pense no comportamento da luz quando não encontra 'resistência' óptica diferente ao mudar de substância."
+    },
+    {
+      "question": "Um raio luminoso passa do ar ($n_1 = 1$) para um meio transparente com índice de refração $n_2 = \\sqrt{3}$. Se o ângulo de incidência for $60^\\circ$, qual será o ângulo de refração?",
+      "answerOptions": [
+        {
+          "text": "$30^\\circ$",
+          "isCorrect": true,
+          "rationale": "Aplicando a Lei de Snell: $1 \\cdot \\sin(60^\\circ) = \\sqrt{3} \\cdot \\sin(r) \\Rightarrow \\frac{\\sqrt{3}}{2} = \\sqrt{3} \\cdot \\sin(r) \\Rightarrow \\sin(r) = \\frac{1}{2} \\Rightarrow r = 30^\\circ$."
+        },
+        {
+          "text": "$45^\\circ$",
+          "isCorrect": false,
+          "rationale": "Este valor ocorreria se a relação entre os senos resultasse em $\\frac{\\sqrt{2}}{2}$, o que não condiz com os índices de refração fornecidos."
+        },
+        {
+          "text": "$60^\\circ$",
+          "isCorrect": false,
+          "rationale": "Isso indicaria que não houve desvio, o que só seria possível se os índices de refração fossem idênticos."
+        },
+        {
+          "text": "$90^\\circ$",
+          "isCorrect": false,
+          "rationale": "Um ângulo de refração de $90^\\circ$ representa uma emergência rasante, o que não ocorre ao passar do ar para um meio mais refringente."
+        }
+      ],
+      "hint": "Utilize a Lei de Snell-Descartes: $n_1 \\cdot \\sin(i) = n_2 \\cdot \\sin(r)$."
+    },
+    {
+      "question": "Qual é o comportamento direcional de um raio luminoso ao passar de um meio menos refringente para um meio mais refringente (ex: do ar para a água)?",
+      "answerOptions": [
+        {
+          "text": "O raio luminoso se aproxima da reta normal.",
+          "isCorrect": true,
+          "rationale": "Ao entrar em um meio onde a luz viaja mais lentamente (maior índice de refração), o ângulo de refração é menor que o de incidência, aproximando o raio da normal."
+        },
+        {
+          "text": "O raio luminoso se afasta da reta normal.",
+          "isCorrect": false,
+          "rationale": "O afastamento da normal ocorre quando a luz passa para um meio menos refringente, onde sua velocidade aumenta."
+        },
+        {
+          "text": "O raio luminoso sofre sempre reflexão total.",
+          "isCorrect": false,
+          "rationale": "A reflexão total só é possível no sentido oposto: do meio mais refringente para o menos refringente."
+        },
+        {
+          "text": "A trajetória da luz torna-se paralela à superfície de separação.",
+          "isCorrect": false,
+          "rationale": "Uma trajetória paralela à superfície (emergência rasante) só ocorre quando o ângulo de incidência atinge o ângulo limite no sentido do mais para o menos refringente."
+        }
+      ],
+      "hint": "Considere a relação entre a 'resistência' óptica (índice de refração) e o ângulo formado com a normal."
+    },
+    {
+      "question": "O ângulo limite ($L$) é o valor de incidência que gera uma refração rasante ($90^\\circ$). Qual é a fórmula correta para calculá-lo?",
+      "answerOptions": [
+        {
+          "text": "$\\sin(L) = \\frac{n_{menor}}{n_{maior}}$",
+          "isCorrect": true,
+          "rationale": "Pela Lei de Snell, quando o ângulo de refração é $90^\\circ$ ($\\\\sin 90^\\circ = 1$), a relação simplifica-se para a razão entre o menor e o maior índice."
+        },
+        {
+          "text": "$\\sin(L) = \\frac{n_{maior}}{n_{menor}}$",
+          "isCorrect": false,
+          "rationale": "Como o seno de um ângulo não pode ser maior que 1, e $n_{maior} > n_{menor}$, esta fórmula seria matematicamente inválida para ângulos reais."
+        },
+        {
+          "text": "$\\sin(L) = n_{menor} \\cdot n_{maior}$",
+          "isCorrect": false,
+          "rationale": "A relação é de proporcionalidade entre os meios, não um produto de seus índices de refração."
+        },
+        {
+          "text": "$\\sin(L) = n_{maior} - n_{menor}$",
+          "isCorrect": false,
+          "rationale": "O cálculo do ângulo limite envolve a divisão dos índices de refração baseada na Lei de Snell, não a diferença entre eles."
+        }
+      ],
+      "hint": "Lembre-se de que o seno de um ângulo no círculo trigonométrico deve ser sempre menor ou igual a 1."
+    },
+    {
+      "question": "Quais são as duas condições primordiais para a ocorrência do fenômeno da Reflexão Total?",
+      "answerOptions": [
+        {
+          "text": "A luz deve ir do meio mais refringente para o menos refringente e o ângulo de incidência deve ser maior que o ângulo limite.",
+          "isCorrect": true,
+          "rationale": "Nessas condições, a luz não consegue refratar-se para o segundo meio e é integralmente refletida de volta ao meio de origem."
+        },
+        {
+          "text": "A luz deve ir do vácuo para qualquer meio material e incidir perpendicularmente.",
+          "isCorrect": false,
+          "rationale": "Na incidência perpendicular ($0^\\circ$ com a normal), a luz sempre atravessa a superfície sem desvio, nunca sofrendo reflexão total."
+        },
+        {
+          "text": "Os meios devem possuir o mesmo índice de refração e a luz deve incidir obliquamente.",
+          "isCorrect": false,
+          "rationale": "Índices iguais geram continuidade óptica, onde a luz passa sem qualquer alteração ou reflexão."
+        },
+        {
+          "text": "A luz deve passar do ar para a água e o ângulo de incidência deve ser exatamente igual a $90^\\circ$.",
+          "isCorrect": false,
+          "rationale": "Passar do ar (menos refringente) para a água (mais refringente) impede a reflexão total; além disso, a incidência de $90^\\circ$ (rasante) é o limite da refração."
+        }
+      ],
+      "hint": "Pense em qual situação a luz 'se afasta' tanto da normal que acaba não conseguindo sair do meio."
+    },
+    {
+      "question": "A fibra óptica é uma das principais aplicações tecnológicas da óptica geométrica. Qual fenômeno garante que a luz não 'vaze' do núcleo para a casca?",
+      "answerOptions": [
+        {
+          "text": "Reflexão Interna Total.",
+          "isCorrect": true,
+          "rationale": "O núcleo da fibra é mais refringente que a casca e a luz incide em ângulos superiores ao limite, mantendo o sinal confinado por sucessivas reflexões."
+        },
+        {
+          "text": "Refração Normal Constante.",
+          "isCorrect": false,
+          "rationale": "Se houvesse refração, a luz passaria para a casca e se perderia, impossibilitando a transmissão de dados a longa distância."
+        },
+        {
+          "text": "Dispersão Cromática Progressiva.",
+          "isCorrect": false,
+          "rationale": "A dispersão é geralmente um problema a ser evitado em fibras ópticas, pois separa as cores do sinal, não sendo o mecanismo de confinamento."
+        },
+        {
+          "text": "Absorção Seletiva no Núcleo.",
+          "isCorrect": false,
+          "rationale": "A absorção converteria a luz em calor e extinguiria o sinal; o objetivo da fibra é justamente minimizar a absorção."
+        }
+      ],
+      "hint": "Este fenômeno ocorre apenas quando a luz tenta passar de um meio mais denso para um menos denso sob certos ângulos."
+    },
+    {
+      "question": "No fenômeno da dispersão da luz branca ao atravessar um prisma de vidro imerso no ar, por que a luz violeta sofre um desvio maior que a luz vermelha?",
+      "answerOptions": [
+        {
+          "text": "Porque o índice de refração do vidro é maior para a luz violeta do que para a luz vermelha.",
+          "isCorrect": true,
+          "rationale": "O índice de refração de um meio material depende da frequência da luz; a violeta é mais lenta no vidro e, portanto, sofre maior desvio."
+        },
+        {
+          "text": "Porque a luz violeta viaja mais rápido no vidro do que a luz vermelha.",
+          "isCorrect": false,
+          "rationale": "Na verdade, a luz violeta é a mais lenta nos meios materiais; quanto menor a velocidade, maior o índice de refração e maior o desvio."
+        },
+        {
+          "text": "Porque apenas a luz vermelha sofre reflexão total nas faces do prisma.",
+          "isCorrect": false,
+          "rationale": "Ambas as cores podem sofrer reflexão ou refração; a dispersão ocorre devido à diferença nos ângulos de refração, não pela exclusividade de reflexão."
+        },
+        {
+          "text": "Porque a luz violeta não segue a Lei de Snell-Descartes.",
+          "isCorrect": false,
+          "rationale": "Todas as cores monocromáticas seguem rigorosamente a Lei de Snell; a diferença é que cada cor possui seu próprio valor de $n$ no material."
+        }
+      ],
+      "hint": "Considere como a velocidade de cada cor (componente cromática) se comporta dentro de um meio material como o vidro."
+    }
+  ],
+  "questionCount": 10,
+  "exportedAt": "2026-07-18T20:40:59.570Z",
+  "source": "Web Clipper for NotebookLM"
+}

@@ -1,0 +1,68 @@
+{
+  "title": "Flashcards-OGRef-3",
+  "cards": [
+    {
+      "front": "Como é denominado o espelho esférico cuja superfície refletora é a face interna da calota?",
+      "back": "Espelho côncavo."
+    },
+    {
+      "front": "Qual termo define o polo da calota esférica que constitui o espelho?",
+      "back": "Vértice do espelho ($V$)."
+    },
+    {
+      "front": "Qual é a relação matemática entre a distância focal $f$ e o raio de curvatura $R$ em espelhos que obedecem às condições de Gauss?",
+      "back": "$f = \\frac{R}{2}$"
+    },
+    {
+      "front": "Para garantir a nitidez das imagens (condições de Gauss), o ângulo de abertura $\\alpha$ do espelho deve ser inferior a quantos graus?",
+      "back": "$10^{\\circ}$"
+    },
+    {
+      "front": "Segundo as propriedades dos raios notáveis, um raio que incide paralelamente ao eixo principal reflete-se em qual direção?",
+      "back": "Na direção que passa pelo foco principal ($F$)."
+    },
+    {
+      "front": "Como se reflete um raio de luz que incide sobre o espelho passando exatamente pelo seu centro de curvatura ($C$)?",
+      "back": "Reflete-se sobre si mesmo."
+    },
+    {
+      "front": "Quais são as três características da imagem de um objeto real formada por um espelho convexo?",
+      "back": "Virtual, direita e menor."
+    },
+    {
+      "front": "No espelho côncavo, qual é a natureza da imagem de um objeto real situado entre o foco e o vértice?",
+      "back": "Virtual, direita e maior."
+    },
+    {
+      "front": "Quando um objeto real é colocado exatamente sobre o foco principal de um espelho côncavo, como se classifica a imagem formada?",
+      "back": "Imagem imprópria (formada no infinito)."
+    },
+    {
+      "front": "Qual é a Equação de Gauss que relaciona a distância focal ($f$), a distância do objeto ($p$) e a distância da imagem ($p'$)?",
+      "back": "$\\frac{1}{f} = \\frac{1}{p} + \\frac{1}{p'}$"
+    },
+    {
+      "front": "No referencial de Gauss, qual é a convenção de sinal para a abscissa da imagem ($p'$) quando esta é virtual?",
+      "back": "O sinal de $p'$ é negativo ($p' < 0$)."
+    },
+    {
+      "front": "Qual é o sinal da distância focal ($f$) para um espelho convexo no referencial de Gauss?",
+      "back": "Negativo ($f < 0$)."
+    },
+    {
+      "front": "Como é calculada a fórmula do aumento linear transversal ($A$) relacionando as distâncias $p$ e $p'$?",
+      "back": "$A = -\\frac{p'}{p}$"
+    },
+    {
+      "front": "Em um espelho côncavo, se o objeto real está localizado além do centro de curvatura, quais são as características da imagem?",
+      "back": "Real, invertida e menor."
+    },
+    {
+      "front": "O que acontece com um raio de luz que incide passando pelo foco principal de um espelho esférico?",
+      "back": "Reflete-se paralelamente ao eixo principal."
+    }
+  ],
+  "cardCount": 15,
+  "exportedAt": "2026-07-17T15:52:58.948Z",
+  "source": "Web Clipper for NotebookLM"
+}

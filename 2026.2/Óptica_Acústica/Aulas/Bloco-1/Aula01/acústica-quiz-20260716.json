@@ -1,0 +1,268 @@
+{
+  "title": "Acústica Quiz",
+  "questions": [
+    {
+      "question": "O funcionamento do sonar (Sound Navigation and Ranging) baseia-se fundamentalmente em qual propriedade das ondas sonoras?",
+      "answerOptions": [
+        {
+          "text": "Reflexão",
+          "isCorrect": true,
+          "rationale": "O dispositivo emite ultrassons que batem em obstáculos e retornam ao receptor, permitindo calcular a distância com base no tempo de ida e volta."
+        },
+        {
+          "text": "Refração",
+          "isCorrect": false,
+          "rationale": "A refração envolve a mudança de meio e velocidade da onda, o que não é o princípio primário para detectar a distância de um objeto submerso."
+        },
+        {
+          "text": "Difração",
+          "isCorrect": false,
+          "rationale": "A difração permite que o som contorne obstáculos, mas o sonar depende do rebatimento direto da onda para mapear o ambiente."
+        },
+        {
+          "text": "Polarização",
+          "isCorrect": false,
+          "rationale": "Ondas sonoras são longitudinais e, conforme o material didático, não podem sofrer polarização."
+        }
+      ],
+      "hint": "Pense no fenômeno que ocorre quando o som bate em uma barreira e retorna, como o eco."
+    },
+    {
+      "question": "Na ultrassonografia médica, a técnica da 'ecografia Doppler' é utilizada especificamente para qual finalidade?",
+      "answerOptions": [
+        {
+          "text": "Determinar a velocidade de partes móveis como o fluxo sanguíneo",
+          "isCorrect": true,
+          "rationale": "O efeito Doppler permite medir a variação de frequência refletida por objetos em movimento, como as células sanguíneas."
+        },
+        {
+          "text": "Aumentar a resolução da imagem de órgãos estáticos",
+          "isCorrect": false,
+          "rationale": "A resolução de órgãos estáticos depende da frequência e processamento do sinal, não necessariamente do deslocamento de frequência Doppler."
+        },
+        {
+          "text": "Substituir a necessidade de gel condutor no exame",
+          "isCorrect": false,
+          "rationale": "O gel é necessário para evitar a reflexão total do som no ar entre o transdutor e a pele, independente da técnica Doppler."
+        },
+        {
+          "text": "Reduzir a exposição do paciente à radiação ionizante",
+          "isCorrect": false,
+          "rationale": "Embora o ultrassom não use radiação ionizante, essa é uma característica geral do método e não uma função específica do efeito Doppler."
+        }
+      ],
+      "hint": "Considere o que acontece com a frequência sonora quando a fonte ou o observador estão em movimento relativo."
+    },
+    {
+      "question": "Em um instrumento de cordas, se a frequência fundamental de uma corda vibrante é $440 \\text{ Hz}$, qual será a frequência do seu terceiro harmônico?",
+      "answerOptions": [
+        {
+          "text": "$1320 \\text{ Hz}$",
+          "isCorrect": true,
+          "rationale": "Para cordas vibrantes, as frequências dos harmônicos são múltiplos inteiros da fundamental, seguindo a relação $f_n = n \\cdot f_1$."
+        },
+        {
+          "text": "$880 \\text{ Hz}$",
+          "isCorrect": false,
+          "rationale": "$880 \\text{ Hz}$ corresponde ao segundo harmônico, que é o dobro da frequência fundamental."
+        },
+        {
+          "text": "$220 \\text{ Hz}$",
+          "isCorrect": false,
+          "rationale": "Esse valor seria uma frequência abaixo da fundamental, o que não condiz com a definição de harmônicos superiores."
+        },
+        {
+          "text": "$1760 \\text{ Hz}$",
+          "isCorrect": false,
+          "rationale": "Este valor seria o quarto harmônico, resultante da multiplicação da fundamental por quatro."
+        }
+      ],
+      "hint": "Lembre-se da relação matemática simples entre a ordem do harmônico e a frequência fundamental em cordas fixas."
+    },
+    {
+      "question": "Diferente das cordas vibrantes e tubos abertos, por que os tubos sonoros fechados em uma extremidade são considerados 'seletivos' em sua série harmônica?",
+      "answerOptions": [
+        {
+          "text": "Eles produzem apenas harmônicos de ordem ímpar",
+          "isCorrect": true,
+          "rationale": "A geometria de um nó na extremidade fechada e um ventre na aberta restringe os comprimentos de onda permitidos apenas a múltiplos ímpares de um quarto de onda."
+        },
+        {
+          "text": "Eles produzem apenas harmônicos de ordem par",
+          "isCorrect": false,
+          "rationale": "A formação de um nó em uma ponta e ventre na outra impede fisicamente a existência de harmônicos pares nessa configuração."
+        },
+        {
+          "text": "A velocidade do som dentro deles é menor",
+          "isCorrect": false,
+          "rationale": "A velocidade do som depende do meio (ar) e da temperatura, não do fato de o tubo estar aberto ou fechado."
+        },
+        {
+          "text": "Eles impedem a formação de ondas estacionárias",
+          "isCorrect": false,
+          "rationale": "Pelo contrário, o funcionamento desses tubos baseia-se justamente na formação de ondas estacionárias por ressonância."
+        }
+      ],
+      "hint": "Considere as condições de contorno (nós e ventres) necessárias para a ressonância em um tubo com apenas uma abertura."
+    },
+    {
+      "question": "Na teoria das escalas musicais, o que define tecnicamente o intervalo de uma 'oitava' entre dois sons?",
+      "answerOptions": [
+        {
+          "text": "A relação entre as frequências é igual a $2$",
+          "isCorrect": true,
+          "rationale": "Uma oitava ocorre quando a frequência do som mais agudo é exatamente o dobro da frequência do som mais grave."
+        },
+        {
+          "text": "A diferença entre as frequências é de $8 \\text{ Hz}$",
+          "isCorrect": false,
+          "rationale": "Intervalos musicais são definidos por razões (quocientes) entre frequências, não por diferenças subtraídas."
+        },
+        {
+          "text": "A relação entre as frequências é de $\\frac{3}{2}$",
+          "isCorrect": false,
+          "rationale": "A razão $\\frac{3}{2}$ define o intervalo de quinta, não de oitava."
+        },
+        {
+          "text": "Os sons possuem o mesmo timbre",
+          "isCorrect": false,
+          "rationale": "Sons de oitavas diferentes podem ter timbres iguais ou diferentes; o timbre depende da composição de harmônicos, não da razão fundamental."
+        }
+      ],
+      "hint": "Pense no quociente matemático entre as frequências de duas notas que recebem o mesmo nome, mas em alturas diferentes."
+    },
+    {
+      "question": "Qual qualidade fisiológica do som permite distinguir um 'Dó' tocado por um piano de um 'Dó' tocado por um violino, mesmo que ambos tenham a mesma altura e intensidade?",
+      "answerOptions": [
+        {
+          "text": "Timbre",
+          "isCorrect": true,
+          "rationale": "O timbre é determinado pela combinação do som fundamental com diferentes harmônicos, resultando em formatos de onda distintos para cada instrumento."
+        },
+        {
+          "text": "Altura",
+          "isCorrect": false,
+          "rationale": "A altura refere-se apenas à frequência fundamental; se ambos tocam a mesma nota, a altura é idêntica."
+        },
+        {
+          "text": "Intensidade",
+          "isCorrect": false,
+          "rationale": "A intensidade refere-se à amplitude da onda e à energia transportada, permitindo distinguir sons fortes de fracos."
+        },
+        {
+          "text": "Nível Sonoro",
+          "isCorrect": false,
+          "rationale": "O nível sonoro é a medida em decibels da intensidade auditiva, não sendo responsável pela diferenciação de fontes sonoras."
+        }
+      ],
+      "hint": "Reflita sobre a 'forma' da onda resultante da superposição de diversos harmônicos."
+    },
+    {
+      "question": "Ao realizar o experimento da coluna de ar ressonante (tubo fechado), um aluno utiliza a fórmula $v = 4L \\cdot f$ para calcular a velocidade do som. Por que o resultado medido pode ser ligeiramente menor que o valor real se ele não aplicar a 'correção de extremidade'?",
+      "answerOptions": [
+        {
+          "text": "Porque o ventre da onda se forma um pouco acima da borda do tubo",
+          "isCorrect": true,
+          "rationale": "O som se projeta para fora do tubo antes de se espalhar, tornando a coluna de ar acústica efetiva maior do que o comprimento físico $L$ medido."
+        },
+        {
+          "text": "Porque a água absorve parte da energia sonora",
+          "isCorrect": false,
+          "rationale": "A absorção de energia afeta a amplitude (volume), mas não altera a posição geométrica dos nós e ventres da onda estacionária."
+        },
+        {
+          "text": "Porque a gravidade puxa as moléculas de ar para baixo",
+          "isCorrect": false,
+          "rationale": "Os efeitos gravitacionais no movimento molecular do som são desprezíveis comparados às forças de pressão e restauração elástica do ar."
+        },
+        {
+          "text": "Porque a frequência do smartphone sofre desvio Doppler",
+          "isCorrect": false,
+          "rationale": "O smartphone e o tubo estão estáticos um em relação ao outro, logo não há efeito Doppler durante a medição da ressonância."
+        }
+      ],
+      "hint": "Considere onde exatamente a vibração máxima do ar (ventre) ocorre em relação ao limite físico do cilindro."
+    },
+    {
+      "question": "Como o aumento da temperatura ambiente afeta a velocidade do som no ar, de acordo com as fórmulas empíricas apresentadas?",
+      "answerOptions": [
+        {
+          "text": "Aumenta cerca de $0,6 \\text{ m/s}$ para cada $1^{\\circ}C$ de aquecimento",
+          "isCorrect": true,
+          "rationale": "O aumento da temperatura causa maior agitação molecular, facilitando a transmissão do impacto acústico e aumentando a velocidade conforme a relação $v \\approx 331,5 + 0,6 \\cdot T$."
+        },
+        {
+          "text": "Diminui proporcionalmente ao quadrado da temperatura",
+          "isCorrect": false,
+          "rationale": "A velocidade do som em gases ideais é proporcional à raiz quadrada da temperatura absoluta, nunca diminuindo com o calor."
+        },
+        {
+          "text": "Permanece constante, pois o som depende apenas do meio",
+          "isCorrect": false,
+          "rationale": "O meio (ar) muda suas propriedades elásticas e de densidade com a temperatura, o que altera diretamente a velocidade da onda sonora."
+        },
+        {
+          "text": "Aumenta apenas se a umidade também aumentar",
+          "isCorrect": false,
+          "rationale": "Embora a umidade tenha um efeito, a temperatura é o fator dominante na variação da velocidade em ambientes controlados como uma sala de aula."
+        }
+      ],
+      "hint": "Pense na relação entre energia térmica, agitação das moléculas de gás e transmissão de pressão."
+    },
+    {
+      "question": "Em um contexto de escalas musicais naturais (diatônicas), qual é a sequência de intervalos que define a escala de Dó Maior?",
+      "answerOptions": [
+        {
+          "text": "Tom, Tom, Semitom, Tom, Tom, Tom, Semitom",
+          "isCorrect": true,
+          "rationale": "Esta é a estrutura padrão da escala diatônica maior, conforme descrito na seção sobre a escala musical natural."
+        },
+        {
+          "text": "Tom, Semitom, Tom, Tom, Semitom, Tom, Tom",
+          "isCorrect": false,
+          "rationale": "Esta sequência descreveria uma escala menor, que possui uma sonoridade e intervalos distintos da escala de Dó Maior."
+        },
+        {
+          "text": "Apenas intervalos de Tom Maior",
+          "isCorrect": false,
+          "rationale": "Uma escala composta apenas por tons seria uma escala hexatônica (tons inteiros), não a escala diatônica clássica."
+        },
+        {
+          "text": "Intervalos baseados apenas em potências de $3$ (escala pitagórica)",
+          "isCorrect": false,
+          "rationale": "Embora existam escalas baseadas em quintas, a escala diatônica natural citada no material utiliza uma combinação de tons maiores, menores e semitons."
+        }
+      ],
+      "hint": "Considere a organização tradicional de notas brancas do piano começando pela nota Dó."
+    },
+    {
+      "question": "O que ocorre com a percepção sonora humana se dois sons refletidos chegam ao ouvido com um intervalo de tempo inferior a $0,1 \\text{ s}$?",
+      "answerOptions": [
+        {
+          "text": "Ocorre reforço ou reverberação, mas não eco",
+          "isCorrect": true,
+          "rationale": "A persistência auditiva humana é de $0,1 \\text{ s}$; intervalos menores fazem com que o cérebro processe os sons como um único prolongamento ou fortalecimento."
+        },
+        {
+          "text": "O som é completamente anulado por interferência destrutiva",
+          "isCorrect": false,
+          "rationale": "A anulação depende da fase da onda, não apenas do tempo de chegada; sons em tempos curtos geralmente são somados na percepção."
+        },
+        {
+          "text": "O ouvinte percebe nitidamente dois sons distintos",
+          "isCorrect": false,
+          "rationale": "Para distinguir dois sons (eco), o intervalo deve ser obrigatoriamente superior ao tempo de persistência auditiva."
+        },
+        {
+          "text": "A frequência do som aparente aumenta drasticamente",
+          "isCorrect": false,
+          "rationale": "O tempo de chegada do reflexo afeta a percepção temporal (reverberação), não a frequência fundamental (altura) da fonte original."
+        }
+      ],
+      "hint": "Lembre-se do conceito de 'persistência auditiva' mencionado no estudo das propriedades das ondas."
+    }
+  ],
+  "questionCount": 10,
+  "exportedAt": "2026-07-16T23:32:39.853Z",
+  "source": "Web Clipper for NotebookLM"
+}

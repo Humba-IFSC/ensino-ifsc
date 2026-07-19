@@ -1,0 +1,264 @@
+{
+  "title": "Flashcards-OGRef-1",
+  "cards": [
+    {
+      "front": "Qual é a definição de Óptica Geométrica?",
+      "back": "Ramo da Física que estuda fenômenos luminosos por meio de raios de luz e geometria, sem focar na natureza da luz."
+    },
+    {
+      "front": "O que representam graficamente os raios de luz?",
+      "back": "A direção e o sentido de propagação da luz."
+    },
+    {
+      "front": "Como é denominado um conjunto de raios de luz?",
+      "back": "Feixe de luz."
+    },
+    {
+      "front": "Quais são os três tipos possíveis de feixes de luz?",
+      "back": "Convergente, divergente e paralelo."
+    },
+    {
+      "front": "Diferencie corpos luminosos de corpos iluminados.",
+      "back": "Corpos luminosos emitem luz própria, enquanto corpos iluminados reenviam a luz que recebem."
+    },
+    {
+      "front": "O que caracteriza uma fonte de luz primária?",
+      "back": "É um corpo que emite luz produzida por ele mesmo, como o Sol ou uma lâmpada acesa."
+    },
+    {
+      "front": "O que caracteriza uma fonte de luz secundária?",
+      "back": "É um corpo que apenas reflete a luz de outras fontes, como a Lua ou uma parede."
+    },
+    {
+      "front": "Sob qual condição uma fonte de luz é considerada puntiforme?",
+      "back": "Quando suas dimensões são desprezíveis em comparação com a distância que a separa de outros corpos."
+    },
+    {
+      "front": "O que define uma fonte de luz extensa?",
+      "back": "Uma fonte cujas dimensões não podem ser desprezadas em relação ao ambiente ou distância de observação."
+    },
+    {
+      "front": "O que é luz monocromática?",
+      "back": "Luz composta por uma única cor, como a luz amarela de lâmpadas de vapor de sódio."
+    },
+    {
+      "front": "O que é luz policromática?",
+      "back": "Luz resultante da superposição de luzes de cores diferentes, como a luz solar branca."
+    },
+    {
+      "front": "Qual é o valor aproximado da velocidade da luz no vácuo ($c$)?",
+      "back": "$3 \\cdot 10^{5}$ km/s ou $3 \\cdot 10^{8}$ m/s."
+    },
+    {
+      "front": "Defina a unidade de medida denominada ano-luz.",
+      "back": "Distância que a luz percorre no vácuo durante o intervalo de tempo de um ano."
+    },
+    {
+      "front": "Qual é o valor aproximado de 1 ano-luz em quilômetros?",
+      "back": "Aproximadamente $9,5 \\cdot 10^{12}$ km."
+    },
+    {
+      "front": "O que caracteriza um meio de propagação transparente?",
+      "back": "Permite a propagação da luz em trajetórias regulares, possibilitando a visão nítida de objetos."
+    },
+    {
+      "front": "Como a luz se comporta em um meio translúcido?",
+      "back": "Propaga-se em trajetórias irregulares, impedindo a visão nítida dos objetos através dele."
+    },
+    {
+      "front": "O que define um meio opaco para a luz?",
+      "back": "Meio material que não permite a propagação da luz através de si."
+    },
+    {
+      "front": "O que ocorre na reflexão regular da luz?",
+      "back": "Um feixe de raios paralelos incide em uma superfície polida e retorna ao meio original mantendo o paralelismo."
+    },
+    {
+      "front": "Qual é a causa da reflexão difusa (ou difusão)?",
+      "back": "As irregularidades da superfície atingida pela luz."
+    },
+    {
+      "front": "Qual fenômeno óptico nos permite enxergar os objetos ao nosso redor?",
+      "back": "Reflexão difusa."
+    },
+    {
+      "front": "O que acontece fisicamente na absorção da luz por uma superfície?",
+      "back": "A energia luminosa é captada pela superfície, resultando geralmente em aquecimento."
+    },
+    {
+      "front": "Como se define um 'corpo negro' em termos de fenômenos ópticos?",
+      "back": "Um corpo que apresenta absorção total da luz incidente."
+    },
+    {
+      "front": "Como é determinada a cor de um corpo por reflexão?",
+      "back": "Pelo tipo de luz monocromática que o corpo reflete difusamente."
+    },
+    {
+      "front": "Por que um corpo iluminado por luz branca apresenta-se azul?",
+      "back": "Porque ele reflete difusamente a componente azul e absorve as demais cores da luz branca."
+    },
+    {
+      "front": "Qual será a cor aparente de um corpo puramente azul se ele for iluminado apenas por luz monocromática vermelha?",
+      "back": "Preta (ou negra), pois a luz vermelha será totalmente absorvida."
+    },
+    {
+      "front": "Quais são as três cores primárias da luz?",
+      "back": "Vermelho, verde e azul."
+    },
+    {
+      "front": "Qual cor secundária resulta da superposição das luzes vermelha e verde?",
+      "back": "Amarelo."
+    },
+    {
+      "front": "Qual cor secundária resulta da superposição das luzes vermelha e azul?",
+      "back": "Magenta."
+    },
+    {
+      "front": "Qual cor secundária resulta da superposição das luzes verde e azul?",
+      "back": "Ciano."
+    },
+    {
+      "front": "O que são cores complementares?",
+      "back": "Duas luzes coloridas que, quando superpostas, produzem a luz branca."
+    },
+    {
+      "front": "Por que o céu é visto como azul durante o dia?",
+      "back": "Devido à maior difusão das componentes violeta e azul da luz solar ao atravessarem a atmosfera."
+    },
+    {
+      "front": "Por que o Sol e o céu parecem avermelhados no pôr do sol?",
+      "back": "Porque a luz vermelha é a que menos se difunde, atravessando camadas mais espessas da atmosfera até chegar ao observador."
+    },
+    {
+      "front": "Enuncie o Princípio da Propagação Retilínea da luz.",
+      "back": "Nos meios homogêneos e transparentes, a luz se propaga em linha reta."
+    },
+    {
+      "front": "O que é a 'sombra projetada' em um anteparo?",
+      "back": "Uma área que não recebe luz da fonte devido à interposição de um corpo opaco."
+    },
+    {
+      "front": "Sob quais condições ocorre a formação de penumbra?",
+      "back": "Quando o objeto opaco é iluminado por uma fonte de luz extensa."
+    },
+    {
+      "front": "Defina penumbra.",
+      "back": "Região que recebe luz de apenas alguns pontos de uma fonte extensa, sendo parcialmente iluminada."
+    },
+    {
+      "front": "O que ocorre durante um eclipse solar?",
+      "back": "A Lua posiciona-se entre o Sol e a Terra, projetando sua sombra ou penumbra sobre a superfície terrestre."
+    },
+    {
+      "front": "Diferencie eclipse solar total de parcial para um observador.",
+      "back": "O total ocorre na região de sombra da Lua (bloqueio completo); o parcial ocorre na região de penumbra."
+    },
+    {
+      "front": "Quando ocorre um eclipse lunar?",
+      "back": "Quando a Lua penetra na região de sombra determinada pela Terra ao ser iluminada pelo Sol."
+    },
+    {
+      "front": "O que caracteriza um eclipse anular do Sol?",
+      "back": "A Lua encobre a parte central do Sol, deixando visível um anel luminoso, devido à posição relativa dos astros."
+    },
+    {
+      "front": "Qual é a principal característica da imagem formada em uma câmara escura de orifício?",
+      "back": "A imagem é invertida tanto vertical quanto horizontalmente."
+    },
+    {
+      "front": "Qual é a relação matemática fundamental da câmara escura de orifício?",
+      "back": "$\\frac{m}{n} = \\frac{a}{b}$, onde $m$ é a altura do objeto, $n$ da imagem, $a$ a distância ao orifício e $b$ o comprimento da câmara."
+    },
+    {
+      "front": "O que acontece com a imagem na câmara escura se aumentarmos o diâmetro do orifício?",
+      "back": "A luminosidade aumenta, mas a nitidez da imagem diminui."
+    },
+    {
+      "front": "Defina ângulo visual.",
+      "back": "Ângulo formado pelos raios de luz que partem das extremidades de um objeto e chegam aos olhos do observador."
+    },
+    {
+      "front": "Como a distância de um objeto afeta o ângulo visual?",
+      "back": "Quanto maior a distância do objeto ao olho, menor será o ângulo visual."
+    },
+    {
+      "front": "O que é o limite de acuidade visual?",
+      "back": "O menor ângulo visual sob o qual o olho humano consegue distinguir dois pontos separadamente."
+    },
+    {
+      "front": "Enuncie o Princípio da Reversibilidade dos raios de luz.",
+      "back": "A trajetória seguida pela luz independe do sentido de sua propagação."
+    },
+    {
+      "front": "Explique o Princípio da Independência dos raios de luz.",
+      "back": "Quando feixes de luz se cruzam, cada um segue seu trajeto original como se os outros não existissem."
+    },
+    {
+      "front": "Como o funcionamento do olho humano se compara ao de uma câmera fotográfica quanto ao ajuste focal?",
+      "back": "A câmera varia a posição da lente, enquanto o olho varia o diâmetro (curvatura) da própria lente."
+    },
+    {
+      "front": "Onde se forma a imagem em um olho míope em relação à retina?",
+      "back": "A imagem forma-se antes da retina devido ao alongamento do globo ocular."
+    },
+    {
+      "front": "O que caracteriza a hipermetropia?",
+      "back": "O olho é mais curto que o normal, fazendo com que a imagem se forme após a retina."
+    },
+    {
+      "front": "Qual é a causa física do astigmatismo?",
+      "back": "Uma imperfeição na curvatura da córnea, que apresenta um formato mais ovalado que esférico."
+    },
+    {
+      "front": "Qual é a lei fundamental da reflexão em superfícies lisas?",
+      "back": "O ângulo de incidência é igual ao ângulo de reflexão ($\\theta_i = \\theta_r$)."
+    },
+    {
+      "front": "Qual propriedade da luz explica a formação de eclipses?",
+      "back": "Princípio da propagação retilínea da luz."
+    },
+    {
+      "front": "Qual é a cor resultante da mistura de todas as cores primárias de luz?",
+      "back": "Branco."
+    },
+    {
+      "front": "No vácuo, a velocidade da luz amarela é maior, menor ou igual à da luz azul?",
+      "back": "Igual; no vácuo, todas as luzes monocromáticas têm a mesma velocidade."
+    },
+    {
+      "front": "O que acontece com a velocidade da luz ao passar do vácuo para um meio material?",
+      "back": "Sua velocidade diminui, assumindo valores menores que $3 \\cdot 10^{8}$ m/s."
+    },
+    {
+      "front": "Em uma câmara escura, se a distância do objeto ($a$) dobrar, o que ocorre com o tamanho da imagem ($n$)?",
+      "back": "O tamanho da imagem ($n$) será reduzido à metade."
+    },
+    {
+      "front": "O fenômeno de ver o motorista pelo retrovisor e ele ver o passageiro exemplifica qual princípio?",
+      "back": "Princípio da reversibilidade dos raios de luz."
+    },
+    {
+      "front": "A dispersão da luz branca em um prisma comprova que ela é uma luz _____.",
+      "back": "Policromática."
+    },
+    {
+      "front": "A cor preta de um objeto indica que ele _____ todas as cores da luz incidente.",
+      "back": "Absorve."
+    },
+    {
+      "front": "O que é reflexão difusa?",
+      "back": "Reflexão em que os raios retornam ao meio original em diversas direções devido à rugosidade da superfície."
+    },
+    {
+      "front": "Qual é a ordem de grandeza do ângulo visual do Sol visto da Terra?",
+      "back": "Cerca de meio grau ($0,5^\\circ$)."
+    },
+    {
+      "front": "Na câmara escura, a semelhança de quais figuras geométricas permite o cálculo das dimensões?",
+      "back": "Triângulos."
+    }
+  ],
+  "cardCount": 64,
+  "exportedAt": "2026-07-17T15:53:28.912Z",
+  "source": "Web Clipper for NotebookLM"
+}

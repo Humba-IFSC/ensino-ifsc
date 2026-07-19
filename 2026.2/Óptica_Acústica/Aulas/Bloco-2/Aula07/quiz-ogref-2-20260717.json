@@ -1,0 +1,318 @@
+{
+  "title": "Quiz-OGRef-2",
+  "questions": [
+    {
+      "question": "Um raio de luz incide sobre a superfície de um espelho plano formando um ângulo de $35^{\\circ}$ com a superfície refletora. Qual é o valor do ângulo de reflexão ($r$)?",
+      "answerOptions": [
+        {
+          "text": "$55^{\\circ}$",
+          "isCorrect": true,
+          "rationale": "O ângulo de incidência é medido em relação à normal; como a normal faz $90^{\\circ}$ com a superfície, temos $i = 90^{\\circ} - 35^{\\circ} = 55^{\\circ}$. Pela segunda lei da reflexão, $r = i$."
+        },
+        {
+          "text": "$35^{\\circ}$",
+          "isCorrect": false,
+          "rationale": "Este valor corresponde ao ângulo formado com a superfície, e não ao ângulo de incidência ou reflexão, que são definidos em relação à reta normal."
+        },
+        {
+          "text": "$70^{\\circ}$",
+          "isCorrect": false,
+          "rationale": "Este seria o ângulo entre o raio incidente e o raio refletido, mas a pergunta pede especificamente o ângulo de reflexão isolado."
+        },
+        {
+          "text": "$90^{\\circ}$",
+          "isCorrect": false,
+          "rationale": "Este é o ângulo da reta normal com a superfície, não representando a trajetória do raio refletido neste cenário."
+        },
+        {
+          "text": "$45^{\\circ}$",
+          "isCorrect": false,
+          "rationale": "Embora seja um ângulo comum em problemas de óptica, não há justificativa geométrica para este valor baseando-se no ângulo de $35^{\\circ}$ com a superfície."
+        }
+      ],
+      "hint": "Lembre-se de que os ângulos de incidência e reflexão são medidos em relação à reta normal, que é perpendicular à superfície."
+    },
+    {
+      "question": "Se um espelho plano sofre uma translação de $12\\text{ cm}$ afastando-se de um objeto fixo, qual será o deslocamento total da imagem em relação à sua posição inicial?",
+      "answerOptions": [
+        {
+          "text": "$24\\text{ cm}$",
+          "isCorrect": true,
+          "rationale": "Na translação de um espelho plano, o deslocamento da imagem ($D$) é sempre o dobro do deslocamento do espelho ($d$), ou seja, $D = 2d$."
+        },
+        {
+          "text": "$12\\text{ cm}$",
+          "isCorrect": false,
+          "rationale": "Este é o deslocamento do espelho; a imagem se move mais pois a distância entre objeto e espelho e espelho e imagem aumentam simultaneamente."
+        },
+        {
+          "text": "$6\\text{ cm}$",
+          "isCorrect": false,
+          "rationale": "Este valor seria metade do deslocamento do espelho, o que contradiz a relação matemática da simetria em espelhos planos."
+        },
+        {
+          "text": "$36\\text{ cm}$",
+          "isCorrect": false,
+          "rationale": "Pode ocorrer confusão ao somar o deslocamento do espelho com o da imagem, mas a fórmula correta prevê apenas o dobro do movimento do espelho."
+        },
+        {
+          "text": "$0\\text{ cm}$",
+          "isCorrect": false,
+          "rationale": "A imagem de um objeto fixo sempre se desloca quando o espelho que a projeta sofre translação."
+        }
+      ],
+      "hint": "Pense na relação matemática entre o deslocamento do espelho ($d$) e o deslocamento da imagem ($D$)."
+    },
+    {
+      "question": "Dois espelhos planos são posicionados de forma que suas superfícies refletoras formem um ângulo de $40^{\\circ}$ entre si. Quantas imagens de um objeto colocado entre eles serão formadas?",
+      "answerOptions": [
+        {
+          "text": "8 imagens",
+          "isCorrect": true,
+          "rationale": "Utilizando a fórmula $N = \\frac{360^{\\circ}}{\\alpha} - 1$, temos $N = \\frac{360}{40} - 1 = 9 - 1 = 8$."
+        },
+        {
+          "text": "9 imagens",
+          "isCorrect": false,
+          "rationale": "Este é o resultado da divisão direta de $360^{\\circ}$ pelo ângulo, mas esquece-se de subtrair a unidade que representa o próprio objeto."
+        },
+        {
+          "text": "7 imagens",
+          "isCorrect": false,
+          "rationale": "Este seria o resultado se o ângulo fosse de $45^{\\circ}$, evidenciando um erro de cálculo na divisão inicial."
+        },
+        {
+          "text": "Infinitas imagens",
+          "isCorrect": false,
+          "rationale": "Imagens infinitas só ocorrem quando os espelhos são paralelos, ou seja, o ângulo entre eles é de $0^{\\circ}$."
+        },
+        {
+          "text": "4 imagens",
+          "isCorrect": false,
+          "rationale": "Este valor não corresponde à aplicação da fórmula de associação de espelhos planos para o ângulo de $40^{\\circ}$."
+        }
+      ],
+      "hint": "Aplique a fórmula de associação de espelhos planos $N = \\frac{360^{\\circ}}{\\alpha} - 1$."
+    },
+    {
+      "question": "Em um espelho plano, qual é a natureza e a orientação da imagem formada de um objeto real?",
+      "answerOptions": [
+        {
+          "text": "Virtual, direita e enantiomorfa.",
+          "isCorrect": true,
+          "rationale": "Espelhos planos sempre formam imagens virtuais (atrás do espelho), direitas (não invertidas verticalmente) e enantiomorfas (troca lateral de direita por esquerda)."
+        },
+        {
+          "text": "Real, invertida e menor.",
+          "isCorrect": false,
+          "rationale": "Imagens reais não podem ser formadas por um único espelho plano a partir de objetos reais, e o tamanho é sempre idêntico ao do objeto."
+        },
+        {
+          "text": "Virtual, invertida e maior.",
+          "isCorrect": false,
+          "rationale": "O espelho plano não altera as dimensões do objeto nem inverte a imagem de cabeça para baixo."
+        },
+        {
+          "text": "Real, direita e simétrica.",
+          "isCorrect": false,
+          "rationale": "Embora seja simétrica, a imagem em um espelho plano é virtual, pois é formada pelo prolongamento dos raios refletidos."
+        },
+        {
+          "text": "Virtual, direita e de dimensões reduzidas.",
+          "isCorrect": false,
+          "rationale": "A redução de tamanho é característica de espelhos convexos, não de espelhos planos, onde objeto e imagem têm mesmas dimensões."
+        }
+      ],
+      "hint": "Considere se a imagem pode ser projetada em uma tela e como as letras aparecem refletidas."
+    },
+    {
+      "question": "Um raio de luz incide em um espelho plano. Se girarmos o espelho de um ângulo $\\alpha = 10^{\\circ}$ em torno de um eixo contido em seu plano, de quanto girará o raio refletido?",
+      "answerOptions": [
+        {
+          "text": "$20^{\\circ}$",
+          "isCorrect": true,
+          "rationale": "De acordo com as leis da reflexão e a geometria da rotação de espelhos, o desvio do raio refletido ($\\\\Delta$) é o dobro do ângulo de rotação do espelho ($\\\\alpha$)."
+        },
+        {
+          "text": "$10^{\\circ}$",
+          "isCorrect": false,
+          "rationale": "Pode-se pensar erroneamente que o raio acompanha o espelho na mesma proporção, mas a mudança na normal dobra o efeito sobre o ângulo refletido."
+        },
+        {
+          "text": "$5^{\\circ}$",
+          "isCorrect": false,
+          "rationale": "Este seria o caso se o ângulo do raio fosse metade do ângulo do espelho, o que não ocorre na reflexão especular."
+        },
+        {
+          "text": "$40^{\\circ}$",
+          "isCorrect": false,
+          "rationale": "Este valor superestima a relação de proporcionalidade entre a rotação do espelho e a do raio refletido."
+        },
+        {
+          "text": "$0^{\\circ}$",
+          "isCorrect": false,
+          "rationale": "Sempre que o espelho gira, o ângulo de incidência muda, o que obrigatoriamente altera a direção do raio refletido."
+        }
+      ],
+      "hint": "Lembre-se da relação $\\Delta = 2\\alpha$ para a rotação do raio refletido."
+    },
+    {
+      "question": "Qual é a condição necessária para que um sistema óptico seja considerado 'estigmático', como é o caso do espelho plano?",
+      "answerOptions": [
+        {
+          "text": "A um ponto-objeto deve corresponder um único ponto-imagem.",
+          "isCorrect": true,
+          "rationale": "O estigmatismo ocorre quando todos os raios que partem de um ponto-objeto convergem (ou parecem divergir) de um único ponto-imagem nítido."
+        },
+        {
+          "text": "O sistema deve formar apenas imagens reais.",
+          "isCorrect": false,
+          "rationale": "O estigmatismo refere-se à nitidez e unicidade do ponto, independentemente de a imagem ser real ou virtual."
+        },
+        {
+          "text": "O sistema deve inverter a imagem lateralmente.",
+          "isCorrect": false,
+          "rationale": "A inversão lateral (enantiomorfismo) é uma característica geométrica de espelhos planos, não uma definição de estigmatismo."
+        },
+        {
+          "text": "A imagem deve ser sempre maior que o objeto.",
+          "isCorrect": false,
+          "rationale": "O tamanho da imagem está relacionado ao aumento linear, não à propriedade de convergência pontual do sistema."
+        },
+        {
+          "text": "O ponto-objeto deve estar localizado no infinito.",
+          "isCorrect": false,
+          "rationale": "Objetos no infinito geram pontos impróprios, mas o estigmatismo deve valer para objetos em distâncias finitas para garantir a nitidez."
+        }
+      ],
+      "hint": "Pense no termo oposto, 'astigmático', que produz uma mancha luminosa em vez de um ponto."
+    },
+    {
+      "question": "No estudo analítico dos espelhos esféricos, qual é o nome do ponto onde os raios incidentes paralelos ao eixo principal convergem (no espelho côncavo) ou de onde parecem divergir (no espelho convexo)?",
+      "answerOptions": [
+        {
+          "text": "Foco principal ($F$)",
+          "isCorrect": true,
+          "rationale": "Por definição, o foco principal de um espelho esférico é o ponto para o qual convergem (ou divergem) os raios que incidem paralelamente ao eixo óptico."
+        },
+        {
+          "text": "Centro de curvatura ($C$)",
+          "isCorrect": false,
+          "rationale": "O centro de curvatura é o centro da esfera que originou o espelho; raios que passam por ele refletem sobre si mesmos."
+        },
+        {
+          "text": "Vértice ($V$)",
+          "isCorrect": false,
+          "rationale": "O vértice é o ponto de interseção entre o eixo principal e a superfície do espelho, sendo a origem do sistema referencial."
+        },
+        {
+          "text": "Eixo secundário",
+          "isCorrect": false,
+          "rationale": "O eixo secundário é qualquer reta que passe pelo centro de curvatura, não sendo um ponto específico de convergência de raios paralelos ao eixo principal."
+        },
+        {
+          "text": "Ponto de Gauss",
+          "isCorrect": false,
+          "rationale": "Embora Gauss tenha estabelecido as condições de nitidez, este termo não denomina o ponto focal do espelho."
+        }
+      ],
+      "hint": "Este ponto está localizado exatamente no meio da distância entre o centro de curvatura e o vértice."
+    },
+    {
+      "question": "Em um espelho esférico côncavo, um objeto é colocado a uma distância $p = 30\\text{ cm}$ do vértice. Sabendo que o raio de curvatura do espelho é $R = 40\\text{ cm}$, qual será a distância da imagem ($p'$) em relação ao espelho?",
+      "answerOptions": [
+        {
+          "text": "$60\\text{ cm}$",
+          "isCorrect": true,
+          "rationale": "O foco é $f = R/2 = 20\\text{ cm}$. Pela Equação de Gauss $\\frac{1}{20} = \\frac{1}{30} + \\frac{1}{p'}$, temos $\\frac{1}{p'} = \\frac{3-2}{60} = \\frac{1}{60}$."
+        },
+        {
+          "text": "$20\\text{ cm}$",
+          "isCorrect": false,
+          "rationale": "Este valor corresponde à distância focal do espelho, não à posição da imagem para um objeto a $30\\text{ cm}$."
+        },
+        {
+          "text": "$10\\text{ cm}$",
+          "isCorrect": false,
+          "rationale": "Este resultado sugere um erro na manipulação algébrica da Equação de Gauss ou na identificação da distância focal."
+        },
+        {
+          "text": "$40\\text{ cm}$",
+          "isCorrect": false,
+          "rationale": "Este é o raio de curvatura; se o objeto estivesse no centro ($p=40$), a imagem também estaria em $40$."
+        },
+        {
+          "text": "$15\\text{ cm}$",
+          "isCorrect": false,
+          "rationale": "Um valor de $15\\text{ cm}$ para $p'$ indicaria uma imagem entre o foco e o vértice, o que não ocorre para um objeto além do foco."
+        }
+      ],
+      "hint": "Primeiro encontre a distância focal ($f$) usando o raio ($R$) e depois aplique a Equação de Gauss."
+    },
+    {
+      "question": "Um periscópio simples é construído com dois espelhos planos. Como esses espelhos devem ser posicionados para que o observador veja a imagem correta (não invertida lateralmente)?",
+      "answerOptions": [
+        {
+          "text": "Paralelos entre si e inclinados a $45^{\\circ}$ em relação ao eixo do tubo.",
+          "isCorrect": true,
+          "rationale": "A dupla reflexão em espelhos paralelos compensa o enantiomorfismo da primeira reflexão, resultando em uma imagem final idêntica ao objeto."
+        },
+        {
+          "text": "Perpendiculares entre si para maximizar o ângulo morto.",
+          "isCorrect": false,
+          "rationale": "Espelhos perpendiculares fariam o raio de luz retornar ou mudar de direção de forma a não sair pela outra extremidade do tubo."
+        },
+        {
+          "text": "Um deve ser côncavo e o outro convexo para ampliar a imagem.",
+          "isCorrect": false,
+          "rationale": "Periscópios básicos utilizam espelhos planos; o uso de espelhos curvos distorceria a imagem sem a devida compensação óptica."
+        },
+        {
+          "text": "Em um ângulo de $90^{\\circ}$ com a luz incidente para refletir de volta à fonte.",
+          "isCorrect": false,
+          "rationale": "Esta configuração funcionaria como um refletor (olho de gato), não permitindo a visão de objetos acima do campo visual do observador."
+        },
+        {
+          "text": "Paralelos, mas voltados para a mesma direção externa.",
+          "isCorrect": false,
+          "rationale": "Se as faces refletoras não estiverem voltadas para o interior do trajeto óptico, a luz não será conduzida através do instrumento."
+        }
+      ],
+      "hint": "Considere o efeito de uma segunda reflexão sobre uma imagem que já é enantiomorfa."
+    },
+    {
+      "question": "Considere as condições de nitidez de Gauss para espelhos esféricos. Para que as imagens sejam nítidas, os raios incidentes devem ser:",
+      "answerOptions": [
+        {
+          "text": "Paraxiais e o ângulo de abertura do espelho deve ser pequeno.",
+          "isCorrect": true,
+          "rationale": "As condições de Gauss exigem que os raios sejam próximos ao eixo principal (paraxiais) e o ângulo de abertura seja menor que $10^{\\circ}$ para minimizar aberrações."
+        },
+        {
+          "text": "Sempre paralelos entre si, independentemente do eixo principal.",
+          "isCorrect": false,
+          "rationale": "Raios paralelos entre si mas muito inclinados em relação ao eixo principal não produzem imagens nítidas (estigmáticas)."
+        },
+        {
+          "text": "Raios que passem obrigatoriamente pelo centro de curvatura.",
+          "isCorrect": false,
+          "rationale": "Embora esses raios sejam úteis na construção geométrica, a nitidez de uma imagem completa depende de todos os raios que atingem o espelho."
+        },
+        {
+          "text": "Muito afastados do eixo principal para cobrir toda a superfície.",
+          "isCorrect": false,
+          "rationale": "Raios marginais (afastados do eixo) causam aberração esférica, prejudicando a nitidez da imagem formada."
+        },
+        {
+          "text": "Provenientes de fontes de luz monocromática apenas.",
+          "isCorrect": false,
+          "rationale": "Embora a luz monocromática evite dispersão em lentes, em espelhos o problema principal é geométrico (esfericidade), não cromático."
+        }
+      ],
+      "hint": "Pense na restrição de ângulo para evitar que o espelho 'se comporte mal' nas bordas."
+    }
+  ],
+  "questionCount": 10,
+  "exportedAt": "2026-07-17T15:53:07.160Z",
+  "source": "Web Clipper for NotebookLM"
+}

@@ -1,0 +1,168 @@
+{
+  "title": "Quiz-OGRef-3",
+  "questions": [
+    {
+      "question": "Verdadeiro ou Falso: Um espelho esférico é denominado côncavo quando a sua superfície refletora é a face externa da calota esférica.",
+      "answerOptions": [
+        {
+          "text": "Verdadeiro",
+          "isCorrect": false,
+          "rationale": "A superfície externa caracteriza um espelho convexo, enquanto a superfície interna caracteriza um espelho côncavo."
+        },
+        {
+          "text": "Falso",
+          "isCorrect": true,
+          "rationale": "Espelhos côncavos utilizam a face interna da calota como superfície refletora, conforme as definições básicas da óptica geométrica."
+        }
+      ],
+      "hint": "Pense na parte de dentro e na parte de fora de uma colher de metal polida."
+    },
+    {
+      "question": "Verdadeiro ou Falso: Segundo as condições de nitidez de Gauss, a abertura do espelho esférico deve ser pequena ($\\alpha < 10^{\\circ}$) para evitar deformações consideráveis na imagem.",
+      "answerOptions": [
+        {
+          "text": "Verdadeiro",
+          "isCorrect": true,
+          "rationale": "Pequenas aberturas garantem que os raios sejam para-axiais, resultando em imagens mais nítidas e sem distorções significativas."
+        },
+        {
+          "text": "Falso",
+          "isCorrect": false,
+          "rationale": "A nitidez de Gauss depende justamente de uma abertura limitada para que os raios incidentes sejam pouco inclinados em relação ao eixo principal."
+        }
+      ],
+      "hint": "Considere o limite angular necessário para que os raios sejam considerados para-axiais."
+    },
+    {
+      "question": "Verdadeiro ou Falso: O foco principal $F$ de um espelho esférico de Gauss está situado exatamente no ponto médio do segmento que liga o centro de curvatura $C$ ao vértice $V$, de modo que $f = \\frac{R}{2}$.",
+      "answerOptions": [
+        {
+          "text": "Verdadeiro",
+          "isCorrect": true,
+          "rationale": "A demonstração geométrica para espelhos de pequena abertura confirma que a distância focal é metade do raio de curvatura."
+        },
+        {
+          "text": "Falso",
+          "isCorrect": false,
+          "rationale": "A relação $f = \\frac{R}{2}$ é um princípio fundamental dos espelhos de Gauss, posicionando o foco equidistante do centro e do vértice."
+        }
+      ],
+      "hint": "Lembre-se da relação matemática entre a distância focal e o raio da calota esférica."
+    },
+    {
+      "question": "Verdadeiro ou Falso: Todo raio de luz que incide em um espelho convexo paralelamente ao seu eixo principal é refletido de modo que sua trajetória passe efetivamente pelo foco real do espelho.",
+      "answerOptions": [
+        {
+          "text": "Verdadeiro",
+          "isCorrect": false,
+          "rationale": "No espelho convexo, o foco é virtual e os raios refletidos divergem, sendo apenas seus prolongamentos que passam pelo foco."
+        },
+        {
+          "text": "Falso",
+          "isCorrect": true,
+          "rationale": "O foco de um espelho convexo é virtual (atrás do espelho), portanto os raios refletidos divergem e apenas seus prolongamentos atingem o foco."
+        }
+      ],
+      "hint": "Considere se a luz atravessa o espelho ou se apenas os prolongamentos dos raios o fazem."
+    },
+    {
+      "question": "Verdadeiro ou Falso: Um objeto real colocado diante de um espelho esférico convexo produzirá sempre uma imagem virtual, direita e menor que o objeto, independentemente de sua distância ao vértice.",
+      "answerOptions": [
+        {
+          "text": "Verdadeiro",
+          "isCorrect": true,
+          "rationale": "O espelho convexo possui apenas um tipo de formação de imagem para objetos reais, o que o torna útil para ampliar o campo visual em retrovisores."
+        },
+        {
+          "text": "Falso",
+          "isCorrect": false,
+          "rationale": "A configuração geométrica dos raios refletidos em uma superfície convexa sempre resulta em uma imagem com essas três características específicas."
+        }
+      ],
+      "hint": "Lembre-se das propriedades das imagens observadas em espelhos de segurança de estacionamentos ou supermercados."
+    },
+    {
+      "question": "Verdadeiro ou Falso: Se um objeto real for posicionado exatamente sobre o foco principal de um espelho côncavo, a imagem será formada no infinito, sendo denominada imagem imprópria.",
+      "answerOptions": [
+        {
+          "text": "Verdadeiro",
+          "isCorrect": true,
+          "rationale": "Nesta posição, os raios refletidos saem paralelos entre si, impedindo a convergência em um ponto finito para formar uma imagem nítida."
+        },
+        {
+          "text": "Falso",
+          "isCorrect": false,
+          "rationale": "Raios incidentes que passam pelo foco ou partem dele são refletidos paralelamente ao eixo principal, impossibilitando o cruzamento dos raios."
+        }
+      ],
+      "hint": "Considere o comportamento dos raios refletidos quando o objeto está no ponto onde todos os raios paralelos convergiriam."
+    },
+    {
+      "question": "Verdadeiro ou Falso: De acordo com o referencial de Gauss, a abscissa do objeto $p$ e a abscissa da imagem $p'$ são positivas para elementos reais localizados na frente da superfície refletora.",
+      "answerOptions": [
+        {
+          "text": "Verdadeiro",
+          "isCorrect": true,
+          "rationale": "O referencial adota o sentido contrário ao da luz incidente para o eixo das abscissas a partir do vértice, tornando elementos reais positivos."
+        },
+        {
+          "text": "Falso",
+          "isCorrect": false,
+          "rationale": "Na convenção de sinais de Gauss, tudo que é real (objeto ou imagem projetável) possui valor de abscissa maior que zero."
+        }
+      ],
+      "hint": "Pense na regra de sinais para objetos e imagens que se encontram no lado da luz incidente."
+    },
+    {
+      "question": "Verdadeiro ou Falso: Um espelho côncavo produz uma imagem real, invertida e maior que o objeto quando este é colocado entre o foco $F$ e o vértice $V$.",
+      "answerOptions": [
+        {
+          "text": "Verdadeiro",
+          "isCorrect": false,
+          "rationale": "Entre o foco e o vértice, a imagem produzida é virtual, direita e maior, característica comum em espelhos de maquiagem."
+        },
+        {
+          "text": "Falso",
+          "isCorrect": true,
+          "rationale": "Nesta posição próxima ao vértice, o espelho côncavo funciona como um ampliador, gerando imagens que não podem ser projetadas (virtuais) e direitas."
+        }
+      ],
+      "hint": "Lembre-se de como fica a imagem quando você aproxima muito o rosto de um espelho côncavo para ver detalhes."
+    },
+    {
+      "question": "Verdadeiro ou Falso: O aumento linear transversal $A$ possui sinal negativo ($A < 0$) sempre que a imagem for invertida em relação ao objeto.",
+      "answerOptions": [
+        {
+          "text": "Verdadeiro",
+          "isCorrect": true,
+          "rationale": "A inversão da imagem implica que a ordenada da imagem $i$ tem sinal oposto à do objeto $o$, resultando em um quociente negativo."
+        },
+        {
+          "text": "Falso",
+          "isCorrect": false,
+          "rationale": "O sinal de $A$ indica a orientação da imagem; valores negativos confirmam que a imagem está de cabeça para baixo em relação ao objeto."
+        }
+      ],
+      "hint": "Considere a relação matemática $A = \\frac{i}{o}$ e como os sinais de $i$ e $o$ interagem."
+    },
+    {
+      "question": "Verdadeiro ou Falso: Todo raio de luz que incide sobre o espelho em uma direção que passa pelo centro de curvatura $C$ é refletido sobre si mesmo, pois coincide com a normal à superfície no ponto de incidência.",
+      "answerOptions": [
+        {
+          "text": "Verdadeiro",
+          "isCorrect": true,
+          "rationale": "Raios que passam pelo centro são radiais à esfera, atingindo a superfície com ângulo de incidência zero em relação à normal."
+        },
+        {
+          "text": "Falso",
+          "isCorrect": false,
+          "rationale": "Por ser perpendicular à superfície esférica, qualquer raio que passe pelo centro não sofre desvio angular na reflexão, voltando pelo mesmo caminho."
+        }
+      ],
+      "hint": "Pense na propriedade geométrica de uma reta que passa pelo centro de uma circunferência em relação à sua tangente."
+    }
+  ],
+  "questionCount": 10,
+  "exportedAt": "2026-07-17T15:52:42.677Z",
+  "source": "Web Clipper for NotebookLM"
+}

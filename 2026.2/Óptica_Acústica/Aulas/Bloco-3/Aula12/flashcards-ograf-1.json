@@ -1,0 +1,48 @@
+{
+  "title": "Flashcards-OGRaf-1",
+  "cards": [
+    {
+      "front": "O que caracteriza fundamentalmente o fenômeno da refração luminosa?",
+      "back": "A variação na velocidade de propagação da luz ao passar de um meio para outro."
+    },
+    {
+      "front": "Qual é a equação para calcular o índice de refração absoluto ($n$) de um meio transparente?",
+      "back": "$n = \\frac{c}{v}$"
+    },
+    {
+      "front": "Na incidência normal ($90^\\circ$ com a superfície), o que ocorre com a trajetória do raio refratado?",
+      "back": "A refração ocorre com mudança de velocidade, mas sem sofrer desvio em sua direção."
+    },
+    {
+      "front": "Como se define a 'continuidade óptica' entre dois meios físicos distintos?",
+      "back": "Ocorre quando dois meios diferentes apresentam o mesmo índice de refração absoluto."
+    },
+    {
+      "front": "Enuncie a Lei de Snell-Descartes (2ª Lei da Refração).",
+      "back": "$n_1 \\cdot \\sin(i) = n_2 \\cdot \\sin(r)$"
+    },
+    {
+      "front": "Ao passar de um meio menos refringente para um mais refringente, como o raio luminoso se comporta em relação à normal?",
+      "back": "O raio luminoso se aproxima da reta normal ($r < i$)."
+    },
+    {
+      "front": "Qual é a condição obrigatória de propagação para que possa ocorrer o fenômeno do ângulo limite ($L$)?",
+      "back": "A luz deve se propagar de um meio mais refringente para um meio menos refringente."
+    },
+    {
+      "front": "Qual é a fórmula para o cálculo do seno do ângulo limite ($L$) entre dois meios?",
+      "back": "$\\sin(L) = \\frac{n_{menor}}{n_{maior}}$"
+    },
+    {
+      "front": "Quais são as duas condições necessárias para a ocorrência da reflexão interna total?",
+      "back": "Luz do meio mais para o menos refringente e ângulo de incidência maior que o ângulo limite ($i > L$)."
+    },
+    {
+      "front": "Qual dispositivo tecnológico utiliza múltiplas reflexões internas totais para carregar informações a grandes distâncias?",
+      "back": "A fibra óptica."
+    }
+  ],
+  "cardCount": 10,
+  "exportedAt": "2026-07-18T20:41:06.458Z",
+  "source": "Web Clipper for NotebookLM"
+}

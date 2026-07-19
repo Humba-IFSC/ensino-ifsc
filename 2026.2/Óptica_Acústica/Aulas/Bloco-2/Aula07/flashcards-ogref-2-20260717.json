@@ -1,0 +1,68 @@
+{
+  "title": "Flashcards-OGRef-2",
+  "cards": [
+    {
+      "front": "De acordo com a primeira lei da reflexão, qual é a relação espacial entre o raio incidente, o raio refletido e a reta normal?",
+      "back": "Eles são coplanares, ou seja, estão situados no mesmo plano."
+    },
+    {
+      "front": "Enuncie a segunda lei da reflexão em termos dos ângulos de incidência ($i$) e de reflexão ($r$).",
+      "back": "O ângulo de reflexão é igual ao ângulo de incidência ($r = i$)."
+    },
+    {
+      "front": "Qual é a natureza da imagem de um ponto-objeto real em um espelho plano?",
+      "back": "A imagem é virtual, pois é formada pela interseção dos prolongamentos dos raios refletidos."
+    },
+    {
+      "front": "Como se comparam a distância do objeto ao espelho plano e a distância da imagem ao mesmo espelho?",
+      "back": "Elas são iguais, indicando que o objeto e a imagem são equidistantes e simétricos em relação à superfície refletora."
+    },
+    {
+      "front": "O que caracteriza o fenômeno do enantiomorfismo em imagens de objetos extensos em espelhos planos?",
+      "back": "A imagem não se superpõe ao objeto, havendo uma troca entre a direita e a esquerda."
+    },
+    {
+      "front": "Quais fatores determinam o campo visual de um espelho plano em relação a um observador?",
+      "back": "O tamanho do espelho, a posição do espelho e a posição do olho do observador."
+    },
+    {
+      "front": "Se um espelho plano sofre uma translação de uma distância $d$ em relação a um objeto fixo, qual será o deslocamento $D$ da imagem?",
+      "back": "O deslocamento da imagem será o dobro do deslocamento do espelho ($D = 2d$)."
+    },
+    {
+      "front": "Qual é a relação entre a velocidade da imagem ($v_{i}$) e a velocidade de translação de um espelho plano ($v_{e}$) em relação a um objeto fixo?",
+      "back": "A velocidade da imagem é o dobro da velocidade do espelho ($v_{i} = 2v_{e}$)."
+    },
+    {
+      "front": "Ao girar um espelho plano de um ângulo $\\alpha$, qual é o valor do ângulo de rotação $\\Delta$ do raio refletido correspondente?",
+      "back": "O ângulo de rotação do raio refletido é o dobro do ângulo de rotação do espelho ($\\Delta = 2\\alpha$)."
+    },
+    {
+      "front": "Qual fórmula calcula o número de imagens ($N$) formadas por um objeto colocado entre dois espelhos planos que formam um ângulo $\\alpha$ entre si?",
+      "back": "$N = \\frac{360^{\\circ}}{\\alpha} - 1$."
+    },
+    {
+      "front": "Sob qual condição a fórmula $N = \\frac{360^{\\circ}}{\\alpha} - 1$ é válida quando a relação $\\frac{360^{\\circ}}{\\alpha}$ resulta em um número ímpar?",
+      "back": "A fórmula é válida apenas se o objeto estiver posicionado no plano bissetor do ângulo $\\alpha$."
+    },
+    {
+      "front": "Por que a imagem final formada por um periscópio não é enantiomorfa em relação ao objeto original?",
+      "back": "Devido à ocorrência de uma dupla reflexão em espelhos paralelos, que reverte a inversão lateral inicial."
+    },
+    {
+      "front": "Escreva a Equação de Gauss para o estudo analítico de espelhos esféricos utilizando a distância focal ($f$), distância do objeto ($p$) e distância da imagem ($p'$).",
+      "back": "$\\frac{1}{f} = \\frac{1}{p} + \\frac{1}{p'}$."
+    },
+    {
+      "front": "Diferencie um sistema óptico estigmático de um sistema astigmático.",
+      "back": "O estigmático conjuga um único ponto-imagem a um ponto-objeto, enquanto o astigmático conjuga uma mancha luminosa."
+    },
+    {
+      "front": "Como se define um 'ponto-imagem real' em termos de trajetória de raios luminosos?",
+      "back": "É o ponto definido pela interseção efetiva dos raios luminosos emergentes (refletidos)."
+    }
+  ],
+  "cardCount": 15,
+  "exportedAt": "2026-07-17T15:53:18.283Z",
+  "source": "Web Clipper for NotebookLM"
+}

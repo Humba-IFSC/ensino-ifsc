@@ -1,0 +1,48 @@
+{
+  "title": "Flashcards-OGRaf-2",
+  "cards": [
+    {
+      "front": "Como são denominadas as lentes cuja periferia é menos espessa que a sua parte central?",
+      "back": "Lentes de bordas delgadas."
+    },
+    {
+      "front": "Qual é a propriedade do raio de luz que atinge o centro óptico ($O$) de uma lente esférica delgada?",
+      "back": "O raio atravessa a lente sem sofrer nenhum tipo de desvio em sua trajetória."
+    },
+    {
+      "front": "Em que condição uma lente de bordas delgadas assume um comportamento óptico divergente?",
+      "back": "Quando o índice de refração do meio é maior que o índice de refração da lente ($n_{meio} > n_{lente}$)."
+    },
+    {
+      "front": "Quais são as três características constantes da imagem de um objeto real formada por uma lente divergente?",
+      "back": "Virtual, direita e menor que o objeto."
+    },
+    {
+      "front": "Todo raio de luz que incide paralelamente ao eixo principal de uma lente delgada emerge em uma direção que passa pelo _____.",
+      "back": "Foco principal imagem ($F'$)."
+    },
+    {
+      "front": "Para que uma lente convergente funcione como uma lupa, produzindo imagem virtual e aumentada, onde o objeto deve ser colocado?",
+      "back": "Entre o foco principal objeto ($F$) e o centro óptico ($O$)."
+    },
+    {
+      "front": "Na Equação de Gauss para lentes, $\\frac{1}{f} = \\frac{1}{p} + \\frac{1}{p'}$, o que a variável $p'$ representa?",
+      "back": "A abscissa da imagem (distância da imagem ao centro óptico)."
+    },
+    {
+      "front": "De acordo com o referencial analítico de Gauss, qual é o sinal da distância focal ($f$) para uma lente divergente?",
+      "back": "Negativo ($f < 0$)."
+    },
+    {
+      "front": "Termo: Vergência ($C$). Definição: Capacidade de uma lente desviar a luz, calculada pelo inverso da distância focal ($C = \\frac{1}{f}$).",
+      "back": "Unidade de medida no SI: Dioptria ($di$)."
+    },
+    {
+      "front": "Qual é a natureza dos focos principais (objeto e imagem) em uma lente convergente?",
+      "back": "Os focos são reais, pois são definidos pelo cruzamento efetivo dos raios de luz."
+    }
+  ],
+  "cardCount": 10,
+  "exportedAt": "2026-07-18T20:40:43.084Z",
+  "source": "Web Clipper for NotebookLM"
+}
