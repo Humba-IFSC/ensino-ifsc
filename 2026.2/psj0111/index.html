@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSJ0111 | Metodologia da Pesquisa em Educação — IFSC São José</title>
+    <meta name="description" content="Dashboard da disciplina PSJ0111 — Metodologia da Pesquisa em Educação, Curso de Especialização em Educação Ambiental com Ênfase na Formação de Professores. IFSC Campus São José, 2026.2.">
+    <meta name="author" content="Prof. Dr. Humberto Luz Oliveira, Profª. Dra. Joce Mary Mello Giotto, Prof. Dr. Volmir Von Dentz">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/style.css">
+
+    <style>
+        :root {
+            --c-surface: rgba(15,23,42,0.75);
+            --c-border: rgba(255,255,255,0.08);
+            --emerald-glow: rgba(16,185,129,0.15);
+            --emerald-border: rgba(16,185,129,0.3);
+        }
+        body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #f0f4f8; }
+        
+        .hero-avatar-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: -12px;
+            margin-bottom: 1.2rem;
+        }
+        .hero-avatar-sm {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #10b981;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            background: #1e293b;
+        }
+
+        .badge-pos {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .bloco-header { display: flex; align-items: center; gap: 0.75rem; margin: 2.5rem 0 1.2rem; }
+        .bloco-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.35rem 1rem; border-radius: 9999px; }
+        .bloco-1 { background: rgba(34,197,94,.12); color: #4ade80; border: 1px solid rgba(34,197,94,.25); }
+        .bloco-2 { background: rgba(14,165,233,.12); color: #38bdf8; border: 1px solid rgba(14,165,233,.25); }
+        .bloco-3 { background: rgba(168,85,247,.12); color: #c084fc; border: 1px solid rgba(168,85,247,.25); }
+
+        .card-aula { 
+            background: var(--c-surface); 
+            border: 1px solid var(--c-border); 
+            border-radius: 1rem; 
+            padding: 1.5rem; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 0.85rem; 
+            transition: all 0.3s cubic-bezier(.4,0,.2,1); 
+        }
+        .card-aula:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 14px 30px rgba(0,0,0,.45); 
+            border-color: rgba(16,185,129,.35); 
+        }
+
+        .badge-aula { font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 9999px; width: fit-content; }
+        .badge-intro { background: rgba(34,197,94,.15); color: #4ade80; border: 1px solid rgba(34,197,94,.3); }
+        .badge-pratica { background: rgba(14,165,233,.15); color: #38bdf8; border: 1px solid rgba(14,165,233,.3); }
+        .badge-seminario { background: rgba(245,158,11,.15); color: #fbbf24; border: 1px solid rgba(245,158,11,.3); }
+
+        .resources-box { 
+            background: rgba(0,0,0,.35); 
+            border: 1px solid rgba(255,255,255,.07); 
+            border-radius: 0.6rem; 
+            padding: 0.85rem 1rem; 
+            font-size: 0.8rem; 
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .btn-link { 
+            background: rgba(16,185,129,.12); 
+            color: #34d399; 
+            border: 1px solid rgba(16,185,129,.3); 
+            padding: 0.4rem 0.85rem; 
+            border-radius: 0.5rem; 
+            font-size: 0.75rem; 
+            font-weight: 600; 
+            text-decoration: none; 
+            transition: all 0.2s; 
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .btn-link:hover { background: rgba(16,185,129,.22); color: #6ee7b7; }
+
+        .btn-subtle {
+            background: rgba(255,255,255,.06);
+            color: #cbd5e1;
+            border: 1px solid rgba(255,255,255,.1);
+            padding: 0.4rem 0.85rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .btn-subtle:hover { background: rgba(255,255,255,.12); color: #ffffff; }
+
+        .prof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+        .card-prof {
+            background: var(--c-surface);
+            border: 1px solid var(--c-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+        }
+        .card-prof:hover { border-color: rgba(16,185,129,.3); transform: translateY(-2px); }
+        .prof-avatar {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: rgba(16,185,129,.15);
+            color: #34d399;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            border: 1px solid rgba(16,185,129,.3);
+            flex-shrink: 0;
+        }
+        .prof-info h4 { margin: 0 0 0.2rem 0; font-size: 0.95rem; font-weight: 700; color: #f8fafc; }
+        .prof-info p { margin: 0; font-size: 0.78rem; color: #94a3b8; }
+        .prof-info a { color: #34d399; text-decoration: none; font-weight: 500; }
+        .prof-info a:hover { text-decoration: underline; }
+
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.2rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand">
+                <span class="emoji">🏠</span>
+                <span>Semestre 2026.2</span>
+            </a>
+            <ul class="navbar-links">
+                <li><a href="#cronograma">📋 Cronograma</a></li>
+                <li><a href="#seminario">🎤 Seminário</a></li>
+                <li><a href="#avaliacao">📊 Avaliação</a></li>
+                <li><a href="#docentes">👨‍🏫 Corpo Docente</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- ═══ HERO ═══ -->
+        <header class="hero fade-in" id="top" style="padding-top: 2rem;">
+            <div class="hero-badges" style="justify-content: center; margin-bottom: 1rem;">
+                <span class="badge-pos">
+                    <span class="dot" style="background: #34d399;"></span>
+                    Pós-Graduação Lato Sensu
+                </span>
+                <span class="hero-badge" style="background: rgba(255,255,255,0.06);">
+                    📌 Especialização em Educação Ambiental
+                </span>
+            </div>
+
+            <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Metodologia da Pesquisa em Educação</h1>
+            <p class="hero-subtitle" style="font-size: 1.1rem; color: #34d399; font-weight: 600;">Código da Disciplina: PSJ0111</p>
+            <p class="hero-institution">Instituto Federal de Santa Catarina (IFSC) — Câmpus São José · 2026.2</p>
+
+            <div class="hero-badges" style="margin-top: 1.2rem;">
+                <span class="hero-badge">⏱ Carga Horária: 45h Presencial</span>
+                <span class="hero-badge">📅 9 Encontros Semestrais</span>
+                <span class="hero-badge">🏫 Depto. de Ensino, Pesquisa e Extensão</span>
+            </div>
+        </header>
+
+        <!-- ═══ STATS BAR ═══ -->
+        <div class="stats-bar fade-in">
+            <div class="stat">
+                <div class="stat-value" style="color: #34d399;">9</div>
+                <div class="stat-label">Encontros / Aulas</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">45h</div>
+                <div class="stat-label">Carga Horária Total</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" style="color: #fbbf24;">3</div>
+                <div class="stat-label">Professores Ministrantes</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">1 — 10</div>
+                <div class="stat-label">Escala Avaliativa</div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- SEÇÃO: CRONOGRAMA DAS AULAS                    -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <section class="section" id="cronograma">
+            <div class="section-header">
+                <span class="section-icon">📋</span>
+                <div>
+                    <h2 class="section-title">Cronograma das Aulas</h2>
+                    <p class="section-sub">Planejamento das 9 aulas presenciais do semestre 2026.2</p>
+                </div>
+            </div>
+
+            <!-- BLOCO 1: FUNDAMENTAÇÃO E INTENÇÕES DE PESQUISA -->
+            <div class="bloco-header">
+                <span class="bloco-label bloco-1">Bloco I · Fundamentos & Intenções de Pesquisa (Aulas 01 a 05)</span>
+            </div>
+
+            <div class="grid-3">
+                <!-- Aula 01 -->
+                <div class="card-aula">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span class="badge-aula badge-intro">Aula 01 · 23/07/2026</span>
+                        <span style="font-size:0.75rem; color:#94a3b8;">Quinta-feira</span>
+                    </div>
+                    <h3 style="font-size:1.05rem; font-weight:700; margin:0; color:#f1f5f9;">Apresentação da Disciplina, Plano de Ensino e Ludwig</h3>
+                    <p style="font-size:0.82rem; color:#94a3b8; margin:0; line-height:1.5;">
+                        Esclarecimento de documentos norteadores (PPC do Curso, Resolução CEPE 45/2022) e introdução ao texto *"A Pesquisa em Educação"* de Antonio Carlos Will Ludwig.
+                    </p>
+                    <div class="resources-box">
+                        <a href="aula01/README.md" class="btn-link">📖 Guia da Aula 01</a>
+                        <a href="aula01/A%20pesquisa%20em%20educa%C3%A7%C3%A3o%20LUDWIG.pdf" target="_blank" class="btn-subtle">📄 Artigo Ludwig (PDF)</a>
+                    </div>
+                </div>
+
+                <!-- Aula 02 -->
+                <div class="card-aula">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span class="badge-aula badge-intro">Aula 02 · 30/07/2026</span>
+                        <span style="font-size:0.75rem; color:#94a3b8;">Quinta-feira</span>
+                    </div>
+                    <h3 style="font-size:1.05rem; font-weight:700; margin:0; color:#f1f5f9;">Debate sobre o Artigo do Ludwig & Organização de Temas</h3>
+                    <p style="font-size:0.82rem; color:#94a3b8; margin:0; line-height:1.5;">
+                        Diálogo sobre a pesquisa em educação, organização dos temas do Seminários de Metodologia e recomendação do e-book de Metodologia do Trabalho Científico.
+                    </p>
+                    <div class="resources-box">
+                        <a href="aula02/README.md" class="btn-link">📖 Guia da Aula 02</a>
+                        <a href="aula02/E-book%20Metodologia%20do%20Trabalho%20Cientifico.pdf" target="_blank" class="btn-subtle">📚 E-book Metodologia</a>
+                    </div>
+                </div>
+
+                <!-- Aula 03 -->
+                <div class="card-aula">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span class="badge-aula badge-intro">Aula 03 · 06/08/2026</span>
+                        <span style="font-size:0.75rem; color:#94a3b8;">Quinta-feira</span>
+                    </div>
+                    <h3 style="font-size:1.05rem; font-weight:700; margin:0; color:#f1f5f9;">Relação Dialética Pergunta x Resposta & CEPSH</h3>
+                    <p style="font-size:0.82rem; color:#94a3b8; margin:0; line-height:1.5;">
+                        Síntese dialética sobre problema de pesquisa, submissão ao Comitê de Ética em Pesquisa com Seres Humanos (CEPSH) e definição de equipes do seminário.
+                    </p>
+                    <div class="resources-box">
+                        <a href="aula03/README.md" class="btn-link">📖 Guia da Aula 03</a>
+                        <a href="aula03/Apresenta%C3%A7%C3%A3o%20-%20A%20rela%C3%A7%C3%A3o%20dial%C3%A9tica%20entre%20a%20Pergunta%20e%20a%20Resposta.pptx" class="btn-subtle">📊 Slides Dialética</a>
+                    </div>
+                </div>
+
+                <!-- Aula 04 -->
+                <div class="card-aula">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span class="badge-aula badge-pratica">Aula 04 · 13/08/2026</span>
+                        <span style="font-size:0.75rem; color:#94a3b8;">Quinta-feira</span>
+                    </div>
+                    <h3 style="font-size:1.05rem; font-weight:700; margin:0; color:#f1f5f9;">Intenções de Pesquisa (Parte I) & Guia do Seminário</h3>
+                    <p style="font-size:0.82rem; color:#94a3b8; margin:0; line-height:1.5;">
+                        Primeira rodada de apresentações das intenções de pesquisa e detalhamento dos 8 pontos orientadores para a montagem do Seminário das Metodologias.
+                    </p>
+                    <div class="resources-box">
+                        <a href="aula04/README.md" class="btn-link">📖 Guia da Aula 04</a>
+                    </div>
+                </div>
+
+                <!-- Aula 05 -->
+                <div class="card-aula">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span class="badge-aula badge-pratica">Aula 05 · 20/08/2026</span>
+                        <span style="font-size:0.75rem; color:#94a3b8;">Quinta-feira</span>
+                    </div>
+                    <h3 style="font-size:1.05rem; font-weight:700; margin:0; color:#f1f5f9;">Intenções de Pesquisa (Parte II) & Alinhamentos</h3>
+                    <p style="font-size:0.82rem; color:#94a3b8; margin:0; line-height:1.5;">
+                        Continuação das apresentações individuais/duplas sobre objetos de pesquisa de TCC e orientações finais quanto às pesquisas no Banco da CAPES.
+                    </p>
+                    <div class="resources-box">
+                        <a href="aula05/README.md" class="btn-link">📖 Guia da Aula 05</a>
+                    </div>
+                </div>
+
+                <!-- Aula 06 -->
+                <div class="card-aula">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span class="badge-aula badge-pratica">Aula 06 · 27/08/2026</span>
+                        <span style="font-size:0.75rem; color:#94a3b8;">Quinta-feira</span>
+                    </div>
+                    <h3 style="font-size:1.05rem; font-weight:700; margin:0; color:#f1f5f9;">Portal CAPES, Fichamento, Zotero e IA Generativa</h3>
+                    <p style="font-size:0.82rem; color:#94a3b8; margin:0; line-height:1.5;">
+                        Apresentação da biblioteca sobre o Portal de Periódicos CAPES, 4 etapas de Fichamento de Gil, uso do Zotero e Protocolo RSLG para busca com IA.
+                    </p>
+                    <div class="resources-box">
+                        <a href="aula06/README.md" class="btn-link">📖 Guia da Aula 06</a>
+                        <a href="aula06/Dicas_Fichamento%20(1)-1.pdf" target="_blank" class="btn-subtle">📄 Fichamento (PDF)</a>
+                        <a href="aula06/Protocolo_RSLG-1.pdf" target="_blank" class="btn-subtle">🤖 Protocolo RSLG</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOCO 2: SEMINÁRIO DAS METODOLOGIAS -->
+            <div class="bloco-header">
+                <span class="bloco-label bloco-3">Bloco II · Apresentações do Seminário das Metodologias (Aulas 07 a 09)</span>
+            </div>
+
+            <div class="grid-3">
+                <!-- Aula 07 -->
+                <div class="card-aula" style="border-color: rgba(245,158,11,0.25);">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span class="badge-aula badge-seminario">Aula 07 · 03/09/2026</span>
+                        <span style="font-size:0.75rem; color:#94a3b8;">Quinta-feira</span>
+                    </div>
+                    <h3 style="font-size:1.05rem; font-weight:700; margin:0; color:#f1f5f9;">Seminário das Metodologias (Dia 1)</h3>
+                    <p style="font-size:0.82rem; color:#94a3b8; margin:0; line-height:1.5;">
+                        Início das apresentações das equipes abordando: <strong>Pesquisa-Ação</strong>, <strong>Pesquisa Documental</strong>, <strong>Pesquisa Dialética</strong> e <strong>Pesquisa Etnográfica</strong>.
+                    </p>
+                    <div class="resources-box">
+                        <a href="aula07/README.md" class="btn-link">📖 Guia da Aula 07</a>
+                    </div>
+                </div>
+
+                <!-- Aula 08 -->
+                <div class="card-aula" style="border-color: rgba(245,158,11,0.25);">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span class="badge-aula badge-seminario">Aula 08 · 10/09/2026</span>
+                        <span style="font-size:0.75rem; color:#94a3b8;">Quinta-feira</span>
+                    </div>
+                    <h3 style="font-size:1.05rem; font-weight:700; margin:0; color:#f1f5f9;">Seminário das Metodologias (Dia 2)</h3>
+                    <p style="font-size:0.82rem; color:#94a3b8; margin:0; line-height:1.5;">
+                        Continuidade das apresentações das equipes com foco em: <strong>Análise de Conteúdo</strong>, <strong>Estudo de Caso</strong> e <strong>Pesquisa Participante</strong>.
+                    </p>
+                    <div class="resources-box">
+                        <a href="aula08/README.md" class="btn-link">📖 Guia da Aula 08</a>
+                    </div>
+                </div>
+
+                <!-- Aula 09 -->
+                <div class="card-aula" style="border-color: rgba(245,158,11,0.25);">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span class="badge-aula badge-seminario">Aula 09 · 17/09/2026</span>
+                        <span style="font-size:0.75rem; color:#94a3b8;">Quinta-feira</span>
+                    </div>
+                    <h3 style="font-size:1.05rem; font-weight:700; margin:0; color:#f1f5f9;">Seminário das Metodologias (Dia 3 — Encerramento)</h3>
+                    <p style="font-size:0.82rem; color:#94a3b8; margin:0; line-height:1.5;">
+                        Encerramento das apresentações abordando: <strong>Pesquisa Bibliográfica</strong>, <strong>Pesquisa Fenomenológica</strong> e <strong>Análise Textual Discursiva (ATD)</strong>.
+                    </p>
+                    <div class="resources-box">
+                        <a href="aula09/README.md" class="btn-link">📖 Guia da Aula 09</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- SEÇÃO: DIRETRIZES DO SEMINÁRIO                 -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <section class="section" id="seminario">
+            <div class="section-header">
+                <span class="section-icon">🎤</span>
+                <div>
+                    <h2 class="section-title">Seminário das Metodologias da Pesquisa em Educação</h2>
+                    <p class="section-sub">Roteiro orientador para elaboração dos slides e apresentação oral</p>
+                </div>
+            </div>
+
+            <div class="card-aula" style="background: rgba(15,23,42,0.9); border-color: rgba(16,185,129,0.25);">
+                <h3 style="font-size: 1.15rem; color: #34d399; margin-top: 0;">📌 Pontos Obrigatórios de Apresentação</h3>
+                <div class="grid-2" style="margin-top: 1rem;">
+                    <ul style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.7; padding-left: 1.2rem; margin: 0;">
+                        <li><strong>1. Definições Teóricas:</strong> Conceitos fundamentados em autores de referência no método.</li>
+                        <li><strong>2. Procedimentos e Etapas:</strong> Passo a passo no tratamento, coleta e análise de dados.</li>
+                        <li><strong>3. Cuidados do Pesquisador:</strong> Recomendações e atenções éticas ao aplicar o método.</li>
+                        <li><strong>4. Capacidade Analítica:</strong> O que o método possibilita analisar e seus limites.</li>
+                    </ul>
+                    <ul style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.7; padding-left: 1.2rem; margin: 0;">
+                        <li><strong>5. Tese Exemplo (CAPES):</strong> Apresentação de um trabalho do <a href="https://catalogodeteses.capes.gov.br/" target="_blank" style="color:#34d399;">Banco de Teses da CAPES</a>.</li>
+                        <li><strong>6. Aplicação no TCC:</strong> Como a metodologia pode atender aos projetos dos discentes.</li>
+                        <li><strong>7. Problemas Correlatos:</strong> Outras questões educacionais em que o método é relevante.</li>
+                        <li><strong>8. Referências Bibliográficas:</strong> Lista de obras de aprofundamento recomendadas.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- SEÇÃO: SISTEMA AVALIATIVO                      -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <section class="section" id="avaliacao">
+            <div class="section-header">
+                <span class="section-icon">📊</span>
+                <div>
+                    <h2 class="section-title">Sistema Avaliativo</h2>
+                    <p class="section-sub">Avaliação processual e formativa com notas de 1 a 10</p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card-aula">
+                    <h3 style="font-size: 1.1rem; color: #f8fafc; margin: 0;">🎯 Critérios de Avaliação Processual</h3>
+                    <ul style="font-size: 0.88rem; color: #94a3b8; line-height: 1.7; padding-left: 1.2rem; margin: 0.5rem 0 0 0;">
+                        <li><strong>Qualidade das Atividades:</strong> Rigor conceitual e pontualidade nas tarefas de pesquisa.</li>
+                        <li><strong>Trabalhos de Pesquisa:</strong> Qualidade dos estudos desenvolvidos individualmente e em grupo.</li>
+                        <li><strong>Apresentações Orais e Escritas:</strong> Desempenho no Seminário das Metodologias.</li>
+                        <li><strong>Produção Textual:</strong> Sínteses, resenhas, fichamentos e artigos científicos.</li>
+                        <li><strong>Participação Ativa:</strong> Contribuição crítica nas leituras e debates das aulas.</li>
+                    </ul>
+                </div>
+
+                <div class="card-aula" style="border-color: rgba(16,185,129,0.3);">
+                    <h3 style="font-size: 1.1rem; color: #34d399; margin: 0;">🎓 Requisitos para Aprovação</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 0.8rem;">
+                        <div style="background: rgba(16,185,129,0.1); padding: 1rem; border-radius: 0.75rem; border: 1px solid rgba(16,185,129,0.2);">
+                            <div style="font-size: 1.3rem; font-weight: 800; color: #34d399;">Nota Final Mínima: 6,0</div>
+                            <div style="font-size: 0.8rem; color: #94a3b8;">Média ponderada de todas as produções e seminários.</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.04); padding: 1rem; border-radius: 0.75rem; border: 1px solid rgba(255,255,255,0.08);">
+                            <div style="font-size: 1.3rem; font-weight: 800; color: #f8fafc;">Frequência Mínima: 75%</div>
+                            <div style="font-size: 0.8rem; color: #94a3b8;">Presença obrigatória na carga horária presencial de 45 horas.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- SEÇÃO: CORPO DOCENTE                           -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <section class="section" id="docentes">
+            <div class="section-header">
+                <span class="section-icon">👨‍🏫</span>
+                <div>
+                    <h2 class="section-title">Corpo Docente</h2>
+                    <p class="section-sub">Professores responsáveis pela unidade curricular PSJ0111</p>
+                </div>
+            </div>
+
+            <div class="prof-grid">
+                <!-- Prof. Humberto -->
+                <div class="card-prof">
+                    <div class="prof-avatar">HO</div>
+                    <div class="prof-info">
+                        <h4>Prof. Dr. Humberto Luz Oliveira</h4>
+                        <p>IFSC Campus São José</p>
+                        <p style="margin-top:0.3rem;"><a href="mailto:humberto.oliveira@ifsc.edu.br">✉️ humberto.oliveira@ifsc.edu.br</a></p>
+                    </div>
+                </div>
+
+                <!-- Profª Joce Mary -->
+                <div class="card-prof">
+                    <div class="prof-avatar" style="color:#c084fc; border-color:rgba(168,85,247,0.3); background:rgba(168,85,247,0.15);">JG</div>
+                    <div class="prof-info">
+                        <h4>Profª. Dra. Joce Mary Mello Giotto</h4>
+                        <p>IFSC Campus São José</p>
+                        <p style="margin-top:0.3rem;"><a href="mailto:joce.mellogiotto@ifsc.edu.br">✉️ joce.mellogiotto@ifsc.edu.br</a></p>
+                    </div>
+                </div>
+
+                <!-- Prof. Volmir -->
+                <div class="card-prof">
+                    <div class="prof-avatar" style="color:#38bdf8; border-color:rgba(14,165,233,0.3); background:rgba(14,165,233,0.15);">VD</div>
+                    <div class="prof-info">
+                        <h4>Prof. Dr. Volmir Von Dentz</h4>
+                        <p>IFSC Campus São José</p>
+                        <p style="margin-top:0.3rem;"><a href="mailto:volmir@ifsc.edu.br">✉️ volmir@ifsc.edu.br</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ FOOTER ═══ -->
+        <footer>
+            <div class="footer-links">
+                <a href="https://github.com/Humba-IFSC" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="mailto:humberto.oliveira@ifsc.edu.br">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    Contato IFSC
+                </a>
+                <a href="../index.html">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"/></svg>
+                    Portal 2026.2
+                </a>
+                <a href="https://www.ifsc.edu.br/web/campus-sao-jose" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                    IFSC São José
+                </a>
+            </div>
+            <p class="footer-copy">
+                © 2026 Prof. Humberto Luz Oliveira, Profª. Joce Mary Mello Giotto, Prof. Volmir Von Dentz · IFSC Campus São José
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- ═══ SCROLL ANIMATION ═══ -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.style.borderBottomColor = window.scrollY > 50
+                ? 'rgba(16, 185, 129, 0.25)'
+                : 'rgba(255, 255, 255, 0.08)';
+        });
+    </script>
+</body>
+</html>

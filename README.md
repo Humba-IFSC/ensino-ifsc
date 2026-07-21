@@ -24,11 +24,12 @@ Portal centralizado das disciplinas ministradas pelo **Prof. Dr. Humberto Luz Ol
 | FSC129004 | Física II (Fluidos, Ondas, Termodinâmica) | Qua/Qui Tarde | 80h |
 | **MPQ029005** | **Metodologia de Pesquisa** ✅ | Seg 13:30–15:20 | 36h |
 
-### Pós-Graduação
+### Pós-Graduação (Especialização em Educação Ambiental)
 
-| Código | Disciplina | Horário | CH |
-|:--|:--|:--|:--|
-| PSJ0065 | Metodologia de Pesquisa (Compartilhada) | — | 22h |
+| Código | Disciplina | Semestre | Carga Horária | Professores |
+|:--|:--|:--|:--|:--|
+| **PSJ0111** | **Metodologia da Pesquisa em Educação** ✅ | 2026.2 | 45h | Prof. Humberto, Profª. Joce Mary, Prof. Volmir |
+| PSJ0065 | Metodologia de Pesquisa (Compartilhada) | 2026.1 | 22h | Prof. Humberto |
 
 ---
 
