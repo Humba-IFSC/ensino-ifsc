@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiais de Magnetismo e Eletromagnetismo — IFSC 2026.2</title>
+    <meta name="description" content="Repositório Central de Materiais da disciplina de Eletromagnetismo. Prof. Humberto Luz Oliveira.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        :root {
+            --c-bg: #090d16;
+            --c-surface: rgba(17, 24, 39, 0.7);
+            --c-border: rgba(255, 255, 255, 0.08);
+            --c-primary: #10b981;
+            --c-primary-glow: rgba(16, 185, 129, 0.15);
+            --c-success: #22c55e;
+            --c-warning: #f59e0b;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--c-bg);
+            color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+        }
+        .header-glow {
+            background: linear-gradient(135deg, #064e3b 0%, #0f172a 60%, #090d16 100%);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.15);
+            padding: 4rem 1rem 3rem;
+            position: relative;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem 5rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--c-border);
+            padding-bottom: 0.5rem;
+        }
+        .grid-blocks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .block-card {
+            background: var(--c-surface);
+            border: 1px solid var(--c-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s;
+        }
+        .block-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(16, 185, 129, 0.25);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+        .block-header {
+            font-size: 1.15rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+        }
+        .badge-1 { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.2); }
+        .badge-2 { background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.2); }
+        .badge-3 { background: rgba(59, 130, 246, 0.12); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.2); }
+        
+        .list-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .list-items li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+        .list-items li:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+        .btn-pdf {
+            background: rgba(239, 68, 68, 0.12);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.35rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.2s;
+        }
+        .btn-pdf:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.35);
+            color: #f87171;
+        }
+        .btn-md {
+            background: rgba(16, 185, 129, 0.12);
+            color: #a7f3d0;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.35rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.2s;
+        }
+        .btn-md:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.35);
+            color: #34d399;
+        }
+        .grid-resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        .resource-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--c-border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .btn-back {
+            background: rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s;
+            margin-bottom: 2rem;
+        }
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-glow">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p style="color: var(--c-primary); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">
+                Repositório Central
+            </p>
+            <h1 style="font-size: 2.2rem; font-weight: 800; margin: 0 0 0.5rem 0;">
+                Magnetismo e Eletromagnetismo
+            </h1>
+            <p style="color: #94a3b8; font-size: 0.95rem; font-weight: 300; margin: 0;">
+                Aulas, laboratórios práticos, avaliações e livros consolidados de Física III.
+            </p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html" class="btn-back">⬅ Voltar ao Painel Geral</a>
+            <a href="../FSC060805/index.html" class="btn-md">📊 Painel Eletromecânica (FSC060805)</a>
+        </div>
+
+        <!-- ══ SEÇÃO 1: AULAS POR BLOCO ══ -->
+        <h2 class="section-title">📂 Slides de Aulas</h2>
+        
+        <div class="grid-blocks">
+            
+            <!-- Bloco 1 -->
+            <div class="block-card">
+                <div class="block-header">
+                    <span>⚡ Bloco 1 — Campos Magnéticos</span>
+                    <span class="badge badge-1">Carga Horária</span>
+                </div>
+                <ul class="list-items">
+                    <li>
+                        <span>Aula 01: Introdução ao Campo Magnético</span>
+                        <a href="Aulas/Bloco-1/Aula01/Campo-Magnetico.pdf" target="_blank" class="btn-pdf">PDF</a>
+                    </li>
+                    <li>
+                        <span>Aula 02: Eletromagnetismo e Fontes</span>
+                        <a href="Aulas/Bloco-1/Aula02/Eletromagnetismo.pdf" target="_blank" class="btn-pdf">PDF</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Bloco 2 -->
+            <div class="block-card" style="opacity: 0.65;">
+                <div class="block-header">
+                    <span>🧲 Bloco 2 — Força Magnética</span>
+                    <span class="badge badge-2">Futuro</span>
+                </div>
+                <p style="font-size: 0.8rem; color:#94a3b8; margin: 0;">Conteúdo será liberado na Semana 7.</p>
+            </div>
+
+            <!-- Bloco 3 -->
+            <div class="block-card" style="opacity: 0.65;">
+                <div class="block-header">
+                    <span>🌀 Bloco 3 — Indução Eletromagnética</span>
+                    <span class="badge badge-3">Futuro</span>
+                </div>
+                <p style="font-size: 0.8rem; color:#94a3b8; margin: 0;">Conteúdo será liberado na Semana 17.</p>
+            </div>
+
+        </div>
+
+        <!-- ══ SEÇÃO 2: LIVROS E GABARITOS ══ -->
+        <h2 class="section-title">📖 Capítulos do Livro Base (Ramalho Vol. 3)</h2>
+        <div class="grid-resources">
+            <div class="resource-card">
+                <strong style="font-size:0.9rem;">🧲 Campo Magnético e Fontes</strong>
+                <a href="Caps_Ramalho/Magnetismo-Fisica_Vol3.pdf" target="_blank" class="btn-pdf">Baixar PDF</a>
+            </div>
+            <div class="resource-card">
+                <strong style="font-size:0.9rem;">🌀 Indução Eletromagnética</strong>
+                <a href="Caps_Ramalho/Inducao-Fisica-Vol3.pdf" target="_blank" class="btn-pdf">Baixar PDF</a>
+            </div>
+        </div>
+
+        <!-- ══ SEÇÃO 3: LABORATÓRIOS E AVALIAÇÕES ══ -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem;">
+            <div>
+                <h2 class="section-title">🔬 Roteiros de Laboratório</h2>
+                <ul class="list-items">
+                    <li>
+                        <span>Lab 01 — Espectro Magnético (Campo)</span>
+                        <a href="Laboratorios/Lab_2026-08-10_Espectro_Magnetico.md" target="_blank" class="btn-md">Ver Roteiro (MD)</a>
+                    </li>
+                    <li>
+                        <span>Lab 02 — Construção de Eletroímã</span>
+                        <a href="Laboratorios/Lab_2026-09-21_Construcao_Eletroima.md" target="_blank" class="btn-md">Ver Roteiro (MD)</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="section-title">📋 Informações de Avaliação</h2>
+                <ul class="list-items">
+                    <li>
+                        <span>Guia de Avaliação 1 — Campo Magnético</span>
+                        <a href="Avaliacoes/Avaliacao_1_Fontes_Campo.md" target="_blank" class="btn-md">Ver Conteúdo (MD)</a>
+                    </li>
+                    <li>
+                        <span>Guia de Avaliação 2 — Força Magnética</span>
+                        <a href="Avaliacoes/Avaliacao_2_Forca_Magnetica.md" target="_blank" class="btn-md">Ver Conteúdo (MD)</a>
+                    </li>
+                    <li>
+                        <span>Guia de Avaliação 3 — Indução Magnética e AC</span>
+                        <a href="Avaliacoes/Avaliacao_3_Inducao_AC.md" target="_blank" class="btn-md">Ver Conteúdo (MD)</a>
+                    </li>
+                    <li>
+                        <span>Reposição Final e Recuperação</span>
+                        <a href="Avaliacoes/Avaliacao_Final_Reposicao.md" target="_blank" class="btn-md">Ver Conteúdo (MD)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
