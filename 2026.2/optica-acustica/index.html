@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiais de Óptica e Acústica — IFSC 2026.2</title>
+    <meta name="description" content="Repositório Central de Materiais e Aulas da disciplina de Acústica e Óptica Geométrica. Prof. Humberto Luz Oliveira.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        :root {
+            --c-bg: #090d16;
+            --c-surface: rgba(17, 24, 39, 0.7);
+            --c-border: rgba(255, 255, 255, 0.08);
+            --c-primary: #06b6d4;
+            --c-primary-glow: rgba(6, 182, 212, 0.15);
+            --c-success: #22c55e;
+            --c-warning: #f59e0b;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--c-bg);
+            color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+        }
+        .header-glow {
+            background: linear-gradient(135deg, #083344 0%, #0f172a 60%, #090d16 100%);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.15);
+            padding: 4rem 1rem 3rem;
+            position: relative;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem 5rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--c-border);
+            padding-bottom: 0.5rem;
+        }
+        .grid-blocks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .block-card {
+            background: var(--c-surface);
+            border: 1px solid var(--c-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s;
+        }
+        .block-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(6, 182, 212, 0.25);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+        .block-header {
+            font-size: 1.15rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+        }
+        .badge-1 { background: rgba(34, 197, 94, 0.12); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.2); }
+        .badge-2 { background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.2); }
+        .badge-3 { background: rgba(59, 130, 246, 0.12); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.2); }
+        
+        .list-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .list-items li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+        .list-items li:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+        .btn-pdf {
+            background: rgba(239, 68, 68, 0.12);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.35rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.2s;
+        }
+        .btn-pdf:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.35);
+            color: #f87171;
+        }
+        .btn-md {
+            background: rgba(6, 182, 212, 0.12);
+            color: #a5f3fc;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.35rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.2s;
+        }
+        .btn-md:hover {
+            background: rgba(6, 182, 212, 0.2);
+            border-color: rgba(6, 182, 212, 0.35);
+            color: #22d3ee;
+        }
+        .grid-resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        .resource-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--c-border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .btn-back {
+            background: rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s;
+            margin-bottom: 2rem;
+        }
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-glow">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p style="color: var(--c-primary); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">
+                Repositório Central
+            </p>
+            <h1 style="font-size: 2.2rem; font-weight: 800; margin: 0 0 0.5rem 0;">
+                Óptica e Acústica
+            </h1>
+            <p style="color: #94a3b8; font-size: 0.95rem; font-weight: 300; margin: 0;">
+                Acesso aos slides, laboratórios, avaliações e livros didáticos do semestre.
+            </p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html" class="btn-back">⬅ Voltar ao Painel Geral</a>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 2rem;">
+                <a href="../FCA060906/index.html" class="btn-md">📊 Painel Refrigeração (FCA)</a>
+                <a href="../FSC060805/index.html" class="btn-md">📊 Painel Eletromecânica (FSC)</a>
+            </div>
+        </div>
+
+        <!-- ══ SEÇÃO 1: AULAS POR BLOCO ══ -->
+        <h2 class="section-title">📂 Slides de Aulas</h2>
+        
+        <div class="grid-blocks">
+            
+            <!-- Bloco 1 -->
+            <div class="block-card">
+                <div class="block-header">
+                    <span>🔊 Bloco 1 — Acústica</span>
+                    <span class="badge badge-1">Carga Horária</span>
+                </div>
+                <ul class="list-items">
+                    <li>
+                        <span>Aula 01: Apresentação e Introdução</span>
+                        <a href="Aulas/Bloco-1/Aula01/Aula01-Acustica.pdf" target="_blank" class="btn-pdf">PDF</a>
+                    </li>
+                    <li>
+                        <span>Aula 02: Fundamentos da Acústica (A e B)</span>
+                        <div style="display:flex; gap:0.25rem;">
+                            <a href="Aulas/Bloco-1/Aula02/Aula02a-Acustica.pdf" target="_blank" class="btn-pdf">Parte A</a>
+                            <a href="Aulas/Bloco-1/Aula02/Aula02b-Acustica.pdf" target="_blank" class="btn-pdf">Parte B</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Aula 03: Fenômenos e Fontes Sonoras</span>
+                        <a href="Aulas/Bloco-1/Aula03/Aula03-Acustica.pdf" target="_blank" class="btn-pdf">PDF</a>
+                    </li>
+                    <li>
+                        <span>Aula 04: Exercícios de Acústica</span>
+                        <a href="Aulas/Bloco-1/Aula04-EP/Aula04-Acustica.pdf" target="_blank" class="btn-pdf">PDF</a>
+                    </li>
+                    <li>
+                        <span>Aula 05: Revisão para AVA 1</span>
+                        <a href="Aulas/Bloco-1/Aula05-Ava1/Aula05-Acustica.pdf" target="_blank" class="btn-pdf">PDF</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Bloco 2 -->
+            <div class="block-card">
+                <div class="block-header">
+                    <span>🕯️ Bloco 2 — Óptica e Espelhos</span>
+                    <span class="badge badge-2">Carga Horária</span>
+                </div>
+                <ul class="list-items">
+                    <li>
+                        <span>Aula 06: Princípios e Espelho Plano</span>
+                        <a href="Aulas/Bloco-2/Aula06/Aula06-OGRef-1.pdf" target="_blank" class="btn-pdf">PDF</a>
+                    </li>
+                    <li>
+                        <span>Aula 07: Espelhos Esféricos</span>
+                        <div style="display:flex; gap:0.25rem;">
+                            <a href="Aulas/Bloco-2/Aula06/Aula06-7-OGRef2.pdf" target="_blank" class="btn-pdf">Parte A</a>
+                            <a href="Aulas/Bloco-2/Aula07/Aula07-OGRef3.pdf" target="_blank" class="btn-pdf">Parte B</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Aula 08: Exercícios e Guia de Estudos</span>
+                        <div style="display:flex; gap:0.25rem;">
+                            <a href="Aulas/Bloco-2/Aula08-EP/Aula08-Roteiro-OGRef.pdf" target="_blank" class="btn-pdf">Roteiro</a>
+                            <a href="Aulas/Bloco-2/Aula08-EP/OGRef-Orientacao-Estudos.pdf" target="_blank" class="btn-pdf">Guia</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Bloco 3 -->
+            <div class="block-card">
+                <div class="block-header">
+                    <span>👓 Bloco 3 — Refração e Lentes</span>
+                    <span class="badge badge-3">Carga Horária</span>
+                </div>
+                <ul class="list-items">
+                    <li>
+                        <span>Aula 12: Refração Luminosa</span>
+                        <a href="Aulas/Bloco-3/Aula12/Aula12-OGRaf-1.pdf" target="_blank" class="btn-pdf">PDF</a>
+                    </li>
+                    <li>
+                        <span>Aula 13: Lentes Esféricas Delgadas</span>
+                        <a href="Aulas/Bloco-3/Aula13/Aula13-OGRaf-2.pdf" target="_blank" class="btn-pdf">PDF</a>
+                    </li>
+                    <li>
+                        <span>Aula 14: Exercícios e Gabarito Bloco 3</span>
+                        <div style="display:flex; gap:0.25rem;">
+                            <a href="Aulas/Bloco-3/Aula14-EP/Aula14-OGRaf-3a.pdf" target="_blank" class="btn-pdf">Slides</a>
+                            <a href="Aulas/Bloco-3/Aula14-EP/Respostas_bloco-3.pdf" target="_blank" class="btn-pdf">PDF</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- ══ SEÇÃO 2: LIVROS E GABARITOS ══ -->
+        <h2 class="section-title">📖 Capítulos do Livro Base (Ramalho Vol. 2)</h2>
+        <div class="grid-resources">
+            <div class="resource-card">
+                <strong style="font-size:0.9rem;">🔊 Cap. 19 — Acústica</strong>
+                <a href="Caps_Ramalho/Acustica_Fisica_Vol2.pdf" target="_blank" class="btn-pdf">Baixar Capítulo PDF</a>
+            </div>
+            <div class="resource-card">
+                <strong style="font-size:0.9rem;">🕯️ Cap. 11 — Reflexão e Espelho Plano</strong>
+                <a href="Caps_Ramalho/Reflexo-Espelhos_Fisica_Vol2.pdf" target="_blank" class="btn-pdf">Baixar Capítulo PDF</a>
+            </div>
+            <div class="resource-card">
+                <strong style="font-size:0.9rem;">🪞 Cap. 12 — Espelhos Esféricos</strong>
+                <a href="Caps_Ramalho/Espelhos_Fisica_Vol2.pdf" target="_blank" class="btn-pdf">Baixar Capítulo PDF</a>
+            </div>
+            <div class="resource-card">
+                <strong style="font-size:0.9rem;">🌈 Cap. 13 — Refração da Luz</strong>
+                <a href="Caps_Ramalho/Refracao_Fisica_Vol2.pdf" target="_blank" class="btn-pdf">Baixar Capítulo PDF</a>
+            </div>
+            <div class="resource-card">
+                <strong style="font-size:0.9rem;">👓 Cap. 14 — Lentes Delgadas</strong>
+                <a href="Caps_Ramalho/Lentes_Delgadas_Fisica_Vol2.pdf" target="_blank" class="btn-pdf">Baixar Capítulo PDF</a>
+            </div>
+            <div class="resource-card">
+                <strong style="font-size:0.9rem;">🔍 Instrumentos Ópticos</strong>
+                <a href="Caps_Ramalho/Instrumentos_Opticos_Fisica_Vol2.pdf" target="_blank" class="btn-pdf">Baixar Capítulo PDF</a>
+            </div>
+            <div class="resource-card" style="grid-column: 1 / -1; background: rgba(34, 197, 94, 0.05); border-color: rgba(34, 197, 94, 0.2);">
+                <strong style="font-size:0.95rem; color:#4ade80;">✅ Gabarito Completo (Capítulos 10 a 14)</strong>
+                <p style="font-size:0.8rem; color:#cbd5e1; margin:0.2rem 0 0.6rem 0;">Gabarito oficial contendo as resoluções de todas as questões de Óptica Geométrica.</p>
+                <a href="Caps_Ramalho/Cap.10-14-Fundamentos_Fisica_Vol2_Gabarito.pdf" target="_blank" class="btn-pdf" style="background:rgba(34, 197,94,0.15); color:#4ade80; border-color:rgba(34, 197,94,0.3);">Baixar Gabarito PDF</a>
+            </div>
+        </div>
+
+        <!-- ══ SEÇÃO 3: LABORATÓRIOS E AVALIAÇÕES ══ -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem;">
+            <div>
+                <h2 class="section-title">🔬 Roteiros de Laboratório</h2>
+                <ul class="list-items">
+                    <li>
+                        <span>Lab 01 — Copos Cantantes (Acústica)</span>
+                        <a href="Laboratorios/Lab_2026-08-14_Copos_Cantantes.md" target="_blank" class="btn-md">Ver Roteiro (MD)</a>
+                    </li>
+                    <li>
+                        <span>Lab 02 — Simetria em Espelho Plano</span>
+                        <a href="Laboratorios/Lab_2026-09-18_Propriedades_Espelho_Plano.md" target="_blank" class="btn-md">Ver Roteiro (MD)</a>
+                    </li>
+                    <li>
+                        <span>Lab 03 — Foco de Lente Convergente</span>
+                        <a href="Laboratorios/Lab_2026-11-06_Distancia_Focal_Lente.md" target="_blank" class="btn-md">Ver Roteiro (MD)</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="section-title">📋 Informações de Avaliação</h2>
+                <ul class="list-items">
+                    <li>
+                        <span>Guia de Avaliação 1 — Acústica</span>
+                        <a href="Avaliacoes/Avaliacao_1_Acustica.md" target="_blank" class="btn-md">Ver Conteúdo (MD)</a>
+                    </li>
+                    <li>
+                        <span>Guia de Avaliação 2 — Óptica e Espelhos</span>
+                        <a href="Avaliacoes/Avaliacao_2_Espelhos.md" target="_blank" class="btn-md">Ver Conteúdo (MD)</a>
+                    </li>
+                    <li>
+                        <span>Guia de Avaliação 3 — Lentes e Refração</span>
+                        <a href="Avaliacoes/Avaliacao_3_Refracao_Lentes.md" target="_blank" class="btn-md">Ver Conteúdo (MD)</a>
+                    </li>
+                    <li>
+                        <span>Reposição Final e Recuperação</span>
+                        <a href="Avaliacoes/Avaliacao_Final_Reposicao.md" target="_blank" class="btn-md">Ver Conteúdo (MD)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
