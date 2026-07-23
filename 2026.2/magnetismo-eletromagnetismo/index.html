@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Materiais de Magnetismo e Eletromagnetismo — IFSC 2026.2</title>
-    <meta name="description" content="Repositório Central de Materiais da disciplina de Eletromagnetismo. Prof. Humberto Luz Oliveira.">
+    <meta name="description" content="Repositório Central de Materiais da disciplina de Magnetismo e Eletromagnetismo. Prof. Humberto Luz Oliveira.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -51,7 +51,7 @@
         }
         .grid-blocks {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
@@ -102,10 +102,11 @@
             justify-content: space-between;
             align-items: center;
             font-size: 0.85rem;
-            padding: 0.5rem;
+            padding: 0.6rem;
             border-radius: 0.5rem;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.02);
+            gap: 0.5rem;
         }
         .list-items li:hover {
             background: rgba(255, 255, 255, 0.04);
@@ -149,6 +150,25 @@
             border-color: rgba(16, 185, 129, 0.35);
             color: #34d399;
         }
+        .btn-csv {
+            background: rgba(245, 158, 11, 0.12);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.35rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.2s;
+        }
+        .btn-csv:hover {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: rgba(245, 158, 11, 0.35);
+            color: #fcd34d;
+        }
         .grid-resources {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -177,7 +197,6 @@
             align-items: center;
             gap: 0.4rem;
             transition: all 0.2s;
-            margin-bottom: 2rem;
         }
         .btn-back:hover {
             background: rgba(255, 255, 255, 0.1);
@@ -196,20 +215,23 @@
                 Magnetismo e Eletromagnetismo
             </h1>
             <p style="color: #94a3b8; font-size: 0.95rem; font-weight: 300; margin: 0;">
-                Aulas, laboratórios práticos, avaliações e livros consolidados de Física III.
+                Aulas, slides, quizzes, flashcards, laboratórios práticos, avaliações e livros consolidados de Física III.
             </p>
         </div>
     </header>
 
     <div class="container">
         
-        <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
             <a href="../index.html" class="btn-back">⬅ Voltar ao Painel Geral</a>
-            <a href="../FSC060805/index.html" class="btn-md">📊 Painel Eletromecânica (FSC060805)</a>
+            <div style="display: flex; gap: 0.5rem;">
+                <a href="../FSC060804/index.html" class="btn-md">📊 Painel Telecom (FSC060804)</a>
+                <a href="../FCA060905/index.html" class="btn-md" style="background:rgba(14,165,233,.12); color:#38bdf8; border-color:rgba(14,165,233,.2);">📊 Painel Refrigeração (FCA060905)</a>
+            </div>
         </div>
 
         <!-- ══ SEÇÃO 1: AULAS POR BLOCO ══ -->
-        <h2 class="section-title">📂 Slides de Aulas</h2>
+        <h2 class="section-title">📂 Slides, Quizzes e Flashcards de Aulas</h2>
         
         <div class="grid-blocks">
             
@@ -217,7 +239,7 @@
             <div class="block-card">
                 <div class="block-header">
                     <span>⚡ Bloco 1 — Campos Magnéticos</span>
-                    <span class="badge badge-1">Carga Horária</span>
+                    <span class="badge badge-1">Disponível</span>
                 </div>
                 <ul class="list-items">
                     <li>
@@ -225,28 +247,133 @@
                         <a href="Aulas/Bloco-1/Aula01/Campo-Magnetico.pdf" target="_blank" class="btn-pdf">PDF</a>
                     </li>
                     <li>
-                        <span>Aula 02: Eletromagnetismo e Fontes</span>
+                        <span>Aula 02: Campo das Correntes Elétricas</span>
                         <a href="Aulas/Bloco-1/Aula02/Eletromagnetismo.pdf" target="_blank" class="btn-pdf">PDF</a>
+                    </li>
+                    <li>
+                        <span>Lab 01: Práticas Espectro e Oersted</span>
+                        <div style="display:flex; gap:0.25rem;">
+                            <a href="Aulas/Bloco-1/Aula03/Praticas-Bloco-1.pdf" target="_blank" class="btn-pdf">PDF</a>
+                            <a href="Laboratorios/Lab_2026-08-10_Espectro_Magnetico.md" target="_blank" class="btn-md">Roteiro</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Aula 04: Exercícios Revisão Bloco 1</span>
+                        <a href="Aulas/Bloco-1/Aula04-EP/Revisao-Bloco-1.pdf" target="_blank" class="btn-pdf">PDF</a>
+                    </li>
+                    <li>
+                        <span>Aula 05: AVA 1 — Magnetismo Decodificado</span>
+                        <div style="display:flex; gap:0.25rem;">
+                            <a href="Aulas/Bloco-1/Aula05-Ava1/magnetismo-decodificado.pdf" target="_blank" class="btn-pdf">PDF</a>
+                            <a href="Avaliacoes/Avaliacao_1_Fontes_Campo.md" target="_blank" class="btn-md">Guia</a>
+                        </div>
                     </li>
                 </ul>
             </div>
 
             <!-- Bloco 2 -->
-            <div class="block-card" style="opacity: 0.65;">
+            <div class="block-card">
                 <div class="block-header">
-                    <span>🧲 Bloco 2 — Força Magnética</span>
-                    <span class="badge badge-2">Futuro</span>
+                    <span>🧲 Bloco 2 — Força Magnética e Matéria</span>
+                    <span class="badge badge-2">Disponível</span>
                 </div>
-                <p style="font-size: 0.8rem; color:#94a3b8; margin: 0;">Conteúdo será liberado na Semana 7.</p>
+                <ul class="list-items">
+                    <li>
+                        <span>Aula 06: Força sobre Cargas</span>
+                        <div style="display:flex; gap:0.25rem; flex-wrap:wrap;">
+                            <a href="Aulas/Bloco-2/Aula06/Forca-Magnetica.pdf" target="_blank" class="btn-pdf">PDF</a>
+                            <a href="Aulas/Bloco-2/Aula06/Aula06-Quiz.csv" target="_blank" class="btn-csv">Quiz</a>
+                            <a href="Aulas/Bloco-2/Aula06/Aula06-flashcards.csv" target="_blank" class="btn-csv">Cards</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Aula 07: Condutores e Domínios</span>
+                        <div style="display:flex; gap:0.25rem; flex-wrap:wrap;">
+                            <a href="Aulas/Bloco-2/Aula07/magnetismo-dominios.pdf" target="_blank" class="btn-pdf">PDF</a>
+                            <a href="Aulas/Bloco-2/Aula07/Aula07-Quiz.csv" target="_blank" class="btn-csv">Quiz</a>
+                            <a href="Aulas/Bloco-2/Aula07/Aula07-flashcards.csv" target="_blank" class="btn-csv">Cards</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Aula 08 / Lab 02: Eletroímã</span>
+                        <div style="display:flex; gap:0.25rem; flex-wrap:wrap;">
+                            <a href="Aulas/Bloco-2/Aula08/Aula08a-Slides.pdf" target="_blank" class="btn-pdf">Slide A</a>
+                            <a href="Aulas/Bloco-2/Aula08/Aula08b-Slides.pdf" target="_blank" class="btn-pdf">Slide B</a>
+                            <a href="Aulas/Bloco-2/Aula08/Aula08-Quiz.csv" target="_blank" class="btn-csv">Quiz</a>
+                            <a href="Aulas/Bloco-2/Aula08/Aula08-flashcards.csv" target="_blank" class="btn-csv">Cards</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Aula 09: Exercícios Bloco 2</span>
+                        <div style="display:flex; gap:0.25rem; flex-wrap:wrap;">
+                            <a href="Aulas/Bloco-2/Aula09-EP/Aula09-EP.pdf" target="_blank" class="btn-pdf">PDF</a>
+                            <a href="Aulas/Bloco-2/Aula09-EP/Aula09-Quiz.csv" target="_blank" class="btn-csv">Quiz</a>
+                            <a href="Aulas/Bloco-2/Aula09-EP/Aula09-flashcard.csv" target="_blank" class="btn-csv">Cards</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Aula 10: Conselho de Classe Intermediário</span>
+                        <a href="Aulas/Bloco-2/Aula10-Extra/Aula_2026-10-05.md" target="_blank" class="btn-md">Resumo</a>
+                    </li>
+                    <li>
+                        <span>Aula 11: AVA 2 — Força Magnética</span>
+                        <div style="display:flex; gap:0.25rem; flex-wrap:wrap;">
+                            <a href="Aulas/Bloco-2/Aula11-Ava2/Aula10-Ava2.pdf" target="_blank" class="btn-pdf">PDF</a>
+                            <a href="Aulas/Bloco-2/Aula11-Ava2/Aula10-Quiz.csv" target="_blank" class="btn-csv">Quiz</a>
+                            <a href="Aulas/Bloco-2/Aula11-Ava2/Aula10-flashcards.csv" target="_blank" class="btn-csv">Cards</a>
+                            <a href="Avaliacoes/Avaliacao_2_Forca_Magnetica.md" target="_blank" class="btn-md">Guia</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
             <!-- Bloco 3 -->
-            <div class="block-card" style="opacity: 0.65;">
+            <div class="block-card">
                 <div class="block-header">
-                    <span>🌀 Bloco 3 — Indução Eletromagnética</span>
-                    <span class="badge badge-3">Futuro</span>
+                    <span>🌀 Bloco 3 — Indução Eletromagnética e AC</span>
+                    <span class="badge badge-3">Disponível</span>
                 </div>
-                <p style="font-size: 0.8rem; color:#94a3b8; margin: 0;">Conteúdo será liberado na Semana 17.</p>
+                <ul class="list-items">
+                    <li>
+                        <span>Aula 12: Indução Eletromagnética</span>
+                        <div style="display:flex; gap:0.25rem; flex-wrap:wrap;">
+                            <a href="Aulas/Bloco-3/Aula12/Aula12-09Nov.pdf" target="_blank" class="btn-pdf">PDF</a>
+                            <a href="Aulas/Bloco-3/Aula12/Aula12-Quiz.csv" target="_blank" class="btn-csv">Quiz</a>
+                            <a href="Aulas/Bloco-3/Aula12/Aula12-flashcards.csv" target="_blank" class="btn-csv">Cards</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Aula 13: Leis da Indução e Corrente Alternada</span>
+                        <div style="display:flex; gap:0.25rem; flex-wrap:wrap;">
+                            <a href="Aulas/Bloco-3/Aula13/Aula13a-16Nov.pdf" target="_blank" class="btn-pdf">Slide A</a>
+                            <a href="Aulas/Bloco-3/Aula13/Aula13b-16Nov.pdf" target="_blank" class="btn-pdf">Slide B</a>
+                            <a href="Aulas/Bloco-3/Aula13/Aula13-Quiz.csv" target="_blank" class="btn-csv">Quiz</a>
+                            <a href="Aulas/Bloco-3/Aula13/Aula13-flashcards.csv" target="_blank" class="btn-csv">Cards</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Aula 14: Exercícios Bloco 3 (EP A e B)</span>
+                        <div style="display:flex; gap:0.25rem; flex-wrap:wrap;">
+                            <a href="Aulas/Bloco-3/Aula14-EP/Aula14a-EP.pdf" target="_blank" class="btn-pdf">EP A</a>
+                            <a href="Aulas/Bloco-3/Aula14-EP/Aula14b-EP.pdf" target="_blank" class="btn-pdf">EP B</a>
+                            <a href="Aulas/Bloco-3/Aula14-EP/Aula14a-Quiz.csv" target="_blank" class="btn-csv">Quiz A</a>
+                            <a href="Aulas/Bloco-3/Aula14-EP/Aula14b-Quiz.csv" target="_blank" class="btn-csv">Quiz B</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Aula 15: AVA 3 — Indução e Corrente Alternada</span>
+                        <div style="display:flex; gap:0.25rem; flex-wrap:wrap;">
+                            <a href="Aulas/Bloco-3/Aula15-Ava3/Aula15-Ava3.pdf" target="_blank" class="btn-pdf">PDF</a>
+                            <a href="Aulas/Bloco-3/Aula15-Ava3/Aula15-Quiz.csv" target="_blank" class="btn-csv">Quiz</a>
+                            <a href="Aulas/Bloco-3/Aula15-Ava3/Aula15-flashcards.csv" target="_blank" class="btn-csv">Cards</a>
+                            <a href="Avaliacoes/Avaliacao_3_Inducao_AC.md" target="_blank" class="btn-md">Guia</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Aula 16: Reposição Final</span>
+                        <a href="Avaliacoes/Avaliacao_Final_Reposicao.md" target="_blank" class="btn-md">Guia Final</a>
+                    </li>
+                </ul>
             </div>
 
         </div>
@@ -265,7 +392,7 @@
         </div>
 
         <!-- ══ SEÇÃO 3: LABORATÓRIOS E AVALIAÇÕES ══ -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem;">
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem;">
             <div>
                 <h2 class="section-title">🔬 Roteiros de Laboratório</h2>
                 <ul class="list-items">
@@ -306,3 +433,4 @@
 
 </body>
 </html>
+

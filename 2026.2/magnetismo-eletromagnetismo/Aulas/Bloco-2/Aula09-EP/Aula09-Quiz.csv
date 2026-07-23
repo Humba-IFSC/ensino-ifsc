@@ -1,0 +1,60 @@
+﻿Qual é o nome do óxido de ferro ($Fe_3O_4$) que constitui um ímã natural?	Magnetita.
+Como são denominadas as regiões de um ímã onde as propriedades magnéticas são mais intensas?	Polos magnéticos.
+O que afirma a propriedade da inseparabilidade dos polos de um ímã?	É impossível separar o polo norte do polo sul; ao cortar um ímã, obtêm-se novos ímãs menores com ambos os polos.
+Ao suspender um ímã horizontalmente, qual polo se volta para o norte geográfico da Terra?	Polo norte ($N$).
+Qual é o comportamento de dois polos magnéticos de mesmo nome quando aproximados?	Eles se repelem.
+Qual é o comportamento de dois polos magnéticos de nomes diferentes quando aproximados?	Eles se atraem.
+No Sistema Internacional (SI), qual é a unidade de intensidade do vetor indução magnética $B$?	Tesla ($T$).
+Qual é a relação de conversão entre as unidades Tesla ($T$) e Gauss ($G$)?	$1\ T = 10^4\ G$.
+Como se define a direção do vetor campo magnético $B$ em um ponto $P$?	É a direção definida pelo eixo $NS$ de uma pequena agulha magnética colocada nesse ponto.
+Como se define o sentido do vetor campo magnético $B$ em um ponto $P$?	É o sentido para o qual o polo norte ($N$) da agulha magnética aponta.
+Na Regra da Mão Direita $n^o 1$, o polegar aponta no sentido de qual grandeza?	Corrente elétrica ($i$).
+Na Regra da Mão Direita $n^o 1$, os demais dedos (exceto o polegar) indicam o sentido de qual grandeza?	Vetor indução magnética ($B$).
+Como são as linhas de indução magnética geradas por um condutor retilíneo percorrido por corrente?	Circunferências concêntricas ao condutor, situadas em planos perpendiculares a ele.
+Qual é a fórmula para a intensidade do campo magnético $B$ gerado por um condutor reto e extenso a uma distância $r$?	$B = \frac{\mu_0}{2\pi} \cdot \frac{i}{r}$.
+Qual é o valor da permeabilidade magnética do vácuo ($\mu_0$) no Sistema Internacional?	$\mu_0 = 4\pi \cdot 10^{-7}\ T \cdot m/A$.
+Como se determina a direção do vetor $B$ no centro de uma espira circular?	É perpendicular ao plano da espira.
+De acordo com a 'regra do relógio', qual polo uma face da espira representa se a corrente circular no sentido anti-horário?	Polo norte.
+De acordo com a 'regra do relógio', qual polo uma face da espira representa se a corrente circular no sentido horário?	Polo sul.
+O que o símbolo $\otimes$ representa na convenção internacional de vetores?	Vetor orientado do observador para o plano (entrando no plano).
+O que o símbolo $\odot$ representa na convenção internacional de vetores?	Vetor orientado do plano para o observador (saindo do plano).
+Qual é a definição de um solenoide (ou bobina longa)?	Um fio condutor enrolado segundo espiras iguais, uma ao lado da outra e igualmente espaçadas.
+Qual fórmula calcula a força magnética ($F_m$) sobre uma carga móvel em um campo magnético uniforme?	$F_m = B \cdot |q| \cdot v \cdot \sin \theta$.
+Sob qual condição a força magnética sobre uma carga elétrica em movimento é nula?	Quando a carga se desloca em uma direção paralela ao vetor campo magnético $B$ (ângulo de $0^o$ ou $180^o$).
+Qual é a direção da força magnética em relação ao plano formado pelos vetores velocidade ($v$) e campo magnético ($B$)?	Perpendicular ao plano.
+Na Regra da Mão Direita $n^o 2$, o polegar aponta no sentido de qual grandeza física?	Velocidade da carga ($v$) ou sentido da corrente ($i$).
+Na Regra da Mão Direita $n^o 2$, para uma carga positiva, qual parte da mão indica o sentido da força magnética?	A palma da mão (o sentido do 'empurrão').
+Como se altera o sentido da força magnética na Regra da Mão Direita $n^o 2$ se a carga em movimento for negativa?	O sentido da força é invertido (oposto ao 'empurrão' da palma).
+"Qual é o tipo de movimento descrito por uma carga lançada perpendicularmente ($	heta = 90^o$) a um campo magnético uniforme?"	Movimento Circular e Uniforme (MCU).
+Qual é o tipo de movimento descrito por uma carga lançada paralelamente a um campo magnético uniforme?	Movimento Retilíneo Uniforme (MRU).
+No MCU de uma carga em campo magnético, a força magnética desempenha o papel de qual força resultante?	Resultante centrípeta.
+Qual fórmula calcula a força magnética sobre um condutor reto percorrido por corrente em um campo magnético uniforme?	$F_m = B \cdot i \cdot L \cdot \sin \theta$.
+Qual é a intensidade da força magnética sobre um condutor reto se a corrente e o campo magnético forem paralelos?	Zero.
+Qual fórmula descreve a força magnética entre dois condutores paralelos de comprimento $L$?	$F_m = \frac{\mu_0}{2\pi} \cdot \frac{i_1 \cdot i_2}{r} \cdot L$.
+Qual é o sentido da força magnética entre dois condutores paralelos percorridos por correntes de mesmo sentido?	Atração.
+Qual é o sentido da força magnética entre dois condutores paralelos percorridos por correntes de sentidos opostos?	Repulsão.
+De que forma um elétron pode originar um campo magnético em um átomo?	Girando em torno do núcleo ou efetuando um movimento de rotação em torno de si mesmo ($spin$).
+O que ocorre com os elétrons de um prego de ferro quando um polo norte de um ímã é aproximado dele?	Eles se orientam, magnetizando o prego (imantação por influência).
+Qual é o princípio fundamental de funcionamento da propulsão de um trem Maglev?	Atração e repulsão de polos magnéticos (eletroímãs).
+Como a tecnologia alemã do Maglev mantém o trem levitando?	Eletroímãs na parte de baixo do trilho atraem os eletroímãs presos ao trem.
+Como a tecnologia japonesa do Maglev mantém o trem levitando?	Bobinas supercondutoras nos trilhos repelem os eletroímãs presos ao trem.
+Qual é a principal vantagem econômica de eliminar as rodas em trens como o Maglev?	Economia de energia ao eliminar o atrito com os trilhos.
+O que gera a força magnética $F_m$ sobre os elétrons livres de um condutor reto movendo-se em um campo magnético?	A interação entre o campo magnético externo e o movimento dos elétrons que acompanham o condutor.
+Qual é a fórmula para a força eletromotriz ($f.e.m.$) induzida ($e$) em um condutor reto de comprimento $L$ movendo-se com velocidade $v$ perpendicular a um campo $B$?	$e = B \cdot L \cdot v$.
+Em qual unidade do SI é medida a força eletromotriz induzida?	Volt ($V$).
+O que é o fenômeno da indução eletromagnética?	O surgimento de uma força eletromotriz em um circuito devido à variação do fluxo magnético que o atravessa.
+Qual fórmula define o fluxo magnético ($\Phi$) através de uma superfície de área $A$?	$\Phi = B \cdot A \cdot \cos \theta$.
+Qual é a unidade de medida do fluxo magnético no Sistema Internacional?	Weber ($Wb$).
+O que estabelece a Lei de Lenz sobre o sentido da corrente induzida?	O sentido da corrente induzida é tal que ela gera um campo magnético que se opõe à variação do fluxo magnético original.
+O que acontece com o fluxo magnético se o vetor $B$ for paralelo à superfície da espira (perpendicular à normal)?	O fluxo magnético é nulo ($\Phi = 0$).
+Como se chama o componente da tecnologia Maglev instalado nas laterais para evitar descarrilamentos?	Eletroímãs de estabilidade.
+O funcionamento de uma bússola baseia-se na existência de qual campo magnético?	Campo magnético terrestre.
+Segundo a Lei de Biot-Savart, a intensidade do campo magnético elementar é inversamente proporcional a qual grandeza?	Ao quadrado da distância ($r^2$) entre o elemento de corrente e o ponto.
+Na Lei de Ampère, a circulação do vetor $B$ ao longo de um percurso fechado é proporcional a qual grandeza?	À corrente elétrica total ($i$) que atravessa a superfície limitada pelo percurso.
+Qual cientista croata é homenageado com o nome da unidade de indução magnética no SI?	Nicolas Tesla.
+Se uma carga negativa entra em um campo magnético saindo do plano, e sua velocidade é para a direita, qual o sentido da força magnética?	Para cima (invertendo o sentido do 'empurrão' da palma da mão direita).
+Como se define o ângulo $\theta$ na fórmula do fluxo magnético $\Phi = B \cdot A \cdot \cos \theta$?	É o ângulo entre o vetor indução magnética ($B$) e a normal ($n$) à superfície.
+Qual é a condição para que a força magnética sobre um condutor retilíneo seja máxima?	Quando o condutor está perpendicular às linhas de campo magnético ($\theta = 90^o$).
+Como se chama o processo de transformar um material neutro em um ímã?	Imantação (ou magnetização).
+No contexto de uma espira, o que acontece com a agulha de uma bússola próxima a ela quando a corrente elétrica é interrompida?	A agulha deixa de ser influenciada pela espira e volta a se orientar pelo campo magnético terrestre.
+O que o termo '$spin$' descreve no comportamento de um elétron?	O movimento de rotação do elétron em torno de seu próprio eixo.

@@ -1,0 +1,10 @@
+﻿De acordo com a Lei de Faraday-Neumann, qual é a condição necessária para que uma força eletromotriz ($e$) seja induzida em uma espira condutora?	A variação do fluxo magnético no tempo através da área da espira.
+Por que os núcleos de ferro dos transformadores são construídos de forma laminada em vez de serem blocos maciços?	Para minimizar as perdas de energia por efeito Joule causadas pelas correntes de Foucault.
+Qual componente mecânico diferencia fundamentalmente um dínamo de um alternador para garantir a geração de corrente contínua?	O comutador, que inverte a conexão dos terminais a cada meia-volta.
+Em um alternador, o que acontece com a corrente elétrica gerada à medida que a armadura gira em um campo magnético uniforme?	A corrente varia periodicamente em intensidade e muda de sentido constantemente.
+O conceito de 'valor eficaz' ($i_{ef}$) em corrente alternada é definido como:	A intensidade de uma corrente contínua que dissiparia a mesma energia no mesmo resistor.
+Como um transformador consegue induzir corrente na bobina secundária se as duas bobinas não possuem contato elétrico entre si?	Pela criação de um fluxo magnético alternado que percorre o núcleo comum.
+Se um transformador possui $100$ espiras no primário e $500$ no secundário, e uma tensão de $120\ V$ é aplicada ao primário, qual será a tensão de saída?	$600\ V$
+Qual é o principal motivo para se utilizar tensões elevadíssimas na transmissão de energia elétrica por longas distâncias?	Reduzir a corrente elétrica e minimizar as perdas por aquecimento nos fios ($R \cdot i^2$).
+Por que não é viável reduzir as perdas na transmissão apenas diminuindo a resistência ($R$) dos fios condutores?	Porque exigiria cabos excessivamente grossos, pesados e de custo proibitivo.
+Como o princípio da indução magnética permite que um detetor de metais identifique um objeto?	A variação do fluxo induz correntes de Foucault no objeto, que geram um novo campo magnético detectável.

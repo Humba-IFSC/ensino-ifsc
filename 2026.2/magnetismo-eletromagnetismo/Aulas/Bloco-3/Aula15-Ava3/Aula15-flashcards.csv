@@ -1,0 +1,15 @@
+﻿Qual é a equação matemática utilizada para calcular o fluxo magnético $\Phi$ através de uma espira?	$\Phi = B \cdot A \cdot \cos \theta$
+No Sistema Internacional de Unidades (SI), em qual unidade é medido o fluxo magnético?	Weber ($Wb$).
+Sob qual condição de ângulo $\theta$ (entre o vetor campo e a normal da espira) o fluxo magnético é nulo?	Quando a espira é paralela ao campo ($\theta = 90^\circ$).
+O que estabelece a Lei de Lenz em relação ao sentido da corrente elétrica induzida?	O sentido da corrente induzida é tal que seus efeitos se opõem à variação do fluxo magnético que a originou.
+Qual é a fórmula da força eletromotriz (fem) média induzida segundo a Lei de Faraday-Neumann?	$e_m = -\frac{\Delta \Phi}{\Delta t}$
+O que o sinal negativo na fórmula da Lei de Faraday-Neumann ($e_m = -\frac{\Delta \Phi}{\Delta t}$) representa?	A oposição da fem induzida à variação do fluxo magnético, conforme descrito pela Lei de Lenz.
+Ao aproximar o polo Norte de um ímã de uma espira, qual o sentido da corrente induzida para o observador?	Sentido anti-horário (criando um polo Norte para repelir o ímã).
+Como se define a intensidade da fem induzida ($e$) em um condutor retilíneo de comprimento $L$ que se move com velocidade $v$ perpendicular a um campo $B$?	$e = B \cdot L \cdot v$
+Como se denomina o fenômeno onde a variação da corrente em um circuito induz uma força eletromotriz no próprio circuito?	Autoindução.
+O que são as correntes de Foucault e onde elas ocorrem?	São correntes induzidas que circulam no interior de condutores maciços submetidos a um fluxo magnético variável.
+Qual é o objetivo de utilizar um núcleo de ferro laminado em máquinas elétricas como transformadores?	Reduzir as perdas de energia por efeito Joule causadas pelas correntes de Foucault.
+Qual a relação matemática entre as tensões ($U$) e o número de espiras ($N$) nos enrolamentos de um transformador?	$\frac{U_P}{U_S} = \frac{N_P}{N_S}$
+Em um transformador ideal, se a tensão no secundário é maior que no primário, o que ocorre com a intensidade da corrente no secundário?	A intensidade da corrente elétrica diminui proporcionalmente.
+Qual a diferença fundamental entre o funcionamento de um alternador e um dínamo?	O alternador gera corrente alternada ($AC$), enquanto o dínamo utiliza um comutador para gerar corrente contínua ($DC$).
+Por que a energia elétrica é transmitida a longas distâncias sob altíssimas tensões?	Para diminuir a intensidade da corrente e minimizar as perdas de energia por efeito Joule nos fios condutores.

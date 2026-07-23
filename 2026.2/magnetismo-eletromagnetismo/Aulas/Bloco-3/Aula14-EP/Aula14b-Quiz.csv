@@ -1,0 +1,10 @@
+﻿De acordo com a definição de fluxo magnético ($\Phi = B \cdot A \cdot \cos \theta$), o que ocorre com o fluxo se dobrarmos a área da espira e reduzirmos a intensidade do campo magnético pela metade, mantendo o ângulo constante?	O fluxo magnético permanece inalterado.
+Pela Lei de Faraday-Neumann, se o fluxo magnético através de uma espira varia em $4\text{ Wb}$ em um intervalo de $2\text{ s}$, qual é o módulo da força eletromotriz induzida média?	$2\text{ V}$
+Segundo a Lei de Lenz, qual é a função primordial do sentido da corrente induzida em um circuito?	Opor-se à variação do fluxo magnético que a originou.
+No Brasil, a frequência da rede elétrica comercial é de $60\text{ Hz}$. Qual é o valor aproximado da pulsação ($\\omega$) dessa corrente alternada?	$120\pi\text{ rad/s}$
+Se uma força eletromotriz alternada senoidal possui um valor máximo de $200\text{ V}$, qual é o seu valor eficaz aproximado?	$141\text{ V}$
+Um transformador possui $500$ espiras no primário e $2500$ no secundário. Ao ligar o primário em $110\text{ V}$ (AC), qual tensão será medida no secundário?	$550\text{ V}$
+Por que um transformador ideal conectado a uma bateria de corrente contínua ($12\text{ V}$) apresenta $0\text{ V}$ de saída no secundário?	Porque a corrente contínua gera um fluxo magnético constante, e a indução exige variação de fluxo.
+Qual é a principal vantagem do uso de transformadores elevadores nas linhas de transmissão de energia elétrica entre a usina e as cidades?	Reduzir a corrente elétrica na linha e minimizar as perdas por efeito Joule.
+Em um gerador de corrente alternada (alternador), qual é a função dos anéis metálicos no coletor?	Manter a conexão elétrica constante enquanto permitem que a espira gire livremente.
+Se uma espira de resistência $R = 5\ \Omega$ está sujeita a uma força eletromotriz induzida de $10\text{ V}$, qual será a corrente elétrica circulante?	$2\text{ A}$

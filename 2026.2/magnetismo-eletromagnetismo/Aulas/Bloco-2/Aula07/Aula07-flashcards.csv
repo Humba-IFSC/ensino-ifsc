@@ -1,0 +1,10 @@
+﻿Qual é a fórmula para calcular a intensidade da força magnética ($F_m$) sobre um condutor reto percorrido por uma corrente elétrica $i$?	$F_m = B \cdot i \cdot L \cdot \sin \theta$
+Na aplicação da regra da mão direita $n^\circ 2$ para condutores, qual grandeza física é representada pela direção do polegar?	O sentido convencional da corrente elétrica ($i$).
+O que ocorre com a força magnética entre dois fios paralelos quando as correntes elétricas neles percorrem sentidos opostos?	Os fios exercem uma força de repulsão mútua.
+De que forma a distância ($r$) entre dois condutores paralelos influencia a intensidade da força magnética exercida entre eles?	A intensidade da força magnética é inversamente proporcional à distância entre os condutores.
+Qual é o valor exato da força magnética por metro de condutor utilizada na definição oficial da unidade Ampère ($A$)?	$2 \cdot 10^{-7} \text{ N}$
+Como se compara a intensidade do campo magnético interno ($B$) de uma substância diamagnética em relação ao campo externo ($B_0$)?	O campo interno é ligeiramente menor que o campo original ($B < B_0$).
+Qual fenômeno microscópico é o principal responsável pelo alinhamento magnético nas substâncias paramagnéticas?	O movimento de rotação dos próprios elétrons em torno de seus eixos, conhecido como $spin$.
+O que define os chamados 'domínios de Weiss' em materiais ferromagnéticos na completa ausência de um campo magnético externo?	São regiões internas onde os $spins$ dos elétrons já se encontram espontaneamente orientados.
+Como os domínios de Weiss se comportam quando uma substância ferromagnética é submetida a um campo magnético externo ($B_0$)?	Eles sofrem uma rotação para se alinharem integralmente na mesma direção e sentido do campo externo.
+Por que o campo magnético resultante ($B$) no interior de um material ferromagnético é muito superior ao campo externo original ($B \gg B_0$)?	Devido ao alinhamento coletivo dos domínios de Weiss, que intensifica drasticamente o campo magnético.

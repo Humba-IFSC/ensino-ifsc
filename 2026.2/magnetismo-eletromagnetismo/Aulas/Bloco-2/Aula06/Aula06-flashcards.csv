@@ -1,0 +1,10 @@
+﻿Qual é a fórmula para calcular a intensidade da força magnética ($F_m$) sobre uma carga elétrica móvel?	$F_m = B \cdot |q| \cdot v \cdot \sin \theta$
+Na regra da mão direita nº 2, quais grandezas são representadas pelo polegar e pelos demais dedos esticados, respectivamente?	O vetor velocidade ($\vec{v}$) e o vetor campo magnético ($\vec{B}$).
+Qual é a direção da força magnética em relação ao plano formado pelos vetores velocidade ($\vec{v}$) e campo magnético ($\vec{B}$)?	A direção da força magnética é sempre perpendicular ao plano formado por $\vec{v}$ e $\vec{B}$.
+"Se uma carga negativa (como um elétron) penetra em um campo magnético, como o sentido da força se compara ao ""empurrão"" da palma da mão na regra da mão direita?"	O sentido da força será exatamente o oposto ao sentido do empurrão da palma da mão.
+Qual tipo de trajetória uma carga descreve quando sua velocidade é paralela às linhas de indução de um campo magnético uniforme?	Movimento Retilíneo Uniforme (MRU).
+"Sob qual condição angular ($	heta$) uma carga descreve um Movimento Circular Uniforme (MCU) ao entrar em um campo magnético uniforme?"	Quando a carga é lançada perpendicularmente ao campo ($\theta = 90^\circ$).
+Qual fórmula define o raio ($R$) da trajetória circular de uma carga em um campo magnético uniforme?	$R = \frac{m \cdot v}{B \cdot |q|}$
+Verdadeiro ou Falso: No Movimento Circular Uniforme (MCU) magnético, o período ($T$) da trajetória depende da velocidade da partícula.	Falso, o período independe da velocidade da partícula.
+O Movimento Helicoidal Uniforme ocorre quando a velocidade da carga é lançada em qual direção em relação ao campo magnético?	Quando a velocidade é lançada em uma direção oblíqua ao campo ($0 < \theta < 90^\circ$).
+O Movimento Helicoidal Uniforme é a composição simultânea de quais dois tipos de movimentos?	Um MRU na direção do campo magnético e um MCU no plano perpendicular a ele.

@@ -1,0 +1,65 @@
+﻿Como é denominada a constante de proporcionalidade $j_0$ no contexto do campo magnético no vácuo?	Permeabilidade magnética do vácuo.
+Na regra da mão direita nº 1, o que o polegar estendido representa?	O sentido da corrente elétrica $i$.
+Qual é o sentido das linhas de indução magnética na parte externa de um ímã?	Saem do polo norte e chegam ao polo sul.
+De acordo com a 'regra do relógio', qual é a natureza do polo de uma espira se a corrente circula no sentido anti-horário?	Polo norte.
+Qual é a fórmula para calcular a intensidade do vetor indução magnética $B$ originado por um condutor reto e extenso a uma distância $r$?	$B = \frac{j_0 i}{2\pi r}$
+Qual é a expressão matemática para a intensidade da força magnética ($F_m$) que atua sobre uma carga puntiforme $q$ lançada em um campo $B$?	$F_m = B |q| v \sin \theta$
+Em que condição a força magnética sobre uma carga em movimento dentro de um campo magnético uniforme é nula?	Quando a carga se desloca em uma direção paralela à do vetor $B$ ($\theta = 0^\circ$ ou $180^\circ$).
+Na regra da mão direita nº 2, qual parte da mão indica o sentido da força magnética para uma carga negativa?	O sentido oposto ao da palma da mão (costas da mão).
+Como se calcula a força magnética ($F_m$) que atua em um condutor retilíneo de comprimento $L$ percorrido por uma corrente $i$?	$F_m = B i L \sin \theta$
+Qual é a condição de equilíbrio para um condutor horizontal imerso em um campo magnético vertical sob a ação da gravidade?	A força magnética vertical deve equilibrar o peso do condutor ($F_m = P$).
+O que acontece com uma espira percorrida por corrente ao ser colocada em um campo magnético uniforme?	Ela fica sujeita a um binário (momento) que tende a girá-la.
+Qual é o princípio físico que permite o funcionamento de galvanômetros e amperímetros de ponteiro?	A interação entre o campo magnético de um ímã fixo e o binário gerado pela corrente em uma bobina móvel.
+O que é a indução eletromagnética?	O surgimento de uma força eletromotriz ($\epsilon$) em um circuito devido à variação do fluxo magnético que o atravessa.
+Como se calcula a força eletromotriz ($\epsilon$) induzida em um condutor reto de comprimento $L$ que se move com velocidade $v$ perpendicularmente a um campo $B$?	$\epsilon = B L v$
+Para manter um condutor em movimento com velocidade constante gerando corrente induzida, por que é necessária uma força externa ($F_{ext}$)?	Para equilibrar a força magnética que surge no condutor devido à passagem da corrente induzida.
+Qual é a definição matemática de fluxo magnético ($\Phi$) através de uma espira de área $A$?	$\Phi = B A \cos \theta$
+Qual é a unidade de medida do fluxo magnético no Sistema Internacional (SI)?	Weber ($Wb$).
+O que estabelece a Lei de Lenz em relação ao sentido da corrente induzida?	O sentido da corrente induzida é tal que seu campo magnético se opõe à variação do fluxo magnético que a originou.
+Qual é a fórmula da Lei de Faraday-Neumann para a força eletromotriz média ($\epsilon_m$)?	$\epsilon_m = -\frac{\Delta \Phi}{\Delta t}$
+Qual é a relação entre a carga elétrica induzida ($\Delta q$) que circula em uma espira de resistência $R$ e a variação do fluxo ($\Delta \Phi$)?	$\Delta q = \frac{|\Delta \Phi|}{R}$
+O que caracteriza o fenômeno da autoindução?	O aparecimento de uma força eletromotriz no próprio circuito devido à variação de sua própria corrente elétrica.
+Como se define a indutância ($L$) de um circuito em relação ao fluxo autoinduzido ($\Phi_a$) e à corrente ($i$)?	$\Phi_a = L i$
+O que são as correntes de Foucault?	Correntes induzidas que circulam no interior de massas metálicas submetidas a fluxos magnéticos variáveis.
+Qual é o principal efeito indesejado das correntes de Foucault em núcleos de transformadores?	Dissipação de energia em forma de calor por efeito Joule.
+Como os núcleos de máquinas elétricas são construídos para minimizar as correntes de Foucault?	São feitos de lâminas delgadas, isoladas entre si e dispostas paralelamente às linhas de indução.
+Em uma bobina de indução, qual enrolamento é responsável por gerar o campo magnético inicial?	O enrolamento primário.
+Por que se utiliza um capacitor em paralelo com a chave de interrupção em uma bobina de indução?	Para evitar o faiscamento na chave, acelerando a interrupção da corrente e aumentando a $\epsilon$ induzida no secundário.
+O que ocorre com os elétrons livres nos condutores quando se mantém uma corrente alternada no circuito?	Eles oscilam com amplitudes de milésimos de milímetro.
+Qual é a expressão da força eletromotriz instantânea ($\epsilon$) induzida em uma espira que gira com velocidade angular $\omega$ constante?	$\epsilon = \epsilon_{máx} \sin \omega t$
+Como se define a pulsação da corrente ($\omega$) em função da frequência ($f$)?	$\omega = 2\pi f$
+Qual é a frequência padrão da energia elétrica distribuída comercialmente no Brasil?	$60 \text{ Hz}$
+Qual é a diferença fundamental entre um alternador e um dínamo?	O alternador gera corrente alternada, enquanto o dínamo gera corrente retificada (praticamente contínua).
+O que é o valor eficaz ($i_{ef}$) de uma corrente alternada?	A intensidade de uma corrente contínua que dissiparia a mesma quantidade de energia em um mesmo resistor no mesmo intervalo de tempo.
+Qual é a relação entre o valor eficaz ($U_{ef}$) e o valor máximo ($U_{máx}$) de uma tensão alternada senoidal?	$U_{ef} = \frac{U_{máx}}{\sqrt{2}}$
+Como se calcula a potência média ($P_m$) dissipada em um resistor percorrido por corrente alternada?	$P_m = U_{ef} \cdot i_{ef}$ ou $P_m = R \cdot i_{ef}^2$
+Qual é a função primordial de um transformador?	Modificar valores de diferença de potencial (ddp) alternada, aumentando-os ou diminuindo-os.
+Em um transformador, qual é a relação entre as ddps ($U_p, U_s$) e o número de espiras ($N_p, N_s$)?	$\frac{U_p}{U_s} = \frac{N_p}{N_s}$
+O que caracteriza um transformador como 'elevador de ddp'?	O número de espiras do secundário ser maior que o do primário ($N_s > N_p$).
+Em um transformador ideal, qual é a relação entre as potências no primário ($P_p$) e no secundário ($P_s$)?	$P_p = P_s$ (ou $U_p i_p = U_s i_s$).
+Por que o transporte de energia elétrica a longas distâncias é feito sob altas tensões?	Para reduzir a intensidade da corrente e, consequentemente, minimizar as perdas de energia por efeito Joule na linha.
+Por que os transformadores não funcionam com corrente contínua constante?	Porque a indução no secundário requer um fluxo magnético variável, o qual só é produzido por corrente alternada.
+No transporte de energia, qual é o papel da primeira subestação logo após a usina?	Elevar a tensão (ex: para $400.000 \text{ V}$) para possibilitar o transporte a longa distância com baixa perda.
+Como o fluxo magnético máximo ($\Phi_{máx}$) se relaciona com a indução $B$ e a área $A$ da espira?	$\Phi_{máx} = B A$ (ocorre quando $\theta = 0^\circ$).
+Qual é a relação entre a fem máxima ($\epsilon_{máx}$) e o fluxo máximo ($\Phi_{máx}$) em uma espira girante?	$\epsilon_{máx} = \Phi_{máx} \cdot \omega$
+Como se denomina a corrente que varia em intensidade mas mantém o mesmo sentido, obtida em dínamos simples?	Corrente pulsante.
+Qual componente do dínamo é responsável por trocar o terminal ligado ao circuito externo a cada meia-volta?	O comutador.
+De que forma o detetor de metais manual identifica objetos metálicos?	A variação do fluxo magnético induz correntes no metal, gerando um campo que altera o campo de referência do aparelho.
+Como o microfone de bobina móvel converte sons em sinais elétricos?	As vibrações sonoras movem uma bobina em um campo magnético, induzindo variações de tensão elétrica.
+O que ocorre com a fem induzida se a velocidade de rotação de uma bobina em um campo magnético dobrar?	A força eletromotriz máxima também dobra.
+Qual é o valor da força eletromotriz induzida instantânea quando o fluxo magnético através da espira é máximo?	Zero (pois a taxa de variação do fluxo é nula nesse instante).
+Defina a 'razão de transformação' de um transformador.	É a constante dada pelo quociente $\frac{N_p}{N_s}$.
+Qual é a principal causa da perda de energia em transformadores reais?	Efeito Joule nos enrolamentos e correntes de Foucault no núcleo.
+No esquema de transporte de energia, qual ddp residencial é comumente obtida em São Paulo?	$127 \text{ V}$ eficazes.
+O que representa o símbolo '~' em um diagrama de circuito elétrico?	Uma fonte de diferença de potencial (ddp) alternada.
+Como se chama o conjunto formado pelos anéis e pelas escovas em um alternador?	Coletor.
+Qual o valor da tensão média fornecida por um alternador de usina hidrelétrica antes da primeira transformação?	Cerca de $13.800 \text{ V}$.
+Em uma usina termelétrica, como é obtida a rotação da armadura do alternador?	Por meio de uma máquina a vapor.
+O que acontece com a amplitude de oscilação dos elétrons livres se a frequência da corrente alternada aumentar?	A amplitude de oscilação diminui.
+Qual é o comportamento do gráfico da força eletromotriz ($\epsilon$) em função do tempo para dois períodos $T$?	É uma função senoidal que assume valores positivos e negativos periodicamente.
+Se uma bobina tem $N$ espiras, como fica a fórmula da fem máxima induzida?	$\epsilon_{máx} = N \cdot B \cdot A \cdot \omega$
+Qual a ddp típica utilizada para fins industriais após a primeira redução em subestações?	$20.000 \text{ V}$.
+Em um alto-falante, qual é a função da interação entre o campo do ímã fixo e a corrente na bobina?	Gerar uma força magnética que faz o cone vibrar, produzindo som.
+O que é o 'comutador' em um dínamo?	Um anel metálico dividido em setores que inverte as conexões para manter a corrente no mesmo sentido no circuito externo.
+Qual a relação entre o fluxo ($\Phi$) e o tempo ($t$) se a espira inicia sua rotação perpendicular às linhas de campo?	$\Phi = \Phi_{máx} \cos \omega t$
+Por que o núcleo de ferro de um transformador é laminado?	Para minimizar as perdas por correntes de Foucault.

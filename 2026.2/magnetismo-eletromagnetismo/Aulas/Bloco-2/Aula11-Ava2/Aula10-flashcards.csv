@@ -1,0 +1,50 @@
+﻿Qual é a fórmula da intensidade da força magnética ($F_m$) que atua sobre uma carga elétrica móvel?	$F_m = B \cdot |q| \cdot v \cdot \sin \theta$
+Na fórmula $F_m = B \cdot |q| \cdot v \cdot \sin \theta$, o que representa o ângulo $\theta$?	O ângulo formado entre o vetor velocidade ($\vec{v}$) e o vetor campo magnético ($\vec{B}$).
+Na Regra da Mão Direita nº 2, qual elemento físico é representado pelo dedo polegar?	O sentido do movimento da carga positiva ($\vec{v}$) ou da corrente elétrica ($i$).
+Na Regra da Mão Direita nº 2, para onde devem apontar os quatro dedos (exceto o polegar)?	Na direção e sentido do vetor campo magnético ($\vec{B}$).
+Segundo a Regra da Mão Direita nº 2, como se determina o sentido da força magnética para uma carga positiva?	"O sentido da força corresponde ao sentido do ""empurrão"" dado pela palma da mão."
+Como o sinal de uma carga negativa altera a aplicação da Regra da Mão Direita nº 2 para a força magnética?	"O sentido da força magnética será oposto ao sentido do ""empurrão"" da palma da mão."
+Qual é a condição do ângulo $\theta$ para que a força magnética sobre uma carga móvel seja nula?	Quando a velocidade é paralela ao campo magnético ($\theta = 0^\circ$ ou $\theta = 180^\circ$).
+Qual é o tipo de movimento descrito por uma carga lançada paralelamente às linhas de um campo magnético uniforme?	Movimento Retilíneo Uniforme (MRU).
+Qual trajetória uma carga elétrica descreve ao ser lançada perpendicularmente ($\theta = 90^\circ$) a um campo magnético uniforme?	Movimento Circular Uniforme (MCU).
+No Movimento Circular Uniforme de uma carga em um campo magnético, qual força atua como a resultante centrípeta?	A força magnética ($F_m$).
+Qual é a trajetória de uma carga elétrica quando sua velocidade inicial é oblíqua em relação ao campo magnético uniforme?	Movimento Helicoidal Uniforme (hélice cilíndrica).
+Qual é a fórmula da força magnética que atua sobre um condutor reto percorrido por corrente elétrica?	$F_m = B \cdot i \cdot L \cdot \sin \theta$
+Qual é a unidade de medida da intensidade do vetor indução magnética ($B$) no Sistema Internacional (SI)?	Tesla ($T$).
+Qual é a relação de conversão entre as unidades Tesla ($T$) e Gauss ($G$)?	$1 T = 10^4 G$.
+O que ocorre com a força entre dois fios condutores paralelos percorridos por correntes elétricas de mesmo sentido?	Os fios sofrem uma força de atração mútua.
+O que ocorre com a interação entre dois fios condutores paralelos quando as correntes elétricas possuem sentidos opostos?	Os fios sofrem uma força de repulsão mútua.
+Qual é a fórmula da força magnética entre dois condutores paralelos de comprimento $L$ no vácuo?	$F_m = \frac{\mu_0}{2\pi} \cdot \frac{i_1 \cdot i_2}{r} \cdot L$
+Como se denominam as regiões de um ímã onde as propriedades magnéticas são mais intensas?	Polos magnéticos (Norte e Sul).
+O que afirma o princípio da inseparabilidade dos polos de um ímã?	Ao quebrar um ímã, cada pedaço resultante constituirá um novo ímã completo com polos norte e sul.
+Qual é a convenção para o sentido das linhas de indução magnética externamente a um ímã?	As linhas saem do polo norte e chegam ao polo sul.
+O que caracteriza um campo magnético uniforme?	O vetor campo magnético ($\vec{B}$) possui a mesma direção, sentido e intensidade em todos os pontos.
+Qual foi a descoberta fundamental da Experiência de Oersted em 1820?	Que a passagem de corrente elétrica por um condutor produz um campo magnético ao seu redor.
+Como a Regra da Mão Direita nº 1 determina o sentido do campo magnético em torno de um fio reto?	O polegar aponta o sentido da corrente e os demais dedos envolvem o fio indicando o sentido das linhas de campo.
+Onde se localiza, aproximadamente, o polo sul magnético da Terra?	Próximo ao norte geográfico terrestre.
+Como são classificadas as substâncias em que o campo magnético resultante ($B$) é ligeiramente menor que o campo no vácuo ($B_0$)?	Substâncias diamagnéticas.
+O que define uma substância paramagnética em relação à intensidade do campo magnético?	O campo magnético resultante ($B$) é apenas um pouco maior que o campo original ($B_0$).
+Quais substâncias promovem um aumento enorme na intensidade do campo magnético resultante?	Substâncias ferromagnéticas.
+O que são os Domínios de Weiss em materiais ferromagnéticos?	Regiões microscópicas onde os spins eletrônicos estão espontaneamente alinhados mesmo sem campo externo.
+Como se define o fenômeno da histerese magnética?	É o atraso no processo de desimantação de uma substância ferromagnética em relação ao campo aplicado.
+O que é o Ponto de Curie para um material ferromagnético?	É a temperatura acima da qual o material perde suas propriedades ferromagnéticas.
+Qual é a função do núcleo de ferro doce em um eletroímã?	Concentrar e aumentar a intensidade do campo magnético gerado pela corrente nas bobinas.
+Termo: Magnetita	Definição: Um óxido de ferro ($Fe_3O_4$) que constitui um ímã natural encontrado na natureza.
+No Maglev de tecnologia alemã, como ocorre a levitação do trem?	Eletroímãs na parte inferior do trilho atraem os eletroímãs presos ao trem, suspendendo-o.
+O fenômeno do magnetismo em nível microscópico é explicado fundamentalmente pelo movimento de quais partículas?	Elétrons (movimento orbital e rotação/spin).
+Qual é a direção da força magnética em relação ao plano formado pelos vetores $\vec{v}$ e $\vec{B}$?	Sempre perpendicular ao plano formado por $\vec{v}$ e $\vec{B}$.
+No SI, qual é o valor da permeabilidade magnética do vácuo ($\mu_0$)?	$4\pi \cdot 10^{-7} \ T \cdot m / A$.
+O que acontece com a intensidade do campo magnético dentro de um solenoide se inserirmos um núcleo ferromagnético?	A intensidade do campo magnético ($B$) aumenta drasticamente.
+Como se orienta uma agulha magnética colocada em um ponto de um campo magnético?	O seu eixo $NS$ alinha-se com a direção do campo e o polo norte aponta no sentido do vetor $\vec{B}$.
+Para que um condutor suspenso permaneça em equilíbrio apenas sob gravidade e força magnética, qual deve ser a relação de módulos?	$F_m = P$ (Força magnética igual à força peso).
+A força magnética realiza trabalho sobre uma carga elétrica em movimento em um campo magnético constante?	Não, pois a força é sempre perpendicular à velocidade, alterando apenas a direção do movimento.
+Qual componente da velocidade é responsável pelo raio da trajetória circular em um campo magnético?	A componente perpendicular ao vetor indução magnética ($v \cdot \sin \theta$).
+Em uma espira circular, como a Regra do Relógio identifica um polo norte?	Quando o sentido da corrente vista de frente é anti-horário.
+Em uma espira circular, como a Regra do Relógio identifica um polo sul?	Quando o sentido da corrente vista de frente é horário.
+O que define uma substância como 'imantada residualmente' após desligar o campo externo?	O fato de muitos elétrons (ou domínios) manterem sua orientação preferencial mesmo sem a causa externa.
+A força magnética sobre um condutor é máxima quando o ângulo entre o fio e o campo é de _____.	$90^\circ$ (ou perpendicular).
+As linhas de indução magnética são sempre fechadas ou abertas?	Sempre fechadas, pois não existem monopolos magnéticos isolados.
+Qual é a unidade fundamental do SI utilizada para definir o Ampère a partir da força entre fios?	O Newton ($N$), especificamente $2 \cdot 10^{-7} \ N$ por metro de condutor.
+O magnetismo terrestre assemelha-se ao campo gerado por qual tipo de objeto?	Um grande ímã em forma de barra ou uma espira circular com corrente intensa.
+O que ocorre com a força magnética sobre uma carga se a velocidade triplicar, mantendo-se o campo constante?	A força magnética também triplicará (proporcionalidade direta).
+Em um campo magnético uniforme, as linhas de indução são representadas graficamente como _____.	Retas paralelas igualmente espaçadas e orientadas.

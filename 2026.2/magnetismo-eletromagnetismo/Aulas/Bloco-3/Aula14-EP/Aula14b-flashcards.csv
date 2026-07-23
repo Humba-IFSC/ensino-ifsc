@@ -1,0 +1,10 @@
+﻿O que o fluxo magnético ($\Phi$) mede fisicamente ao atravessar uma superfície?	O número de linhas de indução que atravessam essa superfície.
+Qual é a fórmula para o cálculo do fluxo magnético ($\Phi$) em uma espira plana imersa em um campo uniforme?	$\Phi = B \cdot A \cdot \cos \theta$, onde $\theta$ é o ângulo entre o vetor normal à espira e o vetor campo magnético.
+Enuncie a Lei de Faraday-Neumann para a força eletromotriz induzida ($\varepsilon$) média.	$\varepsilon = - \frac{\Delta \Phi}{\Delta t}$
+De acordo com a Lei de Lenz, qual é o sentido da corrente elétrica induzida em um circuito?	O sentido é tal que o campo magnético por ela criado se opõe à variação do fluxo magnético que a produziu.
+Qual é a expressão da Lei de Felici para calcular a carga elétrica total ($\Delta q$) que circula por uma espira de resistência $R$?	$\Delta q = \frac{|\Delta \Phi|}{R}$
+Como se define a pulsação ($\omega$) de uma corrente alternada em função de sua frequência ($f$)?	$\omega = 2 \pi f$
+Qual é a função horária da força eletromotriz induzida ($\varepsilon$) em uma espira que gira com velocidade angular $\omega$ constante?	$\varepsilon = \varepsilon_{máx} \cdot \sin (\omega t)$
+Qual é a diferença fundamental entre a corrente gerada por um alternador e a gerada por um dínamo?	Alternadores geram corrente alternada e dínamos geram corrente contínua.
+Qual é a finalidade principal de um transformador em um circuito elétrico?	Modificar uma diferença de potencial (ddp) alternada, aumentando-a ou diminuindo-a conforme a necessidade.
+Em uma espira de área $A = 1\text{ m}^2$ e resistência $R = 4\ \Omega$, se o campo perpendicular varia a $2\text{ T/s}$, qual a corrente induzida?	A intensidade da corrente é $0,5\text{ A}$.

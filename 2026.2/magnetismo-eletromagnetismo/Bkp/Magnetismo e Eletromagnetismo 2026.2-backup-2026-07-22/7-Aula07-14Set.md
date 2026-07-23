@@ -1,0 +1,43 @@
+Fundamentos e Definição da Unidade Ampère
+A unidade Ampère (A), que é a unidade elétrica fundamental do Sistema Internacional de Unidades (SI), é definida oficialmente com base na força magnética gerada pela interação entre dois fios condutores paralelos [1].
+A definição oficial estabelece que um ampère é a intensidade de corrente constante que, se mantida em dois condutores retos, longos, paralelos, de seção transversal desprezível e situados a exatamente 1 metro de distância um do outro no vácuo, origina mutuamente entre eles uma força magnética de intensidade igual a 2 \\cdot 10^{-7} newtons (N) para cada metro de comprimento do condutor [1].
+Essa definição padronizada fundamenta-se na equação da força magnética entre fios paralelos (F\_m = \\frac{\\mu\_0}{2\\pi} \\frac{i\_1 \\cdot i\_2}{r} L) [1, 2]. Quando se considera que a distância entre os fios é r = 1 \\text{ m}, as correntes são iguais a i\_1 = i\_2 = 1 \\text{ A}, e a permeabilidade magnética do vácuo é \\mu\_0 = 4\\pi \\cdot 10^{-7} \\text{ T}\\cdot\\text{m/A}, a força resultante calculada por metro de fio (L = 1 \\text{ m}) será exatamente a força de 2 \\cdot 10^{-7} \\text{ N} estipulada pela definição do SI [1-3].
+--------------------------------------------------------------------------------
+Fundamentos do Diamagnetismo e Paramagnetismo
+A principal diferença entre essas substâncias está em como seus elétrons reagem à presença de um campo magnético externo (de intensidade B\_0) e no campo magnético resultante em seus interiores:
+Substâncias Diamagnéticas: Quando submetidas a um campo magnético externo, os movimentos orbitais de seus elétrons são induzidos a criar um campo de polaridade oposta [1, 2]. Como consequência, o campo magnético resultante em seu interior (B) torna-se ligeiramente menor do que o campo original (B &lt; B\_0), ocorrendo um enfraquecimento do campo [1, 2]. Exemplos dessas substâncias incluem o cobre e o bismuto [1, 2].
+Substâncias Paramagnéticas: Nessas substâncias, o efeito magnético é dominado pelo movimento de rotação dos próprios elétrons em torno de si mesmos, conhecido como spin [1, 3]. Ao se aplicar um campo magnético externo, os spins eletrônicos se ordenam parcialmente na mesma direção e no mesmo sentido desse campo [1, 3]. Isso faz com que o campo magnético resultante no interior do material seja um pouco maior do que o campo original (B &gt; B\_0) [1, 3]. Exemplos incluem manganês, cromo, alumínio, estanho, platina e até mesmo o ar [1, 3].
+Em resumo, enquanto as substâncias diamagnéticas atenuam levemente o campo magnético devido ao movimento orbital dos elétrons, as substâncias paramagnéticas o intensificam levemente devido ao alinhamento dos spins dos elétrons [1-3].
+--------------------------------------------------------------------------------
+Domínios de Weiss e a Natureza do Ferromagnetismo
+Os domínios de Weiss explicam o ferromagnetismo a partir do comportamento e da organização microscópica dos spins dos elétrons.
+Nas substâncias ferromagnéticas (como ferro, cobalto e níquel), existem regiões internas onde os spins dos elétrons já se encontram espontaneamente orientados, mesmo na completa ausência de um campo magnético externo [1]. Essas pequenas regiões com orientação magnética própria são denominadas domínios de Weiss [1].
+O ferromagnetismo, que pode ser considerado um paramagnetismo fortemente acentuado, ocorre da seguinte forma:
+Alinhamento: Quando o material ferromagnético é submetido a um campo magnético externo (de intensidade B\_0), os domínios de Weiss sofrem uma rotação e passam a se dispor exatamente na mesma direção e no mesmo sentido do campo externo [1].
+Intensificação do campo: Como consequência desse alinhamento coletivo dos domínios, a substância gera um campo magnético resultante interno incrivelmente forte, fazendo com que o campo total (B) seja muitas vezes maior que o campo externo inicial original (B \\gg B\_0) [1].
+Além de explicar a forte atração magnética, os domínios de Weiss também explicam a formação dos ímãs permanentes [2]. Em materiais ferromagnéticos específicos, como o aço temperado ou certas ligas (alnico, permalloy), os domínios de Weiss mantêm essa nova orientação de forma duradoura mesmo após a remoção do campo externo, preservando assim o alto valor de imantação da substância [2].
+--------------------------------------------------------------------------------
+Magnetismo em Condutores e Propriedades Magnéticas da Matéria
+Plano de Aula 07
+Curso: Magnetismo e Eletromagnetismo 2026.2 [1] Data: 14/09 [2] Professor: Zack (Co-piloto) [1] Bloco: 2 [2] Livro-texto Base: Fundamentos da Física (Ramalho, Nicolau e Toledo) - Volume 3 [1]
+--------------------------------------------------------------------------------
+Tema da Aula: Conteúdo Teórico 2: Força sobre Condutores e Fenômenos Magnéticos [2].
+Objetivos da Aula:
+Caracterizar e calcular a força magnética que atua sobre um condutor reto em um campo magnético uniforme [3].
+Compreender a força magnética entre condutores paralelos, relacionando o sentido das correntes com a natureza da força (atração ou repulsão) [4].
+Relacionar os fenômenos magnéticos ao movimento microscópico de cargas elétricas e classificar as substâncias em diamagnéticas, paramagnéticas e ferromagnéticas, compreendendo os domínios de Weiss [5, 6].
+--------------------------------------------------------------------------------
+Estrutura e Desenvolvimento do Conteúdo:
+1. Capítulo 14: Força em Condutor Reto
+Conceito: Explicar que um condutor reto de comprimento L, ao ser percorrido por uma corrente elétrica i e imerso em um campo magnético uniforme \\vec{B}, fica sob a ação de uma força magnética, visto que a corrente é um movimento de cargas [7, 8].
+Cálculo da Intensidade: Demonstrar a dedução da fórmula a partir da força sobre a carga móvel. A intensidade da força no condutor é dada por F\_m = B \\cdot i \\cdot L \\cdot \\sin \\theta, em que \\theta é o ângulo entre o vetor \\vec{B} e a direção do condutor [7, 8].
+Direção e Sentido: A direção da força magnética é perpendicular ao plano determinado por \\vec{B} e pela direção da corrente i [8]. O sentido deve ser determinado utilizando a regra da mão direita nº 2, substituindo a direção do vetor velocidade \\vec{v} pelo sentido da corrente elétrica i no polegar (uma vez que o sentido convencional da corrente é o mesmo das cargas positivas) [8].
+2. Força Magnética entre Condutores Paralelos
+Interação Mútua: Mostrar que dois condutores retos, extensos e paralelos, percorridos por correntes i\_1 e i\_2 e separados por uma distância r, exercem força magnética um sobre o outro [9]. A corrente de um fio gera um campo magnético que atua sobre o outro condutor [9].
+Cálculo da Intensidade: A força magnética (ao longo de um comprimento L) tem intensidade dada pela fórmula F\_m = \\frac{\\mu\_0}{2\\pi} \\frac{i\_1 \\cdot i\_2}{r} L [9].
+Atração e Repulsão: Destacar a regra fundamental da interação entre os condutores: se as correntes tiverem o mesmo sentido, a força magnética será de atração; se tiverem sentidos opostos, a força será de repulsão [4, 10]. Aproveitar para apresentar a definição oficial de ampère baseada nessa força [4, 11].
+3. Explicação Microscópica e Classificação das Substâncias
+Origem Microscópica: Explicar que todos os fenômenos magnéticos derivam do movimento de cargas. Um elétron atua como um "ímã elementar" devido ao seu movimento orbital ao redor do núcleo e ao seu próprio movimento de rotação (spin) [12, 13].
+Substâncias Diamagnéticas: São aquelas (como o cobre e o bismuto) nas quais a presença de um campo magnético externo induz movimentos orbitais dos elétrons que criam um campo de polaridade oposta. Como resultado, o campo resultante em seu interior é ligeiramente menor que o campo original (B &lt; B\_0) [14, 15].
+Substâncias Paramagnéticas: Em materiais como manganês, cromo, alumínio e platina, o efeito é dominado pelos spins. Ao aplicar um campo externo, os spins se alinham parcialmente com ele, gerando um campo resultante apenas um pouco maior que o original (B &gt; B\_0) [16].
+Substâncias Ferromagnéticas (Domínios de Weiss): Materiais como ferro, cobalto e níquel possuem regiões chamadas domínios de Weiss, onde os spins já estão espontaneamente orientados [6]. Quando submetidas a um campo externo, essas regiões giram para se alinhar integralmente ao campo, gerando um campo magnético resultante muito maior que o campo original (B \\gg B\_0) [6].

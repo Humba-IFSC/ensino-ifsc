@@ -1,0 +1,65 @@
+﻿Como são denominadas as regiões de um ímã onde a atração de limalha de ferro é mais intensa?	Polos magnéticos.
+O que ocorre com os polos de um ímã ao ser partido em duas ou mais partes?	Cada parte constitui um novo ímã completo, pois os polos são inseparáveis.
+No contexto da orientação geográfica, para onde aponta o polo norte de uma agulha magnética suspensa livremente?	Para o norte geográfico da Terra.
+Qual é a lei fundamental da interação entre polos magnéticos de mesmo nome?	Polos de mesmo nome se repelem.
+Qual é a lei fundamental da interação entre polos magnéticos de nomes diferentes?	Polos de nomes diferentes se atraem.
+Qual é a unidade de intensidade do vetor indução magnética ($B$) no Sistema Internacional (SI)?	Tesla ($T$).
+Qual é a relação de conversão entre a unidade Tesla ($T$) e a unidade Gauss ($G$)?	$1\ T = 10^4\ G$.
+Externamente a um ímã, qual é o sentido convencional das linhas de indução magnética?	Saem do polo norte e chegam ao polo sul.
+Como se define um campo magnético uniforme?	É aquele em que o vetor $B$ tem mesma direção, sentido e intensidade em todos os pontos.
+O que as linhas de indução representam graficamente em uma região do espaço?	A variação do vetor indução magnética ($B$).
+Qual experimento histórico de 1820 comprovou que a corrente elétrica gera um campo magnético?	Experimento de Oersted.
+Na regra da mão direita n.º 1 para um condutor retilíneo, o polegar deve apontar para qual sentido?	Sentido da corrente elétrica ($i$).
+Na regra da mão direita n.º 1, o que o sentido do fechamento dos demais dedos representa?	O sentido das linhas de indução do campo magnético.
+O fator $\mu_0$ no cálculo de campos magnéticos é denominado _____.	Permeabilidade magnética do vácuo.
+Qual é o valor da permeabilidade magnética do vácuo ($\mu_0$) no Sistema Internacional?	$4\pi \times 10^{-7}\ T \cdot m/A$.
+De acordo com a regra do relógio, se a corrente em uma espira circular flui no sentido horário, aquela face é um polo _____.	Sul.
+Como se denomina o dispositivo formado por um fio condutor enrolado em espiras iguais e igualmente espaçadas?	Solenoide (ou bobina longa).
+Qual é a característica das linhas de indução no interior de um solenoide percorrido por corrente?	São retas paralelas ao eixo do solenoide, formando um campo uniforme.
+Qual é a fórmula da intensidade da força magnética ($F_m$) sobre uma carga elétrica móvel?	$F_m = |q| \cdot v \cdot B \cdot \sin(\theta)$.
+Sob qual condição a força magnética sobre uma carga elétrica em movimento dentro de um campo magnético é nula?	Quando a carga é lançada paralelamente às linhas de indução ($\theta = 0^\circ$ ou $180^\circ$).
+Na regra da mão direita n.º 2 para cargas positivas, o que representa a palma da mão (o 'empurrão')?	O sentido da força magnética ($F_m$).
+Na regra da mão direita n.º 2, se a carga elétrica for negativa, o sentido da força magnética será _____ ao indicado pela palma da mão.	Oposto.
+Qual é a trajetória de uma carga lançada perpendicularmente a um campo magnético uniforme?	Movimento Circular Uniforme (MCU).
+Qual é a fórmula da força magnética que atua sobre um condutor retilíneo imerso em campo magnético?	$F_m = B \cdot i \cdot L \cdot \sin(\theta)$.
+O funcionamento de motores elétricos baseia-se no _____ de rotação gerado por forças magnéticas em um quadro condutor.	Binário (ou momento).
+Qual componente do motor elétrico é responsável por inverter o sentido da corrente para garantir rotação contínua?	Comutador.
+A força magnética entre dois fios condutores paralelos percorridos por correntes de mesmo sentido é de _____.	Atração.
+A força magnética entre dois fios condutores paralelos percorridos por correntes de sentidos opostos é de _____.	Repulsão.
+Como se define oficialmente 1 Ampère ($A$) no SI?	Intensidade de corrente que, em fios paralelos a 1 m de distância no vácuo, gera força de $2 \times 10^{-7}\ N$ por metro.
+Qual movimento eletrônico é responsável pela criação de ímãs elementares na matéria?	Movimento orbital em torno do núcleo e rotação sobre si mesmo (spin).
+Como são classificadas as substâncias cujo campo magnético resultante é ligeiramente menor que o original?	Diamagnéticas.
+Como são classificadas as substâncias, como o ferro e o níquel, que aumentam enormemente a intensidade do campo magnético?	Ferromagnéticas.
+O que são os domínios de Weiss em materiais ferromagnéticos?	Regiões onde os spins eletrônicos estão espontaneamente orientados em uma mesma direção.
+Como se denomina um dispositivo de ferro doce enrolado por espiras que se imanta apenas com a passagem de corrente?	Eletroímã.
+Qual é a definição de fluxo magnético ($\Phi$) através de uma superfície plana?	$\Phi = B \cdot A \cdot \cos(\theta)$.
+Qual é a unidade de medida do fluxo magnético no Sistema Internacional?	Weber ($Wb$).
+Qual é a condição necessária para que surja uma força eletromotriz (fem) induzida em um circuito?	Ocorre variação do fluxo magnético através do circuito.
+Enunciado: Lei de Lenz	O sentido da corrente induzida é tal que seus efeitos se opõem à causa (variação de fluxo) que lhe deu origem.
+Enunciado: Lei de Faraday-Neumann	A fem induzida média é igual à variação do fluxo magnético pelo intervalo de tempo, com sinal trocado ($\epsilon_m = -\frac{\Delta \Phi}{\Delta t}$).
+Como se denomina a propriedade de um circuito que relaciona o fluxo magnético autoinduzido com a intensidade da corrente?	Indutância ($L$).
+Qual é a unidade de indutância no Sistema Internacional?	Henry ($H$).
+O que são as correntes de Foucault?	Correntes induzidas que circulam no interior de condutores maciços submetidos a campos magnéticos variáveis.
+Qual é o efeito indesejado mais comum das correntes de Foucault em máquinas elétricas?	Aquecimento do condutor por efeito Joule (perda de energia).
+Como se reduz a intensidade das correntes de Foucault em núcleos de transformadores?	Utilizando núcleos laminados com isolamento entre as lâminas.
+Qual é a função básica de uma bobina de indução?	Obtenção de elevadas diferenças de potencial (ddp) a partir de correntes contínuas interrompidas.
+Nos captadores de guitarras elétricas, o que gera a corrente induzida transmitida ao alto-falante?	A oscilação da corda magnetizada, que faz variar o fluxo magnético através da bobina do captador.
+Qual é a fórmula da fem induzida ($\epsilon$) em um condutor retilíneo de comprimento $L$ que se move com velocidade $v$ perpendicular a um campo $B$?	$\epsilon = B \cdot L \cdot v$.
+O fenômeno da supercondutividade consiste na condução de corrente elétrica sem _____ energética em temperaturas muito baixas.	Perda.
+O que define a imantação residual ($B_R$) em um gráfico de substância ferromagnética?	O valor do campo magnético que permanece na substância mesmo quando a corrente externa é anulada.
+Qual é a aplicação prática das correntes de Foucault no setor industrial para fundição de metais?	Fornos de indução.
+No funcionamento de um amperímetro analógico, o que equilibra o binário das forças magnéticas?	O binário de reação das molas do aparelho.
+Como se chama o movimento de rotação do elétron em torno de si mesmo que contribui para o magnetismo?	Spin.
+O Maglev (trem de levitação magnética) utiliza o princípio de _____ de polos magnéticos para flutuar e se impulsionar.	Atração e repulsão.
+Em um campo magnético uniforme, as linhas de indução são retas paralelas _____ espaçadas.	Igualmente.
+A força magnética exercida sobre uma carga em repouso em um campo magnético constante é _____.	Nula.
+Qual é a direção do vetor indução magnética ($B$) em um ponto $P$ determinado por uma agulha magnética?	A direção definida pelo eixo Norte-Sul da agulha em equilíbrio.
+O sentido do vetor indução magnética ($B$) em um ponto é aquele para o qual aponta o polo _____ da agulha magnética.	Norte.
+Na lei de Ampère, a circulação do vetor $B$ em um percurso fechado é proporcional à soma das _____ enlaçadas.	Correntes elétricas.
+O que acontece com a força magnética entre dois condutores paralelos se dobrarmos a distância entre eles?	A intensidade da força é reduzida à metade.
+Como se chama o ferro que se desimanta rapidamente ao cessar a corrente elétrica?	Ferro doce.
+A agulha de uma bússola se orienta devido à existência de um campo magnético ao redor da _____.	Terra.
+Em uma espira retangular paralela ao campo $B$, o momento de rotação é _____.	Máximo.
+Em uma espira retangular perpendicular ao campo $B$, o momento de rotação é _____.	Nulo.
+O sinal de menos na Lei de Faraday-Neumann é uma representação matemática da Lei de _____.	Lenz.
+O fluxo magnético através de uma espira é zero quando o vetor normal à área é _____ ao vetor $B$.	Perpendicular ($\theta = 90^\circ$).

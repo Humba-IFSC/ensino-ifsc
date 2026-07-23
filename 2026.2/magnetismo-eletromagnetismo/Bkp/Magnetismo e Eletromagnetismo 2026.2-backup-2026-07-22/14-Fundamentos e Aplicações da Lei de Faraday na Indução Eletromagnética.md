@@ -1,0 +1,10 @@
+Fundamentos e Aplicações da Lei de Faraday na Indução Eletromagnética
+No Plano de Aula 11, a Lei de Faraday (formalmente tratada como Lei de Faraday-Neumann) é aplicada como o pilar central para explicar o fenômeno da indução eletromagnética. Sua aplicação na aula se dá nos seguintes aspectos:
+O Princípio Fundamental: A lei é introduzida a partir da conclusão experimental de Michael Faraday de que toda vez que o fluxo magnético através de um circuito varia, surge nesse circuito uma força eletromotriz (fem) induzida 1.
+As Formas de Variar o Fluxo: Na prática da aula, o professor aplica esse conceito mostrando aos alunos as três maneiras de se alterar o fluxo magnético (\\Phi = B \\cdot A \\cdot \\cos \\theta) e, assim, induzir a corrente:
+Variando a intensidade do campo magnético B (por exemplo, aproximando ou afastando um ímã do circuito) 2.
+Variando a área A do circuito exposta ao campo 2.
+Variando o ângulo de inclinação \\theta (girando a espira dentro do campo) 2.
+A Formulação Matemática (Lei de Faraday-Neumann): A aplicação quantitativa da lei demonstra que a fem induzida média (e\_m) é calculada pela razão entre a variação do fluxo magnético (\\Delta\\Phi) e o intervalo de tempo (\\Delta t) em que essa mudança ocorre, com o sinal trocado 3, 4. Matematicamente, o professor apresenta a fórmula e\_m = - \\frac{\\Delta \\Phi}{\\Delta t} 3.
+A Relação com a Lei de Lenz: O sinal negativo (-) presente na fórmula de Faraday é explicitamente ensinado como uma consequência da Lei de Lenz 4. Ele indica que a força eletromotriz induzida atua no sentido de se opor à variação do fluxo que a originou 4.
+Dessa forma, no Plano 11, a Lei de Faraday é a ferramenta teórica que justifica como o movimento relativo (ou qualquer variação magnética temporal) é capaz de gerar energia elétrica em um condutor sem a necessidade de baterias físicas 1.

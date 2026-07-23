@@ -1,0 +1,3 @@
+Eficiência e Redução de Perdas em Núcleos de Transformadores
+As correntes de Foucault afetam negativamente a eficiência dos transformadores por causarem a dissipação de energia 1. Como o transformador opera com fluxos magnéticos variáveis, essas correntes são induzidas no seu núcleo metálico, resultando em perdas de energia sob a forma de calor devido ao efeito Joule 1.
+Para combater esse problema e minimizar as perdas por aquecimento, o núcleo de ferro do transformador é construído de forma laminada, em vez de ser uma peça metálica maciça, o que reduz significativamente a intensidade das correntes de Foucault e melhora o rendimento do aparelho 2.
