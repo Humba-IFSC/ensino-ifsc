@@ -28,5 +28,6 @@
 ## 📁 Materiais da Aula
 
 - 📄 [A Pesquisa em Educação — Antonio Carlos Will Ludwig (PDF)](A%20pesquisa%20em%20educa%C3%A7%C3%A3o%20LUDWIG.pdf)
-- 📊 [Resolução CEPE/IFSC Nº 45/2022 (PPTX)](RESOLU%C3%87%C3%83O%20CEPE22.pptx)
+- 📜 [Resolução CEPE/IFSC Nº 45/2022 — Diretrizes Lato Sensu (PDF)](RESOL_CEPEn45-2022-Novas_Diretrizes_lato_sensu_revoga_48e52.pdf)
+- 📊 [Resolução CEPE/IFSC Nº 45/2022 (Apresentação PPTX)](RESOLU%C3%87%C3%83O%20CEPE22.pptx)
 - 📑 [PPC do Curso de Especialização em Educação Ambiental (PDF)](SJ_ESPECIALIZA%C3%87%C3%83O_EDUCA%C3%87%C3%83O_AMBIENTAL_FORMA%C3%87%C3%83O_PROFESSORES_PPC_1415[1].pdf)

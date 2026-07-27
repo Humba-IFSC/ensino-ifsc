@@ -28,5 +28,6 @@
 
 ## 📁 Materiais da Aula
 
+- 📋 [Discussão do Artigo Ludwig — Ordem de Apresentação por Seções (PDF)](Texto-Ludwig%20-%20Texto-LudWig.pdf)
+- 📄 [Artigo de Referência — Ludwig (PDF com indicação de páginas)](A%20pesquisa%20em%20educa%C3%A7%C3%A3o%20LUDWIG.pdf)
 - 📚 [E-book Metodologia do Trabalho Científico (PDF)](E-book%20Metodologia%20do%20Trabalho%20Cientifico.pdf)
-- 📄 [Artigo de Referência — Ludwig (PDF da Aula 01)](../aula01/A%20pesquisa%20em%20educa%C3%A7%C3%A3o%20LUDWIG.pdf)
