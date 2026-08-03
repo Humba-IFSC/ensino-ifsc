@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards — Aula 02: Campo das Correntes Elétricas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: rgba(15, 23, 42, 0.85);
+            --border-card: rgba(56, 189, 248, 0.25);
+            --accent-green: #4ade80;
+            --accent-cyan: #38bdf8;
+            --accent-purple: #c084fc;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(74, 222, 128, 0.08) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateX(-2px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.75rem;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+        .progress-bar-bg {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin: 0 1rem;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 10%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .btn-ctrl {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #e2e8f0;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.6rem;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .btn-ctrl:hover {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: var(--accent-cyan);
+            color: #fff;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .flashcard {
+            perspective: 1000px;
+            height: 240px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-card);
+        }
+
+        .card-front {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8));
+            color: #f1f5f9;
+        }
+
+        .card-back {
+            background: linear-gradient(145deg, rgba(16, 42, 66, 0.95), rgba(15, 23, 42, 0.95));
+            color: #e2e8f0;
+            transform: rotateY(180deg);
+            border-color: rgba(74, 222, 128, 0.4);
+        }
+
+        .card-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.4rem;
+        }
+        .card-front .card-tag {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        .card-back .card-tag {
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .card-body {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            width: 100%;
+        }
+
+        .card-hint {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        @media (max-width: 640px) {
+            .grid-cards { grid-template-columns: 1fr; }
+            .flashcard { height: 260px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="btn-back">← Voltar para Central de Ensino</a>
+
+        <div class="header">
+            <h1>🧠 Flashcards de Estudo — Aula 02</h1>
+            <p>Campo das Correntes Elétricas (Oersted, Biot-Savart, Espiras e Solenoides)</p>
+        </div>
+
+        <div class="stats-bar">
+            <span id="counterText">10 Cartões de Estudo</span>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressFill"></div>
+            </div>
+            <span>Clique para revelar a resposta 🔄</span>
+        </div>
+
+        <div class="controls">
+            <button class="btn-ctrl" onclick="flipAll(true)">👁️ Revelar Todos</button>
+            <button class="btn-ctrl" onclick="flipAll(false)">🙈 Esconder Versos</button>
+            <button class="btn-ctrl" onclick="shuffleCards()">🔀 Embaralhar</button>
+        </div>
+
+        <div class="grid-cards" id="cardsGrid">
+            <!-- Card 1 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Pergunta 1</span>
+                        <div class="card-body">O que a experiência de Hans Christian Oersted (1820) comprovou sobre a relação entre eletricidade e magnetismo?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 1</span>
+                        <div class="card-body">Que a passagem de corrente elétrica por um fio condutor produz um campo magnético ao seu redor.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Pergunta 2</span>
+                        <div class="card-body">Qual é a conclusão fundamental sobre os campos magnéticos gerados por ímãs e por correntes elétricas?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 2</span>
+                        <div class="card-body">Não existe diferença entre eles, pois ambos produzem os mesmos efeitos no espaço que os envolve.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Pergunta 3</span>
+                        <div class="card-body">Na aplicação da regra da mão direita n.º 1, o que o dedo polegar deve indicar?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 3</span>
+                        <div class="card-body">O sentido da corrente elétrica ($i$) que percorre o condutor.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Pergunta 4</span>
+                        <div class="card-body">Escreva a fórmula da Lei de Biot-Savart para a intensidade do vetor indução magnética elementar ($\Delta B$).</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 4</span>
+                        <div class="card-body">$$\Delta B = \frac{\mu_0}{4\pi} \frac{i \cdot \Delta L \cdot \sin \alpha}{r^2}$$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Pergunta 5</span>
+                        <div class="card-body">Qual é o valor e a unidade da permeabilidade magnética do vácuo ($\mu_0$) no SI?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 5</span>
+                        <div class="card-body">$$\mu_0 = 4\pi \cdot 10^{-7} \text{ T}\cdot\text{m/A}$$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Pergunta 6</span>
+                        <div class="card-body">Qual é a fórmula para calcular a intensidade do campo magnético ($B$) gerado por um condutor reto e extenso a uma distância $r$?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 6</span>
+                        <div class="card-body">$$B = \frac{\mu_0 \cdot i}{2\pi \cdot r}$$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Pergunta 7</span>
+                        <div class="card-body">Como se calcula a intensidade do campo magnético ($B$) no centro de uma espira circular de raio $R$?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 7</span>
+                        <div class="card-body">$$B = \frac{\mu_0 \cdot i}{2R}$$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Pergunta 8</span>
+                        <div class="card-body">Segundo a regra do relógio, qual polo magnético uma espira apresenta se a corrente flui no sentido anti-horário?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 8</span>
+                        <div class="card-body">Polo Norte magnético.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Pergunta 9</span>
+                        <div class="card-body">Qual é a fórmula da intensidade do campo magnético no centro de uma bobina chata com $N$ espiras iguais?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 9</span>
+                        <div class="card-body">$$B = N \cdot \frac{\mu_0 \cdot i}{2R}$$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Pergunta 10</span>
+                        <div class="card-body">Qual é a fórmula da intensidade do campo magnético ($B$) no interior de um solenoide de comprimento $L$ e $N$ espiras?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 10</span>
+                        <div class="card-body">$$B = \frac{\mu_0 \cdot N \cdot i}{L}$$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let flippedCount = 0;
+        const totalCards = 10;
+
+        function toggleCard(cardElement) {
+            cardElement.classList.toggle('flipped');
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const flipped = document.querySelectorAll('.flashcard.flipped').length;
+            const fill = document.getElementById('progressFill');
+            const percent = Math.round((flipped / totalCards) * 100);
+            fill.style.width = Math.max(percent, 5) + '%';
+            document.getElementById('counterText').textContent = `${flipped} de ${totalCards} cartões explorados`;
+        }
+
+        function flipAll(state) {
+            const cards = document.querySelectorAll('.flashcard');
+            cards.forEach(c => {
+                if (state) c.classList.add('flipped');
+                else c.classList.remove('flipped');
+            });
+            updateProgress();
+        }
+
+        function shuffleCards() {
+            const grid = document.getElementById('cardsGrid');
+            const cards = Array.from(grid.children);
+            cards.sort(() => Math.random() - 0.5);
+            cards.forEach(c => grid.appendChild(c));
+        }
+    </script>
+</body>
+</html>

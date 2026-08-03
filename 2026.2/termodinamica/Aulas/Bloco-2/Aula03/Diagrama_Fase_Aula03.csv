@@ -1,0 +1,55 @@
+O que é um diagrama de fases?,É a representação gráfica da pressão ($p$) em função da temperatura ($\theta$) de uma substância pura.
+Quais são as três variáveis que caracterizam o estado de uma substância?,"Temperatura ($\theta$), pressão ($p$) e volume ($V$)."
+Como é denominada a curva que delimita as regiões das fases sólida e líquida no diagrama de fases?,Curva de fusão.
+O que representa a curva de vaporização em um diagrama de fases?,Os estados de equilíbrio entre as fases líquida e de vapor.
+Qual curva no diagrama de fases separa as regiões sólida e de vapor?,Curva de sublimação.
+O que é o ponto triplo ou ponto tríplice?,"É o estado em que as três fases de uma substância (sólida, líquida e de vapor) coexistem em equilíbrio."
+Quais são os valores de pressão e temperatura para o ponto triplo da água?,"$4,58\text{ mmHg}$ e $0,01\text{ }^\circ\text{C}$."
+Sob quais condições de pressão e temperatura o dióxido de carbono ($CO_{2}$) atinge seu ponto triplo?,"$5\text{ atm}$ e $-56,6\text{ }^\circ\text{C}$."
+O que define o calor latente de fusão ($L_{F}$)?,É o calor absorvido por unidade de massa durante a mudança da fase sólida para a líquida sob pressão constante.
+Como se comporta a temperatura de uma substância pura durante a solidificação sob pressão constante?,A temperatura permanece constante.
+Qual é a relação entre o calor latente de fusão ($L_{F}$) e o de solidificação ($L_{S}$) para a mesma substância?,"Eles são iguais em módulo, mas com sinais opostos ($L_{F} = -L_{S}$)."
+Como o aumento da pressão influencia a temperatura de fusão de substâncias que se dilatam na fusão (como o $CO_{2}$)?,O aumento da pressão faz aumentar a temperatura de fusão.
+"Para substâncias que se contraem na fusão (como a água), qual é o efeito do aumento da pressão no ponto de fusão?",O aumento da pressão faz diminuir a temperatura de fusão.
+"Quais são três exemplos de substâncias, além da água, que se contraem na fusão?","Bismuto, ferro e antimônio."
+Por que a compressão das moléculas favorece a fusão em substâncias como a água?,Porque essas substâncias têm volume menor no estado líquido do que no estado sólido.
+O que ocorre na 'experiência do regelo' (experiência de Tyndall)?,"O aumento de pressão sob um fio derrete o gelo, que se solidifica novamente após a passagem do fio e o retorno à pressão normal."
+Como as lâminas dos patins facilitam o deslizamento sobre o gelo?,"A alta pressão exercida pela lâmina derrete o gelo, e a água formada atua como lubrificante."
+Qual é o valor do calor latente de fusão da água sob pressão normal?,$80\text{ cal/g}$.
+O que ocorre com a temperatura de ebulição de qualquer substância quando a pressão externa aumenta?,A temperatura de ebulição aumenta.
+Por que a vaporização de um líquido exige temperaturas mais elevadas sob pressões maiores?,"Porque a pressão comprime as moléculas, dificultando o aumento de volume necessário para a ebulição."
+Qual é a temperatura aproximada de ebulição da água em La Paz ($3.700\text{ m}$ de altitude)?,$87\text{ }^\circ\text{C}$.
+Qual é a taxa aproximada de redução da temperatura de ebulição da água em relação à altitude?,A temperatura diminui cerca de $3\text{ }^\circ\text{C}$ a cada $1\text{ km}$ acima do nível do mar.
+Por que os alimentos cozinham mais rápido em uma panela de pressão?,Porque a pressão interna elevada permite que a água ferva a uma temperatura superior a $100\text{ }^\circ\text{C}$.
+O que estabelece a Lei de Boyle para uma transformação isotérmica?,A pressão ($p$) e o volume ($V$) são inversamente proporcionais ($p_{1}V_{1} = p_{2}V_{2}$).
+O que é pressão máxima de vapor?,É a maior pressão que o vapor de uma substância pode exercer a uma determinada temperatura em equilíbrio com seu líquido.
+Qual fator influencia exclusivamente a pressão máxima de vapor de uma substância pura?,A temperatura.
+Como se denomina o vapor que está em equilíbrio com o seu líquido e exerce pressão máxima?,Vapor saturante.
+O que caracteriza o 'vapor seco'?,É o vapor que não está em presença do líquido e exerce uma pressão menor que a pressão máxima de vapor.
+O vapor saturante obedece à Lei de Boyle?,"Não, pois sua pressão não depende do volume ocupado, mas apenas da temperatura."
+O que é o ponto crítico no diagrama de fases?,É o ponto final da curva de vaporização acima do qual não há mais distinção entre líquido e vapor.
+Como se define uma substância na fase de 'gás'?,É a substância na fase gasosa em uma temperatura superior à sua temperatura crítica.
+Um gás pode ser liquefeito apenas por compressão isotérmica?,"Não, um gás não se condensa por compressão se estiver acima da temperatura crítica."
+Qual é a temperatura crítica do dióxido de carbono ($CO_{2}$)?,$31\text{ }^\circ\text{C}$.
+A partir de qual temperatura a água passa a ser considerada um gás e não pode mais ser liquefeita por compressão?,$374\text{ }^\circ\text{C}$.
+O que é evaporação?,"É a vaporização espontânea de um líquido em sua superfície livre, ocorrendo em qualquer temperatura."
+Como a área da superfície livre influencia a velocidade de evaporação?,"Quanto maior a área da superfície, maior será a velocidade de evaporação."
+Qual é o efeito da pressão externa sobre a velocidade de evaporação de um líquido?,"Quanto maior a pressão externa, mais lenta será a evaporação."
+Por que a evaporação produz uma sensação de resfriamento (frio por evaporação)?,Porque as moléculas que se vaporizam absorvem calor do líquido ou do corpo em contato para mudar de fase.
+"Na fórmula de Dalton ($v = K \cdot A \cdot \frac{F - f}{p_{e}}$), o que representa o termo $f$?","A pressão parcial de vapor na atmosfera, que caracteriza a umidade do ambiente."
+Quando a umidade relativa do ar é igual a $100\%$?,"Quando o ambiente está saturado, ou seja, a pressão parcial de vapor ($f$) é igual à pressão máxima de vapor ($F$)."
+Sob quais condições de pressão ocorre a sublimação de um sólido cristalino ao receber calor?,Sob pressões inferiores à pressão do ponto triplo da substância.
+Por que o 'gelo-seco' recebe esse nome em condições ambientes?,Porque ele sublima diretamente do estado sólido para o gasoso sem passar pela fase líquida sob pressão atmosférica.
+Qual é o processo físico utilizado na liofilização para remover a água de alimentos?,Sublimação sob pressão reduzida após o congelamento do material.
+Em que temperatura o iodo cristalino passa diretamente para a fase de vapor sob pressão normal?,"$185,3\text{ }^\circ\text{C}$."
+O que acontece com os vapores de iodo ao entrarem em contato com uma superfície fria?,"Eles sofrem cristalização (sublimação inversa), formando cristais sólidos."
+Qual substância apresenta os menores valores conhecidos de temperatura e pressão críticas?,Hélio.
+"No diagrama de fases, qual região está situada entre a curva de fusão e a curva de vaporização?",A fase líquida.
+O que indica um patamar horizontal em um gráfico de pressão por volume ($pV$) durante uma compressão isotérmica?,A ocorrência de uma mudança de fase (condensação) onde a pressão permanece constante.
+Como se define a 'volatilidade' de um líquido em termos de evaporação?,É a tendência de um líquido evaporar rapidamente devido a forças de coesão molecular fracas.
+Qual é a unidade de medida da pressão máxima de vapor no ponto triplo da água no SI?,"$4,58\text{ mmHg}$ (embora o mmHg não seja a unidade base do SI, é a citada no texto)."
+O que acontece com o volume de uma mistura de gelo e água a $0\text{ }^\circ\text{C}$ ao receber calor?,"O volume diminui, pois a fusão do gelo ocorre com contração volumétrica."
+Qual é a utilidade de uma autoclave?,Esterilização de instrumentos através de vapor de água a altas temperaturas e pressões.
+"Em um diagrama de fases, onde se localiza a fase de vapor em relação às curvas?",Abaixo da curva de vaporização e à direita da curva de sublimação.
+Como a natureza do líquido afeta a constante $K$ na fórmula de Dalton para evaporação?,"Líquidos voláteis (como o éter) possuem um valor de $K$ alto, enquanto líquidos fixos (como óleos) possuem um $K$ baixo."
+O que é o 'vapor saturante' em termos de equilíbrio molecular?,É um equilíbrio dinâmico onde a taxa de vaporização é igual à taxa de condensação.

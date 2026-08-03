@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards — Calorimetria Sensível</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] } };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #f0f4f8; margin: 0; padding: 2rem 1rem; }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { color: #d8b4fe; font-size: 1.8rem; text-align: center; margin-bottom: 2rem; }
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .card { background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.25); border-radius: 1rem; padding: 1.5rem; cursor: pointer; min-height: 180px; display: flex; flex-direction: column; justify-content: center; text-align: center; transition: all 0.3s; position: relative; }
+        .card:hover { transform: translateY(-3px); border-color: rgba(168,85,247,0.5); box-shadow: 0 8px 20px rgba(168,85,247,0.15); }
+        .card-front { color: #f3e8ff; font-weight: 600; font-size: 1.05rem; }
+        .card-back { display: none; color: #cbd5e1; font-size: 0.95rem; line-height: 1.4; text-align: left; }
+        .card.flipped .card-front { display: none; }
+        .card.flipped .card-back { display: block; }
+        .hint { font-size: 0.72rem; color: #a855f7; margin-top: 1rem; text-transform: uppercase; font-weight: 700; }
+        .btn-back { display: inline-block; background: rgba(255,255,255,0.08); color: #cbd5e1; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.85rem; margin-bottom: 1.5rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="btn-back">← Voltar para Central da Termodinâmica</a>
+        <h1>🧠 Flashcards de Estudo — Calorimetria Sensível</h1>
+        <p style="text-align: center; color: #94a3b8; margin-bottom: 2rem;">Clique em qualquer cartão para revelar a resposta!</p>
+
+        <div class="grid-cards">
+            <div class="card" onclick="this.classList.toggle('flipped')">
+                <div class="card-front">Qual é a diferença entre Temperatura e Calor?</div>
+                <div class="card-back">
+                    <strong>Temperatura:</strong> Grau de agitação térmica molecular.<br><br>
+                    <strong>Calor:</strong> Energia térmica em trânsito devido à diferença de temperatura.
+                </div>
+                <div class="hint">Clique para girar 🔄</div>
+            </div>
+
+            <div class="card" onclick="this.classList.toggle('flipped')">
+                <div class="card-front">Qual a equação de Calor Sensível?</div>
+                <div class="card-back">
+                    $$Q = m \cdot c \cdot \Delta T$$<br>
+                    $Q$: Calor (cal ou J)<br>
+                    $m$: Massa (g ou kg)<br>
+                    $c$: Calor específico<br>
+                    $\Delta T$: Variação de temp. ($T_f - T_i$)
+                </div>
+                <div class="hint">Clique para girar 🔄</div>
+            </div>
+
+            <div class="card" onclick="this.classList.toggle('flipped')">
+                <div class="card-front">Diferença entre $C$ (Capacidade Térmica) e $c$ (Calor Específico)?</div>
+                <div class="card-back">
+                    <strong>$C = m \cdot c$:</strong> Propriedade do corpo inteiro ($\text{cal}/^\circ\text{C}$).<br><br>
+                    <strong>$c$:</strong> Propriedade da substância ($\text{cal}/\text{g}^\circ\text{C}$).
+                </div>
+                <div class="hint">Clique para girar 🔄</div>
+            </div>
+
+            <div class="card" onclick="this.classList.toggle('flipped')">
+                <div class="card-front">O que diz o Princípio das Trocas de Calor?</div>
+                <div class="card-back">
+                    Em sistemas isolados:<br>
+                    $$\sum Q = 0 \implies |Q_{\text{cedido}}| = |Q_{\text{recebido}}|$$
+                </div>
+                <div class="hint">Clique para girar 🔄</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

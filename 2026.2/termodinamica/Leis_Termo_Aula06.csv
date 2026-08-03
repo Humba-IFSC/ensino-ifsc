@@ -1,0 +1,60 @@
+Como a Termodinâmica é definida no contexto das trocas energéticas?,O estudo das relações entre calor trocado e trabalho realizado em um processo físico.
+Qual é a relação entre a Primeira Lei da Termodinâmica e o princípio da conservação da energia?,A Primeira Lei é uma reafirmação desse princípio aplicada a sistemas que envolvem trocas térmicas.
+"Na Termodinâmica, o que caracteriza o chamado 'meio exterior'?",Tudo o que está fora do sistema e pode realizar trocas de energia com ele.
+Como a temperatura influencia o sentido de propagação do calor por condução?,O calor se propaga das regiões de maior temperatura para as de menor temperatura.
+Qual é a principal diferença entre o trabalho e o calor quanto à causa da transferência de energia?,"O calor depende de uma diferença de temperatura, enquanto o trabalho não."
+Termo: Trabalho Externo,Definição: Trabalho realizado por um sistema ao produzir um deslocamento agindo sobre o meio exterior.
+O que define o trabalho interno em um sistema gasoso?,As forças de interação entre as moléculas do próprio gás que realizam trabalho entre si.
+"Em uma usina termoelétrica, qual agente realiza o trabalho externo para girar as turbinas?",O vapor-d’água em expansão.
+Qual é a fórmula para calcular o trabalho ($D$) em uma transformação isobárica?,$D = p \cdot \Delta V$
+"Em uma expansão gasosa, qual é o sinal algébrico do trabalho ($D$)?",Positivo ($D > 0$).
+"Em uma compressão gasosa, qual é o sinal algébrico do trabalho ($D$)?",Negativo ($D < 0$).
+O que o trabalho positivo representa em termos de transferência de energia para o gás?,O gás está perdendo energia para o meio exterior sob a forma de trabalho.
+O que o trabalho negativo representa em termos de transferência de energia para o gás?,O gás está recebendo energia proveniente do meio exterior.
+"No diagrama $p \times V$, o que a área compreendida entre a curva e o eixo do volume representa numericamente?",O trabalho total realizado na transformação.
+O trabalho realizado em uma transformação depende apenas dos estados inicial e final?,"Não, depende também dos estados intermediários (o caminho percorrido)."
+A energia total de um sistema é a soma de quais duas parcelas de energia?,Energia externa e energia interna.
+Quais fatores compõem a energia externa de um sistema?,Energia cinética e energia potencial em relação ao meio exterior.
+A que se associa a energia térmica dentro da energia interna de um gás?,Ao movimento de agitação térmica das moléculas.
+"Para gases ideais monoatômicos, a variação da energia interna dependente exclusivamente de qual fator?",Variação da energia cinética de translação das moléculas.
+"Durante uma mudança de estado (fusão), por que a energia interna aumenta mesmo com temperatura constante?",Devido ao calor latente recebido que aumenta a energia potencial de configuração do sistema.
+Enunciado da Lei de Joule para gases perfeitos: A energia interna de um gás perfeito é função exclusiva de sua _____.,Temperatura.
+"Se a temperatura de um gás perfeito aumenta ($\Delta T > 0$), o que ocorre com sua energia interna ($\Delta U$)?",A energia interna aumenta ($\Delta U > 0$).
+"Em uma transformação isotérmica de um gás perfeito, qual é o valor da variação da energia interna ($\Delta U$)?",Zero ($\Delta U = 0$).
+Fórmula da Primeira Lei da Termodinâmica: $\Delta U$ = _____.,$Q - D$ (Calor menos Trabalho).
+O que ocorre com a energia interna se um gás recebe $20\ J$ de calor e realiza $3\ J$ de trabalho?,Aumenta $17\ J$.
+Qual é a expressão da variação da energia cinética molecular ($\Delta E$) para $n$ mols de um gás monoatômico?,$\Delta E = \frac{3}{2} nR \cdot (T_2 - T_1)$
+O que define uma transformação cíclica em uma massa gasosa?,"Conjunto de transformações após as quais o gás retorna ao seu estado inicial de pressão, volume e temperatura."
+Qual é o valor da variação da energia interna ($\Delta U$) ao final de um ciclo completo?,Zero.
+"Em um ciclo termodinâmico completo, qual é a relação entre o calor total trocado e o trabalho total?",Eles são iguais ($Q = D$).
+"Se um ciclo termodinâmico é percorrido no sentido horário, qual é a conversão energética principal?",Conversão de calor em trabalho.
+"Se um ciclo termodinâmico é percorrido no sentido anti-horário, qual é a conversão energética principal?",Conversão de trabalho em calor.
+Qual tipo de máquina opera convertendo trabalho em calor através de ciclos anti-horários?,Máquinas frigoríficas.
+O que caracteriza uma transformação reversível na natureza?,Uma transformação que pode ocorrer em sentido inverso sem produzir modificações nos corpos circundantes.
+Por que a maioria das transformações naturais é considerada irreversível?,Porque ocorrem espontaneamente em um sentido preferencial e tendem ao equilíbrio.
+"De acordo com a Segunda Lei da Termodinâmica (Clausius), o calor não passa espontaneamente de um corpo frio para um _____.",Corpo mais quente.
+Enunciado de Kelvin-Planck: É impossível construir uma máquina térmica que converta integralmente _____ em _____.,Calor; Trabalho.
+"Em uma máquina térmica, o que ocorre com o calor ($Q_1$) retirado da fonte quente?",Uma parte é convertida em trabalho ($D$) e o restante ($Q_2$) é rejeitado para a fonte fria.
+Qual é a fórmula geral do rendimento ($\eta$) de uma máquina térmica em função dos calores das fontes?,$\eta = 1 - \frac{Q_2}{Q_1}$
+"No funcionamento de uma locomotiva a vapor, quais são as fontes quente e fria?",Fonte quente: caldeira; Fonte fria: atmosfera.
+O que é o Ciclo de Carnot?,"Um ciclo ideal composto por duas transformações adiabáticas e duas isotérmicas, todas reversíveis."
+Qual é a sequência de transformações no Ciclo de Carnot começando pela expansão na fonte quente?,"Expansão isotérmica, expansão adiabática, compressão isotérmica e compressão adiabática."
+Qual é a fórmula do rendimento de uma máquina de Carnot em função das temperaturas absolutas?,$\eta = 1 - \frac{T_2}{T_1}$
+O rendimento de uma máquina de Carnot depende da substância utilizada?,"Não, depende exclusivamente das temperaturas absolutas das fontes quente e fria."
+É possível uma máquina térmica operando entre duas temperaturas ter rendimento superior ao de uma máquina de Carnot?,"Não, o Ciclo de Carnot proporciona o rendimento máximo possível."
+Como se define o Zero Absuoluto ($0\ K$) em termos de rendimento de uma máquina de Carnot?,A temperatura da fonte fria necessária para que a máquina apresente rendimento de $100\%$.
+O que afirma o Princípio da Degradação da Energia?,"À medida que o Universo evolui, diminui a possibilidade de se conseguir energia útil de um sistema."
+Por que a energia térmica é chamada de 'energia degradada'?,Porque é uma forma desordenada de energia para a qual todas as outras formas tendem a se converter espontaneamente.
+Termo: Entropia,Definição: Propriedade intrínseca dos sistemas que mede o grau de desordem ou a indisponibilidade de energia útil.
+Qual é a tendência da entropia do Universo em todos os fenômenos naturais?,Tender a aumentar com o tempo.
+Qual é a unidade de variação de entropia no Sistema Internacional (SI)?,Joule por kelvin ($J/K$).
+Qual é a fórmula da variação de entropia ($\Delta S$) em uma transformação isotérmica reversível?,$\Delta S = \frac{Q}{T}$
+A variação de entropia depende do caminho percorrido entre dois estados?,"Não, a entropia é uma função de estado e depende apenas dos estados inicial e final."
+O que ocorreria com a entropia de um sistema se o 'Demônio de Maxwell' fosse real?,"A entropia diminuiria sem gasto de energia, contrariando a tendência natural para a desordem."
+Por que a obtenção de trabalho é maior quando a troca de calor ocorre em temperaturas mais altas?,Porque a incapacidade de realizar trabalho (degradação) é maior quanto menor a temperatura do sistema.
+"Em uma expansão livre de um gás no vácuo (processo adiabático sem trabalho), o que acontece com a entropia?","Aumenta, pois a transformação é irreversível e diminui a capacidade do gás de realizar trabalho futuro."
+"No Ciclo de Carnot, em qual etapa o gás recebe calor da fonte quente?",Na expansão isotérmica ($AB$).
+"No Ciclo de Carnot, em qual etapa o gás rejeita calor para a fonte fria?",Na compressão isotérmica ($CD$).
+Qual é a relação de proporcionalidade no Ciclo de Carnot entre os calores e as temperaturas das fontes?,$\frac{Q_1}{T_1} = \frac{Q_2}{T_2}$
+O que acontece com a capacidade de produzir trabalho quando dois corpos atingem o equilíbrio térmico?,"Eles perdem a capacidade de produzir trabalho, pois não há mais diferença de temperatura para acionar uma máquina."
+Por que não é possível atingir o Zero Absoluto na prática?,Porque violaria a impossibilidade de se ter uma máquina com rendimento de $100\%$.

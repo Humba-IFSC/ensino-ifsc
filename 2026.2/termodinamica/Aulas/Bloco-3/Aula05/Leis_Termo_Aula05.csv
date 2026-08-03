@@ -1,0 +1,80 @@
+O que a Termodinâmica estuda essencialmente?,As relações entre as quantidades de calor trocadas e os trabalhos realizados em um processo físico.
+"No contexto da Termodinâmica, o que é definido como 'meio exterior'?",O resto do Universo que interage com o sistema de corpos em estudo.
+Como a temperatura influencia a transferência de calor por condução?,"Determina o sentido da propagação, das regiões de maior temperatura para as de menor temperatura."
+Qual é a principal distinção entre trabalho e calor quanto à causa da transferência de energia?,O trabalho ocorre sem a influência de diferenças de temperatura.
+Defina 'trabalho externo' em um sistema termodinâmico.,O trabalho realizado quando o sistema como um todo produz um deslocamento ao agir com uma força sobre o meio exterior.
+O que caracteriza o 'trabalho interno' em um gás?,O trabalho executado pelas forças de interação entre as moléculas de uma parte do sistema sobre outra do mesmo sistema.
+"No estudo da Termodinâmica, qual tipo de trabalho é habitualmente considerado nas equações?",O trabalho externo.
+Qual é a fórmula para o trabalho ($D$) realizado por um gás em uma transformação isobárica?,$D = p \cdot \Delta V$
+"Em uma expansão gasosa, qual é o sinal algébrico do trabalho ($D$)?",Positivo ($D > 0$).
+"Em uma compressão gasosa, qual é o sinal algébrico do trabalho ($D$)?",Negativo ($D < 0$).
+O que significa dizer que o trabalho é uma grandeza algébrica na Termodinâmica?,Que seu sinal depende do sentido da variação de volume (expansão ou compressão).
+"Em um diagrama $p \times V$, como o trabalho realizado é representado geometricamente?",Pela área sob a curva representativa da transformação e o eixo do volume.
+O trabalho realizado em uma transformação termodinâmica depende apenas dos estados inicial e final?,"Não, depende também dos estados intermediários (o caminho da transformação)."
+De que parcelas é composta a energia total de um sistema?,Energia externa (cinética e potencial) e energia interna.
+O que constitui a 'energia interna' ($U$) de um gás?,"Energias térmica, potencial de configuração, cinéticas atômico-moleculares e movimentos intra-atômicos."
+Qual lei afirma que a energia interna de um gás ideal depende apenas de sua temperatura?,Lei de Joule.
+É possível medir diretamente a energia interna ($U$) absoluta de um sistema?,"Não, mede-se apenas a sua variação ($\Delta U$)."
+"Em mudanças de estado físico (agregação), a energia interna pode variar com temperatura constante?","Sim, devido ao recebimento ou perda de calor latente."
+Enuncie a Primeira Lei da Termodinâmica.,A variação da energia interna de um sistema é a diferença entre o calor trocado e o trabalho realizado ($\Delta U = Q - D$).
+A Primeira Lei da Termodinâmica é uma aplicação de qual princípio universal?,Princípio da conservação da energia.
+"Na Primeira Lei, se o sistema recebe calor, qual o sinal de $Q$?",Positivo ($Q > 0$).
+"Na Primeira Lei, se o sistema cede calor ao meio, qual o sinal de $Q$?",Negativo ($Q < 0$).
+O que ocorre com a energia interna se o calor recebido for maior que o trabalho realizado?,A energia interna aumenta ($\Delta U > 0$).
+Como se comporta a energia interna ($\Delta U$) em uma transformação isotérmica?,A variação de energia interna é nula ($\Delta U = 0$).
+"Em uma transformação isotérmica, qual a relação entre calor ($Q$) e trabalho ($D$)?",Eles são iguais ($Q = D$).
+O que define uma transformação adiabática?,É uma transformação em que não há troca de calor com o meio exterior ($Q = 0$).
+"Em uma expansão adiabática, o que ocorre com a temperatura do gás?","A temperatura diminui, pois o trabalho é realizado à custa da energia interna."
+Qual é a relação da Primeira Lei para uma transformação adiabática?,$\Delta U = -D$.
+O que define uma transformação isocórica (ou isométrica)?,É uma transformação que ocorre a volume constante ($\Delta V = 0$).
+Qual é o valor do trabalho ($D$) em uma transformação isocórica?,Zero ($0$).
+"Em uma transformação isocórica, como se relaciona $\Delta U$ e $Q$?",A variação da energia interna é igual ao calor trocado ($\Delta U = Q$).
+Defina 'calor molar a pressão constante' ($C_p$).,É o produto da massa molar ($M$) pelo calor específico a pressão constante ($c_p$).
+Como se calcula o calor trocado ($Q$) em uma transformação isobárica usando o número de mols ($n$)?,$Q = n \cdot C_p \cdot \Delta T$.
+Defina 'calor molar a volume constante' ($C_v$).,É o produto da massa molar ($M$) pelo calor específico a volume constante ($c_v$).
+"Comparando $C_p$ e $C_v$ para um mesmo gás, qual valor é maior?",O calor molar a pressão constante ($C_p$).
+Por que $C_p$ é maior que $C_v$?,"Porque na transformação isobárica parte do calor é usada para realizar trabalho, além de aumentar a energia interna."
+O que caracteriza uma transformação cíclica?,É um processo onde o estado final do gás coincide com o seu estado inicial.
+Qual é a variação da energia interna ($\Delta U$) ao completar um ciclo termodinâmico?,Zero ($\Delta U = 0$).
+"Em um ciclo termodinâmico, qual a relação entre o calor total ($Q$) e o trabalho total ($D$)?",O calor total trocado é igual ao trabalho total realizado ($Q = D$).
+Como se determina o trabalho total em um ciclo no diagrama $p \times V$?,Pela área interna delimitada pelo ciclo no gráfico.
+"Se um ciclo no diagrama $p \times V$ é percorrido no sentido horário, o trabalho é positivo ou negativo?",Positivo ($D > 0$).
+"Se um ciclo no diagrama $p \times V$ é percorrido no sentido anti-horário, o trabalho é positivo ou negativo?",Negativo ($D < 0$).
+Qual é a base de funcionamento de uma máquina térmica?,A conversão parcial de calor em trabalho operando em ciclos entre duas fontes térmicas.
+De onde uma máquina térmica retira calor para funcionar?,Da fonte quente.
+O que uma máquina térmica faz com o calor que não é convertido em trabalho?,Rejeita-o para a fonte fria.
+Dê um exemplo clássico de máquina térmica citado no texto.,A locomotiva a vapor.
+Enuncie a Segunda Lei da Termodinâmica segundo Clausius.,O calor não passa espontaneamente de um corpo para outro de temperatura mais alta.
+Enuncie a Segunda Lei da Termodinâmica segundo Kelvin e Planck.,É impossível construir uma máquina cíclica que retire calor de uma fonte e o converta integralmente em trabalho.
+O que a Segunda Lei da Termodinâmica estabelece sobre a evolução do Universo?,Estabelece a forma preferencial (sentido) com que os sistemas evoluem espontaneamente.
+O que caracteriza a 'irreversibilidade' nas transformações naturais?,"As transformações ocorrem preferencialmente em um sentido, do estado mais ordenado para o menos ordenado."
+Por que a energia térmica é chamada de 'energia degradada'?,Porque é uma forma desordenada de energia com baixa capacidade de conversão em outras formas úteis.
+O que acontece com a capacidade de um sistema produzir trabalho após atingir o equilíbrio térmico?,"Ela se anula, pois deixa de haver diferença de temperatura para acionar uma máquina térmica."
+O que a entropia ($S$) mede em um sistema termodinâmico?,O grau de desordem do sistema e a indisponibilidade de sua energia para realizar trabalho.
+Qual é a tendência da entropia do Universo segundo as transformações naturais?,Aumentar sempre.
+Como se define a variação de entropia ($\Delta S$) em um processo isotérmico reversível?,$\Delta S = \frac{Q}{T}$.
+Qual é a unidade de variação de entropia no Sistema Internacional (SI)?,Joule por kelvin ($J/K$).
+A entropia é uma função de estado?,"Sim, pois depende apenas dos estados inicial e final do sistema."
+"Em uma máquina térmica, obtém-se mais trabalho quando a troca de calor ocorre em temperatura mais alta ou mais baixa?",Em temperatura mais alta.
+O Princípio da Degradação da Energia é uma interpretação de qual lei?,Segunda Lei da Termodinâmica.
+"Na Primeira Lei, o que representa o termo $D$?",O trabalho externo realizado pelo (ou sobre o) sistema.
+"Se um sistema sofre uma compressão rápida, por que ela pode ser considerada adiabática?",Porque não há tempo suficiente para que ocorram trocas de calor significativas com o meio.
+Qual a relação entre as velocidades moleculares e a temperatura em um gás?,"Quanto maior a temperatura, maiores as velocidades das moléculas."
+O que ocorre com a energia cinética das moléculas de um gás ao receber calor isocoricamente?,"Ela aumenta, elevando a temperatura do gás."
+"No diagrama de trabalho, o que representa uma reta vertical?",Uma transformação isocórica (volume constante).
+"No diagrama de trabalho, o que representa uma reta horizontal?",Uma transformação isobárica (pressão constante).
+O que é o 'expoente de Poisson' citado nos objetivos da seção 9.3?,Uma constante relacionada às propriedades de transformações adiabáticas.
+A variação de energia interna ($\Delta U$) em um gás monoatômico é determinada por qual tipo de energia cinética?,Energia cinética de translação das moléculas.
+"Em uma fusão (mudança de estado), a energia interna aumenta ou diminui?","Aumenta, pois o estado líquido tem maior energia interna que o sólido."
+Por que o trabalho realizado por um gás ao se expandir resulta em perda de energia para o sistema?,Porque o sistema transfere energia para o meio exterior para deslocar obstáculos (como um êmbolo).
+O calor é considerado uma 'energia em trânsito'?,"Sim, transferida devido à diferença de temperatura."
+"Na transformação adiabática, se o trabalho é realizado sobre o gás ($D < 0$), o que ocorre com $\Delta U$?","$\Delta U$ será positivo ($\Delta U > 0$), aumentando a temperatura."
+Qual a condição para que $Q = D$ em uma transformação gasosa?,A temperatura deve permanecer constante (transformação isotérmica).
+O que significa dizer que a Segunda Lei da Termodinâmica tem caráter estatístico?,Refere-se à probabilidade extremamente baixa de eventos ordenados ocorrerem espontaneamente a partir da desordem.
+"No exemplo do pêndulo que para, em que a energia 'organizada' se converte?",Em energia térmica (agitação das moléculas do ar e do suporte).
+A Primeira Lei proíbe que moléculas de ar empurrem um pêndulo parado para fazê-lo oscilar?,"Não, mas a Segunda Lei indica que a probabilidade disso ocorrer é ínfima."
+Como a variação de entropia se relaciona com a 'indisponibilidade' de energia?,O aumento da entropia indica que a energia do sistema está menos disponível para realizar trabalho útil.
+"Em um gráfico $p \times V$, como se identifica visualmente uma compressão?",Pelo movimento do ponto representativo da direita para a esquerda (diminuição do volume).
+"Em uma usina termoelétrica, qual componente realiza o trabalho externo?",O vapor em expansão que aciona a rotação das turbinas.
+O calor específico de um gás é o mesmo para qualquer tipo de transformação?,"Não, ele varia, sendo os casos principais a volume constante ($c_v$) e a pressão constante ($c_p$)."
+"Qual a relação analítica entre $C_p$, $C_v$ e a constante dos gases $R$ (conhecida como Relação de Mayer)?",$C_p - C_v = R$.

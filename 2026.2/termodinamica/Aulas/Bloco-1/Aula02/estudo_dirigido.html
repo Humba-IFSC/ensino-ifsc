@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo Dirigido — Calorimetria Sensível</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #f0f4f8; margin: 0; padding: 2rem 1rem; }
+        .container { max-width: 850px; margin: 0 auto; background: rgba(15,23,42,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        h1 { color: #fdba74; font-size: 2rem; border-bottom: 2px solid rgba(249,115,22,0.3); padding-bottom: 0.5rem; }
+        h2 { color: #f97316; font-size: 1.3rem; margin-top: 2rem; }
+        .box-concept { background: rgba(249,115,22,0.08); border-left: 4px solid #f97316; padding: 1rem 1.2rem; border-radius: 0.5rem; margin: 1rem 0; }
+        .equation-box { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 1.2rem; text-align: center; font-size: 1.2rem; margin: 1.2rem 0; }
+        .btn-back { display: inline-block; background: rgba(255,255,255,0.08); color: #cbd5e1; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.85rem; margin-bottom: 1.5rem; transition: background 0.2s; }
+        .btn-back:hover { background: rgba(255,255,255,0.15); color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="btn-back">← Voltar para Central da Termodinâmica</a>
+        
+        <h1>🌡️ Estudo Dirigido: Calorimetria Sensível</h1>
+        <p><em>Livro Base: Fundamentos da Física (Ramalho, Vol. 2 — Capítulo 4)</em></p>
+
+        <div class="box-concept">
+            <strong>Conceito Chave:</strong> Calor é energia térmica em trânsito motivada exclusivamente por uma diferença de temperatura entre corpos. O calor sempre flui espontaneamente do corpo mais quente para o mais frio até atingirem a mesma temperatura final ($T_{\text{eq}}$).
+        </div>
+
+        <h2>1. Temperatura vs. Calor</h2>
+        <ul>
+            <li><strong>Temperatura ($T$):</strong> Medida da energia cinética média das partículas do corpo.</li>
+            <li><strong>Calor ($Q$):</strong> Transferência de energia térmica. Não faz sentido dizer que um corpo "tem calor", mas sim que ele "troca calor".</li>
+        </ul>
+
+        <h2>2. Capacidade Térmica e Calor Específico</h2>
+        <p>A capacidade térmica $C$ se refere a um objeto por inteiro, enquanto o calor específico $c$ é uma propriedade da substância:</p>
+
+        <div class="equation-box">
+            $$C = \frac{Q}{\Delta T} = m \cdot c$$
+        </div>
+
+        <h2>3. Equação Fundamental da Calorimetria</h2>
+        <div class="equation-box" style="border-color: rgba(249,115,22,0.4); background: rgba(249,115,22,0.1);">
+            $$Q = m \cdot c \cdot \Delta T$$
+        </div>
+        <ul>
+            <li>$Q > 0$: Corpo recebe calor (aquecimento, $\Delta T > 0$).</li>
+            <li>$Q < 0$: Corpo cede calor (resfriamento, $\Delta T < 0$).</li>
+            <li>$c_{\text{água}} = 1,0 \text{ cal}/(\text{g}\cdot^\circ\text{C}) = 4186 \text{ J}/(\text{kg}\cdot\text{K})$.</li>
+        </ul>
+
+        <h2>4. Princípio das Trocas de Calor</h2>
+        <p>Em sistemas termicamente isolados (calorímetros ideais), a soma de todo o calor trocado entre os componentes é nula:</p>
+        <div class="equation-box">
+            $$\sum Q = 0 \implies |Q_{\text{cedido}}| = |Q_{\text{recebido}}|$$
+        </div>
+    </div>
+</body>
+</html>

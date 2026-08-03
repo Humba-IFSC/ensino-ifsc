@@ -16,7 +16,7 @@ tags:
 > - **Professor:** Zack (Co-piloto)
 > - **Livro Base:** Fundamentos da Física (Ramalho, Nicolau e Toledo) - Volume 3
 > - **Pasta no Google Drive:** [Acessar Google Drive](https://drive.google.com/drive/folders/1nOFIJpc8Gu-3kuClHt5PHq2xg-9xnHDR?usp=sharing)
-> - **Estúdio no NotebookLM:** [Acessar NotebookLM](https://notebooklm.google.com/notebook/a6df439f-3ff1-48a7-a546-6d9cdb023650)
+> - **Estúdio no NotebookLM:** [Acessar NotebookLM](https://notebooklm.google.com/notebook/58a53ab1-1806-41f5-bbf6-b0486023e02b)
 
 ---
 

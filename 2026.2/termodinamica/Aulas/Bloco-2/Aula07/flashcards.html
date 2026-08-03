@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards — Transferência de Calor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #f0f4f8; margin: 0; padding: 2rem 1rem; }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { color: #fbbf24; font-size: 1.8rem; text-align: center; margin-bottom: 2rem; }
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .card { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.25); border-radius: 1rem; padding: 1.5rem; cursor: pointer; min-height: 180px; display: flex; flex-direction: column; justify-content: center; text-align: center; transition: all 0.3s; }
+        .card:hover { transform: translateY(-3px); border-color: rgba(245,158,11,0.5); }
+        .card-front { color: #fef3c7; font-weight: 600; font-size: 1.05rem; }
+        .card-back { display: none; color: #cbd5e1; font-size: 0.95rem; line-height: 1.4; text-align: left; }
+        .card.flipped .card-front { display: none; }
+        .card.flipped .card-back { display: block; }
+        .hint { font-size: 0.72rem; color: #f59e0b; margin-top: 1rem; text-transform: uppercase; font-weight: 700; }
+        .btn-back { display: inline-block; background: rgba(255,255,255,0.08); color: #cbd5e1; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.85rem; margin-bottom: 1.5rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="btn-back">← Voltar para Central da Termodinâmica</a>
+        <h1>🧠 Flashcards — Transferência de Calor</h1>
+        <div class="grid-cards">
+            <div class="card" onclick="this.classList.toggle('flipped')">
+                <div class="card-front">Qual processo de calor ocorre no vácuo?</div>
+                <div class="card-back"><strong>Irradiação Térmica</strong> (ondas eletromagnéticas).</div>
+                <div class="hint">Clique para girar 🔄</div>
+            </div>
+            <div class="card" onclick="this.classList.toggle('flipped')">
+                <div class="card-front">Por que o congelador fica no topo das geladeiras convencionais?</div>
+                <div class="card-back">Para favorecer a <strong>convecção térmica</strong> (ar frio denso desce, resfriando a geladeira inteira).</div>
+                <div class="hint">Clique para girar 🔄</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

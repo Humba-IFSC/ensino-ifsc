@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiais de Termologia e Termodinâmica — IFSC 2026.2</title>
+    <meta name="description" content="Repositório Central de Materiais, Estudo Dirigido, Quizzes e Flashcards de Termologia e Termodinâmica. Prof. Humberto Luz Oliveira.">
+    <meta name="author" content="Prof. Dr. Humberto Luz Oliveira">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- MathJax para renderização de LaTeX -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../../assets/style.css">
+    <style>
+        :root {
+            --c-bg: #090d16;
+            --c-surface: rgba(17, 24, 39, 0.7);
+            --c-border: rgba(255, 255, 255, 0.08);
+            --c-primary: #f97316;
+            --c-primary-glow: rgba(249, 115, 22, 0.15);
+            --c-success: #22c55e;
+            --c-warning: #f59e0b;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--c-bg);
+            color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+        }
+        .header-glow {
+            background: linear-gradient(135deg, #7c2d12 0%, #0f172a 60%, #090d16 100%);
+            border-bottom: 1px solid rgba(249, 115, 22, 0.2);
+            padding: 4rem 1rem 3rem;
+            position: relative;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem 5rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--c-border);
+            padding-bottom: 0.5rem;
+        }
+        .grid-blocks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .block-card {
+            background: var(--c-surface);
+            border: 1px solid var(--c-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        .block-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(249, 115, 22, 0.3);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+        .block-header {
+            font-size: 1.15rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+        }
+        .badge-1 { background: rgba(34, 197, 94, 0.12); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.2); }
+        .badge-2 { background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.2); }
+        .badge-3 { background: rgba(249, 115, 22, 0.12); color: #fdba74; border: 1px solid rgba(249, 115, 22, 0.2); }
+        
+        .list-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .list-items li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            padding: 0.6rem;
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .list-items li:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .btn-pdf {
+            background: rgba(239, 68, 68, 0.12);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.35rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.2s;
+        }
+        .btn-pdf:hover { background: rgba(239, 68, 68, 0.22); color: #f87171; }
+        .btn-md {
+            background: rgba(249, 115, 22, 0.12);
+            color: #fdba74;
+            border: 1px solid rgba(249, 115, 22, 0.25);
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.35rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.2s;
+        }
+        .btn-md:hover { background: rgba(249, 115, 22, 0.22); color: #ffedd5; }
+        .btn-nm {
+            background: rgba(168, 85, 247, 0.12);
+            color: #d8b4fe;
+            border: 1px solid rgba(168, 85, 247, 0.25);
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.35rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.2s;
+        }
+        .btn-nm:hover { background: rgba(168, 85, 247, 0.22); color: #f3e8ff; }
+        .grid-resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        .resource-card {
+            background: var(--c-surface);
+            border: 1px solid var(--c-border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-glow">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <span style="color: #fdba74; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">
+                Repositório Central · IFSC Campus São José
+            </span>
+            <h1 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin: 0.5rem 0 1rem; color: #fff;">
+                🔥 Termologia e Termodinâmica
+            </h1>
+            <p style="color: #94a3b8; font-size: 1.05rem; margin-bottom: 1.5rem;">
+                Acervo de materiais didáticos, resumos para estudo dirigido, flashcards interativos, quizzes e roteiros práticos das disciplinas FSC060806 (Telecom) e FCA060903 (RAC).
+            </p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;">
+                <a href="../FSC060806/" class="btn-md" style="padding: 0.5rem 1rem; font-size: 0.85rem;">📗 Dashboard Telecom (FSC060806)</a>
+                <a href="../FCA060903/" class="btn-md" style="padding: 0.5rem 1rem; font-size: 0.85rem;">❄️ Dashboard RAC (FCA060903)</a>
+                <a href="Termodinâmica.md" class="btn-pdf" style="padding: 0.5rem 1rem; font-size: 0.85rem;">📋 Plano Semestral (MD)</a>
+                <a href="Sistema Avaliativo.md" class="btn-nm" style="padding: 0.5rem 1rem; font-size: 0.85rem;">📊 Sistema Avaliativo (MD)</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- ══ BLOCOS DE CONTEÚDO ══ -->
+        <h2 class="section-title">📚 Unidades de Estudo e Materiais por Bloco</h2>
+        
+        <div class="grid-blocks">
+            <!-- Bloco 1 -->
+            <div class="block-card">
+                <div class="block-header">
+                    <span>🌡️ Bloco 1 — Calorimetria e Latência</span>
+                    <span class="badge badge-1">Ramalho Caps 4 e 5</span>
+                </div>
+                <ul class="list-items">
+                    <li>
+                        <span><strong>Aula01:</strong> Calorimetria Sensível ($Q=mc\Delta T$)</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-1/Aula01/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-1/Aula01/flashcards.html" class="btn-nm">Cards</a>
+                            <a href="Aulas/Bloco-1/Aula01/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span><strong>Aula02:</strong> Mudança de Fase ($Q=mL$)</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-1/Aula02/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-1/Aula02/flashcards.html" class="btn-nm">Cards</a>
+                            <a href="Aulas/Bloco-1/Aula02/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span><strong>Aula03:</strong> Mudança de Fase e Calor Latente (2ª turma)</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-1/Aula03/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-1/Aula03/flashcards.html" class="btn-nm">Cards</a>
+                            <a href="Aulas/Bloco-1/Aula03/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span><strong>Aula04-EP:</strong> Exercícios — Calorimetria e Mudança de Fase</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-1/Aula04-EP/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-1/Aula04-EP/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Bloco 2 -->
+            <div class="block-card">
+                <div class="block-header">
+                    <span>🧊 Bloco 2 — Diagramas e Transmissão de Calor</span>
+                    <span class="badge badge-2">Ramalho Caps 6 e 7</span>
+                </div>
+                <ul class="list-items">
+                    <li>
+                        <span><strong>Aula03:</strong> Diagramas de Fase e Ponto Triplo</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-2/Aula03/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-2/Aula03/flashcards.html" class="btn-nm">Cards</a>
+                            <a href="Aulas/Bloco-2/Aula03/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span><strong>Aula04:</strong> Condução, Convecção e Irradiação</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-2/Aula04/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-2/Aula04/flashcards.html" class="btn-nm">Cards</a>
+                            <a href="Aulas/Bloco-2/Aula04/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span><strong>Aula06:</strong> Diagramas de Fases (2ª turma)</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-2/Aula06/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-2/Aula06/flashcards.html" class="btn-nm">Cards</a>
+                            <a href="Aulas/Bloco-2/Aula06/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span><strong>Aula07:</strong> Transferência de Calor (2ª turma)</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-2/Aula07/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-2/Aula07/flashcards.html" class="btn-nm">Cards</a>
+                            <a href="Aulas/Bloco-2/Aula07/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span><strong>Aula08-EP:</strong> Exercícios — Transferência e Diagramas</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-2/Aula08-EP/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-2/Aula08-EP/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Bloco 3 -->
+            <div class="block-card">
+                <div class="block-header">
+                    <span>⚙️ Bloco 3 — Leis da Termodinâmica</span>
+                    <span class="badge badge-3">Ramalho Cap 9</span>
+                </div>
+                <ul class="list-items">
+                    <li>
+                        <span><strong>Aula05:</strong> 1ª Lei e Transformações Gasosas</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-3/Aula05/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-3/Aula05/flashcards.html" class="btn-nm">Cards</a>
+                            <a href="Aulas/Bloco-3/Aula05/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span><strong>Aula06:</strong> 2ª Lei, Carnot e Máquinas Térmicas</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-3/Aula06/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-3/Aula06/flashcards.html" class="btn-nm">Cards</a>
+                            <a href="Aulas/Bloco-3/Aula06/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span><strong>Aula12:</strong> 1ª Lei e Transformações (2ª turma)</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-3/Aula12/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-3/Aula12/flashcards.html" class="btn-nm">Cards</a>
+                            <a href="Aulas/Bloco-3/Aula12/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span><strong>Aula13:</strong> 2ª Lei e Ciclo de Carnot (2ª turma)</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-3/Aula13/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-3/Aula13/flashcards.html" class="btn-nm">Cards</a>
+                            <a href="Aulas/Bloco-3/Aula13/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span><strong>Aula14-EP:</strong> Exercícios — Leis da Termodinâmica e Carnot</span>
+                        <div style="display:flex; gap:0.3rem;">
+                            <a href="Aulas/Bloco-3/Aula14-EP/estudo_dirigido.html" class="btn-md">Resumo</a>
+                            <a href="Aulas/Bloco-3/Aula14-EP/quiz.html" class="btn-pdf">Quiz</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ══ SEÇÃO: SISTEMA AVALIATIVO E CRITÉRIOS DE APROVAÇÃO ══ -->
+        <h2 class="section-title" id="sistema-avaliativo">📊 Sistema Avaliativo e Critérios de Aprovação (RDP IFSC)</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+            <!-- Composição da Média -->
+            <div class="block-card" style="border-color: rgba(249, 115, 22, 0.3);">
+                <div class="block-header">
+                    <span style="color: #fdba74;">🎯 Composição da Nota Semestral</span>
+                    <span class="badge badge-3">Médias & Avaliações</span>
+                </div>
+                <ul class="list-items" style="font-size: 0.88rem; color: #cbd5e1; gap: 0.8rem;">
+                    <li style="flex-direction: column; align-items: flex-start; gap: 0.3rem;">
+                        <strong style="color: #f8fafc;">📝 Provas Teóricas Escritas (80% da Nota):</strong>
+                        <span>• <strong>AVA 1 (28/08):</strong> Calorimetria e Latência</span>
+                        <span>• <strong>AVA 2 (02/10):</strong> Diagramas e Propagação de Calor</span>
+                        <span>• <strong>AVA 3 (27/11):</strong> Leis da Termodinâmica e Carnot</span>
+                    </li>
+                    <li style="flex-direction: column; align-items: flex-start; gap: 0.3rem;">
+                        <strong style="color: #f8fafc;">🔬 Laboratórios e Estudo Dirigido (20% da Nota):</strong>
+                        <span>• Relatórios Práticos (Lab 01, Lab 02, Lab 03)</span>
+                        <span>• Quizzes, Flashcards e Listas de Fixação</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Requisitos RDP -->
+            <div class="block-card" style="border-color: rgba(34, 197, 94, 0.3);">
+                <div class="block-header">
+                    <span style="color: #4ade80;">🎓 Requisitos RDP IFSC para Aprovação</span>
+                    <span class="badge badge-1">Regulamento Didático</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-top: 0.5rem;">
+                    <div style="background: rgba(34, 197, 94, 0.1); padding: 1rem; border-radius: 0.75rem; border: 1px solid rgba(34, 197, 94, 0.25);">
+                        <div style="font-size: 1.25rem; font-weight: 800; color: #4ade80;">Nota Final Mínima: 6,0</div>
+                        <div style="font-size: 0.82rem; color: #cbd5e1; margin-top: 0.2rem;">Média ponderada igual ou superior a 6,0 nas avaliações.</div>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.04); padding: 1rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.08);">
+                        <div style="font-size: 1.25rem; font-weight: 800; color: #f8fafc;">Frequência Mínima: 75%</div>
+                        <div style="font-size: 0.82rem; color: #cbd5e1; margin-top: 0.2rem;">Presença em pelo menos 75% das aulas presenciais (40h total).</div>
+                    </div>
+                    <div style="background: rgba(239, 68, 68, 0.08); padding: 0.85rem 1rem; border-radius: 0.75rem; border: 1px solid rgba(239, 68, 68, 0.2);">
+                        <div style="font-size: 0.9rem; font-weight: 700; color: #fca5a5;">🔄 Recuperação / Reposição Final (11/12):</div>
+                        <div style="font-size: 0.8rem; color: #cbd5e1; margin-top: 0.15rem;">Direito reservado a alunos com frequência &ge; 75% para recuperação do conceito final.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ SEÇÃO: LIVROS RAMALHO VOL 2 ══ -->
+        <h2 class="section-title">📖 Livro Base (Ramalho Vol. 2)</h2>
+        <div class="grid-resources">
+            <div class="resource-card">
+                <strong style="color: #fdba74;">🌡️ Cap. 4 — Calorimetria Sensível</strong>
+                <a href="Caps_Ramalho/Cap.4_Calorimetria_Sens%C3%ADvel.pdf" target="_blank" class="btn-pdf">Baixar Cap. 4 (PDF)</a>
+            </div>
+            <div class="resource-card">
+                <strong style="color: #fdba74;">🧊 Cap. 5 — Mudança de Fase</strong>
+                <a href="Caps_Ramalho/Cap.5_Mudan%C3%A7a_de_Fase_Latencia.pdf" target="_blank" class="btn-pdf">Baixar Cap. 5 (PDF)</a>
+            </div>
+            <div class="resource-card">
+                <strong style="color: #fdba74;">📈 Cap. 6 — Diagramas de Fase</strong>
+                <a href="Caps_Ramalho/Cap.6_Diagrama_Fase_Fundamentos_F%C3%ADsica.pdf" target="_blank" class="btn-pdf">Baixar Cap. 6 (PDF)</a>
+            </div>
+            <div class="resource-card">
+                <strong style="color: #fdba74;">☀️ Cap. 7 — Transferência de Calor</strong>
+                <a href="Caps_Ramalho/Cap.7_Mecanismos_Propaga%C3%A7%C3%A3o_Calor.pdf" target="_blank" class="btn-pdf">Baixar Cap. 7 (PDF)</a>
+            </div>
+            <div class="resource-card" style="grid-column: 1 / -1; background: rgba(249, 115, 22, 0.08); border-color: rgba(249, 115, 22, 0.25);">
+                <strong style="color: #ffedd5;">⚙️ Cap. 9 — As Leis da Termodinâmica e Máquinas Térmicas</strong>
+                <p style="font-size: 0.8rem; color: #cbd5e1; margin: 0.2rem 0 0.6rem 0;">Capítulo completo abrangendo a 1ª e 2ª Leis, trabalho de expansão, transformações gasosas e ciclo de Carnot.</p>
+                <a href="Caps_Ramalho/Cap.9_As_Leis_da_Termodinamica.pdf" target="_blank" class="btn-pdf" style="background: rgba(249, 115, 22, 0.2); color: #ffedd5; border-color: rgba(249, 115, 22, 0.4);">Baixar Cap. 9 Completo (PDF)</a>
+            </div>
+        </div>
+
+        <!-- ══ SEÇÃO: LABORATÓRIOS E AVALIAÇÕES ══ -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+            <div>
+                <h2 class="section-title">🔬 Práticas de Laboratório</h2>
+                <ul class="list-items">
+                    <li>
+                        <span>Lab 01 — Curva de Aquecimento / Calorimetria</span>
+                        <a href="Laboratorios/Lab_2026-08-14_Curva_Aquecimento.md" class="btn-md">Roteiro (MD)</a>
+                    </li>
+                    <li>
+                        <span>Lab 02 — Regelo e Convecção Térmica</span>
+                        <a href="Laboratorios/Lab_2026-09-18_Regelo_Conveccao.md" class="btn-md">Roteiro (MD)</a>
+                    </li>
+                    <li>
+                        <span>Lab 03 — Transformações Gasosas em Garrafa PET</span>
+                        <a href="Laboratorios/Lab_2026-11-06_Transformacao_Gasosa.md" class="btn-md">Roteiro (MD)</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="section-title">📋 Guias de Avaliação</h2>
+                <ul class="list-items">
+                    <li>
+                        <span>Guia AVA 1 — Calorimetria e Mudança de Fase</span>
+                        <a href="Avaliacoes/Avaliacao_1_Calorimetria.md" class="btn-md">Conteúdo (MD)</a>
+                    </li>
+                    <li>
+                        <span>Guia AVA 2 — Diagramas e Transferência de Calor</span>
+                        <a href="Avaliacoes/Avaliacao_2_Diagramas_Propagacao.md" class="btn-md">Conteúdo (MD)</a>
+                    </li>
+                    <li>
+                        <span>Guia AVA 3 — Leis da Termodinâmica e Carnot</span>
+                        <a href="Avaliacoes/Avaliacao_3_Leis_Termodinamica.md" class="btn-md">Conteúdo (MD)</a>
+                    </li>
+                    <li>
+                        <span>Guia Prova de Reposição Final</span>
+                        <a href="Avaliacoes/Avaliacao_Final_Reposicao.md" class="btn-md">Conteúdo (MD)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

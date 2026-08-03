@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo — Aula 05: 1ª Lei e Transformações Gasosas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #f0f4f8; margin: 0; padding: 2rem 1rem; }
+        .container { max-width: 850px; margin: 0 auto; background: rgba(15,23,42,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 2.5rem; }
+        h1 { color: #fdba74; font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .subtitle { color: #94a3b8; font-size: 0.95rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; }
+        .question-card { background: rgba(249,115,22,0.04); border: 1px solid rgba(249,115,22,0.2); border-radius: 0.85rem; padding: 1.5rem; margin-bottom: 1.75rem; }
+        .question-title { font-weight: 700; font-size: 1.05rem; color: #fff; margin-bottom: 1rem; line-height: 1.4; }
+        .options { display: flex; flex-direction: column; gap: 0.55rem; }
+        .option-btn { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 0.5rem; padding: 0.8rem 1.1rem; color: #cbd5e1; text-align: left; cursor: pointer; transition: all 0.2s; font-size: 0.95rem; line-height: 1.35; }
+        .option-btn:hover { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(249,115,22,0.4); }
+        .option-btn.correct { background: rgba(34,197,94,0.2) !important; border-color: #22c55e !important; color: #4ade80 !important; }
+        .option-btn.incorrect { background: rgba(239,68,68,0.2) !important; border-color: #ef4444 !important; color: #fca5a5 !important; }
+        .explanation { display: none; margin-top: 1rem; padding: 0.85rem 1.1rem; background: rgba(0,0,0,0.35); border-left: 3px solid #22c55e; border-radius: 0.4rem; font-size: 0.88rem; color: #cbd5e1; line-height: 1.45; }
+        .btn-back { display: inline-block; background: rgba(255,255,255,0.08); color: #cbd5e1; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.85rem; margin-bottom: 1.5rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="btn-back">← Voltar para Central da Termodinâmica</a>
+        <h1>📝 Quiz Interativo — Aula 05: 1ª Lei e Transformações Gasosas</h1>
+        <div class="subtitle">10 Questões extraídas do NotebookLM Studio · <em>Leis da Termo-Aula05 Quiz</em></div>
+
+        <!-- Q1 -->
+        <div class="question-card" id="q1">
+            <div class="question-title">1. Como a Termodinâmica se diferencia da Mecânica na abordagem de sistemas com muitas partículas?</div>
+            <div class="options">
+                <button class="option-btn" onclick="check(this, 'q1', false)">A. A Termodinâmica ignora a conservação de energia, enquanto a Mecânica a considera primordial.</button>
+                <button class="option-btn" onclick="check(this, 'q1', true)">B. A Termodinâmica estuda o estado global do sistema por meio de variáveis macroscópicas, enquanto a Mecânica foca nas posições e velocidades individuais de cada partícula.</button>
+                <button class="option-btn" onclick="check(this, 'q1', false)">C. A Termodinâmica foca apenas na velocidade das partículas e a Mecânica apenas em suas massas.</button>
+                <button class="option-btn" onclick="check(this, 'q1', false)">D. A Termodinâmica é puramente qualitativa e a Mecânica é quantitativa.</button>
+            </div>
+            <div class="explanation"><strong>Gabarito B:</strong> A Termodinâmica descreve o sistema em termos de propriedades médias (pressão, volume, temperatura) sem acompanhar cada partícula individualmente.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question-card" id="q2">
+            <div class="question-title">2. Qual é a definição de um "sistema" no contexto da Termodinâmica?</div>
+            <div class="options">
+                <button class="option-btn" onclick="check(this, 'q2', true)">A. Qualquer porção de matéria sob consideração termodinâmica, separada do resto do universo por limites reais ou imaginários.</button>
+                <button class="option-btn" onclick="check(this, 'q2', false)">B. Um conjunto de equações usadas para resolver problemas físicos.</button>
+                <button class="option-btn" onclick="check(this, 'q2', false)">C. Apenas gases contidos em recipientes rígidos e isolados termicamente.</button>
+                <button class="option-btn" onclick="check(this, 'q2', false)">D. O ambiente externo que interage com o gás sob estudo.</button>
+            </div>
+            <div class="explanation"><strong>Gabarito A:</strong> O sistema é a porção de matéria sob estudo; tudo o que fica fora dos limites é a vizinhança ou meio externo.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question-card" id="q3">
+            <div class="question-title">3. O que caracteriza o "equilíbrio térmico" entre dois sistemas?</div>
+            <div class="options">
+                <button class="option-btn" onclick="check(this, 'q3', false)">A. A igualdade de suas pressões internas.</button>
+                <button class="option-btn" onclick="check(this, 'q3', false)">B. A transferência contínua de grandes quantidades de calor entre eles.</button>
+                <button class="option-btn" onclick="check(this, 'q3', true)">C. A igualdade de suas temperaturas.</button>
+                <button class="option-btn" onclick="check(this, 'q3', false)">D. O fato de ambos possuírem volumes idênticos.</button>
+            </div>
+            <div class="explanation"><strong>Gabarito C:</strong> A Lei Zero da Termodinâmica estabelece que a igualdade de temperatura é a condição fundamental para o equilíbrio térmico.</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question-card" id="q4">
+            <div class="question-title">4. Em um processo termodinâmico, o trabalho (W) realizado pelo sistema depende de:</div>
+            <div class="options">
+                <button class="option-btn" onclick="check(this, 'q4', false)">A. Apenas dos estados inicial e final do sistema.</button>
+                <button class="option-btn" onclick="check(this, 'q4', true)">B. Da trajetória ou caminho seguido pelo sistema entre os estados inicial e final.</button>
+                <button class="option-btn" onclick="check(this, 'q4', false)">C. Exclusivamente da quantidade de calor trocada.</button>
+                <button class="option-btn" onclick="check(this, 'q4', false)">D. Da constante universal dos gases apenas.</button>
+            </div>
+            <div class="explanation"><strong>Gabarito B:</strong> O trabalho depende do caminho percorrido no diagrama P-V (área sob a curva), não sendo uma função de estado.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question-card" id="q5">
+            <div class="question-title">5. Como a Primeira Lei da Termodinâmica define a relação entre calor (Q), trabalho (W) e energia interna (U)?</div>
+            <div class="options">
+                <button class="option-btn" onclick="check(this, 'q5', true)">A. A variação da energia interna de um sistema é igual ao calor recebido menos o trabalho realizado pelo sistema (&Delta;U = Q - W).</button>
+                <button class="option-btn" onclick="check(this, 'q5', false)">B. O calor é sempre igual ao trabalho realizado, sem alteração na energia interna.</button>
+                <button class="option-btn" onclick="check(this, 'q5', false)">C. A energia interna de um sistema isolado sempre diminui com o tempo.</button>
+                <button class="option-btn" onclick="check(this, 'q5', false)">D. O trabalho realizado é igual à soma do calor e da variação de energia interna.</button>
+            </div>
+            <div class="explanation"><strong>Gabarito A:</strong> É o princípio da conservação da energia aplicado à termodinâmica: &Delta;U = Q - W.</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question-card" id="q6">
+            <div class="question-title">6. Por que a energia interna (U) de um gás ideal é considerada uma "função de estado"?</div>
+            <div class="options">
+                <button class="option-btn" onclick="check(this, 'q6', false)">A. Porque seu valor varia conforme o recipiente que contém o gás.</button>
+                <button class="option-btn" onclick="check(this, 'q6', true)">B. Porque ela depende unicamente da temperatura absoluta do gás no estado considerado, e não de como o gás atingiu esse estado.</button>
+                <button class="option-btn" onclick="check(this, 'q6', false)">C. Porque ela depende do estado físico (sólido, líquido ou gasoso) das moléculas.</button>
+                <button class="option-btn" onclick="check(this, 'q6', false)">D. Porque ela descreve o trabalho realizado pelo gás em um ciclo.</button>
+            </div>
+            <div class="explanation"><strong>Gabarito B:</strong> A variação &Delta;U entre dois estados é a mesma, independentemente do caminho (processo) percorrido.</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question-card" id="q7">
+            <div class="question-title">7. Por que o calor específico a pressão constante (C<sub>p</sub>) é maior do que o calor específico a volume constante (C<sub>v</sub>) para um gás ideal?</div>
+            <div class="options">
+                <button class="option-btn" onclick="check(this, 'q7', true)">A. Porque no processo isobárico parte do calor é gasto na realização de trabalho de expansão.</button>
+                <button class="option-btn" onclick="check(this, 'q7', false)">B. Porque a volume constante as moléculas colidem menos com as paredes.</button>
+                <button class="option-btn" onclick="check(this, 'q7', false)">C. Porque o calor específico depende da massa molar do gás apenas.</button>
+                <button class="option-btn" onclick="check(this, 'q7', false)">D. Porque a pressão constante exige mais energia para vencer a gravidade.</button>
+            </div>
+            <div class="explanation"><strong>Gabarito A:</strong> A pressão constante, o gás expande e realiza trabalho, necessitando de calor adicional para alcançar o mesmo &Delta;T.</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question-card" id="q8">
+            <div class="question-title">8. Ao completar um ciclo termodinâmico (retorno ao estado inicial), o que acontece com a energia interna total do gás?</div>
+            <div class="options">
+                <button class="option-btn" onclick="check(this, 'q8', false)">A. Ela aumenta proporcionalmente à área do ciclo.</button>
+                <button class="option-btn" onclick="check(this, 'q8', true)">B. A variação da energia interna é zero (&Delta;U = 0).</button>
+                <button class="option-btn" onclick="check(this, 'q8', false)">C. Ela torna-se nula em todos os pontos do processo.</button>
+                <button class="option-btn" onclick="check(this, 'q8', false)">D. Ela diminui devido à degradação da energia mencionada na 2ª lei.</button>
+            </div>
+            <div class="explanation"><strong>Gabarito B:</strong> Sendo U função de estado e voltando à temperatura inicial, a variação líquida no ciclo completo é nula.</div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question-card" id="q9">
+            <div class="question-title">9. Se um gás ideal sofre uma compressão adiabática rápida, o que se observa em relação à sua temperatura?</div>
+            <div class="options">
+                <button class="option-btn" onclick="check(this, 'q9', false)">A. A temperatura cai para o zero absoluto.</button>
+                <button class="option-btn" onclick="check(this, 'q9', false)">B. A temperatura diminui, pois o volume diminuiu.</button>
+                <button class="option-btn" onclick="check(this, 'q9', false)">C. A temperatura permanece constante devido ao isolamento.</button>
+                <button class="option-btn" onclick="check(this, 'q9', true)">D. A temperatura aumenta, pois o trabalho realizado sobre o gás eleva sua energia interna.</button>
+            </div>
+            <div class="explanation"><strong>Gabarito D:</strong> Em processo adiabático (Q = 0), a compressão (W < 0) eleva a energia interna (&Delta;U = -W > 0) e consequentemente a temperatura.</div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question-card" id="q10">
+            <div class="question-title">10. Qual é a distinção principal entre "trabalho externo" e "trabalho interno" no estudo da Termodinâmica clássica?</div>
+            <div class="options">
+                <button class="option-btn" onclick="check(this, 'q10', true)">A. Trabalho externo envolve o sistema agindo sobre o meio exterior, enquanto o interno ocorre entre partes do próprio sistema.</button>
+                <button class="option-btn" onclick="check(this, 'q10', false)">B. O trabalho externo é feito pelo calor e o interno pela pressão.</button>
+                <button class="option-btn" onclick="check(this, 'q10', false)">C. Apenas o trabalho interno obedece à lei de conservação de energia.</button>
+                <button class="option-btn" onclick="check(this, 'q10', false)">D. O trabalho externo é sempre positivo e o interno sempre negativo.</button>
+            </div>
+            <div class="explanation"><strong>Gabarito A:</strong> A termodinâmica contabiliza o trabalho externo (interações nas fronteiras do sistema com a vizinhança).</div>
+        </div>
+    </div>
+
+    <script>
+        function check(btn, qId, isCorrect) {
+            const card = document.getElementById(qId);
+            card.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+            if (isCorrect) btn.classList.add('correct');
+            else btn.classList.add('incorrect');
+            card.querySelector('.explanation').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
