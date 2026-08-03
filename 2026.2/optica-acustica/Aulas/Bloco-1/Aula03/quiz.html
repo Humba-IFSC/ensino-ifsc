@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 2 (Avaliativo) — Aula 03: Fenômenos Acústicos e Fontes Sonoras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: rgba(15, 23, 42, 0.85);
+            --border-card: rgba(56, 189, 248, 0.2);
+            --accent-green: #4ade80;
+            --accent-cyan: #38bdf8;
+            --accent-red: #fca5a5;
+            --accent-yellow: #fcd34d;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(239, 68, 68, 0.06) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateX(-2px);
+        }
+
+        /* --- SCREEN 1: LOGIN & RULES --- */
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-header h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .login-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .notice-box {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 0.9rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 0.92rem;
+        }
+        .notice-box h3 {
+            color: #fca5a5;
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .notice-box ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .notice-box li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: #e2e8f0;
+        }
+        .notice-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #ef4444;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+        }
+        .form-control {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 0.6rem;
+            padding: 0.8rem 1rem;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .form-control:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        .btn-start {
+            width: 100%;
+            background: linear-gradient(135deg, #16a34a, #059669);
+            color: #fff;
+            border: none;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            font-size: 1.05rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
+        }
+        .btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(22, 163, 74, 0.4);
+        }
+
+        /* --- SCREEN 2: QUIZ ACTIVE --- */
+        #quizScreen { display: none; }
+
+        .sticky-timer-bar {
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .student-info-badge {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        .student-name { font-weight: 700; font-size: 0.95rem; color: #f1f5f9; }
+        .student-email { font-size: 0.8rem; color: var(--text-secondary); }
+
+        .timer-display {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.3rem;
+            font-weight: 800;
+            font-family: monospace;
+            color: var(--accent-cyan);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0.5rem 1rem;
+            border-radius: 0.6rem;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        .timer-display.warning {
+            color: #ef4444;
+            border-color: #ef4444;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .timer-progress-bg {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+            width: 100%;
+        }
+        .timer-progress-fill {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            transition: width 1s linear;
+        }
+
+        .question-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1rem;
+            padding: 1.75rem;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .question-number {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .question-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            color: #f8fafc;
+        }
+
+        .question-hint {
+            background: rgba(252, 211, 77, 0.1);
+            border-left: 3px solid var(--accent-yellow);
+            padding: 0.6rem 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            font-size: 0.85rem;
+            color: #fde68a;
+            margin-bottom: 1.25rem;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.6rem;
+            padding: 0.9rem 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            line-height: 1.4;
+        }
+        .option-label:hover {
+            background: rgba(56, 189, 248, 0.08);
+            border-color: rgba(56, 189, 248, 0.3);
+            color: #fff;
+        }
+
+        .option-label input[type="radio"] {
+            margin-top: 0.2rem;
+            accent-color: var(--accent-cyan);
+            width: 18px;
+            height: 18px;
+        }
+
+        .btn-submit-quiz {
+            width: 100%;
+            background: linear-gradient(135deg, #0284c7, #2563eb);
+            color: #fff;
+            border: none;
+            border-radius: 0.8rem;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+            margin-top: 1rem;
+            margin-bottom: 3rem;
+        }
+        .btn-submit-quiz:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.5);
+        }
+
+        /* --- SCREEN 3: RESULTS --- */
+        #resultScreen { display: none; }
+
+        .result-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .result-score-badge {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(74, 222, 128, 0.2) 0%, rgba(15, 23, 42, 0.9) 70%);
+            border: 3px solid var(--accent-green);
+            margin: 1.5rem 0;
+            box-shadow: 0 0 30px rgba(74, 222, 128, 0.3);
+        }
+        .score-number { font-size: 2.4rem; font-weight: 900; color: #fff; line-height: 1; }
+        .score-total { font-size: 0.9rem; color: var(--text-secondary); font-weight: 600; }
+
+        .result-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        .meta-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.75rem;
+            padding: 1rem;
+        }
+        .meta-label { font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; }
+        .meta-value { font-size: 1rem; font-weight: 700; color: #fff; margin-top: 0.25rem; }
+
+        .verification-code-box {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px dashed rgba(56, 189, 248, 0.4);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: var(--accent-cyan);
+            word-break: break-all;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .btn-action {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.6rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-action:hover {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: var(--accent-cyan);
+        }
+
+        .review-section {
+            margin-top: 3rem;
+        }
+        .review-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #f1f5f9;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .review-card.correct { border-left: 4px solid var(--accent-green); }
+        .review-card.incorrect { border-left: 4px solid #ef4444; }
+
+        .rationale-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 0.5rem;
+            padding: 0.8rem 1rem;
+            margin-top: 1rem;
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+        .status-badge.correct { background: rgba(74, 222, 128, 0.15); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.3); }
+        .status-badge.incorrect { background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); }
+
+        @media (max-width: 640px) {
+            .login-card { padding: 1.5rem; }
+            .sticky-timer-bar { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+            .timer-display { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="btn-back">← Voltar para Central de Ensino</a>
+
+        <!-- ════════ SCREEN 1: LOGIN & RULES ════════ -->
+        <div id="loginScreen" class="login-card">
+            <div class="login-header">
+                <h1>📝 Quiz 2 (Avaliativo) — Aula 03</h1>
+                <p>Acústica e Óptica Geométrica — Fenômenos Acústicos e Fontes Sonoras</p>
+            </div>
+
+            <div class="notice-box">
+                <h3>⚠️ Instruções Importantes para a Realização da Atividade:</h3>
+                <ul>
+                    <li>Você terá <strong>30 minutos contínuos</strong> para responder a 10 questões de múltipla escolha.</li>
+                    <li>Ao clicar em <strong>"Iniciar Quiz"</strong>, o cronômetro no topo da página será ativado imediatamente.</li>
+                    <li>Preencha seu <strong>Nome Completo</strong> e <strong>E-mail Institucional</strong> para identificação correta da tentativa.</li>
+                    <li>Após concluir ou esgotar o tempo, o sistema gerará um <strong>Comprovante de Envio com Código Hash de Validação</strong>.</li>
+                    <li>Mantenha o foco na página durante o teste. Desejamos uma excelente atividade!</li>
+                </ul>
+            </div>
+
+            <form id="startForm" onsubmit="handleStartQuiz(event)">
+                <div class="form-group">
+                    <label for="studentName">👤 Nome Completo do Aluno(a):</label>
+                    <input type="text" id="studentName" class="form-control" placeholder="Ex: João da Silva" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentEmail">✉️ E-mail do Aluno(a):</label>
+                    <input type="email" id="studentEmail" class="form-control" placeholder="Ex: joao.silva@aluno.ifsc.edu.br" required>
+                </div>
+                <div class="form-group">
+                    <label for="quizPassword">🔑 Senha de Acesso (fornecida pelo professor):</label>
+                    <input type="password" id="quizPassword" class="form-control" placeholder="Digite a senha liberada em sala" required>
+                </div>
+                <button type="submit" class="btn-start">
+                    🚀 Iniciar Quiz e Ativar Cronômetro (30 min)
+                </button>
+            </form>
+        </div>
+
+        <!-- ════════ SCREEN 2: QUIZ ACTIVE ════════ -->
+        <div id="quizScreen">
+            <div class="sticky-timer-bar" id="timerBox">
+                <div class="student-info-badge">
+                    <span class="student-name" id="dispStudentName">Aluno</span>
+                    <span class="student-email" id="dispStudentEmail">email@ifsc.edu.br</span>
+                </div>
+                <div>
+                    <div class="timer-display">
+                        ⏱️ <span id="timerCountdown">30:00</span>
+                    </div>
+                    <div class="timer-progress-bg">
+                        <div class="timer-progress-fill" id="timerProgress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="quizForm" onsubmit="handleQuizSubmit(event)">
+                <div id="questionsContainer"></div>
+                <button type="submit" class="btn-submit-quiz">
+                    ✅ Finalizar Quiz e Enviar Respostas
+                </button>
+            </form>
+        </div>
+
+        <!-- ════════ SCREEN 3: RESULTS & REVIEW ════════ -->
+        <div id="resultScreen">
+            <div class="result-card">
+                <h2 style="font-size:1.8rem; font-weight:800; color:#fff;">🎉 Quiz Finalizado com Sucesso!</h2>
+                <p style="color:var(--text-secondary); margin-top:0.3rem;">Confira abaixo seu desempenho e o comprovante oficial de realização.</p>
+
+                <div class="result-score-badge">
+                    <div class="score-number"><span id="resScoreNum">0</span>/10</div>
+                    <div class="score-total" id="resPercentText">0% de Aproveitamento</div>
+                </div>
+
+                <div class="result-meta-grid">
+                    <div class="meta-item">
+                        <div class="meta-label">Estudante</div>
+                        <div class="meta-value" id="resStudent">-</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">E-mail</div>
+                        <div class="meta-value" id="resEmail">-</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Tempo Utilizado</div>
+                        <div class="meta-value" id="resTime">-</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Data e Hora de Conclusão</div>
+                        <div class="meta-value" id="resDate">-</div>
+                    </div>
+                </div>
+
+                <div class="verification-code-box">
+                    🔒 Código Autêntico de Validação Hash: <br>
+                    <strong id="resAuthCode" style="font-size:1.1rem; color:#fff;">ACU03-XXXXXX</strong>
+                </div>
+
+                <div class="action-btns">
+                    <button class="btn-action" onclick="copyComprovante()">📋 Copiar Comprovante</button>
+                    <button class="btn-action" onclick="downloadComprovante()">📥 Baixar TXT do Comprovante</button>
+                    <button class="btn-action" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
+                </div>
+            </div>
+
+            <div class="review-section">
+                <h3 class="review-title">📖 Correção Detalhada e Gabarito Comentado</h3>
+                <div id="reviewContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // CONFIGURAÇÕES GERAIS
+        const ACCESS_PASSWORD_HASH = "ifsc2026"; // Senha padrao
+        const TOTAL_TIME_SECONDS = 30 * 60; // 30 Minutos
+        const GOOGLE_APP_SCRIPT_URL = ""; // Opcional: Integracao WebApp Google Sheets
+
+        // DADOS DAS QUESTÕES DO QUIZ (AULA 03)
+        const questionsData = [
+            {
+                id: 1,
+                title: "1. Para que um ouvinte perceba o fenômeno do eco em vez da reverberação no ar, onde a velocidade do som é aproximadamente 340 m/s, qual deve ser a distância mínima entre ele e o obstáculo refletor?",
+                hint: "Considere que o som precisa percorrer a distância de ida e volta em um tempo superior à persistência auditiva de 0,1 s.",
+                options: [
+                    { letter: "A", text: "170 m" },
+                    { letter: "B", text: "7 m" },
+                    { letter: "C", text: "34 m" },
+                    { letter: "D", text: "17 m" }
+                ],
+                answer: "D",
+                rationale: "Considerando a persistência auditiva humana de 0,1 s, o som deve percorrer um caminho de ida e volta totalizando no mínimo 34 m para que o eco seja distinguido (17 m na ida + 17 m na volta)."
+            },
+            {
+                id: 2,
+                title: "2. Sobre as ondas sonoras em tubos fechados, qual das seguintes afirmações descreve corretamente a série harmônica produzida?",
+                hint: "Lembre-se da condição de contorno que exige um nó na parede do fundo e um ventre na embocadura.",
+                options: [
+                    { letter: "A", text: "O tubo emite apenas harmônicos de ordem par da frequência fundamental." },
+                    { letter: "B", text: "O tubo emite a série completa de harmônicos (pares e ímpares)." },
+                    { letter: "C", text: "A frequência do segundo harmônico é o dobro da frequência fundamental." },
+                    { letter: "D", text: "O tubo emite apenas harmônicos de ordem ímpar da frequência fundamental." }
+                ],
+                answer: "D",
+                rationale: "Devido à restrição de um nó na extremidade fechada e um ventre na aberta, apenas os múltiplos ímpares (f₁, 3f₁, 5f₁, …) são permitidos."
+            },
+            {
+                id: 3,
+                title: "3. O fenômeno da ressonância ocorre quando um corpo é estimulado por uma fonte externa. Qual condição é necessária para que a amplitude de oscilação desse corpo atinja valores elevados?",
+                hint: "Pense no que acontece quando você empurra um balanço no ritmo exato do seu movimento natural.",
+                options: [
+                    { letter: "A", text: "A frequência da fonte deve ser exatamente o dobro da frequência natural do corpo." },
+                    { letter: "B", text: "A frequência da fonte deve coincidir com uma das frequências naturais de vibração do corpo." },
+                    { letter: "C", text: "O corpo deve estar necessariamente no vácuo para vibrar livremente." },
+                    { letter: "D", text: "A fonte sonora deve emitir um som puramente ultrassônico." }
+                ],
+                answer: "B",
+                rationale: "Quando as frequências coincidem, a fonte cede energia progressivamente ao corpo, maximizando a amplitude de oscilação."
+            },
+            {
+                id: 4,
+                title: "4. De acordo com o texto, como a frequência fundamental de uma corda vibrante é afetada quando seu comprimento é reduzido para a metade, mantendo-se a tração constante?",
+                hint: "Considere a relação de proporcionalidade inversa mencionada na seção sobre a guitarra.",
+                options: [
+                    { letter: "A", text: "A frequência é duplicada." },
+                    { letter: "B", text: "A frequência é reduzida pela metade." },
+                    { letter: "C", text: "A frequência é triplicada." },
+                    { letter: "D", text: "A frequência permanece constante." }
+                ],
+                answer: "A",
+                rationale: "A frequência fundamental de uma corda é inversamente proporcional ao seu comprimento; reduzir o comprimento à metade dobra a frequência."
+            },
+            {
+                id: 5,
+                title: "5. Em relação às propriedades das ondas sonoras, por que elas não podem sofrer polarização?",
+                hint: "A polarização exige que a vibração ocorra em um plano perpendicular à direção de propagação.",
+                options: [
+                    { letter: "A", text: "Porque são ondas de altíssima frequência." },
+                    { letter: "B", text: "Porque sua velocidade de propagação é muito baixa no ar." },
+                    { letter: "C", text: "Porque são ondas longitudinais nos fluidos." },
+                    { letter: "D", text: "Porque elas sofrem difração com facilidade." }
+                ],
+                answer: "C",
+                rationale: "A polarização é um fenômeno exclusivo de ondas transversais; como o som em fluidos vibra na mesma direção da propagação, ele não pode ser polarizado."
+            },
+            {
+                id: 6,
+                title: "6. Quando um veículo atinge a velocidade de Mach 1, ocorre a formação da chamada 'barreira do som'. O que fisicamente caracteriza esse fenômeno no nariz do veículo?",
+                hint: "Pense no que acontece quando a fonte sonora e a onda emitida se deslocam juntas.",
+                options: [
+                    { letter: "A", text: "O vácuo absoluto provocado pela alta velocidade." },
+                    { letter: "B", text: "A conversão de ondas sonoras em ondas eletromagnéticas." },
+                    { letter: "C", text: "A dispersão total das ondas sonoras para trás do veículo." },
+                    { letter: "D", text: "Um acúmulo de ondas de pressão que viajam na mesma velocidade do veículo." }
+                ],
+                answer: "D",
+                rationale: "Como o veículo viaja na mesma velocidade das ondas que produz, elas se sobrepõem na frente do aparelho, criando uma região de altíssima pressão."
+            },
+            {
+                id: 7,
+                title: "7. Um observador percebe o Efeito Doppler quando há movimento relativo entre ele e uma fonte sonora. Se a fonte se afasta de um observador parado, o que acontece com a frequência percebida?",
+                hint: "Relacione o afastamento com a sensação de o som tornar-se mais 'grave' ou 'agudo'.",
+                options: [
+                    { letter: "A", text: "A frequência percebida é menor que a frequência real emitida." },
+                    { letter: "B", text: "A frequência percebida é maior que a frequência real emitida." },
+                    { letter: "C", text: "A frequência percebida permanece inalterada, mudando apenas a intensidade." },
+                    { letter: "D", text: "A velocidade do som no meio aumenta para compensar o movimento." }
+                ],
+                answer: "A",
+                rationale: "O afastamento relativo aumenta o intervalo entre as frentes de onda que chegam ao observador, tornando o som mais grave."
+            },
+            {
+                id: 8,
+                title: "8. A 'tecnologia do silêncio' utilizada em fones de ouvido modernos baseia-se em qual propriedade das ondas sonoras para eliminar ruídos externos?",
+                hint: "Imagine o que acontece quando o 'pico' de uma onda encontra o 'vale' de outra onda idêntica.",
+                options: [
+                    { letter: "A", text: "Refração em meios densos." },
+                    { letter: "B", text: "Difração por obstáculos." },
+                    { letter: "C", text: "Ressonância harmônica." },
+                    { letter: "D", text: "Interferência destrutiva." }
+                ],
+                answer: "D",
+                rationale: "O sistema emite uma onda sonora em oposição de fase ao ruído captado, fazendo com que a superposição das ondas resulte em silêncio."
+            },
+            {
+                id: 9,
+                title: "9. Sobre a velocidade de propagação do som em diferentes estados da matéria a uma mesma temperatura, qual a ordem correta de velocidade, da menor para a maior?",
+                hint: "Considere quão próximas estão as moléculas em cada estado físico para transmitir o movimento.",
+                options: [
+                    { letter: "A", text: "A velocidade é a mesma em todos os estados, dependendo apenas da frequência." },
+                    { letter: "B", text: "Gases < Líquidos < Sólidos" },
+                    { letter: "C", text: "Sólidos < Líquidos < Gases" },
+                    { letter: "D", text: "Líquidos < Gases < Sólidos" }
+                ],
+                answer: "B",
+                rationale: "Nos sólidos, a maior intensidade das ações intermoleculares e a proximidade das moléculas permitem que a onda longitudinal de pressão se propague mais rapidamente."
+            },
+            {
+                id: 10,
+                title: "10. O sistema auditivo humano médio consegue perceber sons dentro de uma faixa de frequências específica. Sons acima deste limite são chamados de:",
+                hint: "O prefixo indica algo que está 'além' ou 'acima' da capacidade comum.",
+                options: [
+                    { letter: "A", text: "Infrassons." },
+                    { letter: "B", text: "Sons hipersônicos." },
+                    { letter: "C", text: "Sons fundamentais." },
+                    { letter: "D", text: "Ultrassons." }
+                ],
+                answer: "D",
+                rationale: "Frequências superiores a 20.000 Hz estão além da percepção humana e são classificadas como ultrassons."
+            }
+        ];
+
+        // ESTADO GLOBAL DA APLICAÇÃO
+        let studentData = { name: "", email: "" };
+        let timerSecondsLeft = TOTAL_TIME_SECONDS;
+        let timerInterval = null;
+        let quizStartTime = null;
+        let quizSubmitted = false;
+        let resultSummaryText = "";
+
+        // INICIAR O QUIZ (VERIFICAR SENHA E DADOS)
+        function handleStartQuiz(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("studentName").value.trim();
+            const email = document.getElementById("studentEmail").value.trim();
+            const password = document.getElementById("quizPassword").value.trim();
+
+            if (!name || !email) {
+                alert("Por favor, preencha seu nome e e-mail antes de continuar.");
+                return;
+            }
+
+            if (password !== "acustica" && password !== "ifsc2026" && password !== "optica") {
+                alert("❌ Senha de acesso incorreta! Verifique a senha informada pelo professor.");
+                return;
+            }
+
+            studentData.name = name;
+            studentData.email = email;
+
+            document.getElementById("dispStudentName").textContent = name;
+            document.getElementById("dispStudentEmail").textContent = email;
+
+            document.getElementById("loginScreen").style.display = "none";
+            document.getElementById("quizScreen").style.display = "block";
+
+            renderQuestions();
+            startTimer();
+            quizStartTime = new Date();
+
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        // RENDERIZAR QUESTÕES NO FORMULÁRIO
+        function renderQuestions() {
+            const container = document.getElementById("questionsContainer");
+            container.innerHTML = "";
+
+            questionsData.forEach(q => {
+                const card = document.createElement("div");
+                card.className = "question-card";
+                card.id = `q_card_${q.id}`;
+
+                let optionsHtml = q.options.map(opt => `
+                    <label class="option-label">
+                        <input type="radio" name="question_${q.id}" value="${opt.letter}">
+                        <span><strong>${opt.letter})</strong> ${opt.text}</span>
+                    </label>
+                `).join("");
+
+                card.innerHTML = `
+                    <div class="question-number">QUESTÃO ${q.id} DE 10</div>
+                    <div class="question-text">${q.title}</div>
+                    <div class="question-hint">💡 <strong>Dica:</strong> ${q.hint}</div>
+                    <div class="options-list">${optionsHtml}</div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // CONTADOR DE TEMPO DE 30 MINUTOS
+        function startTimer() {
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timerSecondsLeft--;
+                updateTimerDisplay();
+
+                if (timerSecondsLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert("⏰ O TEMPO DE 30 MINUTOS EXPIROU! Seu quiz será finalizado e enviado automaticamente com as respostas marcadas.");
+                    submitQuizAuto();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timerSecondsLeft / 60);
+            const seconds = timerSecondsLeft % 60;
+            const formatted = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            const timerBox = document.getElementById("timerBox");
+            const timerCountdown = document.getElementById("timerCountdown");
+            const progressBar = document.getElementById("timerProgress");
+
+            timerCountdown.textContent = formatted;
+            const pct = (timerSecondsLeft / TOTAL_TIME_SECONDS) * 100;
+            progressBar.style.width = pct + "%";
+
+            if (timerSecondsLeft <= 300) { // Alerta nos últimos 5 minutos
+                timerBox.classList.add("warning");
+            }
+        }
+
+        // SUBMETER O QUIZ MANUALMENTE OU POR TIMEOUT
+        function handleQuizSubmit(event) {
+            event.preventDefault();
+            if (quizSubmitted) return;
+
+            // Verificar se todas foram respondidas
+            let unanswered = 0;
+            questionsData.forEach(q => {
+                const selected = document.querySelector(`input[name="question_${q.id}"]:checked`);
+                if (!selected) unanswered++;
+            });
+
+            if (unanswered > 0) {
+                const confirmSubmit = confirm(`Você ainda tem ${unanswered} questão(ões) sem resposta. Deseja finalizar o quiz mesmo assim?`);
+                if (!confirmSubmit) return;
+            }
+
+            processQuizSubmission();
+        }
+
+        function submitQuizAuto() {
+            if (quizSubmitted) return;
+            processQuizSubmission();
+        }
+
+        function processQuizSubmission() {
+            quizSubmitted = true;
+            clearInterval(timerInterval);
+
+            const endTime = new Date();
+            const elapsedSecs = Math.round((endTime - quizStartTime) / 1000);
+            const elapsedMin = Math.floor(elapsedSecs / 60);
+            const elapsedRemSec = elapsedSecs % 60;
+            const timeFormatted = `${elapsedMin} min e ${elapsedRemSec} s`;
+
+            let correctCount = 0;
+            let userAnswers = {};
+
+            questionsData.forEach(q => {
+                const selected = document.querySelector(`input[name="question_${q.id}"]:checked`);
+                const val = selected ? selected.value : "N/A";
+                userAnswers[q.id] = val;
+                if (val === q.answer) correctCount++;
+            });
+
+            const percent = Math.round((correctCount / questionsData.length) * 100);
+            const authHash = "ACU03-" + Math.random().toString(36).substring(2, 8).toUpperCase() + `-${correctCount}X10`;
+            const formattedDate = new Date().toLocaleString("pt-BR");
+
+            // Salvar no localStorage
+            const resultData = {
+                student: studentData.name,
+                email: studentData.email,
+                score: correctCount,
+                total: questionsData.length,
+                percent: percent,
+                timeSpent: timeFormatted,
+                dateTime: formattedDate,
+                authCode: authHash,
+                answers: userAnswers
+            };
+
+            try {
+                localStorage.setItem("quiz_aula03_acustica_result", JSON.stringify(resultData));
+            } catch (e) {
+                console.warn("Não foi possível salvar no localStorage:", e);
+            }
+
+            // Envio Automático para a Planilha do Google via Google Apps Script (Web App)
+            if (GOOGLE_APP_SCRIPT_URL && GOOGLE_APP_SCRIPT_URL.startsWith("http")) {
+                fetch(GOOGLE_APP_SCRIPT_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        student: studentData.name,
+                        email: studentData.email,
+                        quiz: "Quiz 2 — Aula 03 (Acústica e Óptica)",
+                        score: correctCount,
+                        total: questionsData.length,
+                        percent: percent + "%",
+                        timeSpent: timeFormatted,
+                        dateTime: formattedDate,
+                        authCode: authHash,
+                        answers: userAnswers
+                    })
+                }).then(() => {
+                    console.log("✅ Dados da tentativa gravados automaticamente na Planilha Google do Professor!");
+                }).catch(err => {
+                    console.error("⚠️ Falha de envio para a Planilha Google:", err);
+                });
+            }
+
+            // Preencher a Tela 3
+            document.getElementById("resScoreNum").textContent = correctCount;
+            document.getElementById("resPercentText").textContent = `${percent}% de Aproveitamento`;
+            document.getElementById("resStudent").textContent = studentData.name;
+            document.getElementById("resEmail").textContent = studentData.email;
+            document.getElementById("resTime").textContent = timeFormatted;
+            document.getElementById("resDate").textContent = formattedDate;
+            document.getElementById("resAuthCode").textContent = authHash;
+
+            // Texto formatado para o comprovante
+            resultSummaryText = `COMPROVANTE DE QUIZ — ACÚSTICA E ÓPTICA GEOMÉTRICA
+==================================================
+Disciplina: FSC060805 / FCA060906 — Aula 03
+Estudante: ${studentData.name}
+E-mail: ${studentData.email}
+Data/Hora: ${formattedDate}
+--------------------------------------------------
+Pontuação: ${correctCount} de 10 acertos (${percent}%)
+Tempo Decorrido: ${timeFormatted}
+Código de Validação: ${authHash}
+==================================================`;
+
+            renderReview(userAnswers);
+
+            document.getElementById("quizScreen").style.display = "none";
+            document.getElementById("resultScreen").style.display = "block";
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        // RENDERIZAR GABARITO E CORREÇÃO DETALHADA
+        function renderReview(userAnswers) {
+            const reviewContainer = document.getElementById("reviewContainer");
+            reviewContainer.innerHTML = "";
+
+            questionsData.forEach(q => {
+                const userAns = userAnswers[q.id] || "N/A";
+                const isCorrect = userAns === q.answer;
+
+                const card = document.createElement("div");
+                card.className = `review-card ${isCorrect ? 'correct' : 'incorrect'}`;
+
+                card.innerHTML = `
+                    <span class="status-badge ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Resposta Correta' : '✗ Resposta Incorreta'}
+                    </span>
+                    <div style="font-weight:700; font-size:1.05rem; margin-bottom:0.6rem; color:#fff;">${q.title}</div>
+                    <div style="font-size:0.9rem; margin-bottom:0.4rem;">
+                        <strong>Sua Resposta:</strong> <span style="color:${isCorrect ? '#4ade80' : '#fca5a5'}; font-weight:700;">${userAns}</span>
+                        ${!isCorrect ? `| <strong>Gabarito Correto:</strong> <span style="color:#4ade80; font-weight:700;">${q.answer}</span>` : ''}
+                    </div>
+                    <div class="rationale-box">
+                        <strong>📖 Justificativa Teórica:</strong> ${q.rationale}
+                    </div>
+                `;
+
+                reviewContainer.appendChild(card);
+            });
+        }
+
+        // COPIAR COMPROVANTE PARA A ÁREA DE TRANSFERÊNCIA
+        function copyComprovante() {
+            navigator.clipboard.writeText(resultSummaryText).then(() => {
+                alert("📋 Comprovante copiado com sucesso! Cole na mensagem ou envie ao professor.");
+            }).catch(err => {
+                alert("Erro ao copiar. Copie manualmente o código de validação.");
+            });
+        }
+
+        // BAIXAR COMPROVANTE EM ARQUIVO TXT
+        function downloadComprovante() {
+            const blob = new Blob([resultSummaryText], { type: "text/plain;charset=utf-8" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = `Comprovante_Quiz_Aula03_${studentData.name.replace(/\s+/g, '_')}.txt`;
+            a.click();
+        }
+    </script>
+</body>
+</html>

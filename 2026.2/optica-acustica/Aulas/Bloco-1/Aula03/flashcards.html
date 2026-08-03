@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards — Aula 03: Fenômenos Acústicos e Fontes Sonoras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: rgba(15, 23, 42, 0.85);
+            --border-card: rgba(56, 189, 248, 0.25);
+            --accent-green: #4ade80;
+            --accent-cyan: #38bdf8;
+            --accent-purple: #c084fc;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(74, 222, 128, 0.08) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateX(-2px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.75rem;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+        .progress-bar-bg {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin: 0 1rem;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 2%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .btn-ctrl {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #e2e8f0;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.6rem;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .btn-ctrl:hover {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: var(--accent-cyan);
+            color: #fff;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .flashcard {
+            perspective: 1000px;
+            height: 240px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-card);
+        }
+
+        .card-front {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8));
+            color: #f1f5f9;
+        }
+
+        .card-back {
+            background: linear-gradient(145deg, rgba(16, 42, 66, 0.95), rgba(15, 23, 42, 0.95));
+            color: #e2e8f0;
+            transform: rotateY(180deg);
+            border-color: rgba(74, 222, 128, 0.4);
+        }
+
+        .card-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.4rem;
+        }
+        .card-front .card-tag {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        .card-back .card-tag {
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .card-body {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.45;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            width: 100%;
+        }
+
+        .card-hint {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        @media (max-width: 640px) {
+            .grid-cards { grid-template-columns: 1fr; }
+            .flashcard { height: 260px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="btn-back">← Voltar para Central de Ensino</a>
+
+        <div class="header">
+            <h1>🧠 Flashcards de Estudo — Aula 03</h1>
+            <p>Fenômenos Acústicos, Fontes Sonoras (Cordas/Tubos), Ressonância e Efeito Doppler</p>
+        </div>
+
+        <div class="stats-bar">
+            <span id="counterText">60 Cartões de Estudo</span>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressFill"></div>
+            </div>
+            <span>Clique para revelar a resposta 🔄</span>
+        </div>
+
+        <div class="controls">
+            <button class="btn-ctrl" onclick="flipAll(true)">👁️ Revelar Todos</button>
+            <button class="btn-ctrl" onclick="flipAll(false)">🙈 Esconder Versos</button>
+            <button class="btn-ctrl" onclick="shuffleCards()">🔀 Embaralhar</button>
+        </div>
+
+        <div class="grid-cards" id="cardsGrid">
+            <!-- Cards 1 to 60 -->
+            <script>
+                const cardsData = [
+                    ["Qual é a natureza das ondas sonoras quanto à necessidade de um meio material para propagação?", "Elas são ondas mecânicas e, portanto, não se propagam no vácuo."],
+                    ["Como são classificadas as ondas sonoras em relação à direção de vibração quando se propagam em fluidos?", "São classificadas como ondas longitudinais."],
+                    ["Quais são as três qualidades fisiológicas que o sistema auditivo humano distingue nos sons?", "As qualidades são altura, intensidade e timbre."],
+                    ["A qual grandeza física a qualidade fisiológica 'altura' do som está diretamente relacionada?", "Está relacionada à frequência da onda sonora."],
+                    ["Como se define um som 'agudo' em termos de sua frequência característica?", "É um som que possui uma frequência elevada."],
+                    ["O que determina a 'intensidade' de uma onda sonora do ponto de vista físico?", "A amplitude da onda e a quantidade de energia transportada."],
+                    ["Qual qualidade sonora permite distinguir a mesma nota musical emitida por fontes ou instrumentos diferentes?", "O timbre sonoro."],
+                    ["Qual é a faixa de frequências convencionalmente audível pelo ouvido humano saudável?", "Entre aproximadamente $20\\text{ Hz}$ e $20.000\\text{ Hz}$."],
+                    ["Como são denominadas as ondas sonoras com frequências superiores a $20.000\\text{ Hz}$?", "São denominadas ultrassons."],
+                    ["Qual é o termo técnico para ondas sonoras com frequências inferiores a $20\\text{ Hz}$?", "São denominadas infrassons."],
+                    ["Em qual estado físico da matéria a velocidade de propagação do som é geralmente maior?", "No estado sólido."],
+                    ["Como a temperatura influencia a velocidade do som nos gases perfeitos?", "A velocidade aumenta proporcionalmente à raiz quadrada da temperatura absoluta do gás."],
+                    ["O que representa o 'número de Mach' no estudo da aerodinâmica?", "A relação entre a velocidade de um veículo e a velocidade do som no meio circundante."],
+                    ["O que caracteriza o fenômeno físico conhecido como 'barreira do som'?", "O acúmulo de ondas de pressão à frente de um corpo que se desloca na velocidade do som."],
+                    ["Qual fenômeno sonoro ocorre quando as ondas de choque de um avião supersônico atingem um observador no solo?", "Ocorre o fenômeno conhecido como estrondo sônico."],
+                    ["Qual é o intervalo de tempo da 'persistência auditiva' humana?", "O intervalo é de aproximadamente $0,1\\text{ s}$."],
+                    ["O que caracteriza o fenômeno acústico do 'reforço'?", "A chegada do som refletido em intervalo quase nulo, fortalecendo a sensação sonora direta."],
+                    ["Como se define o fenômeno da 'reverberação' em um ambiente?", "É o prolongamento do som quando o intervalo entre o som direto e o refletido é menor que $0,1\\text{ s}$."],
+                    ["Qual é a condição temporal necessária para que um ouvinte perceba distintamente o 'eco'?", "O intervalo entre a percepção do som direto e do refletido deve ser superior a $0,1\\text{ s}$."],
+                    ["Considerando $v = 340\\text{ m/s}$, qual a distância mínima de um anteparo para a ocorrência de eco no ar?", "A distância mínima deve ser de $17\\text{ metros}$."],
+                    ["Qual é a utilidade principal do dispositivo sonar em embarcações?", "Medir profundidades oceânicas e localizar objetos submersos por meio da reflexão sonora."],
+                    ["Como a frequência fundamental de uma corda vibrante se relaciona com o seu comprimento?", "A frequência é inversamente proporcional ao comprimento da corda."],
+                    ["Pressionar uma corda na metade de seu comprimento altera a frequência emitida para qual valor relativo?", "A frequência emitida torna-se o dobro da frequência original."],
+                    ["Fórmula: Velocidade ($v$) de uma onda em uma corda com tração ($T$) e densidade linear ($\mu$).", "$v = \\sqrt{\\frac{T}{\\mu}}$."],
+                    ["Como se calcula o comprimento de onda ($\lambda_1$) do som fundamental em uma corda de comprimento $L$?", "O comprimento de onda fundamental é dado por $\lambda_1 = 2L$."],
+                    ["Quais harmônicos são passíveis de formação em uma corda fixa em ambas as extremidades?", "Todos os harmônicos inteiros da série ($n = 1, 2, 3, \\dots$)."],
+                    ["O que define o fenômeno da 'ressonância' em acústica?", "A coincidência entre a frequência de excitação externa e uma frequência natural do sistema."],
+                    ["Como se determina a frequência de batimento ($f_b$) produzida por duas fontes sonoras próximas?", "Pela diferença absoluta entre as frequências das duas fontes ($f_b = |f_2 - f_1|$)."],
+                    ["Qual é a característica das extremidades de um tubo sonoro aberto em termos de ondas estacionárias?", "Apresentam ventres de deslocamento (máximos de vibração) em ambas as pontas."],
+                    ["Em um tubo sonoro fechado, o que se forma na extremidade obstruída?", "Forma-se obrigatoriamente um nó de deslocamento das moléculas de ar."],
+                    ["Quais harmônicos compõem o espectro sonoro de um tubo fechado em uma extremidade?", "Apenas os harmônicos de ordem ímpar ($1^o, 3^o, 5^o, \\dots$)."],
+                    ["O que explica o 'Efeito Doppler'?", "A mudança na frequência percebida devido ao movimento relativo entre a fonte sonora e o observador."],
+                    ["No Efeito Doppler, qual a percepção do observador quando a fonte sonora se afasta?", "O observador percebe uma frequência menor que a real (som mais grave)."],
+                    ["Por que ondas sonoras em meios fluidos não podem sofrer polarização?", "Porque a polarização é exclusiva de ondas transversais, e o som em fluidos é longitudinal."],
+                    ["O que ocorre com a frequência de uma onda sonora ao atravessar a fronteira entre dois meios?", "A frequência permanece constante, independente da mudança de meio."],
+                    ["Por que o som se propaga com maior velocidade em meios sólidos do que em gases?", "Devido à maior intensidade das forças intermoleculares e proximidade entre as partículas nos sólidos."],
+                    ["O que acontece com a amplitude de vibração de um corpo ao entrar em ressonância?", "A amplitude aumenta significativamente devido à absorção eficiente de energia da fonte."],
+                    ["Qual é a relação entre o comprimento de onda fundamental ($\lambda_1$) e o comprimento ($L$) de um tubo fechado?", "O comprimento de onda fundamental é $\lambda_1 = 4L$."],
+                    ["Como a interferência destrutiva é aplicada na 'tecnologia do silêncio'?", "O sistema emite uma onda sonora em oposição de fase ao ruído para anulá-lo."],
+                    ["O que define o timbre de uma nota musical emitida por uma fonte vibrante?", "A combinação e as intensidades relativas dos diversos harmônicos que acompanham o som fundamental."],
+                    ["Equação fundamental da ondulatória aplicada ao som.", "$v = \\lambda \\cdot f$."],
+                    ["Por que a propagação sonora é mais lenta em meios gasosos?", "Devido à necessidade de colisões casuais entre moléculas para transmitir a onda de pressão."],
+                    ["Como é denominada tecnicamente a velocidade superior a Mach 5?", "Velocidade hipersônica."],
+                    ["Qual é a característica física da embocadura de um instrumento de sopro?", "É o local onde a vibração é estimulada e sempre se forma um ventre de deslocamento."],
+                    ["Qual o impacto do aumento da temperatura na velocidade do som em fluidos?", "O aumento da temperatura eleva a agitação molecular, acelerando a propagação sonora."],
+                    ["Como se chama a flutuação periódica na intensidade sonora resultante da interferência de frequências próximas?", "Batimento."],
+                    ["Por que voos supersônicos comerciais são evitados sobre regiões habitadas?", "Para prevenir danos materiais e lesões auditivas causados pelo estrondo sônico."],
+                    ["Qual é o limite superior de frequência de batimento que o sistema auditivo humano consegue distinguir?", "Aproximadamente $7\\text{ Hz}$."],
+                    ["O que define um 'nó' em uma onda estacionária de pressão?", "É o ponto onde a variação de pressão é máxima e o deslocamento das moléculas é nulo."],
+                    ["Se a velocidade do som dobra ao mudar de meio, o que ocorre com o comprimento de onda?", "O comprimento de onda também dobra, mantendo a frequência constante."],
+                    ["Como se denomina a menor frequência natural de vibração de uma fonte sonora?", "Frequência fundamental."],
+                    ["Qual a relação entre as frequências de uma nota musical e sua oitava superior?", "A frequência da oitava superior é o dobro da frequência da nota original."],
+                    ["O que ocorre mecanicamente na extremidade fechada de uma coluna de ar vibrante?", "A superfície impede o movimento das moléculas, forçando a criação de um nó de deslocamento."],
+                    ["Quais fatores determinam as diferentes frequências das notas em um piano?", "O comprimento, a densidade e a tensão das cordas metálicas."],
+                    ["Em gases perfeitos, a velocidade do som depende da pressão do gás?", "Não, a velocidade independe da pressão e da densidade do gás sob temperatura constante."],
+                    ["Qual é a finalidade principal do uso de um diapasão na música?", "Servir como padrão de frequência conhecida para a afinação de instrumentos e vozes."],
+                    ["No Efeito Doppler, qual a percepção quando a fonte sonora se aproxima do observador?", "A frequência percebida é maior que a real, resultando em um som mais agudo."],
+                    ["Qual a função física da caixa de ressonância em instrumentos de corda?", "Amplificar a intensidade sonora ao vibrar em ressonância com as cordas."],
+                    ["O que define a ordem de um harmônico em uma corda vibrante presa nas pontas?", "O número de ventres (fuso) presentes na onda estacionária formada."],
+                    ["Por que a velocidade do som é informada acompanhada da temperatura do meio?", "Porque a temperatura altera a agitação molecular e, consequentemente, a velocidade de propagação."]
+                ];
+
+                const grid = document.getElementById('cardsGrid');
+                cardsData.forEach((card, idx) => {
+                    const el = document.createElement('div');
+                    el.className = 'flashcard';
+                    el.setAttribute('onclick', 'toggleCard(this)');
+                    el.innerHTML = `
+                        <div class="flashcard-inner">
+                            <div class="card-front">
+                                <span class="card-tag">Pergunta ${idx + 1}</span>
+                                <div class="card-body">${card[0]}</div>
+                                <div class="card-hint">Clique para virar 🔄</div>
+                            </div>
+                            <div class="card-back">
+                                <span class="card-tag">Resposta ${idx + 1}</span>
+                                <div class="card-body">${card[1]}</div>
+                                <div class="card-hint">Clique para voltar ↩️</div>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(el);
+                });
+            </script>
+        </div>
+    </div>
+
+    <script>
+        const totalCards = 60;
+
+        function toggleCard(cardElement) {
+            cardElement.classList.toggle('flipped');
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const flipped = document.querySelectorAll('.flashcard.flipped').length;
+            const fill = document.getElementById('progressFill');
+            const percent = Math.round((flipped / totalCards) * 100);
+            fill.style.width = Math.max(percent, 2) + '%';
+            document.getElementById('counterText').textContent = `${flipped} de ${totalCards} cartões explorados`;
+        }
+
+        function flipAll(state) {
+            const cards = document.querySelectorAll('.flashcard');
+            cards.forEach(c => {
+                if (state) c.classList.add('flipped');
+                else c.classList.remove('flipped');
+            });
+            updateProgress();
+        }
+
+        function shuffleCards() {
+            const grid = document.getElementById('cardsGrid');
+            const cards = Array.from(grid.children);
+            cards.sort(() => Math.random() - 0.5);
+            cards.forEach(c => grid.appendChild(c));
+        }
+    </script>
+</body>
+</html>
