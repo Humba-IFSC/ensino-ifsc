@@ -584,6 +584,7 @@
         const ACCESS_PASSWORD_HASH = "ifsc2026"; // Senha padrao
         const TOTAL_TIME_SECONDS = 30 * 60; // 30 Minutos
         const GOOGLE_APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbfPU1T8DYQ7v8j8Dc5goqZXleR4avaDsGuzUj07HwwoqiE43GRmEy4hvMgcgi_5vJ/exec";
+        const GABARITO_RELEASE_DATE = "2026-08-20T23:59:59"; // Liberação na véspera da Aula 04
 
         // DADOS DAS QUESTÕES DO QUIZ (AULA 03)
         const questionsData = [
@@ -951,13 +952,41 @@ Código de Validação: ${authHash}
             }
         }
 
+        function isGabaritoUnlocked() {
+            const now = new Date();
+            const release = new Date(GABARITO_RELEASE_DATE);
+            return now >= release;
+        }
+
         // RENDERIZAR GABARITO E CORREÇÃO DETALHADA
         function renderReview(userAnswers) {
             const reviewContainer = document.getElementById("reviewContainer");
             reviewContainer.innerHTML = "";
 
+            const unlocked = isGabaritoUnlocked();
+
+            if (!unlocked) {
+                const releaseFormatted = new Date(GABARITO_RELEASE_DATE).toLocaleString('pt-BR', { dateStyle: 'long', timeStyle: 'short' });
+                reviewContainer.innerHTML = `
+                    <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 1rem; padding: 1.8rem; text-align: center; margin-top: 1rem;">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔒</div>
+                        <h3 style="color: #fbbf24; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem;">Gabarito Comentado e Correção Detalhada Bloqueados Temporariamente</h3>
+                        <p style="color: #e2e8f0; font-size: 0.95rem; margin-bottom: 1.2rem; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                            Para garantir a integridade da avaliação entre todos os discentes durante a semana de realização do quiz, a correção questão por questão e as justificativas teóricas estarão disponíveis nesta mesma página a partir de:
+                        </p>
+                        <div style="display: inline-block; background: rgba(0,0,0,0.5); border: 1px solid #f59e0b; color: #fbbf24; padding: 0.6rem 1.4rem; border-radius: 0.6rem; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.2rem;">
+                            📅 ${releaseFormatted}
+                        </div>
+                        <p style="color: #94a3b8; font-size: 0.85rem; font-style: italic;">
+                            Sua pontuação, tempo e comprovante com o código de validação já foram salvos com sucesso.
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
             questionsData.forEach(q => {
-                const userAns = userAnswers[q.id] || "N/A";
+                const userAns = userAnswers ? userAnswers[q.id] : "N/A";
                 const isCorrect = userAns === q.answer;
 
                 const card = document.createElement("div");
