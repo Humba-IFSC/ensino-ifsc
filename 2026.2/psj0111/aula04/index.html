@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 04 · Intenções de Pesquisa (Parte I) e Diretrizes para o Seminário - PSJ0111</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --border-color: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --brand-green: #10b981;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-primary); line-height: 1.6; padding-bottom: 60px; }
+        header { background: linear-gradient(135deg, #064e3b 0%, #0f172a 70%, #1e1b4b 100%); border-bottom: 1px solid rgba(16, 185, 129, 0.3); padding: 40px 24px; }
+        .header-container { max-width: 900px; margin: 0 auto; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px; }
+        .breadcrumb a { color: #34d399; text-decoration: none; font-weight: 500; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .aula-badge { display: inline-block; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); color: #34d399; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 12px; }
+        h1 { font-family: 'Outfit', sans-serif; font-size: 2.1rem; font-weight: 800; background: linear-gradient(90deg, #34d399 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; line-height: 1.2; }
+        .meta-info { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; color: var(--text-secondary); }
+        .meta-item { display: flex; align-items: center; gap: 6px; }
+        .main-container { max-width: 900px; margin: 30px auto 0; padding: 0 24px; }
+        .section-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 24px; }
+        .section-title { font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 700; color: #34d399; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        ul, ol { padding-left: 20px; margin-bottom: 12px; }
+        li { margin-bottom: 8px; color: var(--text-primary); }
+        .alert-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid #3b82f6;
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin-top: 20px;
+            font-size: 0.92rem;
+            color: var(--text-primary);
+        }
+        .back-nav { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+        .btn-back { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: var(--radius-md); color: #34d399; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s ease; }
+        .btn-back:hover { background: rgba(16, 185, 129, 0.15); border-color: #10b981; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="breadcrumb">
+                <a href="../index.html">PSJ0111</a> / <span>Aula 04</span>
+            </div>
+            <div class="aula-badge">Aula 04 · Apresentações & Roteiro</div>
+            <h1>Intenções de Pesquisa (Parte I) e Diretrizes para o Seminário das Metodologias</h1>
+            <div class="meta-info">
+                <div class="meta-item">📅 13/08/2026 (Quinta-feira)</div>
+                <div class="meta-item">📍 IFSC Câmpus São José</div>
+                <div class="meta-item">🎓 Esp. em Educação Ambiental</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <section class="section-card">
+            <h2 class="section-title">🎯 Objetivos da Aula</h2>
+            <ul>
+                <li>Realizar a primeira rodada de apresentações das <strong>Intenções de Pesquisa</strong> dos alunos.</li>
+                <li>Apresentar as orientações completas e o roteiro detalhado para a confecção dos slides do <strong>Seminário das Metodologias da Pesquisa em Educação</strong>.</li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2 class="section-title">📋 Roteiro Orientador do Seminário das Metodologias</h2>
+            <p style="margin-bottom: 16px;">As equipes devem estruturar seus slides e apresentações abordando os seguintes itens obrigatórios:</p>
+            <ol>
+                <li><strong>Definições Teóricas:</strong> Conceituação fundamentada nos autores clássicos e contemporâneos de referência na metodologia.</li>
+                <li><strong>Procedimentos Operacionais:</strong> Etapas sistemáticas no tratamento, coleta e análise dos dados.</li>
+                <li><strong>Cuidados do Pesquisador:</strong> Recomendações e atenções éticas/metodológicas específicas ao aplicar o método.</li>
+                <li><strong>Potencial de Análise:</strong> O que o método permite investigar e quais os limites de suas conclusões.</li>
+                <li><strong>Estudo de Caso Prático / Tese da CAPES:</strong> Seleção de uma pesquisa exemplar no <a href="https://catalogodeteses.capes.gov.br/" target="_blank" style="color:#34d399;">Banco de Teses da CAPES</a> aplicando as técnicas de busca acadêmica.</li>
+                <li><strong>Mobilização no TCC:</strong> Descrição de como a metodologia pode ser aplicada no projeto de pesquisa individual dos acadêmicos.</li>
+                <li><strong>Outras Aplicações:</strong> Lista de problemas de pesquisa relevantes para os quais a metodologia se aplica.</li>
+                <li><strong>Referências Bibliográficas:</strong> Indicação das fontes utilizadas e leituras sugeridas para aprofundamento.</li>
+            </ol>
+
+            <div class="alert-box">
+                <strong>📌 Postagem de Materiais:</strong> Os slides devem ser postados no ambiente SIGAA ao término dos trabalhos, preferencialmente em formato editável (PPTX/ODP), para compor a biblioteca de metodologias da turma.
+            </div>
+        </section>
+
+        <div class="back-nav">
+            <a href="../aula03/index.html" class="btn-back">← Aula Anterior</a>
+            <a href="../index.html" class="btn-back">Página Principal</a>
+            <a href="../aula05/index.html" class="btn-back">Próxima: Aula 05 →</a>
+        </div>
+
+    </main>
+
+</body>
+</html>
