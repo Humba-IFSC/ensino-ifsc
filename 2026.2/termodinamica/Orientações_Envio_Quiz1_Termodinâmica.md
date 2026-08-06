@@ -58,6 +58,40 @@ Este documento estabelece as orientações oficiais para a realização do **Qui
 
 ---
 
+## ☁️ 4. Integração via Google Apps Script (Coleta Automática)
+
+O envio das respostas é realizado de forma **100% automática** para uma planilha no Google Drive através do Google Apps Script.
+
+### 📄 Arquivos e Links de Referência
+- **URL Ativa do Web App (Apps Script)**: [`https://script.google.com/macros/s/AKfycbwM6yxL2FsK9oLUX9BXjJ_wDSQcwhfVwoKCL8gdoi2A1xduiMh8CPoA7gw-Hk80C4v7/exec`](https://script.google.com/macros/s/AKfycbwM6yxL2FsK9oLUX9BXjJ_wDSQcwhfVwoKCL8gdoi2A1xduiMh8CPoA7gw-Hk80C4v7/exec)
+- **Código do Script no Repositório**: [`google_apps_script.js`](file:///media/humba/Projetos/Meus_Projetos/ensino-ifsc/2026.2/termodinamica/google_apps_script.js)
+- **Planilha Modelo de Referência**: [Ver Modelo do Magnetismo](https://docs.google.com/spreadsheets/d/14VC4MJJw3Jo23ZU2eBN4egKu1wnQqr6mJ-wAZvXC26g/edit?usp=sharing)
+
+### 🛠️ Passo a Passo de Implantação
+1. Acesse [script.google.com](https://script.google.com) e crie um **Novo projeto** nomeado `Termodinâmica - Receptor de Quizzes`.
+2. Copie o conteúdo de [`google_apps_script.js`](file:///media/humba/Projetos/Meus_Projetos/ensino-ifsc/2026.2/termodinamica/google_apps_script.js) e cole no editor.
+3. (Opcional) Cole o ID da pasta do Google Drive em `DRIVE_FOLDER_ID`.
+4. Clique em **Implantar** > **Nova implantação** > tipo **App da Web**:
+   - **Executar como**: `Eu`
+   - **Quem pode acessar**: `Qualquer pessoa`
+5. Copie a URL do Web App gerada e cole na variável `GOOGLE_APP_SCRIPT_URL` no arquivo `quiz.html` de Termodinâmica.
+
+### 📊 Colunas Coletadas na Planilha
+1. `Timestamp / Data e Hora`
+2. `Nome do Aluno`
+3. `E-mail`
+4. `Turma / UC (FSC060806 / FCA060903)`
+5. `Quiz`
+6. `Acertos`
+7. `Total`
+8. `Aproveitamento (%)`
+9. `Tempo Gasto`
+10. `Código Hash de Autenticação`
+11. `Q1` a `Q10` (Alternativas marcadas)
+
+---
+
 ## 👨‍🏫 Responsável Didático
 - **Professor:** Prof. Dr. Humberto Luz Oliveira
 - **Instituição:** Instituto Federal de Santa Catarina — Câmpus São José
+
