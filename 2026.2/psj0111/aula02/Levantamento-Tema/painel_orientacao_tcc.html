@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-main: #0f172a;
@@ -187,10 +190,25 @@
             flex-shrink: 0;
         }
 
-        .stat-icon.green { background: rgba(16, 185, 129, 0.15); color: #34d399; }
-        .stat-icon.indigo { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
-        .stat-icon.amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
-        .stat-icon.purple { background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+        .stat-icon.green {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+        }
+
+        .stat-icon.indigo {
+            background: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
+        }
+
+        .stat-icon.amber {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+        }
+
+        .stat-icon.purple {
+            background: rgba(139, 92, 246, 0.15);
+            color: #a78bfa;
+        }
 
         .stat-info .value {
             font-family: 'Outfit', sans-serif;
@@ -649,18 +667,31 @@
                 background: #fff;
                 color: #000;
             }
-            header, .filter-bar, .nav-tabs, .btn-detail, .modal-close, .lock-overlay {
+
+            header,
+            .filter-bar,
+            .nav-tabs,
+            .btn-detail,
+            .modal-close,
+            .lock-overlay {
                 display: none !important;
             }
-            .student-card, .gtm-card, .stat-card {
+
+            .student-card,
+            .gtm-card,
+            .stat-card {
                 border: 1px solid #ccc !important;
                 background: #fff !important;
                 color: #000 !important;
                 break-inside: avoid;
             }
-            .student-name, .modal-title, .gtm-title {
+
+            .student-name,
+            .modal-title,
+            .gtm-title {
                 color: #000 !important;
             }
+
             .badge {
                 border: 1px solid #000 !important;
                 color: #000 !important;
@@ -786,12 +817,25 @@
         }
 
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-8px); }
-            40%, 80% { transform: translateX(8px); }
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20%,
+            60% {
+                transform: translateX(-8px);
+            }
+
+            40%,
+            80% {
+                transform: translateX(8px);
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Tela de Bloqueio por Senha (Lock Screen) -->
@@ -802,7 +846,8 @@
             <div class="lock-subtitle">Digite a senha pedagógica para acessar o painel de orientação de TCC:</div>
             <form onsubmit="checkPassword(event)">
                 <div class="lock-input-group">
-                    <input type="password" id="passwordInput" class="lock-input" placeholder="Digite a senha..." autofocus autocomplete="off">
+                    <input type="password" id="passwordInput" class="lock-input" placeholder="Digite a senha..."
+                        autofocus autocomplete="off">
                     <button type="submit" class="lock-btn">Entrar no Painel</button>
                 </div>
                 <div class="lock-error" id="lockError">⚠️ Senha incorreta. Tente novamente.</div>
@@ -815,7 +860,12 @@
         <div class="header-container">
             <div class="header-title">
                 <div class="institution-tag">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 14l9-5-9-5-9 5 9 5z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                    </svg>
                     IFSC Câmpus São José — Pós-Graduação em Educação Ambiental
                 </div>
                 <h1>Painel de Orientação Metodológica (TCC)</h1>
@@ -823,7 +873,10 @@
             </div>
             <div class="header-actions">
                 <button class="btn btn-outline" onclick="window.print()">
-                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                    </svg>
                     Imprimir / Exportar PDF
                 </button>
             </div>
@@ -877,8 +930,12 @@
             <!-- Barra de Filtros -->
             <div class="filter-bar">
                 <div class="search-box">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    <input type="text" id="searchInput" placeholder="Buscar por nome de aluno, tema ou palavra-chave..." oninput="filterStudents()">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Buscar por nome de aluno, tema ou palavra-chave..."
+                        oninput="filterStudents()">
                 </div>
                 <select class="filter-select" id="maturityFilter" onchange="filterStudents()">
                     <option value="all">Todas as Maturidades</option>
@@ -908,12 +965,16 @@
                         <div class="gtm-num">1</div>
                         <div class="gtm-title">GTM 1: Metodologias Ativas e Produtos Didáticos</div>
                     </div>
-                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">Foco no desenvolvimento e validação de produtos educacionais (jogos, sequências didáticas) aplicáveis em escolas.</p>
+                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">Foco no
+                        desenvolvimento e validação de produtos educacionais (jogos, sequências didáticas) aplicáveis em
+                        escolas.</p>
                     <ul class="gtm-members">
                         <li><span>Marcio Alexandre Botti</span> <span class="badge badge-alta">Pré-Projeto</span></li>
                         <li><span>Nataly Meurer</span> <span class="badge badge-embrionario">Embrionário</span></li>
-                        <li><span>Edecio João Porto Jr.</span> <span class="badge badge-embrionario">Embrionário</span></li>
-                        <li><span>Elaine Cristina Dal Pont</span> <span class="badge badge-embrionario">Embrionário</span></li>
+                        <li><span>Edecio João Porto Jr.</span> <span class="badge badge-embrionario">Embrionário</span>
+                        </li>
+                        <li><span>Elaine Cristina Dal Pont</span> <span
+                                class="badge badge-embrionario">Embrionário</span></li>
                     </ul>
                 </div>
 
@@ -922,11 +983,14 @@
                         <div class="gtm-num">2</div>
                         <div class="gtm-title">GTM 2: EA Crítica, Resíduos e Espaços Físicos</div>
                     </div>
-                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">Foco na análise da sustentabilidade em estruturas, gestão de resíduos e espaços físicos de escolas ou órgãos públicos.</p>
+                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">Foco na análise da
+                        sustentabilidade em estruturas, gestão de resíduos e espaços físicos de escolas ou órgãos
+                        públicos.</p>
                     <ul class="gtm-members">
                         <li><span>Andre Barbosa da Silva</span> <span class="badge badge-alta">Pré-Projeto</span></li>
                         <li><span>Fabio Luiz Zandonai</span> <span class="badge badge-alta">Pré-Projeto</span></li>
-                        <li><span>Silvana Rodrigues Seara</span> <span class="badge badge-embrionario">Embrionário</span></li>
+                        <li><span>Silvana Rodrigues Seara</span> <span
+                                class="badge badge-embrionario">Embrionário</span></li>
                     </ul>
                 </div>
 
@@ -935,11 +999,15 @@
                         <div class="gtm-num">3</div>
                         <div class="gtm-title">GTM 3: ERRD, Infância e Território</div>
                     </div>
-                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">Foco na relação entre infâncias, percepção socioambiental do território e Educação para Redução de Riscos e Desastres.</p>
+                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">Foco na relação
+                        entre infâncias, percepção socioambiental do território e Educação para Redução de Riscos e
+                        Desastres.</p>
                     <ul class="gtm-members">
                         <li><span>Ligia Wherli Siqueira</span> <span class="badge badge-alta">Pré-Projeto</span></li>
-                        <li><span>Marina Luiza Borges Costa</span> <span class="badge badge-alta">Pré-Projeto</span></li>
-                        <li><span>Elisa Duarte Macedo</span> <span class="badge badge-embrionario">Embrionário</span></li>
+                        <li><span>Marina Luiza Borges Costa</span> <span class="badge badge-alta">Pré-Projeto</span>
+                        </li>
+                        <li><span>Elisa Duarte Macedo</span> <span class="badge badge-embrionario">Embrionário</span>
+                        </li>
                     </ul>
                 </div>
 
@@ -948,11 +1016,14 @@
                         <div class="gtm-num">4</div>
                         <div class="gtm-title">GTM 4: Formação de Educadores, Políticas e Cultura</div>
                     </div>
-                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">Foco na avaliação de cursos institucionais de formação em EA, documentos oficiais e aspectos culturais locais.</p>
+                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">Foco na avaliação
+                        de cursos institucionais de formação em EA, documentos oficiais e aspectos culturais locais.</p>
                     <ul class="gtm-members">
-                        <li><span>Franciane Prazeres</span> <span class="badge badge-embrionario">Embrionário</span></li>
+                        <li><span>Franciane Prazeres</span> <span class="badge badge-embrionario">Embrionário</span>
+                        </li>
                         <li><span>Dinah Guimarães</span> <span class="badge badge-embrionario">Embrionário</span></li>
-                        <li><span>Elisa Duarte Macedo</span> <span class="badge badge-embrionario">Embrionário</span></li>
+                        <li><span>Elisa Duarte Macedo</span> <span class="badge badge-embrionario">Embrionário</span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -965,8 +1036,10 @@
                     <div class="workshop-step">OFICINA 1</div>
                     <div class="workshop-content">
                         <h3>Do Incômodo à Pergunta de Pesquisa (Delimitação & Estado da Arte)</h3>
-                        <p>Exercício pedagógico para transformar inquietações gerais em perguntas de pesquisa reflexivas. Prática de busca em repositórios científicos (SciELO, Capes, BDTD).</p>
-                        <div class="workshop-participants">Público Prioritário: Alunos no Estágio de Acolhimento (Nataly, Franciane, Elisa, Edecio, Elaine, Dinah, Silvana)</div>
+                        <p>Exercício pedagógico para transformar inquietações gerais em perguntas de pesquisa
+                            reflexivas. Prática de busca em repositórios científicos (SciELO, Capes, BDTD).</p>
+                        <div class="workshop-participants">Público Prioritário: Alunos no Estágio de Acolhimento
+                            (Nataly, Franciane, Elisa, Edecio, Elaine, Dinah, Silvana)</div>
                     </div>
                 </div>
 
@@ -974,8 +1047,10 @@
                     <div class="workshop-step">OFICINA 2</div>
                     <div class="workshop-content">
                         <h3>Pesquisa-Ação e Produtos Educacionais na Escola</h3>
-                        <p>Como desenhar intervenções pedagógicas (Sequências Didáticas, Jogos) e coletar evidências científicas rigorosas de aprendizado significativo.</p>
-                        <div class="workshop-participants">Público Prioritário: GTM 1 e GTM 3 (Marcio, Nataly, Edecio, Elaine, Ligia)</div>
+                        <p>Como desenhar intervenções pedagógicas (Sequências Didáticas, Jogos) e coletar evidências
+                            científicas rigorosas de aprendizado significativo.</p>
+                        <div class="workshop-participants">Público Prioritário: GTM 1 e GTM 3 (Marcio, Nataly, Edecio,
+                            Elaine, Ligia)</div>
                     </div>
                 </div>
 
@@ -983,8 +1058,10 @@
                     <div class="workshop-step">OFICINA 3</div>
                     <div class="workshop-content">
                         <h3>Instrumentos de Coleta no Campo e Triangulação de Dados</h3>
-                        <p>Construção de roteiros de entrevista, questionários sem viés indutor, observação com diário de campo e aspectos éticos (TCLE).</p>
-                        <div class="workshop-participants">Público Prioritário: GTM 2, 3 e 4 (Andre, Fabio, Franciane, Marina, Silvana, Ligia)</div>
+                        <p>Construção de roteiros de entrevista, questionários sem viés indutor, observação com diário
+                            de campo e aspectos éticos (TCLE).</p>
+                        <div class="workshop-participants">Público Prioritário: GTM 2, 3 e 4 (Andre, Fabio, Franciane,
+                            Marina, Silvana, Ligia)</div>
                     </div>
                 </div>
 
@@ -992,8 +1069,10 @@
                     <div class="workshop-step">OFICINA 4</div>
                     <div class="workshop-content">
                         <h3>Redação Rigorosa do Anteprojeto e ABNT</h3>
-                        <p>Estruturação dos capítulos de Introdução, Objetivos, Referencial Teórico e Metodologia conforme normas ABNT para aprovação no Seminário de TCC.</p>
-                        <div class="workshop-participants">Público Prioritário: Todos os 12 estudantes da especialização</div>
+                        <p>Estruturação dos capítulos de Introdução, Objetivos, Referencial Teórico e Metodologia
+                            conforme normas ABNT para aprovação no Seminário de TCC.</p>
+                        <div class="workshop-participants">Público Prioritário: Todos os 12 estudantes da especialização
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1021,15 +1100,18 @@
                 <div id="modalProblema" style="font-size: 0.92rem; color: var(--text-secondary);"></div>
             </div>
 
-            <div class="modal-block" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">
+            <div class="modal-block"
+                style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">
                 <div class="modal-block-title" style="color: #34d399;">🛠️ Recomendação Metodológica Recomendada</div>
-                <div id="modalMetodologia" style="font-size: 1rem; font-weight: 700; color: #f8fafc; margin-bottom: 6px;"></div>
+                <div id="modalMetodologia"
+                    style="font-size: 1rem; font-weight: 700; color: #f8fafc; margin-bottom: 6px;"></div>
                 <div id="modalOrientacao" style="font-size: 0.9rem; color: var(--text-secondary);"></div>
             </div>
 
             <div class="modal-block">
                 <div class="modal-block-title">📊 Instrumentos de Coleta & Referenciais Sugeridos</div>
-                <div id="modalInstrumentos" style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 6px;"></div>
+                <div id="modalInstrumentos"
+                    style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 6px;"></div>
                 <div id="modalReferencias" style="font-size: 0.85rem; color: #818cf8; font-weight: 600;"></div>
             </div>
         </div>
@@ -1295,9 +1377,9 @@
             const gtmFilter = document.getElementById('gtmFilter').value;
 
             const filtered = studentsData.filter(s => {
-                const matchSearch = s.nome.toLowerCase().includes(search) || 
-                                    s.tema.toLowerCase().includes(search) ||
-                                    s.inquietaçao.toLowerCase().includes(search);
+                const matchSearch = s.nome.toLowerCase().includes(search) ||
+                    s.tema.toLowerCase().includes(search) ||
+                    s.inquietaçao.toLowerCase().includes(search);
                 const matchMat = matFilter === 'all' || s.maturidade === matFilter;
                 const matchGtm = gtmFilter === 'all' || s.gtm === gtmFilter || s.gtm.includes(gtmFilter);
 
@@ -1381,4 +1463,5 @@
         });
     </script>
 </body>
+
 </html>
