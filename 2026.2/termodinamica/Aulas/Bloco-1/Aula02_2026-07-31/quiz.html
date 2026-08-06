@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 1 (Avaliativo) — Aula 02: Calorimetria Sensível (2026.2)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: rgba(15, 23, 42, 0.85);
+            --border-card: rgba(6, 182, 212, 0.25);
+            --accent-green: #4ade80;
+            --accent-cyan: #06b6d4;
+            --accent-red: #fca5a5;
+            --accent-yellow: #fcd34d;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateX(-2px);
+        }
+
+        /* --- SCREEN 1: LOGIN & RULES --- */
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-header h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .login-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .notice-box {
+            background: rgba(6, 182, 212, 0.08);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 0.9rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 0.92rem;
+        }
+        .notice-box h3 {
+            color: #67e8f9;
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .notice-box ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .notice-box li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: #e2e8f0;
+        }
+        .notice-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #06b6d4;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+        }
+        .form-control {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 0.6rem;
+            padding: 0.8rem 1rem;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .form-control:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+        }
+
+        .btn-start {
+            width: 100%;
+            background: linear-gradient(135deg, #0891b2, #059669);
+            color: #fff;
+            border: none;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            font-size: 1.05rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+        }
+        .btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(6, 182, 212, 0.4);
+        }
+
+        /* --- SCREEN 2: QUIZ ACTIVE --- */
+        #quizScreen { display: none; }
+
+        .sticky-timer-bar {
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .student-info-badge {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        .student-name { font-weight: 700; font-size: 0.95rem; color: #f1f5f9; }
+        .student-email { font-size: 0.8rem; color: var(--text-secondary); }
+
+        .timer-display {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.3rem;
+            font-weight: 800;
+            font-family: monospace;
+            color: var(--accent-cyan);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0.5rem 1rem;
+            border-radius: 0.6rem;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+        .timer-display.warning {
+            color: #ef4444;
+            border-color: #ef4444;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .timer-progress-bg {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+            width: 100%;
+        }
+        .timer-progress-fill {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            transition: width 1s linear;
+        }
+
+        .question-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1rem;
+            padding: 1.75rem;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .question-number {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .question-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            color: #f8fafc;
+        }
+
+        .question-hint {
+            background: rgba(252, 211, 77, 0.1);
+            border-left: 3px solid var(--accent-yellow);
+            padding: 0.6rem 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            font-size: 0.85rem;
+            color: #fde68a;
+            margin-bottom: 1.25rem;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.6rem;
+            padding: 0.9rem 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            line-height: 1.4;
+        }
+        .option-label:hover {
+            background: rgba(6, 182, 212, 0.08);
+            border-color: rgba(6, 182, 212, 0.3);
+            color: #fff;
+        }
+
+        .option-label input[type="radio"] {
+            margin-top: 0.2rem;
+            accent-color: var(--accent-cyan);
+            width: 18px;
+            height: 18px;
+        }
+
+        .btn-submit-quiz {
+            width: 100%;
+            background: linear-gradient(135deg, #0891b2, #059669);
+            color: #fff;
+            border: none;
+            border-radius: 0.8rem;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 10px 25px rgba(8, 145, 178, 0.4);
+            margin-top: 1rem;
+            margin-bottom: 3rem;
+        }
+        .btn-submit-quiz:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(8, 145, 178, 0.5);
+        }
+
+        /* --- SCREEN 3: RESULTS --- */
+        #resultScreen { display: none; }
+
+        .result-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .result-score-badge {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, rgba(15, 23, 42, 0.9) 70%);
+            border: 3px solid var(--accent-cyan);
+            margin: 1.5rem 0;
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
+        }
+        .score-number { font-size: 2.4rem; font-weight: 900; color: #fff; line-height: 1; }
+        .score-total { font-size: 0.9rem; color: var(--text-secondary); font-weight: 600; }
+
+        .result-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        .meta-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.75rem;
+            padding: 1rem;
+        }
+        .meta-label { font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; }
+        .meta-value { font-size: 1rem; font-weight: 700; color: #fff; margin-top: 0.25rem; }
+
+        .sync-badge-box {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            color: #6ee7b7;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+
+        .review-section {
+            margin-top: 3rem;
+        }
+        .review-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #f1f5f9;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .review-card.correct { border-left: 4px solid var(--accent-green); }
+        .review-card.incorrect { border-left: 4px solid #ef4444; }
+
+        .rationale-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 0.5rem;
+            padding: 0.8rem 1rem;
+            margin-top: 1rem;
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+        .status-badge.correct { background: rgba(74, 222, 128, 0.15); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.3); }
+        .status-badge.incorrect { background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); }
+
+        .gabarito-locked-box {
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px dashed rgba(245, 158, 11, 0.4);
+            border-radius: 0.9rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            color: #fde68a;
+            font-size: 0.92rem;
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            .login-card { padding: 1.5rem; }
+            .sticky-timer-bar { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+            .timer-display { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../../FSC060806/index.html" class="btn-back">← Voltar ao Dashboard da Disciplina</a>
+
+        <!-- ════════ SCREEN 1: LOGIN & RULES ════════ -->
+        <div id="loginScreen" class="login-card">
+            <div class="login-header">
+                <h1>📝 Quiz 1 (Avaliativo) — Calorimetria Sensível</h1>
+                <p>Termologia e Termodinâmica (2026.2) — Prof. Dr. Humberto Luz Oliveira</p>
+            </div>
+
+            <div class="notice-box">
+                <h3>⚠️ Instruções para Realização do Quiz:</h3>
+                <ul>
+                    <li><strong>Janela de Abertura:</strong> Aberto de <strong>06/08/2026 (Quinta)</strong> até <strong>09/08/2026 (Domingo às 23:59)</strong>.</li>
+                    <li>Você terá <strong>30 minutos contínuos</strong> para responder a 10 questões de múltipla escolha.</li>
+                    <li>Ao clicar em <strong>"Iniciar Quiz"</strong>, o cronômetro no topo da página será ativado imediatamente.</li>
+                    <li>Preencha seu <strong>Nome Completo</strong>, <strong>E-mail Institucional</strong> e escolha sua <strong>Turma</strong>.</li>
+                    <li>☁️ <strong>Envio Automático:</strong> Ao clicar em "Finalizar Quiz", seu resultado será gravado automaticamente na planilha do professor no Google Drive.</li>
+                    <li>🔒 <strong>Liberacao do Gabarito:</strong> O gabarito comentado estará disponível para consulta nesta página após 09/08 às 23:59.</li>
+                </ul>
+            </div>
+
+            <form id="startForm" onsubmit="handleStartQuiz(event)">
+                <div class="form-group">
+                    <label for="studentCourse">🏫 Sua Turma / Unidade Curricular:</label>
+                    <select id="studentCourse" class="form-control" style="background:#0f172a; color:#fff;" required>
+                        <option value="">Selecione sua turma...</option>
+                        <option value="FSC060806">FSC060806 — Técnico em Telecomunicações (Sextas 13:30–15:20)</option>
+                        <option value="FCA060903">FCA060903 — Técnico em Refrigeração e Ar Condicionado (Sextas 07:30–09:20)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="studentName">👤 Nome Completo do Aluno(a):</label>
+                    <input type="text" id="studentName" class="form-control" placeholder="Ex: Maria Eduarda Santos" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentEmail">✉️ E-mail do Aluno(a):</label>
+                    <input type="email" id="studentEmail" class="form-control" placeholder="Ex: maria.santos@aluno.ifsc.edu.br" required>
+                </div>
+                <div class="form-group">
+                    <label for="quizPassword">🔑 Senha de Acesso:</label>
+                    <input type="password" id="quizPassword" class="form-control" placeholder="Digite a senha liberada pelo professor" required>
+                </div>
+                <button type="submit" class="btn-start">
+                    🚀 Iniciar Quiz e Ativar Cronômetro (30 min)
+                </button>
+            </form>
+        </div>
+
+        <!-- ════════ SCREEN 2: QUIZ ACTIVE ════════ -->
+        <div id="quizScreen">
+            <div class="sticky-timer-bar" id="timerBox">
+                <div class="student-info-badge">
+                    <span class="student-name" id="dispStudentName">Aluno</span>
+                    <span class="student-email" id="dispStudentEmail">email@ifsc.edu.br</span>
+                </div>
+                <div>
+                    <div class="timer-display">
+                        ⏱️ <span id="timerCountdown">30:00</span>
+                    </div>
+                    <div class="timer-progress-bg">
+                        <div class="timer-progress-fill" id="timerProgress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="quizForm" onsubmit="handleQuizSubmit(event)">
+                <div id="questionsContainer"></div>
+                <button type="submit" class="btn-submit-quiz">
+                    ✅ Finalizar Quiz e Registrar Resultado
+                </button>
+            </form>
+        </div>
+
+        <!-- ════════ SCREEN 3: RESULTS & REVIEW ════════ -->
+        <div id="resultScreen">
+            <div class="result-card">
+                <h2 style="font-size:1.8rem; font-weight:800; color:#fff;">🎉 Quiz Finalizado com Sucesso!</h2>
+                <p style="color:var(--text-secondary); margin-top:0.3rem;">Sua participação foi computada automaticamente.</p>
+
+                <div class="result-score-badge">
+                    <div class="score-number"><span id="resScoreNum">0</span>/10</div>
+                    <div class="score-total" id="resPercentText">0% de Aproveitamento</div>
+                </div>
+
+                <div class="sync-badge-box">
+                    ☁️ <strong>Resultado Gravado:</strong> Suas respostas e nota foram enviadas automaticamente para a planilha docente no Google Drive!
+                </div>
+
+                <div class="result-meta-grid">
+                    <div class="meta-item">
+                        <div class="meta-label">Estudante</div>
+                        <div class="meta-value" id="resStudent">-</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Turma</div>
+                        <div class="meta-value" id="resCourse">-</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">E-mail</div>
+                        <div class="meta-value" id="resEmail">-</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Tempo Utilizado</div>
+                        <div class="meta-value" id="resTime">-</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Data e Hora</div>
+                        <div class="meta-value" id="resDate">-</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Código de Autenticação</div>
+                        <div class="meta-value" id="resAuthCode" style="font-family:monospace; color:#06b6d4;">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-section" id="reviewSection">
+                <h3 class="review-title">📖 Correção Detalhada e Gabarito Comentado</h3>
+                <div id="reviewContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // WEBHOOK DO GOOGLE APPS SCRIPT (MESMO ENDPOINT UTILIZADO NOS CURSOS DE MAGNETISMO E ACÚSTICA)
+        const GOOGLE_APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbfPU1T8DYQ7v8j8Dc5goqZXleR4avaDsGuzUj07HwwoqiE43GRmEy4hvMgcgi_5vJ/exec";
+        const ACCESS_PASSWORD_HASH = "termo2026B1";
+        const TOTAL_TIME_SECONDS = 30 * 60; // 30 Minutos
+        
+        // DATA DE LIBERAÇÃO DO GABARITO (Domingo, 09/08/2026 às 23:59:59)
+        const GABARITO_RELEASE_DATE = new Date("2026-08-09T23:59:59");
+
+        // DADOS DAS QUESTÕES DO QUIZ 1 (CALORIMETRIA SENSÍVEL)
+        const questionsData = [
+            {
+                id: 1,
+                title: "1. De acordo com o material fornecido, como se define corretamente o conceito de calor?",
+                hint: "Considere se o calor é algo que um corpo 'possui' ou algo que 'flui' entre corpos devido à diferença de temperatura.",
+                options: [
+                    { letter: "A", text: "É a energia térmica em trânsito entre corpos com diferentes temperaturas." },
+                    { letter: "B", text: "É uma medida da agitação molecular média das partículas de um corpo." },
+                    { letter: "C", text: "É o estado em que dois corpos atingem a mesma temperatura final." },
+                    { letter: "D", text: "É a energia térmica total armazenada em um corpo em repouso." }
+                ],
+                answer: "A",
+                rationale: "O calor é caracterizado como energia térmica em transferência motivada exclusivamente pela diferença de temperatura entre dois sistemas."
+            },
+            {
+                id: 2,
+                title: "2. Qual é a relação numérica aproximada entre a caloria (cal) e o joule (J), estabelecida historicamente pelas experiências de Joule?",
+                hint: "Lembre-se do valor específico para a conversão de unidades de energia térmica para mecânica.",
+                options: [
+                    { letter: "A", text: "1 cal ≈ 4,186 J" },
+                    { letter: "B", text: "1 cal ≈ 9,8 J" },
+                    { letter: "C", text: "1 cal ≈ 0,24 J" },
+                    { letter: "D", text: "1 cal ≈ 1.000 J" }
+                ],
+                answer: "A",
+                rationale: "A experiência de Joule determinou que são necessários aproximadamente 4,186 joules de trabalho mecânico para gerar 1 caloria."
+            },
+            {
+                id: 3,
+                title: "3. Diferencie calor sensível de calor latente com base nos efeitos produzidos em um corpo.",
+                hint: "Pense no que acontece com a leitura de um termômetro durante o aquecimento versus durante a fusão.",
+                options: [
+                    { letter: "A", text: "O calor sensível altera a temperatura do corpo, enquanto o calor latente provoca mudança de estado físico sem alterar a temperatura." },
+                    { letter: "B", text: "O calor sensível provoca mudança de estado físico, enquanto o calor latente altera a temperatura." },
+                    { letter: "C", text: "Ambos provocam obrigatoriamente a variação de temperatura e a mudança de estado simultaneamente." },
+                    { letter: "D", text: "O calor sensível depende apenas da massa, enquanto o calor latente depende apenas do material." }
+                ],
+                answer: "A",
+                rationale: "O calor sensível altera a temperatura (Q = m · c · ΔT), enquanto o calor latente reorganiza as ligações moleculares durante transições de fase sem alterar a temperatura."
+            },
+            {
+                id: 4,
+                title: "4. Um bloco de ferro de massa 500 g recebe calor e sua temperatura se eleva em 20 °C. Sabendo que c_ferro = 0,11 cal/g·°C, qual foi a quantidade de calor recebida?",
+                hint: "Utilize a equação fundamental da calorimetria: Q = m · c · ΔT.",
+                options: [
+                    { letter: "A", text: "110 cal" },
+                    { letter: "B", text: "1.100 cal" },
+                    { letter: "C", text: "2.200 cal" },
+                    { letter: "D", text: "5.500 cal" }
+                ],
+                answer: "B",
+                rationale: "Aplicando Q = m · c · ΔT = 500 · 0,11 · 20, temos Q = 1.100 cal."
+            },
+            {
+                id: 5,
+                title: "5. Qual é a relação correta entre a capacidade térmica (C) de um corpo e o calor específico (c) da substância que o constitui?",
+                hint: "Lembre-se de que a capacidade térmica depende da quantidade total de massa no objeto.",
+                options: [
+                    { letter: "A", text: "C = m · c" },
+                    { letter: "B", text: "C = c / m" },
+                    { letter: "C", text: "C = m / c" },
+                    { letter: "D", text: "C = c · ΔT" }
+                ],
+                answer: "A",
+                rationale: "A capacidade térmica é uma propriedade extensiva do corpo dada pelo produto da massa pelo calor específico (C = m · c)."
+            },
+            {
+                id: 6,
+                title: "6. Em um sistema termicamente isolado contendo dois corpos (A e B) que trocam calor apenas entre si, qual princípio rege essa interação?",
+                hint: "Pense na conservação de energia: o calor cedido por um corpo deve ser absorvido pelo outro.",
+                options: [
+                    { letter: "A", text: "Q_A = Q_B" },
+                    { letter: "B", text: "A temperatura final será sempre a média aritmética das temperaturas iniciais." },
+                    { letter: "C", text: "Q_A + Q_B = 0" },
+                    { letter: "D", text: "O corpo de maior massa sempre dita a temperatura final do sistema." }
+                ],
+                answer: "C",
+                rationale: "Pelo princípio da conservação da energia em sistema isolado, a soma algébrica das trocas térmicas é nula: Q_cedido + Q_recebido = 0 (ou Q_A + Q_B = 0)."
+            },
+            {
+                id: 7,
+                title: "7. Por que as fagulhas de um esmeril, apesar de estarem em altíssima temperatura, não causam queimaduras graves na pele do operador?",
+                hint: "Considere a massa reduzida da fagulha e a quantidade total de calor contida nela.",
+                options: [
+                    { letter: "A", text: "Porque o calor sensível se transforma instantaneamente em calor latente." },
+                    { letter: "B", text: "Porque o calor específico do metal da fagulha é extremamente alto." },
+                    { letter: "C", text: "Porque a temperatura da fagulha cai a zero ao tocar o ar." },
+                    { letter: "D", text: "Porque as fagulhas possuem baixa capacidade térmica devido à sua massa ínfima." }
+                ],
+                answer: "D",
+                rationale: "Como a massa da fagulha é insignificante, sua capacidade térmica C = m · c é baixíssima; logo, a energia térmica cedida à pele antes do equilíbrio é insuficiente para provocar lesão grave."
+            },
+            {
+                id: 8,
+                title: "8. Um calorímetro ideal é definido como um dispositivo que:",
+                hint: "Foque no comportamento de isolamento térmico em relação ao ambiente externo.",
+                options: [
+                    { letter: "A", text: "Possui capacidade térmica infinita para absorver qualquer quantidade de energia." },
+                    { letter: "B", text: "Não permite trocas de calor entre os corpos em seu interior e o meio externo." },
+                    { letter: "C", text: "Transforma automaticamente todo calor sensível em calor latente." },
+                    { letter: "D", text: "Mantém a temperatura interna sempre constante." }
+                ],
+                answer: "B",
+                rationale: "A função de um calorímetro ideal é isolar perfeitamente o sistema para que o calor trocado ocorra exclusivamente entre os corpos contidos nele."
+            },
+            {
+                id: 9,
+                title: "9. Se c_água = 1,0 cal/g·°C e c_gelo = 0,5 cal/g·°C, o que se pode afirmar sobre o aquecimento de massas iguais desses materiais?",
+                hint: "Substâncias com menor calor específico sobem de temperatura mais rapidamente.",
+                options: [
+                    { letter: "A", text: "Para uma mesma quantidade de calor fornecida, o gelo sofrerá uma variação de temperatura maior que a água." },
+                    { letter: "B", text: "O gelo requer o dobro de calor que a água líquida para a mesma variação de temperatura." },
+                    { letter: "C", text: "Ambos sofrem a mesma variação de temperatura pois são a mesma substância química." },
+                    { letter: "D", text: "A água líquida aquece mais rapidamente que o gelo." }
+                ],
+                answer: "A",
+                rationale: "Como o calor específico do gelo é metade do da água, para uma mesma quantidade de calor Q fornecida a massas iguais, o ΔT do gelo será o dobro do da água líquida."
+            },
+            {
+                id: 10,
+                title: "10. O que representa o 'equivalente em água' de um corpo?",
+                hint: "Pense em uma massa de água que possui a mesma resposta térmica que o objeto.",
+                options: [
+                    { letter: "A", text: "O volume de água que o corpo desloca ao ser mergulhado em um recipiente." },
+                    { letter: "B", text: "A temperatura em que o corpo entra em equilíbrio com a água líquida." },
+                    { letter: "C", text: "A quantidade de água que deve ser adicionada para resfriá-lo." },
+                    { letter: "D", text: "A massa de água que possui a mesma capacidade térmica que o corpo." }
+                ],
+                answer: "D",
+                rationale: "Por definição, o equivalente em água representa a massa de água m_a cuja capacidade térmica iguala a do corpo analisado (m_a · c_água = C_corpo)."
+            }
+        ];
+
+        // ESTADO GLOBAL DA APLICAÇÃO
+        let studentData = { course: "", name: "", email: "" };
+        let timerSecondsLeft = TOTAL_TIME_SECONDS;
+        let timerInterval = null;
+        let quizStartTime = null;
+        let quizSubmitted = false;
+
+        // INICIAR O QUIZ (VERIFICAR SENHA E DADOS)
+        function handleStartQuiz(event) {
+            event.preventDefault();
+
+            const course = document.getElementById("studentCourse").value;
+            const name = document.getElementById("studentName").value.trim();
+            const email = document.getElementById("studentEmail").value.trim();
+            const password = document.getElementById("quizPassword").value.trim();
+
+            if (!course) {
+                alert("Por favor, selecione sua turma!");
+                return;
+            }
+
+            if (!name || !email) {
+                alert("Por favor, preencha seu nome e e-mail antes de continuar.");
+                return;
+            }
+
+            if (password !== ACCESS_PASSWORD_HASH) {
+                alert("❌ Senha de acesso incorreta! Verifique a senha liberada pelo professor (termo2026B1).");
+                return;
+            }
+
+            studentData.course = course;
+            studentData.name = name;
+            studentData.email = email;
+
+            document.getElementById("dispStudentName").textContent = `${name} (${course})`;
+            document.getElementById("dispStudentEmail").textContent = email;
+
+            document.getElementById("loginScreen").style.display = "none";
+            document.getElementById("quizScreen").style.display = "block";
+
+            renderQuestions();
+            startTimer();
+            quizStartTime = new Date();
+
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        // RENDERIZAR QUESTÕES NO FORMULÁRIO
+        function renderQuestions() {
+            const container = document.getElementById("questionsContainer");
+            container.innerHTML = "";
+
+            questionsData.forEach(q => {
+                const card = document.createElement("div");
+                card.className = "question-card";
+                card.id = `q_card_${q.id}`;
+
+                let optionsHtml = q.options.map(opt => `
+                    <label class="option-label">
+                        <input type="radio" name="question_${q.id}" value="${opt.letter}">
+                        <span><strong>${opt.letter})</strong> ${opt.text}</span>
+                    </label>
+                `).join("");
+
+                card.innerHTML = `
+                    <div class="question-number">QUESTÃO ${q.id} DE 10</div>
+                    <div class="question-text">${q.title}</div>
+                    <div class="question-hint">💡 <strong>Dica:</strong> ${q.hint}</div>
+                    <div class="options-list">${optionsHtml}</div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // CONTADOR DE TEMPO DE 30 MINUTOS
+        function startTimer() {
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timerSecondsLeft--;
+                updateTimerDisplay();
+
+                if (timerSecondsLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert("⏰ O TEMPO DE 30 MINUTOS EXPIROU! Seu quiz será finalizado e enviado automaticamente com as respostas marcadas.");
+                    submitQuizAuto();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timerSecondsLeft / 60);
+            const seconds = timerSecondsLeft % 60;
+            const formatted = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            const timerBox = document.getElementById("timerBox");
+            const timerCountdown = document.getElementById("timerCountdown");
+            const progressBar = document.getElementById("timerProgress");
+
+            timerCountdown.textContent = formatted;
+            const pct = (timerSecondsLeft / TOTAL_TIME_SECONDS) * 100;
+            progressBar.style.width = pct + "%";
+
+            if (timerSecondsLeft <= 300) {
+                timerBox.classList.add("warning");
+            }
+        }
+
+        // SUBMETER O QUIZ MANUALMENTE OU POR TIMEOUT
+        function handleQuizSubmit(event) {
+            event.preventDefault();
+            if (quizSubmitted) return;
+
+            let unanswered = 0;
+            questionsData.forEach(q => {
+                const selected = document.querySelector(`input[name="question_${q.id}"]:checked`);
+                if (!selected) unanswered++;
+            });
+
+            if (unanswered > 0) {
+                const confirmSubmit = confirm(`Você ainda tem ${unanswered} questão(ões) sem resposta. Deseja finalizar o quiz mesmo assim?`);
+                if (!confirmSubmit) return;
+            }
+
+            processQuizSubmission();
+        }
+
+        function submitQuizAuto() {
+            if (quizSubmitted) return;
+            processQuizSubmission();
+        }
+
+        function processQuizSubmission() {
+            quizSubmitted = true;
+            clearInterval(timerInterval);
+
+            const endTime = new Date();
+            const elapsedSecs = Math.round((endTime - quizStartTime) / 1000);
+            const elapsedMin = Math.floor(elapsedSecs / 60);
+            const elapsedRemSec = elapsedSecs % 60;
+            const timeFormatted = `${elapsedMin} min e ${elapsedRemSec} s`;
+
+            let correctCount = 0;
+            let userAnswers = {};
+
+            questionsData.forEach(q => {
+                const selected = document.querySelector(`input[name="question_${q.id}"]:checked`);
+                const val = selected ? selected.value : "N/A";
+                userAnswers[q.id] = val;
+                if (val === q.answer) correctCount++;
+            });
+
+            const percent = Math.round((correctCount / questionsData.length) * 100);
+            const authHash = "TERMO-B1-" + Math.random().toString(36).substring(2, 8).toUpperCase() + `-${correctCount}X10`;
+            const formattedDate = new Date().toLocaleString("pt-BR");
+
+            // PAYLOAD PADRONIZADO DO GOOGLE APPS SCRIPT
+            const resultPayload = {
+                student: studentData.name,
+                course: studentData.course,
+                email: studentData.email,
+                quiz: "Quiz 1 — Calorimetria Sensível (Termodinâmica)",
+                score: correctCount,
+                total: questionsData.length,
+                percent: percent + "%",
+                timeSpent: timeFormatted,
+                dateTime: formattedDate,
+                authCode: authHash,
+                answers: userAnswers
+            };
+
+            // 1. SALVAR NO LOCALSTORAGE (BACKUP)
+            try {
+                localStorage.setItem("quiz_termodinamica_aula02_result", JSON.stringify(resultPayload));
+            } catch (e) {
+                console.warn("Não foi possível salvar no localStorage:", e);
+            }
+
+            // 2. ENVIO 100% AUTOMÁTICO EM SEGUNDO PLANO PARA A PLANILHA DO GOOGLE DRIVE
+            if (GOOGLE_APP_SCRIPT_URL && GOOGLE_APP_SCRIPT_URL.startsWith("http")) {
+                fetch(GOOGLE_APP_SCRIPT_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(resultPayload)
+                }).then(() => {
+                    console.log("✅ Respostas e pontuação gravadas automaticamente na Planilha Google no Drive!");
+                }).catch(err => {
+                    console.error("⚠️ Falha temporária no envio direto para a nuvem:", err);
+                });
+            }
+
+            // PREENCHER A TELA DE CONFIRMAÇÃO AUTOMÁTICA (TELA 3)
+            document.getElementById("resScoreNum").textContent = correctCount;
+            document.getElementById("resPercentText").textContent = `${percent}% de Aproveitamento`;
+            document.getElementById("resStudent").textContent = studentData.name;
+            document.getElementById("resCourse").textContent = studentData.course;
+            document.getElementById("resEmail").textContent = studentData.email;
+            document.getElementById("resTime").textContent = timeFormatted;
+            document.getElementById("resDate").textContent = formattedDate;
+            document.getElementById("resAuthCode").textContent = authHash;
+
+            // LIBERAÇÃO DO GABARITO COMENTADO (EXIBIDO SOMENTE APÓS 09/08/2026 ÀS 23:59)
+            const now = new Date();
+            if (now >= GABARITO_RELEASE_DATE) {
+                renderReview(userAnswers);
+            } else {
+                renderLockedGabaritoMessage();
+            }
+
+            document.getElementById("quizScreen").style.display = "none";
+            document.getElementById("resultScreen").style.display = "block";
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        // MENSAGEM DO GABARITO BLOQUEADO ATÉ 09/08 ÀS 23:59
+        function renderLockedGabaritoMessage() {
+            const reviewContainer = document.getElementById("reviewContainer");
+            reviewContainer.innerHTML = `
+                <div class="gabarito-locked-box">
+                    🔒 <strong>Gabarito e Correção Detalhada em Aguardo:</strong><br>
+                    Por razões pedagógicas e isonomia entre as turmas, a correção questão a questão com as respostas corretas e justificativas teóricas será liberada nesta mesma página após o encerramento do prazo de realização em <strong>09/08/2026 às 23:59</strong>.
+                </div>
+            `;
+        }
+
+        // RENDERIZAR GABARITO COMENTADO (APÓS O PRAZO)
+        function renderReview(userAnswers) {
+            const reviewContainer = document.getElementById("reviewContainer");
+            reviewContainer.innerHTML = "";
+
+            questionsData.forEach(q => {
+                const userAns = userAnswers[q.id] || "N/A";
+                const isCorrect = userAns === q.answer;
+
+                const card = document.createElement("div");
+                card.className = `review-card ${isCorrect ? 'correct' : 'incorrect'}`;
+
+                let optionsHtml = q.options.map(opt => {
+                    let isUserChoice = opt.letter === userAns;
+                    let isRightAnswer = opt.letter === q.answer;
+                    let style = "color: #cbd5e1;";
+                    let prefix = "";
+
+                    if (isRightAnswer) {
+                        style = "color: #4ade80; font-weight: 700;";
+                        prefix = " (✓ Gabarito Correto)";
+                    }
+                    if (isUserChoice && !isRightAnswer) {
+                        style = "color: #fca5a5; font-weight: 700; text-decoration: line-through;";
+                        prefix = " (✗ Sua Escolha)";
+                    } else if (isUserChoice && isRightAnswer) {
+                        prefix = " (✓ Sua Escolha)";
+                    }
+
+                    return `<div style="margin-bottom:0.35rem; ${style}">
+                        <strong>${opt.letter})</strong> ${opt.text} ${prefix}
+                    </div>`;
+                }).join("");
+
+                card.innerHTML = `
+                    <span class="status-badge ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Resposta Correta' : '✗ Resposta Incorreta'}
+                    </span>
+                    <div style="font-weight:700; font-size:1rem; margin-bottom:0.8rem; color:#fff;">
+                        ${q.title}
+                    </div>
+                    <div style="font-size:0.9rem; margin-bottom:0.8rem;">
+                        ${optionsHtml}
+                    </div>
+                    <div class="rationale-box">
+                        <strong>💬 Justificativa Teórica:</strong> ${q.rationale}
+                    </div>
+                `;
+
+                reviewContainer.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,3 +1,13 @@
 # Ignorar a pasta de Identidade IFSC-SJ
 Identidade-IFSC-SJ/
 2026.2/Identidade-IFSC-SJ/
+
+# Ignorar arquivos de mídia (áudio e vídeo)
+*.mp4
+*.m4a
+*.mp3
+*.avi
+*.mov
+*.wav
+*.mkv
+*.webm

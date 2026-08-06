@@ -1,0 +1,327 @@
+{
+  "title": "Aula02 Quiz",
+  "totalQuestions": 10,
+  "extractedAt": "2026-08-06T14:27:07.924Z",
+  "questions": [
+    {
+      "number": 1,
+      "question": "De acordo com o material fornecido, como se define corretamente o conceito de calor?",
+      "options": [
+        {
+          "label": "A",
+          "text": "É a energia térmica em trânsito entre corpos com diferentes temperaturas.",
+          "isCorrect": true,
+          "rationale": "O calor é caracterizado como energia em transferência motivada exclusivamente pela diferença de temperatura entre dois sistemas."
+        },
+        {
+          "label": "B",
+          "text": "É uma medida da agitação molecular média das partículas de um corpo.",
+          "isCorrect": false,
+          "rationale": "A agitação molecular média é a definição termodinâmica para a grandeza temperatura, não calor."
+        },
+        {
+          "label": "C",
+          "text": "É o estado em que dois corpos atingem a mesma temperatura final.",
+          "isCorrect": false,
+          "rationale": "A igualdade de temperaturas descreve o equilíbrio térmico, que é a consequência da cessação do fluxo de calor."
+        },
+        {
+          "label": "D",
+          "text": "É a energia térmica total armazenada em um corpo em repouso.",
+          "isCorrect": false,
+          "rationale": "Essa definição refere-se mais à energia interna do que ao calor, que exige movimento entre sistemas."
+        }
+      ],
+      "hint": "Considere se o calor é algo que um corpo 'possui' ou algo que 'flui' entre corpos.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 2,
+      "question": "Qual é a relação numérica aproximada entre a caloria ($cal$) e o joule ($J$), estabelecida historicamente pelas experiências de Joule?",
+      "options": [
+        {
+          "label": "A",
+          "text": "$1\\ cal \\approx 4,186\\ J$",
+          "isCorrect": true,
+          "rationale": "A experiência de Joule determinou que são necessários aproximadamente $4,186$ joules de trabalho mecânico para gerar o equivalente térmico de uma caloria."
+        },
+        {
+          "label": "B",
+          "text": "$1\\ cal \\approx 9,8\\ J$",
+          "isCorrect": false,
+          "rationale": "Este valor assemelha-se à aceleração da gravidade na Terra e não possui relação com o equivalente mecânico do calor."
+        },
+        {
+          "label": "C",
+          "text": "$1\\ cal \\approx 0,24\\ J$",
+          "isCorrect": false,
+          "rationale": "Este valor é o inverso aproximado da relação real, representando quantos calorias há em um joule."
+        },
+        {
+          "label": "D",
+          "text": "$1\\ cal \\approx 1.000\\ J$",
+          "isCorrect": false,
+          "rationale": "Este valor confunde a unidade caloria com o prefixo quilo ($k$), que representa um fator de mil."
+        }
+      ],
+      "hint": "Lembre-se do valor específico mencionado no texto para a conversão de unidades de energia térmica para mecânica.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 3,
+      "question": "Diferencie calor sensível de calor latente com base nos efeitos produzidos em um corpo.",
+      "options": [
+        {
+          "label": "A",
+          "text": "O calor sensível altera a temperatura do corpo, enquanto o calor latente provoca mudança de estado físico sem alterar a temperatura.",
+          "isCorrect": true,
+          "rationale": "O calor sensível é responsável pela variação térmica ($Q = m \\cdot c \\cdot \\Delta T$), enquanto o latente atua na reorganização molecular durante mudanças de fase."
+        },
+        {
+          "label": "B",
+          "text": "O calor sensível provoca mudança de estado físico, enquanto o calor latente altera a temperatura.",
+          "isCorrect": false,
+          "rationale": "As definições estão invertidas; o termo 'sensível' refere-se ao que pode ser percebido por uma mudança no termômetro."
+        },
+        {
+          "label": "C",
+          "text": "Ambos provocam obrigatoriamente a variação de temperatura e a mudança de estado simultaneamente.",
+          "isCorrect": false,
+          "rationale": "Substâncias puras geralmente não mudam de temperatura enquanto estão mudando de estado físico sob pressão constante."
+        },
+        {
+          "label": "D",
+          "text": "O calor sensível depende apenas da massa, enquanto o calor latente depende apenas do material.",
+          "isCorrect": false,
+          "rationale": "Ambos os tipos de calor dependem tanto da massa do corpo quanto das propriedades específicas do material envolvido."
+        }
+      ],
+      "hint": "Pense no que acontece com a leitura de um termômetro em cada caso.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 4,
+      "question": "Um bloco de ferro de massa $500\\ g$ recebe uma quantidade de calor que eleva sua temperatura em $20\\ ^{\\circ}C$. Sabendo que o calor específico do ferro é $0,11\\ cal/g \\cdot ^{\\circ}C$, qual foi a quantidade de calor recebida?",
+      "options": [
+        {
+          "label": "A",
+          "text": "$110\\ cal$",
+          "isCorrect": false,
+          "rationale": "Este valor seria o resultado se a variação de temperatura fosse de apenas $2\\ ^{\\circ}C$ ou se a massa fosse menor."
+        },
+        {
+          "label": "B",
+          "text": "$1.100\\ cal$",
+          "isCorrect": true,
+          "rationale": "Aplicando a equação fundamental $Q = m \\cdot c \\cdot \\Delta T = 500 \\cdot 0,11 \\cdot 20$, resulta em $1.100\\ cal$."
+        },
+        {
+          "label": "C",
+          "text": "$2.200\\ cal$",
+          "isCorrect": false,
+          "rationale": "Este erro pode ocorrer ao dobrar indevidamente um dos termos da equação fundamental da calorimetria."
+        },
+        {
+          "label": "D",
+          "text": "$5.500\\ cal$",
+          "isCorrect": false,
+          "rationale": "Este resultado ignora a variação de temperatura ou aplica valores incorretos na multiplicação dos fatores."
+        }
+      ],
+      "hint": "Utilize a equação fundamental da calorimetria: $Q = m \\cdot c \\cdot \\Delta T$.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 5,
+      "question": "Qual é a relação correta entre a capacidade térmica ($C$) de um corpo e o calor específico ($c$) da substância que o constitui?",
+      "options": [
+        {
+          "label": "A",
+          "text": "$C = m \\cdot c$",
+          "isCorrect": true,
+          "rationale": "A capacidade térmica é uma propriedade do corpo que depende tanto da sua massa quanto da natureza do material ($c$)."
+        },
+        {
+          "label": "B",
+          "text": "$C = \\frac{c}{m}$",
+          "isCorrect": false,
+          "rationale": "A capacidade térmica aumenta com a massa, portanto a relação deve ser de multiplicação, não de divisão pela massa."
+        },
+        {
+          "label": "C",
+          "text": "$C = \\frac{m}{c}$",
+          "isCorrect": false,
+          "rationale": "Esta fórmula sugeriria que materiais com alto calor específico teriam baixa capacidade térmica, o que é fisicamente incorreto."
+        },
+        {
+          "label": "D",
+          "text": "$C = c \\cdot \\Delta T$",
+          "isCorrect": false,
+          "rationale": "A variação de temperatura é usada para calcular a quantidade de calor, não para definir a capacidade térmica intrínseca do corpo."
+        }
+      ],
+      "hint": "Lembre-se de que a capacidade térmica depende da quantidade total de matéria no objeto.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 6,
+      "question": "Em um sistema termicamente isolado contendo dois corpos (A e B) que trocam calor apenas entre si, qual princípio rege essa interação até o equilíbrio?",
+      "options": [
+        {
+          "label": "A",
+          "text": "$Q_A = Q_B$",
+          "isCorrect": false,
+          "rationale": "Embora os módulos sejam iguais, os sinais são opostos (um cede e outro recebe), o que invalidaria a igualdade direta."
+        },
+        {
+          "label": "B",
+          "text": "A temperatura final será sempre a média aritmética das temperaturas iniciais.",
+          "isCorrect": false,
+          "rationale": "Isso só ocorreria se os corpos tivessem capacidades térmicas idênticas, o que nem sempre é o caso."
+        },
+        {
+          "label": "C",
+          "text": "$Q_A + Q_B = 0$",
+          "isCorrect": true,
+          "rationale": "Pelo princípio da conservação da energia, em um sistema isolado, a soma algébrica das quantidades de calor trocadas deve ser nula."
+        },
+        {
+          "label": "D",
+          "text": "O corpo de maior massa sempre dita a temperatura final do sistema.",
+          "isCorrect": false,
+          "rationale": "A temperatura final depende da capacidade térmica total ($m \\cdot c$), não apenas da massa isoladamente."
+        }
+      ],
+      "hint": "Pense na conservação de energia: o que um corpo perde, o outro deve ganhar.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 7,
+      "question": "Por que as fagulhas de um esmeril, apesar de estarem em altíssima temperatura, geralmente não causam queimaduras graves na pele do operador?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Porque o calor sensível se transforma em calor latente ao atingir a pele.",
+          "isCorrect": false,
+          "rationale": "Não há evidência de mudança de fase nas fagulhas que justifique a ausência de dano térmico por essa via."
+        },
+        {
+          "label": "B",
+          "text": "Porque o calor específico do metal da fagulha é extremamente alto.",
+          "isCorrect": false,
+          "rationale": "Metais geralmente possuem baixo calor específico, o que não explicaria a ausência de queimaduras."
+        },
+        {
+          "label": "C",
+          "text": "Porque a temperatura da fagulha diminui instantaneamente ao tocar o ar frio.",
+          "isCorrect": false,
+          "rationale": "Embora esfriem, a razão principal é a baixa quantidade de calor que elas conseguem transferir devido à sua constituição física."
+        },
+        {
+          "label": "D",
+          "text": "Porque as fagulhas possuem baixa capacidade térmica devido à sua massa ínfima.",
+          "isCorrect": true,
+          "rationale": "Mesmo em alta temperatura, a massa pequena resulta em pouca energia térmica total para ser cedida à pele antes do equilíbrio."
+        }
+      ],
+      "hint": "Considere a relação entre a massa de um objeto e a quantidade total de energia que ele pode transferir.",
+      "correctAnswer": "D"
+    },
+    {
+      "number": 8,
+      "question": "Um calorímetro ideal é definido como um dispositivo que:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Possui capacidade térmica infinita para absorver qualquer quantidade de energia.",
+          "isCorrect": false,
+          "rationale": "Muitas vezes busca-se que o calorímetro tenha capacidade térmica desprezível, e não infinita, para não interferir nas medidas."
+        },
+        {
+          "label": "B",
+          "text": "Não permite trocas de calor entre os corpos em seu interior e o meio externo.",
+          "isCorrect": true,
+          "rationale": "A função primordial do calorímetro é criar um ambiente termicamente isolado para que as trocas de calor ocorram apenas entre os componentes internos."
+        },
+        {
+          "label": "C",
+          "text": "Transforma automaticamente todo calor sensível em calor latente.",
+          "isCorrect": false,
+          "rationale": "Esta afirmação não condiz com as leis da termodinâmica nem com a função de um calorímetro."
+        },
+        {
+          "label": "D",
+          "text": "Mantém a temperatura interna sempre constante, independentemente das trocas de calor.",
+          "isCorrect": false,
+          "rationale": "O calorímetro permite variações de temperatura internamente; sua função é o isolamento em relação ao exterior."
+        }
+      ],
+      "hint": "Foque na interação do sistema com o ambiente externo.",
+      "correctAnswer": "B"
+    },
+    {
+      "number": 9,
+      "question": "Se o calor específico da água é $1,0\\ cal/g \\cdot ^{\\circ}C$ e o do gelo é $0,5\\ cal/g \\cdot ^{\\circ}C$, o que se pode afirmar sobre o aquecimento de massas iguais desses materiais?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Para uma mesma quantidade de calor fornecida, o gelo sofrerá uma variação de temperatura maior que a água líquida.",
+          "isCorrect": true,
+          "rationale": "Com um calor específico menor ($0,5$), o gelo é 'mais fácil' de aquecer, resultando em maior $\\Delta T$ para o mesmo $Q$."
+        },
+        {
+          "label": "B",
+          "text": "O gelo requer o dobro de calor que a água líquida para sofrer a mesma variação de temperatura.",
+          "isCorrect": false,
+          "rationale": "Como o calor específico do gelo é menor, ele requer menos calor (metade) para a mesma variação."
+        },
+        {
+          "label": "C",
+          "text": "Ambos sofrem a mesma variação de temperatura, pois são a mesma substância química ($H_2O$).",
+          "isCorrect": false,
+          "rationale": "O calor específico depende do estado de agregação (estado físico) da substância, não apenas da sua fórmula química."
+        },
+        {
+          "label": "D",
+          "text": "A água líquida aquece mais rapidamente que o gelo quando exposta à mesma fonte térmica.",
+          "isCorrect": false,
+          "rationale": "Substâncias com maior calor específico demoram mais para aquecer porque precisam de mais energia para cada grau de elevação."
+        }
+      ],
+      "hint": "Substâncias com menor calor específico são mais sensíveis a mudanças de temperatura.",
+      "correctAnswer": "A"
+    },
+    {
+      "number": 10,
+      "question": "O que representa o 'equivalente em água' de um corpo?",
+      "options": [
+        {
+          "label": "A",
+          "text": "O volume de água que o corpo desloca ao ser mergulhado em um recipiente.",
+          "isCorrect": false,
+          "rationale": "Esta definição refere-se ao princípio de Arquimedes (empuxo) e volume, não a propriedades térmicas."
+        },
+        {
+          "label": "B",
+          "text": "A temperatura em que o corpo entra em equilíbrio com a água líquida.",
+          "isCorrect": false,
+          "rationale": "O termo refere-se a uma equivalência de massa baseada em propriedades calorimétricas, não a uma temperatura de equilíbrio."
+        },
+        {
+          "label": "C",
+          "text": "A quantidade de água que deve ser adicionada ao corpo para esfriá-lo.",
+          "isCorrect": false,
+          "rationale": "O equivalente em água é uma medida de comparação de capacidade térmica, não um procedimento de resfriamento."
+        },
+        {
+          "label": "D",
+          "text": "A massa de água que possui a mesma capacidade térmica que o corpo em questão.",
+          "isCorrect": true,
+          "rationale": "Por definição, se um corpo tem capacidade térmica $C$, seu equivalente em água é a massa $m_a$ tal que $m_a \\cdot c_{água} = C$."
+        }
+      ],
+      "hint": "Pense em uma massa de água que 'se comporta' termicamente da mesma forma que o objeto.",
+      "correctAnswer": "D"
+    }
+  ]
+}

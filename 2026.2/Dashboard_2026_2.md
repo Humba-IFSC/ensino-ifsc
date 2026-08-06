@@ -61,7 +61,7 @@ Atenção especial às segundas-feiras, pois feriados frequentes exigirão reman
 | **Setembro** | 12/09 (Sáb) | Sábado Letivo | Planejar reposição ou atividade extra se necessário. |
 | **Outubro** | 05 a 09/10 | **Conselhos de Classe Intermediários** | Reduzir tempo de escrita/pesquisa na quarta. |
 | **Outubro** | 12/10 (Seg) | 🔴 Feriado: N. Sra. Aparecida | Sem atividades. **Remanejar demandas de segunda.** |
-| **Outubro** | 26/10 (Seg) | 🔴 Recesso Acadêmico | Sem atividades. **Remanejar demandas de segunda.** |
+| **Outubro** | 30/10 (Sex) | 🔴 Feriado: Dia do Servidor Público (Transferido de 28/10) | Sem atividades. Não há aulas de sexta-feira (FSC060806, FCA060903, FCA060906). |
 | **Novembro** | 02/11 (Seg) | 🔴 Feriado: Dia de Finados | Sem atividades. **Quarta segunda-feira comprometida.** |
 | **Novembro** | 07/11 (Sáb) | Sábado Letivo | Planejar atividade institucional. |
 | **Novembro** | 20/11 (Sex) | 🔴 Feriado: Consciência Negra | Sem atividades. Não há aulas de sexta (Termo/Óptica). |

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards: Calorimetria — Aula 02</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0a0e17;
+            --c-purple: #a855f7;
+            --c-surface: rgba(15, 23, 42, 0.8);
+            --c-border: rgba(255, 255, 255, 0.1);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: linear-gradient(135deg, #581c87 0%, #0f172a 60%, #0a0e17 100%);
+            padding: 2.5rem 1.5rem 2rem;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+            text-align: center;
+        }
+        .badge {
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            padding: 0.35rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .nav-bar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.06);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-nav:hover {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
+
+        /* 3D FLASHCARD STYLES */
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 9999px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            width: 10%;
+            transition: width 0.3s ease;
+        }
+
+        .card-scene {
+            width: 100%;
+            max-width: 620px;
+            height: 340px;
+            perspective: 1200px;
+            cursor: pointer;
+            margin-bottom: 2rem;
+        }
+        .card-object {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            border-radius: 1.25rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+        .card-object.is-flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 1px solid var(--c-border);
+        }
+        .card-front {
+            background: linear-gradient(145deg, rgba(30, 27, 75, 0.9), rgba(15, 23, 42, 0.95));
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+        .card-back {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(88, 28, 135, 0.9));
+            border-color: rgba(236, 72, 153, 0.3);
+            transform: rotateY(180deg);
+        }
+        .card-hint-tag {
+            position: absolute;
+            top: 1.2rem;
+            left: 1.5rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.25rem 0.7rem;
+            border-radius: 9999px;
+        }
+        .front-tag { background: rgba(168, 85, 247, 0.2); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.3); }
+        .back-tag { background: rgba(236, 72, 153, 0.2); color: #fbcfe8; border: 1px solid rgba(236, 72, 153, 0.3); }
+
+        .card-click-prompt {
+            position: absolute;
+            bottom: 1.2rem;
+            font-size: 0.75rem;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .card-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #f8fafc;
+            line-height: 1.5;
+        }
+
+        .controls {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .btn-ctrl {
+            background: rgba(255,255,255,0.06);
+            color: #f1f5f9;
+            border: 1px solid rgba(255,255,255,0.12);
+            padding: 0.65rem 1.3rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .btn-ctrl:hover {
+            background: rgba(168, 85, 247, 0.25);
+            border-color: rgba(168, 85, 247, 0.4);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #9333ea, #c026d3);
+            border: none;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #7e22ce, #a21caf);
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.8rem;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <span class="badge">🌁 Estúdio de Fixação · Aula 02</span>
+    <h1 style="margin: 0.2rem 0; font-size: 2rem; font-weight: 800;">Flashcards de Calorimetria Sensível</h1>
+    <p style="color: #94a3b8; font-size: 0.95rem; margin: 0;">Clique no cartão para revelar o verso com a resposta conceitual</p>
+</header>
+
+<main class="container">
+    <div class="nav-bar">
+        <a href="../../../FSC060806/index.html" class="btn-nav">← Dashboard FSC060806</a>
+        <div style="display: flex; gap: 0.5rem;">
+            <a href="resumo.html" class="btn-nav">📖 Resumo Teórico</a>
+            <a href="quiz.html" class="btn-nav">🧩 Quiz Interativo</a>
+        </div>
+        <a href="../../../FCA060903/index.html" class="btn-nav">Dashboard FCA060903 →</a>
+    </div>
+
+    <!-- Barra de Progresso -->
+    <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; color: #94a3b8; font-size: 0.85rem; font-weight: 600;">
+        <span id="cardCounter">Cartão 1 de 10</span>
+        <span>💡 Dica: Use as setas do teclado para navegar</span>
+    </div>
+
+    <!-- Cartão 3D -->
+    <div class="card-scene" onclick="flipCard()">
+        <div class="card-object" id="cardObject">
+            <div class="card-face card-front">
+                <span class="card-hint-tag front-tag">Pergunta / Conceito</span>
+                <div class="card-text" id="frontText">Carregando...</div>
+                <div class="card-click-prompt">🔄 Clique para virar o cartão</div>
+            </div>
+            <div class="card-face card-back">
+                <span class="card-hint-tag back-tag">Resposta / Definição</span>
+                <div class="card-text" id="backText">Carregando...</div>
+                <div class="card-click-prompt">🔄 Clique para voltar</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controles -->
+    <div class="controls">
+        <button class="btn-ctrl" onclick="prevCard()">← Anterior</button>
+        <button class="btn-ctrl btn-primary" onclick="flipCard()">🔄 Virar Card</button>
+        <button class="btn-ctrl" onclick="nextCard()">Próximo →</button>
+        <button class="btn-ctrl" onclick="shuffleCards()">🔀 Embaralhar</button>
+    </div>
+</main>
+
+<footer>
+    &copy; 2026 Prof. Dr. Humberto Luz Oliveira — IFSC Câmpus São José
+</footer>
+
+<script>
+    const flashcardsData = [
+        {
+            front: "Termo: Calor",
+            back: "Energia térmica em trânsito entre corpos motivada por uma diferença de temperatura entre eles."
+        },
+        {
+            front: "Qual é a condição necessária para que a transferência de calor entre dois corpos em contato cesse?",
+            back: "O atingimento do equilíbrio térmico, ou seja, quando as temperaturas de ambos se igualam."
+        },
+        {
+            front: "Diferença conceitual: Calor sensível vs. Calor latente",
+            back: "O calor sensível provoca variação de temperatura, enquanto o calor latente provoca mudança de estado físico sem alterar a temperatura."
+        },
+        {
+            front: "No Sistema Internacional, a unidade de quantidade de calor ($Q$) é o Joule ($J$), mas qual é a relação de conversão aproximada para a caloria ($cal$)?",
+            back: "$1 \\text{ cal} \\approx 4,1868 \\text{ J}$."
+        },
+        {
+            front: "Qual é a equação fundamental da calorimetria utilizada para calcular a quantidade de calor sensível?",
+            back: "$Q = m \\cdot c \\cdot \\Delta T$."
+        },
+        {
+            front: "O calor _____ de uma substância mede a quantidade de calor necessária para variar em $1 \\text{ }^{\\circ}\\text{C}$ a temperatura de $1 \\text{ g}$ dessa substância.",
+            back: "específico"
+        },
+        {
+            front: "Como é definida a capacidade térmica ($C$) de um corpo em relação à quantidade de calor ($Q$) e à variação de temperatura ($\\Delta T$)?",
+            back: "$C = \\frac{Q}{\\Delta T}$."
+        },
+        {
+            front: "A grandeza que representa a massa de água cuja capacidade térmica é igual à capacidade térmica de um determinado corpo é chamada de _____.",
+            back: "equivalente em água"
+        },
+        {
+            front: "Em um sistema termicamente isolado (como um calorímetro ideal), qual é o resultado da soma algébrica das quantidades de calor trocadas ($\\sum Q$) entre os corpos?",
+            back: "Zero ($\\sum Q = 0$)."
+        },
+        {
+            front: "Por que fagulhas de metal em alta temperatura podem não causar queimaduras imediatas ao atingirem a pele?",
+            back: "Porque possuem baixíssima capacidade térmica, cedendo uma quantidade de calor insuficiente para causar dano antes de atingirem o equilíbrio."
+        }
+    ];
+
+    let cards = [...flashcardsData];
+    let currentIndex = 0;
+    let isFlipped = false;
+
+    function renderCard() {
+        const cardObject = document.getElementById('cardObject');
+        cardObject.classList.remove('is-flipped');
+        isFlipped = false;
+
+        document.getElementById('frontText').innerHTML = cards[currentIndex].front;
+        document.getElementById('backText').innerHTML = cards[currentIndex].back;
+        document.getElementById('cardCounter').innerText = `Cartão ${currentIndex + 1} de ${cards.length}`;
+
+        const progressPercent = ((currentIndex + 1) / cards.length) * 100;
+        document.getElementById('progressBar').style.width = `${progressPercent}%`;
+
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            MathJax.typesetPromise();
+        }
+    }
+
+    function flipCard() {
+        const cardObject = document.getElementById('cardObject');
+        isFlipped = !isFlipped;
+        if (isFlipped) {
+            cardObject.classList.add('is-flipped');
+        } else {
+            cardObject.classList.remove('is-flipped');
+        }
+    }
+
+    function nextCard() {
+        currentIndex = (currentIndex + 1) % cards.length;
+        renderCard();
+    }
+
+    function prevCard() {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        renderCard();
+    }
+
+    function shuffleCards() {
+        for (let i = cards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [cards[i], cards[j]] = [cards[j], cards[i]];
+        }
+        currentIndex = 0;
+        renderCard();
+    }
+
+    // Teclado
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextCard();
+        if (e.key === 'ArrowLeft') prevCard();
+        if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            flipCard();
+        }
+    });
+
+    // Inicialização
+    window.onload = renderCard;
+</script>
+
+</body>
+</html>

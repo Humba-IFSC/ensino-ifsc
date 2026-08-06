@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo Didático: Calorimetria e Mudanças de Fase (Caps. 4 e 5)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0a0e17;
+            --c-surface: rgba(15, 23, 42, 0.75);
+            --c-border: rgba(255, 255, 255, 0.08);
+            --c-orange: #f97316;
+            --c-cyan: #06b6d4;
+            --c-emerald: #10b981;
+            --c-purple: #a855f7;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+        .header {
+            background: linear-gradient(135deg, #431407 0%, #0f172a 60%, #0a0e17 100%);
+            padding: 3.5rem 1.5rem 2.5rem;
+            border-bottom: 1px solid rgba(249, 115, 22, 0.2);
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+        .badge {
+            background: rgba(249, 115, 22, 0.15);
+            color: #fdba74;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            padding: 0.35rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.06);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-nav:hover {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .card {
+            background: var(--c-surface);
+            border: 1px solid var(--c-border);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0.4rem 0;
+            letter-spacing: -0.02em;
+        }
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .chapter-badge {
+            font-size: 0.72rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .cap4-badge { background: rgba(249, 115, 22, 0.2); color: #fdba74; border: 1px solid rgba(249, 115, 22, 0.4); }
+        .cap5-badge { background: rgba(6, 182, 212, 0.2); color: #67e8f9; border: 1px solid rgba(6, 182, 212, 0.4); }
+        
+        .formula-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 4px solid var(--c-orange);
+            border-radius: 0 0.6rem 0.6rem 0;
+            padding: 1.2rem 1.5rem;
+            margin: 1.2rem 0;
+        }
+        .formula-box.cyan { border-left-color: var(--c-cyan); }
+
+        .example-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 0.8rem;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .example-title {
+            color: #34d399;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        ul {
+            padding-left: 1.3rem;
+            color: #cbd5e1;
+        }
+        li {
+            margin-bottom: 0.6rem;
+        }
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.8rem;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <span class="badge">📚 Guia de Estudos · Ramalho Vol. 2</span>
+    <h1>Calorimetria Sensível e Mudanças de Fase</h1>
+    <p style="color: #94a3b8; font-size: 1rem; margin: 0;">Sintese Teórica e Exercícios Resolvidos (Aulas 02 e 03)</p>
+</header>
+
+<main class="container">
+    <div class="nav-bar">
+        <a href="../../../FSC060806/index.html" class="btn-nav">← Dashboard FSC060806</a>
+        <div style="display: flex; gap: 0.5rem;">
+            <a href="flashcards.html" class="btn-nav" style="border-color: rgba(168,85,247,0.4); color: #c084fc;">🌁 Flashcards</a>
+            <a href="quiz.html" class="btn-nav" style="border-color: rgba(6,182,212,0.4); color: #67e8f9;">🧩 Quiz Interativo</a>
+        </div>
+        <a href="../../../FCA060903/index.html" class="btn-nav">Dashboard FCA060903 →</a>
+    </div>
+
+    <!-- SEÇÃO CAPÍTULO 4 -->
+    <article class="card">
+        <h2>
+            <span class="chapter-badge cap4-badge">Capítulo 4</span>
+            Calorimetria Sensível (Aula 02)
+        </h2>
+        <p style="color: #cbd5e1;">
+            A <strong>Calorimetria Sensível</strong> estuda as trocas de energia térmica entre sistemas que resultam exclusivamente na variação de suas temperaturas, sem alteração de seus estados de agregação física.
+        </p>
+
+        <h3 style="color: #fdba74; font-size: 1.1rem; margin-top: 1.5rem;">📌 Conceitos Fundamentais</h3>
+        <ul>
+            <li><strong>Calor ($Q$):</strong> Energia térmica em trânsito motivada por uma diferença de temperatura entre corpos em contato térmico. Unidade no SI: Joule ($J$). Unidade usual: Caloria ($cal$), onde $1\text{ cal} \approx 4{,}186\text{ J}$.</li>
+            <li><strong>Calor Específico ($c$):</strong> Quantidade de calor necessária para elevar em $1^\circ\text{C}$ a temperatura de $1\text{ g}$ de uma determinada substância (ex.: $c_{\text{água}} = 1{,}0\text{ cal/g}\cdot^\circ\text{C}$).</li>
+            <li><strong>Capacidade Térmica ($C$):</strong> Propriedade de um corpo inteiro, dada pela razão entre o calor recebido/cedido e a variação de temperatura sofrida: $C = \frac{Q}{\Delta T} = m \cdot c$.</li>
+            <li><strong>Equivalente em Água ($m_{eq}$):</strong> Massa de água que possui capacidade térmica idêntica à do corpo analisado: $m_{eq} = \frac{C}{c_{\text{água}}}$.</li>
+        </ul>
+
+        <div class="formula-box">
+            <h4 style="color: #fdba74; margin: 0 0 0.5rem 0;">📐 Equação Fundamental da Calorimetria</h4>
+            <p style="text-align: center; font-size: 1.2rem; margin: 0.5rem 0;">
+                $$Q = m \cdot c \cdot \Delta T$$
+            </p>
+            <p style="font-size: 0.85rem; color: #94a3b8; margin: 0.4rem 0 0 0; text-align: center;">
+                Em sistemas termicamente isolados (Calorímetro ideal): $\sum Q = Q_1 + Q_2 + \dots + Q_n = 0$
+            </p>
+        </div>
+
+        <!-- Exemplo Resolvido Cap 4 -->
+        <div class="example-box">
+            <div class="example-title">
+                ✏️ Exemplo Resolvido — Capítulo 4 (Fonte: Ramalho Vol. 2)
+            </div>
+            <p style="color: #e2e8f0; font-size: 0.92rem;">
+                <strong>Problema:</strong> Um bloco de cobre de massa $m = 400\text{ g}$ a uma temperatura inicial de $100^\circ\text{C}$ é colocado no interior de um calorímetro ideal contendo $200\text{ g}$ de água a $20^\circ\text{C}$. Sabendo que $c_{\text{água}} = 1{,}0\text{ cal/g}\cdot^\circ\text{C}$ e o calor específico do cobre é $c_{\text{Cu}} = 0{,}09\text{ cal/g}\cdot^\circ\text{C}$, determine a temperatura final de equilíbrio térmico $T_e$.
+            </p>
+            <div style="background: rgba(0,0,0,0.3); border-radius: 0.5rem; padding: 1rem; margin-top: 0.8rem; font-size: 0.9rem;">
+                <strong style="color: #34d399;">Passo a Passo da Resolução:</strong>
+                <ol style="padding-left: 1.2rem; color: #cbd5e1; margin-top: 0.4rem;">
+                    <li>Pelo Princípio da Conservação de Energia em sistema isolado:
+                        $$\sum Q = Q_{\text{cobre}} + Q_{\text{água}} = 0$$
+                    </li>
+                    <li>Aplicando $Q = m \cdot c \cdot (T_e - T_i)$ para cada componente:
+                        $$400 \cdot 0{,}09 \cdot (T_e - 100) + 200 \cdot 1{,}0 \cdot (T_e - 20) = 0$$
+                    </li>
+                    <li>Efetuando os cálculos algébricos:
+                        $$36 \cdot (T_e - 100) + 200 \cdot (T_e - 20) = 0$$
+                        $$36 T_e - 3600 + 200 T_e - 4000 = 0 \implies 236 T_e = 7600$$
+                    </li>
+                    <li>Resultado final:
+                        $$T_e = \frac{7600}{236} \approx 32{,}2^\circ\text{C}$$
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </article>
+
+    <!-- SEÇÃO CAPÍTULO 5 -->
+    <article class="card">
+        <h2>
+            <span class="chapter-badge cap5-badge">Capítulo 5</span>
+            Mudança de Fase e Latência (Aula 03)
+        </h2>
+        <p style="color: #cbd5e1;">
+            O <strong>Capítulo 5</strong> analisa as transições de fase da matéria (fusão, solidificação, vaporização, condensação, sublimação), nas quais o calor trocado altera a estrutura agregada molecular mantendo a temperatura constante sob pressão dada.
+        </p>
+
+        <h3 style="color: #67e8f9; font-size: 1.1rem; margin-top: 1.5rem;">📌 Leis Gerais das Mudanças de Fase</h3>
+        <ul>
+            <li><strong>Constância Térmica:</strong> Para uma substância pura, sob pressão constante, a mudança de estado ocorre a uma temperatura determinada que não varia durante todo o processo.</li>
+            <li><strong>Calor Latente ($L$):</strong> Quantidade de calor por unidade de massa necessária para efetuar a mudança de estado física: $L = \frac{Q}{m}$. Unidade: $\text{cal/g}$ ou $\text{J/kg}$.</li>
+            <li><strong>Valores Característicos da Água (a $1\text{ atm}$):</strong>
+                <ul>
+                    <li>Fusão do Gelo / Solidificação: $L_f = +80\text{ cal/g}$ ($L_s = -80\text{ cal/g}$).</li>
+                    <li>Vaporização / Condensação: $L_v = +540\text{ cal/g}$ ($L_c = -540\text{ cal/g}$).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="formula-box cyan">
+            <h4 style="color: #67e8f9; margin: 0 0 0.5rem 0;">📐 Equação do Calor Latente</h4>
+            <p style="text-align: center; font-size: 1.2rem; margin: 0.5rem 0;">
+                $$Q = m \cdot L$$
+            </p>
+            <p style="font-size: 0.85rem; color: #94a3b8; margin: 0.4rem 0 0 0; text-align: center;">
+                $Q > 0$ se absorvido (Fusão/Vaporização); $Q < 0$ se cedido (Solidificação/Condensação).
+            </p>
+        </div>
+
+        <!-- Exemplo Resolvido Cap 5 -->
+        <div class="example-box" style="border-color: rgba(6, 182, 212, 0.3); background: rgba(6, 182, 212, 0.05);">
+            <div class="example-title" style="color: #38bdf8;">
+                ✏️ Exemplo Resolvido — Capítulo 5 (Fonte: Ramalho Vol. 2)
+            </div>
+            <p style="color: #e2e8f0; font-size: 0.92rem;">
+                <strong>Problema:</strong> Deseja-se transformar $100\text{ g}$ de gelo a $-20^\circ\text{C}$ em água líquida a $50^\circ\text{C}$. Dados: $c_{\text{gelo}} = 0{,}5\text{ cal/g}\cdot^\circ\text{C}$, $L_f = 80\text{ cal/g}$ e $c_{\text{água}} = 1{,}0\text{ cal/g}\cdot^\circ\text{C}$. Calcule a quantidade total de calor $Q_{\text{total}}$ fornecida.
+            </p>
+            <div style="background: rgba(0,0,0,0.3); border-radius: 0.5rem; padding: 1rem; margin-top: 0.8rem; font-size: 0.9rem;">
+                <strong style="color: #38bdf8;">Passo a Passo da Resolução:</strong>
+                <ol style="padding-left: 1.2rem; color: #cbd5e1; margin-top: 0.4rem;">
+                    <li><strong>Etapa 1 (Aquecimento do gelo de $-20^\circ\text{C}$ até $0^\circ\text{C}$):</strong>
+                        $$Q_1 = m \cdot c_{\text{gelo}} \cdot \Delta T = 100 \cdot 0{,}5 \cdot [0 - (-20)] = 1000\text{ cal}$$
+                    </li>
+                    <li><strong>Etapa 2 (Fusão do gelo a $0^\circ\text{C}$):</strong>
+                        $$Q_2 = m \cdot L_f = 100 \cdot 80 = 8000\text{ cal}$$
+                    </li>
+                    <li><strong>Etapa 3 (Aquecimento da água de $0^\circ\text{C}$ até $50^\circ\text{C}$):</strong>
+                        $$Q_3 = m \cdot c_{\text{água}} \cdot \Delta T = 100 \cdot 1{,}0 \cdot (50 - 0) = 5000\text{ cal}$$
+                    </li>
+                    <li><strong>Soma das Etapas:</strong>
+                        $$Q_{\text{total}} = Q_1 + Q_2 + Q_3 = 1000 + 8000 + 5000 = 14000\text{ cal} = 14\text{ kcal}$$
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </article>
+</main>
+
+<footer>
+    &copy; 2026 Prof. Dr. Humberto Luz Oliveira — IFSC Câmpus São José
+</footer>
+
+</body>
+</html>
