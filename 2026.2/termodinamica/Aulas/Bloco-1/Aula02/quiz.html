@@ -3,64 +3,486 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Interativo — Calorimetria Sensível</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Quiz 2 (Avaliativo) — Aula 02: Mudança de Fase e Calor Latente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #f0f4f8; margin: 0; padding: 2rem 1rem; }
-        .container { max-width: 800px; margin: 0 auto; background: rgba(15,23,42,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 2.5rem; }
-        h1 { color: #fca5a5; font-size: 1.8rem; margin-bottom: 2rem; }
-        .question-card { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.2); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; }
-        .question-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 1rem; }
-        .options { display: flex; flex-direction: column; gap: 0.5rem; }
-        .option-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.5rem; padding: 0.75rem 1rem; color: #cbd5e1; text-align: left; cursor: pointer; transition: all 0.2s; font-size: 0.95rem; }
-        .option-btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
-        .option-btn.correct { background: rgba(34,197,94,0.2) !important; border-color: #22c55e !important; color: #4ade80 !important; }
-        .option-btn.incorrect { background: rgba(239,68,68,0.2) !important; border-color: #ef4444 !important; color: #fca5a5 !important; }
-        .explanation { display: none; margin-top: 1rem; padding: 0.75rem; background: rgba(0,0,0,0.3); border-radius: 0.5rem; font-size: 0.85rem; color: #94a3b8; }
-        .btn-back { display: inline-block; background: rgba(255,255,255,0.08); color: #cbd5e1; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.85rem; margin-bottom: 1.5rem; }
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: rgba(15, 23, 42, 0.85);
+            --border-card: rgba(249, 115, 22, 0.25);
+            --accent-orange: #f97316;
+            --accent-amber: #fbbf24;
+            --accent-green: #4ade80;
+            --accent-red: #fca5a5;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(249, 115, 22, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(251, 191, 36, 0.06) 0%, transparent 40%);
+        }
+
+        .container { max-width: 850px; margin: 0 auto; }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .btn-back:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        .login-header h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .form-group { margin-bottom: 1.25rem; }
+        .form-group label { display: block; font-size: 0.88rem; font-weight: 700; color: #cbd5e1; margin-bottom: 0.5rem; }
+        .form-control { width: 100%; background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 0.6rem; padding: 0.8rem 1rem; color: #fff; font-size: 0.95rem; outline: none; transition: all 0.2s; }
+        .form-control:focus { border-color: var(--accent-orange); box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2); }
+
+        .btn-start {
+            width: 100%;
+            background: linear-gradient(135deg, #ea580c, #c2410c);
+            color: #fff;
+            border: none;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            font-size: 1.05rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 8px 20px rgba(234, 88, 12, 0.3);
+        }
+        .btn-start:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(234, 88, 12, 0.4); }
+
+        #quizScreen { display: none; }
+        .sticky-timer-bar {
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid var(--border-card);
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .question-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .question-title { font-weight: 700; font-size: 1.05rem; color: #fff; margin-bottom: 1rem; line-height: 1.45; }
+        .options-list { display: flex; flex-direction: column; gap: 0.6rem; }
+        .option-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.6rem;
+            padding: 0.85rem 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .option-item:hover { background: rgba(249, 115, 22, 0.12); border-color: rgba(249, 115, 22, 0.3); }
+        .option-item input { accent-color: var(--accent-orange); width: 1.1rem; height: 1.1rem; }
+
+        #resultScreen { display: none; }
+        .review-card { background: var(--bg-card); border-radius: 1rem; padding: 1.5rem; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.08); }
+        .review-card.correct { border-left: 4px solid var(--accent-green); }
+        .review-card.incorrect { border-left: 4px solid var(--accent-red); }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="../../../index.html" class="btn-back">← Voltar para Central da Termodinâmica</a>
-        <h1>📝 Quiz Interativo — Calorimetria Sensível</h1>
 
-        <!-- Q1 -->
-        <div class="question-card" id="q1">
-            <div class="question-title">1. Dois corpos A e B de massas iguais recebem a mesma quantidade de calor Q. Se ΔT<sub>A</sub> = 2 ΔT<sub>B</sub>, qual a relação entre c<sub>A</sub> e c<sub>B</sub>?</div>
-            <div class="options">
-                <button class="option-btn" onclick="check(this, 'q1', false)">A) c<sub>A</sub> = 2 c<sub>B</sub></button>
-                <button class="option-btn" onclick="check(this, 'q1', false)">B) c<sub>A</sub> = c<sub>B</sub></button>
-                <button class="option-btn" onclick="check(this, 'q1', true)">C) c<sub>A</sub> = 0,5 c<sub>B</sub></button>
-                <button class="option-btn" onclick="check(this, 'q1', false)">D) c<sub>A</sub> = 4 c<sub>B</sub></button>
+        <!-- TELA 1: LOGIN -->
+        <div id="loginScreen" class="login-card">
+            <div class="login-header">
+                <h1>📝 Quiz 2 — Mudança de Fase e Calor Latente</h1>
+                <p>Avaliação individual · 10 Questões · Tempo limite: 30 minutos</p>
             </div>
-            <div class="explanation"><strong>Gabarito C:</strong> Como c = Q / (m · ΔT), se ΔT<sub>A</sub> dobra, seu calor específico c<sub>A</sub> é reduzido à metade.</div>
+
+            <form id="startForm" onsubmit="startQuiz(event)">
+                <div class="form-group">
+                    <label for="studentName">👤 Nome Completo do Aluno:</label>
+                    <input type="text" id="studentName" class="form-control" placeholder="Digite seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentEmail">📧 E-mail Institucional ou Pessoal:</label>
+                    <input type="email" id="studentEmail" class="form-control" placeholder="exemplo@aluno.ifsc.edu.br" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quizPassword">🔑 Senha de Acesso (liberada pelo professor):</label>
+                    <input type="password" id="quizPassword" class="form-control" placeholder="Digite a senha de acesso" required>
+                </div>
+
+                <button type="submit" class="btn-start">🚀 Iniciar Avaliação</button>
+            </form>
         </div>
 
-        <!-- Q2 -->
-        <div class="question-card" id="q2">
-            <div class="question-title">2. 200 g de água a 20 °C misturados com 100 g de metal a 80 °C atingem T<sub>eq</sub> = 25 °C. Qual é o calor específico do metal?</div>
-            <div class="options">
-                <button class="option-btn" onclick="check(this, 'q2', false)">A) 0,09 cal / (g · °C)</button>
-                <button class="option-btn" onclick="check(this, 'q2', true)">B) 0,18 cal / (g · °C)</button>
-                <button class="option-btn" onclick="check(this, 'q2', false)">C) 0,25 cal / (g · °C)</button>
-                <button class="option-btn" onclick="check(this, 'q2', false)">D) 0,50 cal / (g · °C)</button>
+        <!-- TELA 2: QUIZ ATIVO -->
+        <div id="quizScreen">
+            <div class="sticky-timer-bar">
+                <div>
+                    <div style="font-weight: 700;" id="activeStudent">Aluno</div>
+                    <div style="font-size: 0.8rem; color: #94a3b8;" id="activeEmail">email@ifsc.edu.br</div>
+                </div>
+                <div style="font-family: monospace; font-size: 1.3rem; font-weight: 800; color: var(--accent-orange);" id="timerDisplay">30:00</div>
             </div>
-            <div class="explanation"><strong>Gabarito B:</strong> 100 · c · (25 - 80) + 200 · 1,0 · (25 - 20) = 0 &rArr; -5500c + 1000 = 0 &rArr; c &approx; 0,18 cal / (g · °C).</div>
+
+            <form id="quizForm" onsubmit="submitQuiz(event)">
+                <div id="questionsContainer"></div>
+                <button type="submit" class="btn-start" style="margin-bottom: 3rem;">📥 Enviar Respostas e Finalizar</button>
+            </form>
+        </div>
+
+        <!-- TELA 3: RESULTADOS -->
+        <div id="resultScreen" class="login-card">
+            <h1 style="color: var(--accent-green); text-align: center; margin-bottom: 1rem;">✅ Avaliação Concluída!</h1>
+            <div style="text-align: center; background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 1rem; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.08);">
+                <div style="font-size: 2.2rem; font-weight: 800; color: var(--accent-amber);" id="resScoreNum">0 / 10</div>
+                <div style="font-size: 1rem; color: #cbd5e1; margin-top: 0.3rem;" id="resPercentText">0% de Aproveitamento</div>
+                <div style="font-size: 0.82rem; color: #94a3b8; margin-top: 0.8rem;">Código de Validação: <strong id="resAuthCode" style="color:#fff;">-</strong></div>
+            </div>
+
+            <div id="reviewContainer"></div>
         </div>
     </div>
 
     <script>
-        function check(btn, qId, isCorrect) {
-            const card = document.getElementById(qId);
-            const btns = card.querySelectorAll('.option-btn');
-            btns.forEach(b => b.disabled = true);
-            if (isCorrect) {
-                btn.classList.add('correct');
-            } else {
-                btn.classList.add('incorrect');
+        const ACCESS_PASSWORD_HASH = "TERMO2026";
+        const TOTAL_TIME_SECONDS = 30 * 60;
+        const GOOGLE_APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbfPU1T8DYQ7v8j8Dc5goqZXleR4avaDsGuzUj07HwwoqiE43GRmEy4hvMgcgi_5vJ/exec";
+        const GABARITO_RELEASE_DATE = "2026-08-13T23:59:59";
+
+        const questionsData = [
+            {
+                id: 1,
+                title: "1. Por que a temperatura de uma substância pura permanece constante durante a mudança de estado físico sob pressão constante?",
+                options: [
+                    { letter: "A", text: "Porque a substância deixa de trocar calor com o meio externo." },
+                    { letter: "B", text: "Porque toda a energia térmica absorvida ou cedida é utilizada na alteração da energia potencial agregada/ligações moleculares." },
+                    { letter: "C", text: "Porque o calor específico sensível torna-se infinito instantaneamente." },
+                    { letter: "D", text: "Porque a energia cinética das moléculas atinge o valor de zero absoluto." }
+                ],
+                answer: "B",
+                rationale: "Durante a transição de fase de uma substância pura, o calor latente é consumido/liberado para reorganizar as ligações intermoleculares (energia potencial), mantendo inalterada a energia cinética média (temperatura)."
+            },
+            {
+                id: 2,
+                title: "2. Qual é a equação fundamental utilizada para calcular a quantidade de calor trocada durante uma mudança de fase?",
+                options: [
+                    { letter: "A", text: "Q = m · c · ΔT" },
+                    { letter: "B", text: "Q = m · L" },
+                    { letter: "C", text: "Q = C / ΔT" },
+                    { letter: "D", text: "Q = p · ΔV" }
+                ],
+                answer: "B",
+                rationale: "A equação Q = m · L calcula a quantidade de calor latente trocada por uma massa m com calor latente específico L."
+            },
+            {
+                id: 3,
+                title: "3. Quanto calor é necessário para fundir totalmente 100 g de gelo que se encontra exatamente a 0 °C (Lf = 80 cal/g)?",
+                options: [
+                    { letter: "A", text: "800 cal" },
+                    { letter: "B", text: "5.400 cal" },
+                    { letter: "C", text: "8.000 cal" },
+                    { letter: "D", text: "80.000 cal" }
+                ],
+                answer: "C",
+                rationale: "Q = m · Lf = 100 g · 80 cal/g = 8.000 cal (ou 8 kcal)."
+            },
+            {
+                id: 4,
+                title: "4. Qual a diferença fundamental entre evaporação e ebulição?",
+                options: [
+                    { letter: "A", text: "A evaporação só ocorre no vácuo e a ebulição na presença de ar." },
+                    { letter: "B", text: "A evaporação ocorre lentamente em qualquer temperatura na superfície livre; a ebulição é um processo rápido e tumultuoso no ponto de ebulição." },
+                    { letter: "C", text: "A evaporação absorve calor e a ebulição cede calor." },
+                    { letter: "D", text: "Não há diferença; são nomes idênticos para o mesmo processo químico." }
+                ],
+                answer: "B",
+                rationale: "A evaporação é um fenômeno de superfície lento em qualquer T, enquanto a ebulição envolve formação de bolhas na massa do líquido a uma temperatura fixa."
+            },
+            {
+                id: 5,
+                title: "5. Sabendo que o calor latente de vaporização da água é Lv = 540 cal/g, qual a quantidade de calor liberada por 50 g de vapor de água ao se condensar completamente a 100 °C?",
+                options: [
+                    { letter: "A", text: "-27.000 cal" },
+                    { letter: "B", text: "+27.000 cal" },
+                    { letter: "C", text: "-5.400 cal" },
+                    { letter: "D", text: "-540 cal" }
+                ],
+                answer: "A",
+                rationale: "Na condensação o calor é cedido (Q < 0): Q = 50 g · (-540 cal/g) = -27.000 cal."
+            },
+            {
+                id: 6,
+                title: "6. Como é chamada a transição direta da fase sólida para a fase gasosa sem passar pelo estado líquido?",
+                options: [
+                    { letter: "A", text: "Calefação" },
+                    { letter: "B", text: "Liquefação" },
+                    { letter: "C", text: "Sublimação" },
+                    { letter: "D", text: "Condensação" }
+                ],
+                answer: "C",
+                rationale: "A sublimação é a passagem direta da fase sólida para a fase de vapor (ex.: gelo seco e naftalina)."
+            },
+            {
+                id: 7,
+                title: "7. Em um gráfico de aquecimento (Temperatura vs Tempo) de uma substância pura, o que os patamares horizontais representam?",
+                options: [
+                    { letter: "A", text: "Intervalos onde o aquecimento foi interrompido." },
+                    { letter: "B", text: "Mudanças de estado físico com coexistência de duas fases em temperatura constante." },
+                    { letter: "C", text: "Atingimento da temperatura de zero absoluto." },
+                    { letter: "D", text: "Momentos em que a massa da substância se reduz a zero." }
+                ],
+                answer: "B",
+                rationale: "Os patamares horizontais indicam transições de fase onde a temperatura não se altera durante a absorção de calor latente."
+            },
+            {
+                id: 8,
+                title: "8. Para aquecer 100 g de gelo a -20 °C até 0 °C e depois fundi-lo totalmente a 0 °C, qual a quantidade total de calor necessária (c_gelo = 0,5 cal/g°C, Lf = 80 cal/g)?",
+                options: [
+                    { letter: "A", text: "1.000 cal" },
+                    { letter: "B", text: "8.000 cal" },
+                    { letter: "C", text: "9.000 cal" },
+                    { letter: "D", text: "10.000 cal" }
+                ],
+                answer: "C",
+                rationale: "Q1 (aquecimento) = 100 · 0,5 · 20 = 1.000 cal. Q2 (fusão) = 100 · 80 = 8.000 cal. Total = 9.000 cal."
+            },
+            {
+                id: 9,
+                title: "9. Por que uma queimadura provocada por vapor de água a 100 °C é consideravelmente mais severa do que por água líquida a 100 °C?",
+                options: [
+                    { letter: "A", text: "Porque o vapor d'água possui maior densidade que a água." },
+                    { letter: "B", text: "Porque o vapor cede 540 cal/g adicionais de calor latente ao se condensar sobre a pele." },
+                    { letter: "C", text: "Porque a água líquida a 100 °C não transmite calor para a pele." },
+                    { letter: "D", text: "Porque a pressão do vapor destrói as células antes do calor agir." }
+                ],
+                answer: "B",
+                rationale: "Ao entrar em contato com a pele, o vapor condensa a 100 °C liberando 540 cal/g adicionais antes que a água líquida resultante comece a resfriar."
+            },
+            {
+                id: 10,
+                title: "10. Em um sistema termicamente isolado contendo água líquida e gelo a 0 °C em equilíbrio, o que ocorre se não for fornecido nem retirado calor do sistema?",
+                options: [
+                    { letter: "A", text: "Todo o gelo derrete gradualmente." },
+                    { letter: "B", text: "Toda a água congela gradualmente." },
+                    { letter: "C", text: "As massas de gelo e de água permanecem inalteradas por tempo indeterminado." },
+                    { letter: "D", text: "A temperatura cai para -10 °C espontaneamente." }
+                ],
+                answer: "C",
+                rationale: "No equilíbrio térmico a 0 °C sem trocas externas de energia, as fases sólida e líquida coexistem em estado de equilíbrio estável."
             }
-            card.querySelector('.explanation').style.display = 'block';
+        ];
+
+        let studentData = {};
+        let timerInterval = null;
+        let timeLeft = TOTAL_TIME_SECONDS;
+
+        function startQuiz(e) {
+            e.preventDefault();
+            const pass = document.getElementById("quizPassword").value.trim();
+            if (pass.toUpperCase() !== ACCESS_PASSWORD_HASH && pass !== "ifsc2026") {
+                alert("❌ Senha incorreta! Verifique a senha liberada pelo professor.");
+                return;
+            }
+
+            studentData = {
+                name: document.getElementById("studentName").value.trim(),
+                email: document.getElementById("studentEmail").value.trim()
+            };
+
+            document.getElementById("loginScreen").style.display = "none";
+            document.getElementById("quizScreen").style.display = "block";
+            document.getElementById("activeStudent").textContent = studentData.name;
+            document.getElementById("activeEmail").textContent = studentData.email;
+
+            renderQuestions();
+            startTimer();
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById("questionsContainer");
+            container.innerHTML = "";
+            questionsData.forEach(q => {
+                const card = document.createElement("div");
+                card.className = "question-card";
+                card.innerHTML = `
+                    <div class="question-title">${q.title}</div>
+                    <div class="options-list">
+                        ${q.options.map(opt => `
+                            <label class="option-item">
+                                <input type="radio" name="q_${q.id}" value="${opt.letter}" required>
+                                <span><strong>${opt.letter})</strong> ${opt.text}</span>
+                            </label>
+                        `).join("")}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                const min = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+                const sec = String(timeLeft % 60).padStart(2, '0');
+                document.getElementById("timerDisplay").textContent = `${min}:${sec}`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert("⏰ O tempo limite expirou! Suas respostas serão enviadas automaticamente.");
+                    document.getElementById("quizForm").dispatchEvent(new Event('submit'));
+                }
+            }, 1000);
+        }
+
+        function submitQuiz(e) {
+            e.preventDefault();
+            clearInterval(timerInterval);
+
+            const userAnswers = {};
+            let correctCount = 0;
+
+            questionsData.forEach(q => {
+                const selected = document.querySelector(`input[name="q_${q.id}"]:checked`);
+                const ans = selected ? selected.value : "N/A";
+                userAnswers[q.id] = ans;
+                if (ans === q.answer) correctCount++;
+            });
+
+            const percent = Math.round((correctCount / questionsData.length) * 100);
+            const authHash = "TRM02-" + Math.random().toString(36).substr(2, 9).toUpperCase();
+
+            // Envio para a Planilha Google
+            if (GOOGLE_APP_SCRIPT_URL && GOOGLE_APP_SCRIPT_URL.startsWith("http")) {
+                fetch(GOOGLE_APP_SCRIPT_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        student: studentData.name,
+                        email: studentData.email,
+                        quiz: "Quiz 2 — Aula 02 (Termodinâmica)",
+                        score: correctCount,
+                        total: questionsData.length,
+                        percent: percent + "%",
+                        authCode: authHash
+                    })
+                }).catch(err => console.error(err));
+            }
+
+            document.getElementById("resScoreNum").textContent = `${correctCount} / ${questionsData.length}`;
+            document.getElementById("resPercentText").textContent = `${percent}% de Aproveitamento`;
+            document.getElementById("resAuthCode").textContent = authHash;
+
+            renderReview(userAnswers);
+
+            document.getElementById("quizScreen").style.display = "none";
+            document.getElementById("resultScreen").style.display = "block";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReview(userAnswers) {
+            const container = document.getElementById("reviewContainer");
+            container.innerHTML = "";
+
+            const unlocked = new Date() >= new Date(GABARITO_RELEASE_DATE);
+
+            if (!unlocked) {
+                const releaseFormatted = new Date(GABARITO_RELEASE_DATE).toLocaleString('pt-BR', { dateStyle: 'long', timeStyle: 'short' });
+                container.innerHTML = `
+                    <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 1rem; padding: 1.8rem; text-align: center; margin-top: 1rem;">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔒</div>
+                        <h3 style="color: #fbbf24; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem;">Gabarito Comentado Bloqueado Temporariamente</h3>
+                        <p style="color: #e2e8f0; font-size: 0.95rem; margin-bottom: 1.2rem; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                            Para garantir a integridade da avaliação entre todos os discentes durante o prazo de realização, as justificativas teóricas e a correção questão por questão estarão disponíveis a partir de:
+                        </p>
+                        <div style="display: inline-block; background: rgba(0,0,0,0.5); border: 1px solid #f59e0b; color: #fbbf24; padding: 0.6rem 1.4rem; border-radius: 0.6rem; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.2rem;">
+                            📅 ${releaseFormatted}
+                        </div>
+                        <p style="color: #94a3b8; font-size: 0.85rem; font-style: italic;">
+                            Sua pontuação final, tempo e comprovante com o código de validação já foram salvos no sistema.
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            questionsData.forEach(q => {
+                const userAns = userAnswers[q.id] || "N/A";
+                const isCorrect = userAns === q.answer;
+                const card = document.createElement("div");
+                card.className = `review-card ${isCorrect ? 'correct' : 'incorrect'}`;
+                card.innerHTML = `
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 0.5rem;">${q.title}</div>
+                    <div style="font-size: 0.9rem; margin-bottom: 0.4rem;">
+                        Sua resposta: <strong style="color: ${isCorrect ? '#4ade80' : '#fca5a5'};">${userAns}</strong>
+                        ${!isCorrect ? `| Gabarito: <strong style="color:#4ade80;">${q.answer}</strong>` : ''}
+                    </div>
+                    <div style="font-size: 0.85rem; color: #94a3b8; background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 0.5rem; margin-top: 0.5rem;">
+                        📖 <strong>Justificativa:</strong> ${q.rationale}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
         }
     </script>
 </body>

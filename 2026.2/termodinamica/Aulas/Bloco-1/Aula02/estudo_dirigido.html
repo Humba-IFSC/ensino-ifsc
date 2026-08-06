@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudo Dirigido — Calorimetria Sensível</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Estudo Dirigido — Aula 02: Mudança de Fase e Calor Latente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         window.MathJax = {
             tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] }
@@ -14,55 +12,61 @@
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #f0f4f8; margin: 0; padding: 2rem 1rem; }
-        .container { max-width: 850px; margin: 0 auto; background: rgba(15,23,42,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        h1 { color: #fdba74; font-size: 2rem; border-bottom: 2px solid rgba(249,115,22,0.3); padding-bottom: 0.5rem; }
-        h2 { color: #f97316; font-size: 1.3rem; margin-top: 2rem; }
-        .box-concept { background: rgba(249,115,22,0.08); border-left: 4px solid #f97316; padding: 1rem 1.2rem; border-radius: 0.5rem; margin: 1rem 0; }
-        .equation-box { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 1.2rem; text-align: center; font-size: 1.2rem; margin: 1.2rem 0; }
-        .btn-back { display: inline-block; background: rgba(255,255,255,0.08); color: #cbd5e1; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.85rem; margin-bottom: 1.5rem; transition: background 0.2s; }
-        .btn-back:hover { background: rgba(255,255,255,0.15); color: #fff; }
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: rgba(15, 23, 42, 0.85);
+            --border-card: rgba(249, 115, 22, 0.2);
+            --accent-orange: #f97316;
+            --accent-amber: #fbbf24;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-main); color: var(--text-primary); margin: 0; padding: 2rem 1rem; }
+        .container { max-width: 850px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 1.25rem; padding: 2.5rem; }
+        .btn-back { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.06); color: #cbd5e1; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 0.6rem; font-size: 0.88rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1.5rem; }
+        .btn-back:hover { background: rgba(255,255,255,0.12); color: #fff; }
+        h1 { color: var(--accent-orange); font-size: 1.9rem; margin-bottom: 0.4rem; font-weight: 800; }
+        .subtitle { color: #94a3b8; font-size: 0.92rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; }
+        h2 { color: var(--accent-amber); font-size: 1.3rem; margin-top: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.4rem; }
+        p, li { color: var(--text-secondary); line-height: 1.65; font-size: 0.95rem; }
+        .formula-box { background: rgba(0,0,0,0.4); border: 1px solid var(--accent-orange); border-radius: 0.75rem; padding: 1.25rem; text-align: center; margin: 1.5rem 0; }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="../../../index.html" class="btn-back">← Voltar para Central da Termodinâmica</a>
+        <h1>🧊 Estudo Dirigido: Aula 02 — Mudança de Fase e Calor Latente</h1>
+        <div class="subtitle">Disciplina: Termologia e Termodinâmica (FSC060806 / FCA060903) · Ramalho Vol. 2, Cap. 5</div>
+
+        <h2>1. Transições de Fase da Matéria</h2>
+        <p>A matéria altera seu estado de agregação físico ao trocar calor com o meio externo. As seis transições fundamentais são:</p>
+        <ul>
+            <li><strong>Fusão:</strong> Sólido → Líquido (absorve calor).</li>
+            <li><strong>Solidificação:</strong> Líquido → Sólido (cede calor).</li>
+            <li><strong>Vaporização:</strong> Líquido → Gasoso (Evaporação, Ebulição e Calefação).</li>
+            <li><strong>Condensação / Liquefação:</strong> Gasoso → Líquido (cede calor).</li>
+            <li><strong>Sublimação:</strong> Sólido ↔ Gasoso diretamente.</li>
+        </ul>
+
+        <h2>2. Equação do Calor Latente</h2>
+        <p>Quando uma substância pura muda de fase sob pressão constante, a temperatura permanece constante. A energia trocada é calculada por:</p>
         
-        <h1>🌡️ Estudo Dirigido: Calorimetria Sensível</h1>
-        <p><em>Livro Base: Fundamentos da Física (Ramalho, Vol. 2 — Capítulo 4)</em></p>
-
-        <div class="box-concept">
-            <strong>Conceito Chave:</strong> Calor é energia térmica em trânsito motivada exclusivamente por uma diferença de temperatura entre corpos. O calor sempre flui espontaneamente do corpo mais quente para o mais frio até atingirem a mesma temperatura final ($T_{\text{eq}}$).
+        <div class="formula-box">
+            $$\Large Q = m \cdot L$$
+            <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 0.5rem;">
+                Para a água (1 atm): $L_f = 80\text{ cal/g}$ (fusão) e $L_v = 540\text{ cal/g}$ (vaporização).
+            </p>
         </div>
 
-        <h2>1. Temperatura vs. Calor</h2>
-        <ul>
-            <li><strong>Temperatura ($T$):</strong> Medida da energia cinética média das partículas do corpo.</li>
-            <li><strong>Calor ($Q$):</strong> Transferência de energia térmica. Não faz sentido dizer que um corpo "tem calor", mas sim que ele "troca calor".</li>
-        </ul>
-
-        <h2>2. Capacidade Térmica e Calor Específico</h2>
-        <p>A capacidade térmica $C$ se refere a um objeto por inteiro, enquanto o calor específico $c$ é uma propriedade da substância:</p>
-
-        <div class="equation-box">
-            $$C = \frac{Q}{\Delta T} = m \cdot c$$
-        </div>
-
-        <h2>3. Equação Fundamental da Calorimetria</h2>
-        <div class="equation-box" style="border-color: rgba(249,115,22,0.4); background: rgba(249,115,22,0.1);">
-            $$Q = m \cdot c \cdot \Delta T$$
-        </div>
-        <ul>
-            <li>$Q > 0$: Corpo recebe calor (aquecimento, $\Delta T > 0$).</li>
-            <li>$Q < 0$: Corpo cede calor (resfriamento, $\Delta T < 0$).</li>
-            <li>$c_{\text{água}} = 1,0 \text{ cal}/(\text{g}\cdot^\circ\text{C}) = 4186 \text{ J}/(\text{kg}\cdot\text{K})$.</li>
-        </ul>
-
-        <h2>4. Princípio das Trocas de Calor</h2>
-        <p>Em sistemas termicamente isolados (calorímetros ideais), a soma de todo o calor trocado entre os componentes é nula:</p>
-        <div class="equation-box">
-            $$\sum Q = 0 \implies |Q_{\text{cedido}}| = |Q_{\text{recebido}}|$$
-        </div>
+        <h2>3. Exemplo Resolvido</h2>
+        <p><strong>Problema:</strong> Qual o calor necessário para transformar $200\text{ g}$ de gelo a $-10^\circ\text{C}$ em água a $50^\circ\text{C}$?</p>
+        <p><strong>Resolução:</strong></p>
+        <ol>
+            <li>Aquecimento do gelo até $0^\circ\text{C}$: $Q_1 = 200 \cdot 0,5 \cdot (0 - (-10)) = 1.000\text{ cal}$</li>
+            <li>Fusão do gelo a $0^\circ\text{C}$: $Q_2 = 200 \cdot 80 = 16.000\text{ cal}$</li>
+            <li>Aquecimento da água de $0^\circ\text{C}$ a $50^\circ\text{C}$: $Q_3 = 200 \cdot 1,0 \cdot 50 = 10.000\text{ cal}$</li>
+            <li><strong>Total:</strong> $Q = 1.000 + 16.000 + 10.000 = 27.000\text{ cal} = 27\text{ kcal}$.</li>
+        </ol>
     </div>
 </body>
 </html>

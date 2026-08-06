@@ -1,66 +1,78 @@
-# 🌡️ Estudo Dirigido: Calorimetria Sensível
+# 🧊 Estudo Dirigido: Aula 02 — Mudança de Fase e Calor Latente
 
 **Disciplina:** Termologia e Termodinâmica (FSC060806 / FCA060903)  
-**Livro Base:** *Fundamentos da Física*, Ramalho, Nicolau e Toledo (Volume 2, Capítulo 4)
+**Livro Base:** *Fundamentos da Física*, Ramalho, Nicolau e Toledo (Volume 2, Capítulo 5)  
+**Identificador NotebookLM:** `Aula02`
 
 ---
 
-## 1. Conceitos Fundamentais
+## 1. Estados Físicos da Matéria e Transições de Fase
 
-- **Temperatura ($T$):** Grandeza física associada ao grau de agitação térmica das moléculas de um corpo.
-- **Calor ($Q$):** Energia térmica em trânsito entre corpos a diferentes temperaturas. O calor flui espontaneamente do corpo de maior temperatura para o de menor temperatura até ser atingido o **equilíbrio térmico**.
-- **Equilíbrio Térmico:** Estado em que dois ou mais corpos em contato térmico atingem a mesma temperatura ($T_{eq}$).
+A matéria apresenta-se sob três estados físicos fundamentais: **sólido**, **líquido** e **gasoso**. A transição entre esses estados ocorre por troca de energia térmica (calor) e pode ser classificada da seguinte forma:
 
----
-
-## 2. Capacidade Térmica e Calor Específico
-
-### Capacidade Térmica ($C$)
-Indica a quantidade de calor necessária para alterar em $1^\circ\text{C}$ (ou $1\text{ K}$) a temperatura de um **corpo como um todo**:
-$$C = \frac{Q}{\Delta T} \quad \text{ou} \quad C = m \cdot c$$
-
-- **Unidades:** $\text{cal}/^\circ\text{C}$ ou $\text{J}/\text{K}$.
-
-### Calor Específico ($c$)
-Propriedade característica da **substância** que constitui o corpo:
-$$c = \frac{C}{m}$$
-
-- Para a **água líquida**: $c_{\text{água}} = 1,0\text{ cal}/(\text{g}\cdot^\circ\text{C}) = 4186\text{ J}/(\text{kg}\cdot\text{K})$.
-- Quanto maior o calor específico, mais difícil é aquecer ou resfriar a substância.
+* **Fusão:** Passagem da fase sólida para a fase líquida (absorve calor).
+* **Solidificação:** Passagem da fase líquida para a fase sólida (cede calor).
+* **Vaporização:** Passagem da fase líquida para a fase gasosa (absorve calor). Ocorre de três formas:
+  * *Evaporação:* Processo lento e espontâneo em qualquer temperatura na superfície do líquido.
+  * *Ebulição:* Processo tumultuoso e rápido em uma temperatura bem definida (ponto de ebulição).
+  * *Calefação:* Processo instantâneo quando o líquido toca uma superfície aquecida muito acima do seu ponto de ebulição.
+* **Condensação ou Liquefação:** Passagem da fase gasosa para a fase líquida (cede calor).
+* **Sublimação:** Passagem direta da fase sólida para a fase gasosa (ou vice-versa, chamada ressublimação).
 
 ---
 
-## 3. Equação Fundamental da Calorimetria
+## 2. Calor Latente ($Q = m L$)
 
-$$Q = m \cdot c \cdot \Delta T$$
+Diferente do calor sensível (que altera a temperatura do corpo), o **calor latente** é a quantidade de energia térmica por unidade de massa necessária para provocar uma **mudança de estado físico**, mantendo a **temperatura rigorosamente constante** (sob pressão constante).
+
+$$\Large Q = m \cdot L$$
 
 Onde:
-- $Q$: Quantidade de calor sensível ($\text{cal}$ ou $\text{J}$).
-  - $Q > 0$: Calor recebido (aquecimento, $\Delta T > 0$).
-  - $Q < 0$: Calor cedido (resfriamento, $\Delta T < 0$).
-- $m$: Massa do corpo ($\text{g}$ ou $\text{kg}$).
-- $c$: Calor específico sensível ($\text{cal}/\text{g}^\circ\text{C}$ ou $\text{J}/\text{kg K}$).
-- $\Delta T = T_f - T_i$: Variação de temperatura.
+* $Q$: Quantidade de calor latente ($\text{cal}$ ou $\text{J}$).
+  * $Q > 0$: Calor absorvido (fusão, vaporização, sublimação).
+  * $Q < 0$: Calor cedido (solidificação, liquefação).
+* $m$: Massa da substância ($\text{g}$ ou $\text{kg}$).
+* $L$: Calor latente específico de mudança de fase ($\text{cal/g}$ ou $\text{J/kg}$).
+
+### Valores Notáveis para a Água (Pressão de $1\text{ atm}$):
+* **Fusão do gelo / Solidificação da água:** $L_f = +80\text{ cal/g} \quad (L_s = -80\text{ cal/g})$
+* **Vaporização da água / Liquefação do vapor:** $L_v = +540\text{ cal/g} \quad (L_l = -540\text{ cal/g})$
 
 ---
 
-## 4. Princípio das Trocas de Calor
+## 3. Patamar de Temperatura em Substâncias Puras
 
-Em um **sistema termicamente isolado** (como um calorímetro ideal):
-$$\sum Q = Q_1 + Q_2 + Q_3 + \dots = 0$$
+Durante uma mudança de fase de uma **substância pura** sob pressão constante, toda a energia térmica recebida é utilizada na alteração da estrutura intermolecular e no aumento da energia potencial agregada, e **não** no aumento da energia cinética média das moléculas. Por isso:
 
-$$\Rightarrow |Q_{\text{cedido}}| = |Q_{\text{recebido}}|$$
+$$\text{Durante a mudança de fase de uma substância pura, a temperatura não varia!}$$
+
+---
+
+## 4. Curva de Aquecimento Completa da Água
+
+Considere o aquecimento de um bloco de gelo desde $-20^\circ\text{C}$ até tornar-se vapor d'água superaquecido a $120^\circ\text{C}$:
+
+1. **Aquecimento do gelo (Sólido):** $Q_1 = m \cdot c_{\text{gelo}} \cdot (0 - (-20))$ (Calor sensível)
+2. **Fusão do gelo (Sólido + Líquido):** $Q_2 = m \cdot L_f$ (Patamar a $0^\circ\text{C}$, calor latente)
+3. **Aquecimento da água (Líquido):** $Q_3 = m \cdot c_{\text{água}} \cdot (100 - 0)$ (Calor sensível)
+4. **Vaporização da água (Líquido + Vapor):** $Q_4 = m \cdot L_v$ (Patamar a $100^\circ\text{C}$, calor latente)
+5. **Aquecimento do vapor (Vapor):** $Q_5 = m \cdot c_{\text{vapor}} \cdot (120 - 100)$ (Calor sensível)
+
+$$\Large Q_{\text{total}} = Q_1 + Q_2 + Q_3 + Q_4 + Q_5$$
 
 ---
 
 ## 5. Exercício Resolvido de Exemplo
 
-**Problema:** Um bloco de alumínio de massa $m = 200\text{ g}$ a $100^\circ\text{C}$ é colocado no interior de um calorímetro de capacidade térmica desprezível contendo $300\text{ g}$ de água a $20^\circ\text{C}$. Dados: $c_{\text{água}} = 1,0\text{ cal}/\text{g}^\circ\text{C}$ e $c_{\text{Al}} = 0,22\text{ cal}/\text{g}^\circ\text{C}$. Determine a temperatura de equilíbrio térmico $T_{\text{eq}}$.
+**Problema:** Qual a quantidade total de calor necessária para transformar $200\text{ g}$ de gelo a $-10^\circ\text{C}$ em água líquida a $50^\circ\text{C}$ sob pressão normal?  
+*Dados:* $c_{\text{gelo}} = 0,5\text{ cal/g}^\circ\text{C}$, $c_{\text{água}} = 1,0\text{ cal/g}^\circ\text{C}$, $L_f = 80\text{ cal/g}$.
 
 **Resolução:**
-$$Q_{\text{Al}} + Q_{\text{água}} = 0$$
-$$m_{\text{Al}} \cdot c_{\text{Al}} \cdot (T_{\text{eq}} - 100) + m_{\text{água}} \cdot c_{\text{água}} \cdot (T_{\text{eq}} - 20) = 0$$
-$$200 \cdot 0,22 \cdot (T_{\text{eq}} - 100) + 300 \cdot 1,0 \cdot (T_{\text{eq}} - 20) = 0$$
-$$44(T_{\text{eq}} - 100) + 300(T_{\text{eq}} - 20) = 0$$
-$$44 T_{\text{eq}} - 4400 + 300 T_{\text{eq}} - 6000 = 0$$
-$$344 T_{\text{eq}} = 10400 \implies T_{\text{eq}} \approx 30,23^\circ\text{C}$$
+1. Aquecimento do gelo de $-10^\circ\text{C}$ até $0^\circ\text{C}$:
+   $$Q_1 = m \cdot c_{\text{gelo}} \cdot \Delta T = 200 \cdot 0,5 \cdot (0 - (-10)) = 100 \cdot 10 = 1.000\text{ cal}$$
+2. Fusão do gelo a $0^\circ\text{C}$:
+   $$Q_2 = m \cdot L_f = 200 \cdot 80 = 16.000\text{ cal}$$
+3. Aquecimento da água líquida de $0^\circ\text{C}$ até $50^\circ\text{C}$:
+   $$Q_3 = m \cdot c_{\text{água}} \cdot \Delta T = 200 \cdot 1,0 \cdot (50 - 0) = 200 \cdot 50 = 10.000\text{ cal}$$
+4. Quantidade total de calor:
+   $$Q_{\text{total}} = 1.000 + 16.000 + 10.000 = 27.000\text{ cal} = 27\text{ kcal}$$

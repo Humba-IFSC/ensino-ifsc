@@ -1,0 +1,11 @@
+Front,Back
+"Termo: Calor","Energia térmica em trânsito entre corpos motivada por uma diferença de temperatura entre eles."
+"Qual é a condição necessária para que a transferência de calor entre dois corpos em contato cesse?","O atingimento do equilíbrio térmico, ou seja, quando as temperaturas de ambos se igualam."
+"Diferença conceitual: Calor sensível vs. Calor latente","O calor sensível provoca variação de temperatura, enquanto o calor latente provoca mudança de estado físico sem alterar a temperatura."
+"No Sistema Internacional, a unidade de quantidade de calor ($Q$) é o Joule ($J$), mas qual é a relação de conversão aproximada para a caloria ($cal$)?","$1 \text{ cal} \approx 4,1868 \text{ J}$."
+"Qual é a equação fundamental da calorimetria utilizada para calcular a quantidade de calor sensível?","$Q = m \cdot c \cdot \Delta T$."
+"O calor _____ de uma substância mede a quantidade de calor necessária para variar em $1 \text{ }^{\circ}\text{C}$ a temperatura de $1 \text{ g}$ dessa substância.","específico"
+"Como é definida a capacidade térmica ($C$) de um corpo em relação à quantidade de calor ($Q$) e à variação de temperatura ($\Delta T$)?","$C = \frac{Q}{\Delta T}$."
+"A grandeza que representa a massa de água cuja capacidade térmica é igual à capacidade térmica de um determinado corpo é chamada de _____.","equivalente em água"
+"Em um sistema termicamente isolado (como um calorímetro ideal), qual é o resultado da soma algébrica das quantidades de calor trocadas ($\sum Q$) entre os corpos?","Zero ($\sum Q = 0$)."
+"Por que fagulhas de metal em alta temperatura podem não causar queimaduras imediatas ao atingirem a pele?","Porque possuem baixíssima capacidade térmica, cedendo uma quantidade de calor insuficiente para causar dano antes de atingirem o equilíbrio."

@@ -3,73 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcards — Calorimetria Sensível</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <script>
-        window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] } };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Flashcards — Aula 02: Mudança de Fase e Latência</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #f0f4f8; margin: 0; padding: 2rem 1rem; }
-        .container { max-width: 900px; margin: 0 auto; }
-        h1 { color: #d8b4fe; font-size: 1.8rem; text-align: center; margin-bottom: 2rem; }
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .card { background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.25); border-radius: 1rem; padding: 1.5rem; cursor: pointer; min-height: 180px; display: flex; flex-direction: column; justify-content: center; text-align: center; transition: all 0.3s; position: relative; }
-        .card:hover { transform: translateY(-3px); border-color: rgba(168,85,247,0.5); box-shadow: 0 8px 20px rgba(168,85,247,0.15); }
-        .card-front { color: #f3e8ff; font-weight: 600; font-size: 1.05rem; }
-        .card-back { display: none; color: #cbd5e1; font-size: 0.95rem; line-height: 1.4; text-align: left; }
-        .card.flipped .card-front { display: none; }
-        .card.flipped .card-back { display: block; }
-        .hint { font-size: 0.72rem; color: #a855f7; margin-top: 1rem; text-transform: uppercase; font-weight: 700; }
-        .btn-back { display: inline-block; background: rgba(255,255,255,0.08); color: #cbd5e1; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.85rem; margin-bottom: 1.5rem; }
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: rgba(15, 23, 42, 0.9);
+            --border-card: rgba(249, 115, 22, 0.3);
+            --accent-orange: #f97316;
+            --accent-amber: #fbbf24;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-primary); min-height: 100vh; padding: 2rem 1rem; }
+        .container { max-width: 750px; margin: 0 auto; }
+        .btn-back { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.06); color: #cbd5e1; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 0.6rem; font-size: 0.88rem; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 1.5rem; transition: all 0.2s; }
+        .btn-back:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+        .header { text-align: center; margin-bottom: 2rem; }
+        .header h1 { font-size: 1.8rem; font-weight: 800; color: var(--accent-orange); margin-bottom: 0.4rem; }
+        .header p { color: #94a3b8; font-size: 0.92rem; }
+        
+        .flashcard-wrapper { perspective: 1000px; margin-bottom: 2rem; }
+        .flashcard { width: 100%; min-height: 280px; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 1.25rem; padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; cursor: pointer; transition: transform 0.6s; transform-style: preserve-3d; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .flashcard.flipped { transform: rotateY(180deg); }
+        .front, .back { position: absolute; inset: 0; backface-visibility: hidden; padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 1.25rem; }
+        .back { transform: rotateY(180deg); background: rgba(30, 41, 59, 0.95); border: 1px solid var(--accent-amber); }
+        .badge-cat { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(249, 115, 22, 0.15); color: var(--accent-amber); padding: 0.3rem 0.8rem; border-radius: 9999px; margin-bottom: 1rem; border: 1px solid rgba(249, 115, 22, 0.3); }
+        .card-text { font-size: 1.15rem; font-weight: 600; line-height: 1.5; color: #f1f5f9; }
+        
+        .controls { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+        .btn-ctrl { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.8rem 1.5rem; border-radius: 0.75rem; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; }
+        .btn-ctrl:hover { background: rgba(249, 115, 22, 0.25); border-color: var(--accent-orange); }
+        .progress-text { font-size: 0.9rem; font-weight: 700; color: #94a3b8; }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="../../../index.html" class="btn-back">← Voltar para Central da Termodinâmica</a>
-        <h1>🧠 Flashcards de Estudo — Calorimetria Sensível</h1>
-        <p style="text-align: center; color: #94a3b8; margin-bottom: 2rem;">Clique em qualquer cartão para revelar a resposta!</p>
+        
+        <div class="header">
+            <h1>🧠 Flashcards — Aula 02: Mudança de Fase e Latência</h1>
+            <p>Clique no cartão para girar e ver a resposta. Teste seus conhecimentos!</p>
+        </div>
 
-        <div class="grid-cards">
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-front">Qual é a diferença entre Temperatura e Calor?</div>
-                <div class="card-back">
-                    <strong>Temperatura:</strong> Grau de agitação térmica molecular.<br><br>
-                    <strong>Calor:</strong> Energia térmica em trânsito devido à diferença de temperatura.
+        <div class="flashcard-wrapper">
+            <div class="flashcard" id="card" onclick="flipCard()">
+                <div class="front">
+                    <span class="badge-cat" id="catDisplay">Conceito</span>
+                    <div class="card-text" id="frontText">Carregando...</div>
+                    <span style="font-size: 0.78rem; color: #64748b; margin-top: 1.5rem;">👆 Clique para revelar a resposta</span>
                 </div>
-                <div class="hint">Clique para girar 🔄</div>
-            </div>
-
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-front">Qual a equação de Calor Sensível?</div>
-                <div class="card-back">
-                    $$Q = m \cdot c \cdot \Delta T$$<br>
-                    $Q$: Calor (cal ou J)<br>
-                    $m$: Massa (g ou kg)<br>
-                    $c$: Calor específico<br>
-                    $\Delta T$: Variação de temp. ($T_f - T_i$)
+                <div class="back">
+                    <span class="badge-cat" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border-color: rgba(34, 197, 94, 0.3);">Resposta</span>
+                    <div class="card-text" id="backText">Carregando...</div>
                 </div>
-                <div class="hint">Clique para girar 🔄</div>
-            </div>
-
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-front">Diferença entre $C$ (Capacidade Térmica) e $c$ (Calor Específico)?</div>
-                <div class="card-back">
-                    <strong>$C = m \cdot c$:</strong> Propriedade do corpo inteiro ($\text{cal}/^\circ\text{C}$).<br><br>
-                    <strong>$c$:</strong> Propriedade da substância ($\text{cal}/\text{g}^\circ\text{C}$).
-                </div>
-                <div class="hint">Clique para girar 🔄</div>
-            </div>
-
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-front">O que diz o Princípio das Trocas de Calor?</div>
-                <div class="card-back">
-                    Em sistemas isolados:<br>
-                    $$\sum Q = 0 \implies |Q_{\text{cedido}}| = |Q_{\text{recebido}}|$$
-                </div>
-                <div class="hint">Clique para girar 🔄</div>
             </div>
         </div>
+
+        <div class="controls">
+            <button class="btn-ctrl" onclick="prevCard()">← Anterior</button>
+            <span class="progress-text" id="progText">1 / 12</span>
+            <button class="btn-ctrl" onclick="nextCard()">Próximo →</button>
+        </div>
     </div>
+
+    <script>
+        const cardsData = [
+            { front: "O que é calor latente (Q = m L)?", back: "É a quantidade de energia térmica trocada por uma substância exclusivamente para mudar de estado físico, sem alterar sua temperatura.", cat: "Conceito" },
+            { front: "O que caracteriza a mudança de fase de uma substância pura sob pressão constante?", back: "A temperatura permanece estritamente constante durante todo o processo de transição.", cat: "Propriedades" },
+            { front: "Quais são os 3 modos de vaporização?", back: "Evaporação (lenta e à temperatura ambiente), Ebulição (rápida e turbulenta no ponto de ebulição) e Calefação (instantânea por choque térmico).", cat: "Vaporização" },
+            { front: "Qual é o valor do calor latente de fusão da água (Lf)?", back: "80 cal/g (ou +334 kJ/kg). Para a solidificação, cede -80 cal/g.", cat: "Valores Notáveis" },
+            { front: "Qual é o valor do calor latente de vaporização da água (Lv)?", back: "540 cal/g (ou +2260 kJ/kg). Para a liquefação, cede -540 cal/g.", cat: "Valores Notáveis" },
+            { front: "Em uma curva de aquecimento, o que significam os patamares horizontais?", back: "Representam as mudanças de estado físico (onde convivem duas fases e a temperatura não varia).", cat: "Gráficos" },
+            { front: "O que ocorre com a energia recebida durante a fusão de um sólido?", back: "É utilizada para romper as ligações intermoleculares da rede cristalina, aumentando a energia potencial.", cat: "Física Molecular" },
+            { front: "O que é a sublimação?", back: "A passagem direta da fase sólida para a fase gasosa (ou vice-versa), sem passar pela fase líquida.", cat: "Mudança de Fase" },
+            { front: "Qual a diferença entre calor sensível e calor latente?", back: "O calor sensível altera a temperatura mantendo a fase; o calor latente altera a fase mantendo a temperatura.", cat: "Comparação" },
+            { front: "Durante a condensação do vapor d'água, o sistema absorve ou libera calor?", back: "Libera (cede) calor ao meio ambiente (Q < 0).", cat: "Trocas Térmicas" },
+            { front: "Por que a queimadura por vapor a 100°C é mais grave que por água líquida a 100°C?", back: "Porque o vapor liberta 540 cal/g adicionais de calor latente ao se condensar sobre a pele.", cat: "Aplicações" },
+            { front: "O que é a temperatura de fusão?", back: "A temperatura específica na qual a fase sólida e a fase líquida coexistem em equilíbrio sob determinada pressão.", cat: "Equilíbrio" }
+        ];
+
+        let currentIndex = 0;
+
+        function updateCard() {
+            const card = document.getElementById("card");
+            card.classList.remove("flipped");
+            setTimeout(() => {
+                const item = cardsData[currentIndex];
+                document.getElementById("frontText").textContent = item.front;
+                document.getElementById("backText").textContent = item.back;
+                document.getElementById("catDisplay").textContent = item.cat;
+                document.getElementById("progText").textContent = `${currentIndex + 1} / ${cardsData.length}`;
+            }, 150);
+        }
+
+        function flipCard() {
+            document.getElementById("card").classList.toggle("flipped");
+        }
+
+        function nextCard() {
+            currentIndex = (currentIndex + 1) % cardsData.length;
+            updateCard();
+        }
+
+        function prevCard() {
+            currentIndex = (currentIndex - 1 + cardsData.length) % cardsData.length;
+            updateCard();
+        }
+
+        updateCard();
+    </script>
 </body>
 </html>

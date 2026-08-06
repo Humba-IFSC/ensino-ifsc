@@ -1,0 +1,13 @@
+Frente;Verso;Categoria
+"O que representa o Ponto Triplo no diagrama p x T?";"É o ponto único de pressão e temperatura em que as três fases (sólida, líquida e gasosa) coexistem simultaneamente em equilíbrio.";"Pontos Notáveis"
+"O que é o Ponto Crítico em um diagrama de fases?";"É o ponto extremo da curva de vaporização acima do qual cessa a distinção física entre líquido e vapor.";"Pontos Notáveis"
+"Qual a diferença entre gás e vapor?";"O vapor pode ser liquefeito apenas por compressão isotérmica; o gás exige resfriamento prévio abaixo da temperatura crítica.";"Definições"
+"Por que a água apresenta inclinação negativa na curva de fusão?";"Porque a água se contrai ao fundir (e expande ao congelar); o aumento de pressão reduz a temperatura de fusão do gelo.";"Anomalia da Água"
+"Como uma panela de pressão acelera o cozimento dos alimentos?";"Ela retém o vapor, aumentando a pressão interna para ~2 atm e elevando a temperatura de ebulição da água para ~120°C.";"Aplicações"
+"Por que a água ferve a uma temperatura menor no topo de uma montanha elevada?";"Porque em altitude a pressão atmosférica é menor, exigindo menor energia térmica para igualar a pressão de vapor à pressão externa.";"Altitude"
+"O que é o fenômeno do regelo?";"A fusão do gelo sob aumento de pressão local e o seu posterior recongelamento imediato quando a pressão cessa.";"Fenômenos"
+"Por que a lâmina do patim desliza com facilidade sobre o gelo?";"A alta pressão exercida pela lâmina reduz a temperatura de fusão do gelo, criando uma fina lâmina de água líquida lubrificante.";"Aplicações"
+"O que é a curva de sublimação?";"É a linha que separa a região sólida da região de vapor em pressões e temperaturas abaixo do ponto triplo.";"Curvas de Equilíbrio"
+"Qual é a temperatura do ponto triplo da água em Kelvin e °C?";"273,16 K (ou 0,01 °C) sob a pressão de 4,58 mmHg.";"Valores Notáveis"
+"Substâncias normais se expandem ou se contraem durante a fusão?";"Expandem-se. Por isso, para substâncias normais, o aumento de pressão eleva a temperatura de fusão.";"Substâncias Normais"
+"O que ocorre se a pressão sobre um líquido for reduzida abaixo da pressão do ponto triplo?";"O líquido não pode mais existir; a substância passa a sublimar diretamente entre sólido e vapor.";"Diagrama de Fase"

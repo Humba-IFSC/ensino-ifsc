@@ -3,52 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudo Dirigido — Mudança de Fase e Latência</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Estudo Dirigido — Aula 03: Diagramas de Fase e Propriedades Térmicas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
-        window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] } };
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] }
+        };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #f0f4f8; margin: 0; padding: 2rem 1rem; }
-        .container { max-width: 850px; margin: 0 auto; background: rgba(15,23,42,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 2.5rem; }
-        h1 { color: #fdba74; font-size: 2rem; border-bottom: 2px solid rgba(249,115,22,0.3); padding-bottom: 0.5rem; }
-        h2 { color: #f97316; font-size: 1.3rem; margin-top: 2rem; }
-        .box-concept { background: rgba(249,115,22,0.08); border-left: 4px solid #f97316; padding: 1rem 1.2rem; border-radius: 0.5rem; margin: 1rem 0; }
-        .equation-box { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 1.2rem; text-align: center; font-size: 1.2rem; margin: 1.2rem 0; }
-        .btn-back { display: inline-block; background: rgba(255,255,255,0.08); color: #cbd5e1; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.85rem; margin-bottom: 1.5rem; }
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: rgba(15, 23, 42, 0.85);
+            --border-card: rgba(249, 115, 22, 0.2);
+            --accent-orange: #f97316;
+            --accent-amber: #fbbf24;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-main); color: var(--text-primary); margin: 0; padding: 2rem 1rem; }
+        .container { max-width: 850px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 1.25rem; padding: 2.5rem; }
+        .btn-back { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.06); color: #cbd5e1; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 0.6rem; font-size: 0.88rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1.5rem; }
+        .btn-back:hover { background: rgba(255,255,255,0.12); color: #fff; }
+        h1 { color: var(--accent-orange); font-size: 1.9rem; margin-bottom: 0.4rem; font-weight: 800; }
+        .subtitle { color: #94a3b8; font-size: 0.92rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; }
+        h2 { color: var(--accent-amber); font-size: 1.3rem; margin-top: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.4rem; }
+        p, li { color: var(--text-secondary); line-height: 1.65; font-size: 0.95rem; }
+        .formula-box { background: rgba(0,0,0,0.4); border: 1px solid var(--accent-orange); border-radius: 0.75rem; padding: 1.25rem; text-align: center; margin: 1.5rem 0; }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="../../../index.html" class="btn-back">← Voltar para Central da Termodinâmica</a>
-        
-        <h1>🧊 Estudo Dirigido: Mudança de Fase e Latência</h1>
-        <p><em>Livro Base: Fundamentos da Física (Ramalho, Vol. 2 — Capítulo 5)</em></p>
+        <h1>📈 Estudo Dirigido: Aula 03 — Diagramas de Fase e Propriedades Térmicas</h1>
+        <div class="subtitle">Disciplina: Termologia e Termodinâmica (FSC060806 / FCA060903) · Ramalho Vol. 2, Cap. 6</div>
 
-        <div class="box-concept">
-            <strong>Regra de Ouro:</strong> Durante a mudança de fase de uma substância pura a pressão constante, a temperatura permanece estritamente constante. O calor trocado é latente ($Q = mL$).
-        </div>
-
-        <h2>1. Mudanças de Fase Principais</h2>
+        <h2>1. Diagramas de Fase ($p \times T$)</h2>
+        <p>Representam graficamente os domínios de existência das fases sólida, líquida e gasosa através de três curvas de equilíbrio:</p>
         <ul>
-            <li><strong>Fusão:</strong> Sólido $\to$ Líquido ($Q = m L_F > 0$)</li>
-            <li><strong>Vaporização:</strong> Líquido $\to$ Gás ($Q = m L_V > 0$)</li>
-            <li><strong>Solidificação:</strong> Líquido $\to$ Sólido ($Q = m L_S < 0$)</li>
-            <li><strong>Condensação / Liquefação:</strong> Gás $\to$ Líquido ($Q = m L_C < 0$)</li>
+            <li><strong>Curva de Fusão:</strong> Separa sólido e líquido.</li>
+            <li><strong>Curva de Vaporização:</strong> Separa líquido e vapor.</li>
+            <li><strong>Curva de Sublimação:</strong> Separa sólido e vapor.</li>
         </ul>
 
-        <h2>2. Equação do Calor Latente</h2>
-        <div class="equation-box" style="border-color: rgba(249,115,22,0.4); background: rgba(249,115,22,0.1);">
-            $$Q = m \cdot L$$
+        <h2>2. Pontos Notáveis</h2>
+        <div class="formula-box">
+            $$\text{Ponto Triplo: Coexistência simultânea das 3 fases em equilíbrio}$$
+            $$\text{Ponto Crítico: Limite acima do qual o vapor torna-se um Gás (incompressível sem resfriamento)}$$
         </div>
-        <p>Para a água sob 1 atm:</p>
-        <ul>
-            <li>$L_{\text{fusão}} = +80 \text{ cal/g}$</li>
-            <li>$L_{\text{vaporização}} = +540 \text{ cal/g}$</li>
-        </ul>
+
+        <h2>3. Comportamento Anômalo da Água e o Regelo</h2>
+        <p>A água expande-se ao congelar. Por isso, o <strong>aumento de pressão reduz a temperatura de fusão do gelo</strong>. Esse efeito permite o deslize dos patins e o fenômeno do regelo (experiência de Tyndall).</p>
+
+        <h2>4. Exemplo Aplicado</h2>
+        <p><strong>Panela de Pressão:</strong> O aumento da pressão interna para $2\text{ atm}$ eleva o ponto de ebulição da água para $120^\circ\text{C}$, acelerando a transferência de calor para os alimentos.</p>
     </div>
 </body>
 </html>
