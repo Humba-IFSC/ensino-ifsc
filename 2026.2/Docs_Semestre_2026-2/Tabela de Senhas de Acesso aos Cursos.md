@@ -10,7 +10,8 @@ Aqui estão as **senhas de acesso de cada quiz** cadastradas nos arquivos HTML e
 | Curso / Disciplina                | Quiz / Atividade                       | Senha Principal | Senha Reserva / Alternativa |
 | :-------------------------------- | :------------------------------------- | :-------------: | :-------------------------: |
 | **Magnetismo e Eletromagnetismo** | **Quiz 1** (Aula 02 — Campo Magnético) |    `MAG2026`    |         `IFSC2026`          |
-| **Acústica e Óptica**             | **Quiz 1 & Quiz 2** (Aulas 02 e 03)    |   `acustica`    |   `optica` ou `ifsc2026`    |
+| **Acústica e Óptica**             | **Quiz 1** (Aula 02 — Acústica)        |   `acustica`    |   `optica` ou `ifsc2026`    |
+| **Acústica e Óptica**             | **Quiz 2** (Aula 03 — Fenômenos)       | `acustica2026B2`|   `acustica` ou `ifsc2026` |
 | **Termologia e Termodinâmica**    | **Quiz 1** (Calorimetria Sensível)     |  `termo2026B1`  |              —              |
 
 ---
