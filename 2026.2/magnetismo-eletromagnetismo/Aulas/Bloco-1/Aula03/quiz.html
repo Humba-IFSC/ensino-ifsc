@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 2 (Avaliativo) — Aula 03: Experimentos de Oersted, Espectros e Lei de Ampère</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: rgba(15, 23, 42, 0.85);
+            --border-card: rgba(56, 189, 248, 0.2);
+            --accent-green: #4ade80;
+            --accent-cyan: #38bdf8;
+            --accent-red: #fca5a5;
+            --accent-yellow: #fcd34d;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(239, 68, 68, 0.06) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateX(-2px);
+        }
+
+        /* --- SCREEN 1: LOGIN & RULES --- */
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-header h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .login-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .notice-box {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 0.9rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 0.92rem;
+        }
+        .notice-box h3 {
+            color: #fca5a5;
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .notice-box ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .notice-box li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: #e2e8f0;
+        }
+        .notice-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #ef4444;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .deadline-box {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            border-radius: 0.8rem;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #fcd34d;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .expired-banner {
+            display: none;
+            background: rgba(239, 68, 68, 0.15);
+            border: 2px solid #ef4444;
+            border-radius: 0.9rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .expired-banner h3 {
+            color: #fca5a5;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .expired-banner p {
+            color: #e2e8f0;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+        }
+        .form-control {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 0.6rem;
+            padding: 0.8rem 1rem;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .form-control:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+        .pass-hint {
+            display: block;
+            font-size: 0.78rem;
+            color: #94a3b8;
+            margin-top: 0.35rem;
+        }
+
+        .btn-start {
+            width: 100%;
+            background: linear-gradient(135deg, #0284c7, #16a34a);
+            color: #fff;
+            border: none;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25 ease;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+            margin-top: 1rem;
+        }
+        .btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(2, 132, 199, 0.45);
+        }
+
+        .btn-view-gabarito {
+            width: 100%;
+            background: rgba(245, 158, 11, 0.2);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: #fbbf24;
+            padding: 0.9rem;
+            border-radius: 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 1rem;
+        }
+        .btn-view-gabarito:hover {
+            background: rgba(245, 158, 11, 0.3);
+            color: #fff;
+        }
+
+        /* --- SCREEN 2: ACTIVE QUIZ --- */
+        #quizScreen { display: none; }
+
+        .sticky-timer-bar {
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.92);
+            border: 1px solid var(--border-card);
+            border-radius: 0.9rem;
+            padding: 0.9rem 1.4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+        }
+        .student-info-badge {
+            display: flex;
+            flex-direction: column;
+        }
+        .student-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .student-email {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .timer-display {
+            font-size: 1.3rem;
+            font-weight: 800;
+            font-family: monospace;
+            color: var(--accent-cyan);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.4rem 0.9rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        .timer-display.warning {
+            color: #ef4444;
+            border-color: #ef4444;
+            animation: pulse 1s infinite alternate;
+        }
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        .timer-progress-bg {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 0.4rem;
+            overflow: hidden;
+        }
+        .timer-progress-fill {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            transition: width 1s linear;
+        }
+
+        .question-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1rem;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-number {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .question-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            color: #f8fafc;
+        }
+        .question-hint {
+            font-size: 0.84rem;
+            color: var(--accent-yellow);
+            background: rgba(252, 211, 77, 0.08);
+            border-left: 3px solid var(--accent-yellow);
+            padding: 0.6rem 0.8rem;
+            border-radius: 0.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .option-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.6rem;
+            padding: 0.9rem 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.94rem;
+            line-height: 1.5;
+            color: #cbd5e1;
+        }
+        .option-label:hover {
+            background: rgba(56, 189, 248, 0.08);
+            border-color: rgba(56, 189, 248, 0.3);
+            color: #fff;
+        }
+        .option-label input[type="radio"] {
+            margin-top: 0.25rem;
+            accent-color: var(--accent-cyan);
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+
+        .btn-submit-quiz {
+            width: 100%;
+            background: linear-gradient(135deg, #16a34a, #059669);
+            color: #fff;
+            border: none;
+            padding: 1.1rem;
+            border-radius: 0.75rem;
+            font-size: 1.05rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(22, 163, 74, 0.35);
+            margin-top: 1rem;
+        }
+        .btn-submit-quiz:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(22, 163, 74, 0.5);
+        }
+
+        /* --- SCREEN 3: RESULTS & CORRECTION --- */
+        #resultScreen { display: none; }
+
+        .result-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .result-score-badge {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(74, 222, 128, 0.15) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 3px solid var(--accent-green);
+            margin: 1.5rem 0;
+            box-shadow: 0 0 30px rgba(74, 222, 128, 0.25);
+        }
+        .score-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            line-height: 1;
+        }
+        .score-total {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+        }
+
+        .result-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        .meta-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.6rem;
+            padding: 0.8rem 1rem;
+        }
+        .meta-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+        .meta-value {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 0.2rem;
+        }
+
+        .verification-code-box {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px dashed var(--accent-cyan);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-family: monospace;
+            font-size: 1rem;
+            color: var(--accent-cyan);
+            word-break: break-all;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .btn-action {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            padding: 0.75rem 1.4rem;
+            border-radius: 0.6rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-action:hover {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: var(--accent-cyan);
+        }
+
+        .review-section {
+            margin-top: 3rem;
+        }
+        .review-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .review-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+        .review-card.correct {
+            border-left: 5px solid var(--accent-green);
+        }
+        .review-card.incorrect {
+            border-left: 5px solid var(--accent-red);
+        }
+        .status-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 0.4rem;
+            margin-bottom: 0.75rem;
+        }
+        .status-badge.correct {
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--accent-green);
+        }
+        .status-badge.incorrect {
+            background: rgba(252, 165, 165, 0.15);
+            color: var(--accent-red);
+        }
+        .rationale-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 0.6rem;
+            padding: 0.9rem;
+            margin-top: 0.75rem;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: #cbd5e1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="btn-back">← Voltar para Central de Magnetismo</a>
+
+        <!-- SCREEN 1: LOGIN & RULES -->
+        <div id="loginScreen" class="login-card">
+            <div class="login-header">
+                <h1>📝 Quiz 2 (Avaliativo) — Aula 03</h1>
+                <p>Experimentos de Oersted, Espectros Magnéticos e Lei de Ampère</p>
+            </div>
+
+            <div class="deadline-box">
+                📅 <strong>Prazo limite de envio:</strong> 16 de Agosto de 2026 às 23:59h.
+            </div>
+
+            <div id="expiredBanner" class="expired-banner">
+                <h3>🔒 FORMULÁRIO TRANCADO — PRAZO ENCERRADO</h3>
+                <p>O prazo para envio de respostas deste quiz encerrou em <strong>16/08/2026 às 23:59h</strong>.<br>
+                Novas submissões não são mais aceitas na planilha. Você pode visualizar o gabarito comentado para estudo abaixo.</p>
+                <button class="btn-view-gabarito" onclick="showDirectGabarito()">📖 Visualizar Gabarito & Correção Detalhada</button>
+            </div>
+
+            <div class="notice-box">
+                <h3>⚠️ Instruções e Regras Oficiais do Quiz</h3>
+                <ul>
+                    <li><strong>Duração Fixa:</strong> Você terá exatamente <strong>30 minutos</strong> a partir do momento em que clicar em iniciar.</li>
+                    <li><strong>Tentativa Única:</strong> Certifique-se de estar em um ambiente tranquilo. Ao finalizar ou esgotar o tempo, suas respostas serão enviadas automaticamente.</li>
+                    <li><strong>Identificação:</strong> Preencha seu nome completo e e-mail institucional para vinculação na Planilha de Notas.</li>
+                    <li><strong>Comprovante:</strong> Ao concluir, guarde o código hash de validação ou baixe o arquivo de comprovante gerado.</li>
+                </ul>
+            </div>
+
+            <form id="loginForm" onsubmit="handleStartQuiz(event)">
+                <div class="form-group">
+                    <label for="studentName">👤 Nome Completo do Estudante:</label>
+                    <input type="text" id="studentName" class="form-control" placeholder="Digite seu nome completo..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentEmail">✉️ E-mail Institucional (@aluno.ifsc.edu.br):</label>
+                    <input type="email" id="studentEmail" class="form-control" placeholder="seu.nome@aluno.ifsc.edu.br" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quizPassword">🔑 Senha de Acesso fornecida pelo Professor:</label>
+                    <input type="password" id="quizPassword" class="form-control" placeholder="Digite a senha de liberação..." required>
+                    <small class="pass-hint">💡 A senha de liberação para a Aula 03 é informada pelo professor.</small>
+                </div>
+
+                <button type="submit" id="btnStartSubmit" class="btn-start">
+                    🚀 Estudo Preparado & Iniciar Quiz (30 Minutos)
+                </button>
+            </form>
+        </div>
+
+        <!-- SCREEN 2: ACTIVE QUIZ -->
+        <div id="quizScreen">
+            <div class="sticky-timer-bar">
+                <div class="student-info-badge">
+                    <span class="student-name" id="dispStudentName">Estudante</span>
+                    <span class="student-email" id="dispStudentEmail">email@aluno.ifsc.edu.br</span>
+                </div>
+                <div>
+                    <div class="timer-display" id="timerBox">
+                        ⏳ <span id="timerCountdown">30:00</span>
+                    </div>
+                    <div class="timer-progress-bg">
+                        <div class="timer-progress-fill" id="timerProgress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="quizForm" onsubmit="handleQuizSubmit(event)">
+                <div id="questionsContainer"></div>
+                <button type="submit" class="btn-submit-quiz">
+                    ✅ Finalizar e Enviar Respostas
+                </button>
+            </form>
+        </div>
+
+        <!-- SCREEN 3: RESULTS & CORRECTION -->
+        <div id="resultScreen">
+            <div class="result-card">
+                <h2 style="font-size: 1.6rem; color: var(--accent-green);">🎉 Quiz Concluído e Registrado!</h2>
+                <p style="color: var(--text-secondary); margin-top: 0.4rem;">Os dados da sua tentativa foram computados e gravados com sucesso.</p>
+
+                <div class="result-score-badge">
+                    <div class="score-number" id="resScoreNum">0</div>
+                    <div class="score-total">de 10 acertos</div>
+                </div>
+
+                <h3 id="resPercentText" style="font-size: 1.3rem; color: #fff; margin-bottom: 1rem;">0% de Aproveitamento</h3>
+
+                <div class="result-meta-grid">
+                    <div class="meta-item">
+                        <div class="meta-label">Estudante</div>
+                        <div class="meta-value" id="resStudent">--</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">E-mail</div>
+                        <div class="meta-value" id="resEmail">--</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Tempo Utilizado</div>
+                        <div class="meta-value" id="resTime">--</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Data e Hora</div>
+                        <div class="meta-value" id="resDate">--</div>
+                    </div>
+                </div>
+
+                <div class="verification-code-box">
+                    <strong>🔑 Código de Autenticação para Avaliação:</strong><br>
+                    <span id="resAuthCode">MAG03-000000-0X10</span>
+                </div>
+
+                <div class="action-btns">
+                    <button class="btn-action" onclick="copyComprovante()">📋 Copiar Comprovante de Resultado</button>
+                    <button class="btn-action" onclick="downloadComprovante()">📥 Baixar Comprovante (.txt)</button>
+                </div>
+            </div>
+
+            <div class="review-section">
+                <h3 class="review-title">🔍 Gabarito & Correção Detalhada</h3>
+                <div id="reviewContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // CONFIGURAÇÕES E DADOS DO QUIZ 2
+        const CORRECT_PASSWORD_DEFAULT = "ifsc2026B2"; // Senha de acesso definida para a Aula 03
+        const TOTAL_TIME_SECONDS = 30 * 60; // 30 minutos em segundos
+        const GOOGLE_APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbfPU1T8DYQ7v8j8Dc5goqZXleR4avaDsGuzUj07HwwoqiE43GRmEy4hvMgcgi_5vJ/exec"; 
+        const QUIZ_DEADLINE = "2026-08-16T23:59:59"; // Prazo final de envio (16/08/2026 23:59h)
+        const GABARITO_RELEASE_DATE = "2026-08-16T23:59:59"; // Liberação na véspera da próxima aula
+
+        const questionsData = [
+            {
+                "id": 1,
+                "title": "1. Durante a reprodução da Experiência de Oersted, o que acontece com a agulha de uma bússola quando uma corrente elétrica contínua passa por um condutor posicionado paralelamente acima dela?",
+                "hint": "Lembre-se da relação entre o sentido do campo gerado pela corrente e a orientação original norte-sul da agulha.",
+                "options": [
+                    { "letter": "A", "text": "A agulha permanece alinhada ao campo magnético terrestre, sem sofrer influência." },
+                    { "letter": "B", "text": "A agulha é atraída radialmente em direção ao centro do fio condutor." },
+                    { "letter": "C", "text": "A agulha começa a girar continuamente no sentido horário enquanto houver corrente." },
+                    { "letter": "D", "text": "A agulha sofre um desvio, tendendo a se posicionar perpendicularmente ao fio." }
+                ],
+                "answer": "D",
+                "rationale": "A passagem de corrente elétrica gera um campo magnético cujas linhas são circunferências concêntricas ao fio, exercendo torque sobre a bússola."
+            },
+            {
+                "id": 2,
+                "title": "2. Ao utilizar limalha de ferro para mapear o espectro magnético de um ímã em barra, o que as linhas formadas pelos fragmentos representam fisicamente?",
+                "hint": "Considere o papel da limalha como um indicador visual da direção do vetor indução magnética.",
+                "options": [
+                    { "letter": "A", "text": "As linhas de indução magnética, que são tangentes ao vetor campo magnético em cada ponto." },
+                    { "letter": "B", "text": "O fluxo de corrente elétrica que circula internamente no material ferromagnético." },
+                    { "letter": "C", "text": "As linhas de força eletrostática que atraem os metais para o polo norte." },
+                    { "letter": "D", "text": "As trajetórias percorridas pelos elétrons que escapam dos polos do ímã." }
+                ],
+                "answer": "A",
+                "rationale": "Cada fragmento de limalha atua como uma pequena agulha magnética que se alinha com o vetor \\(\\vec{B}\\) local."
+            },
+            {
+                "id": 3,
+                "title": "3. De acordo com a Lei de Ampère, qual é a relação entre a intensidade do campo magnético $B$ gerado por um condutor reto e extenso e a distância $r$ de um ponto até o fio?",
+                "hint": "Analise a expressão matemática onde o raio da circunferência de circuitação aparece no denominador.",
+                "options": [
+                    { "letter": "A", "text": "$B$ independe da distância $r$, sendo uniforme em todo o espaço." },
+                    { "letter": "B", "text": "$B$ é inversamente proporcional à distância $r$." },
+                    { "letter": "C", "text": "$B$ é inversamente proporcional ao quadrado da distância $r^2$." },
+                    { "letter": "D", "text": "$B$ é diretamente proporcional à distância $r$." }
+                ],
+                "answer": "B",
+                "rationale": "A fórmula derivada da Lei de Ampère para essa simetria é $B = \\frac{\\mu_0 i}{2\\pi r}$, mostrando a relação $B \\propto \\frac{1}{r}$."
+            },
+            {
+                "id": 4,
+                "title": "4. No mapeamento de um solenoide (bobina longa) percorrido por corrente, como se comporta o campo magnético em seu interior, longe das extremidades?",
+                "hint": "Pense na configuração de um dispositivo projetado para criar um campo magnético controlado e constante.",
+                "options": [
+                    { "letter": "A", "text": "O campo é circular, girando em torno do eixo central do solenoide." },
+                    { "letter": "B", "text": "O campo é praticamente uniforme, com linhas de indução paralelas e igualmente espaçadas." },
+                    { "letter": "C", "text": "O campo é nulo, pois as correntes das espiras opostas se cancelam." },
+                    { "letter": "D", "text": "O campo atinge seu valor máximo nos fios e cai a zero exatamente no eixo central." }
+                ],
+                "answer": "B",
+                "rationale": "Em um solenoide ideal, a superposição dos campos de cada espira resulta em um vetor \\(\\vec{B}\\) constante em direção, sentido e módulo no centro."
+            },
+            {
+                "id": 5,
+                "title": "5. A Regra da Mão Direita $n^o 1$ é essencial para determinar o sentido das linhas de indução. Se o polegar aponta no sentido da corrente elétrica $i$, o que representam os demais dedos dobrados?",
+                "hint": "Considere como as linhas de campo 'envolvem' o condutor percorrido por corrente.",
+                "options": [
+                    { "letter": "A", "text": "A direção da força magnética que atuará sobre uma carga em movimento." },
+                    { "letter": "B", "text": "O sentido da aceleração dos elétrons dentro do metal." },
+                    { "letter": "C", "text": "A direção do campo elétrico gerado pela diferença de potencial no condutor." },
+                    { "letter": "D", "text": "O sentido das linhas de indução do campo magnético \\(\\vec{B}\\) que circundam o fio." }
+                ],
+                "answer": "D",
+                "rationale": "A regra estabelece uma relação de produto vetorial onde o fechamento da mão indica a rotacionalidade do campo magnético."
+            },
+            {
+                "id": 6,
+                "title": "6. Ao comparar o espectro magnético de um solenoide com o de um ímã em barra, qual a principal semelhança observada no campo externo?",
+                "hint": "Lembre-se da aplicação prática de solenoides na construção de eletroímãs.",
+                "options": [
+                    { "letter": "A", "text": "As linhas do solenoide são radiais, enquanto as do ímã são sempre circulares." },
+                    { "letter": "B", "text": "As linhas de indução emergem de uma extremidade (Norte) e entram na outra (Sul), de forma idêntica." },
+                    { "letter": "C", "text": "O campo do solenoide é muito mais fraco e não consegue orientar bússolas." },
+                    { "letter": "D", "text": "O solenoide não possui polos fixos, ao contrário do ímã em barra." }
+                ],
+                "answer": "B",
+                "rationale": "Externamente, o solenoide se comporta como um dipolo magnético, possuindo polos identificáveis que seguem as mesmas leis de atração e repulsão."
+            },
+            {
+                "id": 7,
+                "title": "7. Na Lei de Ampère, o termo $\\mu_0$ representa a permeabilidade magnética do vácuo. Qual é o papel desse parâmetro físico no cálculo do campo?",
+                "hint": "Pense em como diferentes materiais (como o ferro no interior de uma bobina) alteram a força do magnetismo.",
+                "options": [
+                    { "letter": "A", "text": "É uma constante que depende exclusivamente da temperatura do fio condutor." },
+                    { "letter": "B", "text": "Indica a facilidade com que o meio permite o estabelecimento de linhas de indução magnética." },
+                    { "letter": "C", "text": "Representa a resistência elétrica do vácuo à passagem de correntes induzidas." },
+                    { "letter": "D", "text": "Mede a velocidade com que o campo magnético se propaga no interior do condutor." }
+                ],
+                "answer": "B",
+                "rationale": "A permeabilidade é uma propriedade do meio que escala a intensidade do campo gerado por uma dada corrente."
+            },
+            {
+                "id": 8,
+                "title": "8. Em um experimento de laboratório, se invertermos o sentido da corrente elétrica em um solenoide, o que ocorrerá com o mapeamento feito com bússolas ao seu redor?",
+                "hint": "Considere a relação direta entre o sentido da corrente (causa) e o sentido do campo (efeito).",
+                "options": [
+                    { "letter": "A", "text": "As agulhas das bússolas inverterão seus sentidos, pois os polos Norte e Sul do solenoide serão trocados." },
+                    { "letter": "B", "text": "O espectro magnético desaparecerá completamente." },
+                    { "letter": "C", "text": "As bússolas passarão a girar rapidamente tentando encontrar o novo polo." },
+                    { "letter": "D", "text": "As agulhas apontarão todas para o centro do solenoide devido à indução eletrostática." }
+                ],
+                "answer": "A",
+                "rationale": "O sentido do campo magnético é diretamente dependente do sentido da corrente; a inversão desta inverte o vetor \\(\\vec{B}\\)."
+            },
+            {
+                "id": 9,
+                "title": "9. Considere um percurso fechado (amperiano) que não enlaça nenhuma corrente elétrica. Segundo a Lei de Ampère, qual é o valor da circulação do vetor $\\vec{B}$ ao longo desse percurso?",
+                "hint": "Observe o termo da equação que representa a 'soma das correntes enlaçadas'.",
+                "options": [
+                    { "letter": "A", "text": "Depende apenas da intensidade do campo magnético terrestre no local." },
+                    { "letter": "B", "text": "Igual ao valor de $\\mu_0$." },
+                    { "letter": "C", "text": "Incalculável, pois a lei só se aplica se houver correntes no centro." },
+                    { "letter": "D", "text": "Zero." }
+                ],
+                "answer": "D",
+                "rationale": "A circulação é proporcional à soma algébrica das correntes enlaçadas; se \\(\\sum i = 0\\), então \\(\\oint \\vec{B} \\cdot d\\vec{l} = 0\\)."
+            },
+            {
+                "id": 10,
+                "title": "10. Por que a utilização de um núcleo de ferro dentro de um solenoide (formando um eletroímã) aumenta a intensidade do campo magnético em comparação ao núcleo de ar?",
+                "hint": "Lembre-se das propriedades das substâncias ferromagnéticas e como elas reagem a campos externos.",
+                "options": [
+                    { "letter": "A", "text": "Porque o ferro impede que o campo magnético escape para fora do solenoide." },
+                    { "letter": "B", "text": "Porque o ferro atrai os elétrons para o centro da bobina, concentrando a carga." },
+                    { "letter": "C", "text": "Porque o ferro é uma substância ferromagnética com alta permeabilidade, cujos domínios magnéticos se alinham ao campo da bobina." },
+                    { "letter": "D", "text": "Porque o ferro reduz a resistência elétrica do fio de cobre, permitindo mais corrente." }
+                ],
+                "answer": "C",
+                "rationale": "O alinhamento dos domínios de Weiss no ferro soma um campo adicional muito forte ao campo original produzido pela corrente."
+            }
+        ];
+
+        // ESTADO GLOBAL DA APLICAÇÃO
+        let studentData = { name: "", email: "" };
+        let timerSecondsLeft = TOTAL_TIME_SECONDS;
+        let timerInterval = null;
+        let quizStartTime = null;
+        let quizSubmitted = false;
+        let resultSummaryText = "";
+
+        // VERIFICAR TRANCA DE PRAZO NA CARGA
+        window.addEventListener("DOMContentLoaded", () => {
+            checkDeadlineLock();
+        });
+
+        function checkDeadlineLock() {
+            const now = new Date();
+            const deadline = new Date(QUIZ_DEADLINE);
+            if (now > deadline) {
+                document.getElementById("expiredBanner").style.display = "block";
+                document.getElementById("loginForm").style.opacity = "0.5";
+                document.getElementById("btnStartSubmit").disabled = true;
+                document.getElementById("btnStartSubmit").style.cursor = "not-allowed";
+                document.getElementById("btnStartSubmit").textContent = "🔒 Quiz Encerrado (Prazo Expirado)";
+            }
+        }
+
+        function showDirectGabarito() {
+            document.getElementById("loginScreen").style.display = "none";
+            document.getElementById("resultScreen").style.display = "block";
+            renderReview({});
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        // INICIAR O QUIZ (VERIFICAR SENHA E DADOS)
+        function handleStartQuiz(event) {
+            event.preventDefault();
+
+            const now = new Date();
+            if (now > new Date(QUIZ_DEADLINE)) {
+                alert("❌ O prazo para realização e envio deste quiz foi encerrado em 16/08/2026 às 23:59h.");
+                return;
+            }
+
+            const name = document.getElementById("studentName").value.trim();
+            const email = document.getElementById("studentEmail").value.trim();
+            const password = document.getElementById("quizPassword").value.trim();
+
+            if (!name || !email) {
+                alert("Por favor, preencha seu nome e e-mail antes de continuar.");
+                return;
+            }
+
+            // Verificar Senha (case insensitive)
+            if (password.toUpperCase() !== CORRECT_PASSWORD_DEFAULT.toUpperCase() && password !== "IFSC2026") {
+                alert("❌ Senha de acesso incorreta! Verifique a senha informada pelo professor.");
+                return;
+            }
+
+            studentData.name = name;
+            studentData.email = email;
+
+            document.getElementById("dispStudentName").textContent = name;
+            document.getElementById("dispStudentEmail").textContent = email;
+
+            document.getElementById("loginScreen").style.display = "none";
+            document.getElementById("quizScreen").style.display = "block";
+
+            renderQuestions();
+            startTimer();
+            quizStartTime = new Date();
+
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        // RENDERIZAR QUESTÕES NO FORMULÁRIO
+        function renderQuestions() {
+            const container = document.getElementById("questionsContainer");
+            container.innerHTML = "";
+
+            questionsData.forEach(q => {
+                const card = document.createElement("div");
+                card.className = "question-card";
+                card.id = `q_card_${q.id}`;
+
+                let optionsHtml = q.options.map(opt => `
+                    <label class="option-label">
+                        <input type="radio" name="question_${q.id}" value="${opt.letter}">
+                        <span><strong>${opt.letter})</strong> ${opt.text}</span>
+                    </label>
+                `).join("");
+
+                card.innerHTML = `
+                    <div class="question-number">QUESTÃO ${q.id} DE 10</div>
+                    <div class="question-text">${q.title}</div>
+                    ${q.hint ? `<div class="question-hint">💡 <strong>Dica:</strong> ${q.hint}</div>` : ''}
+                    <div class="options-list">${optionsHtml}</div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // CONTADOR DE TEMPO DE 30 MINUTOS
+        function startTimer() {
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timerSecondsLeft--;
+                updateTimerDisplay();
+
+                if (timerSecondsLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert("⏰ O TEMPO DE 30 MINUTOS EXPIROU! Seu quiz será finalizado e enviado automaticamente com as respostas marcadas.");
+                    submitQuizAuto();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timerSecondsLeft / 60);
+            const seconds = timerSecondsLeft % 60;
+            const formatted = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            const timerBox = document.getElementById("timerBox");
+            const timerCountdown = document.getElementById("timerCountdown");
+            const progressBar = document.getElementById("timerProgress");
+
+            timerCountdown.textContent = formatted;
+            const pct = (timerSecondsLeft / TOTAL_TIME_SECONDS) * 100;
+            progressBar.style.width = pct + "%";
+
+            if (timerSecondsLeft <= 300) { // Alerta nos últimos 5 minutos
+                timerBox.classList.add("warning");
+            }
+        }
+
+        // SUBMETER O QUIZ MANUALMENTE OU POR TIMEOUT
+        function handleQuizSubmit(event) {
+            event.preventDefault();
+            if (quizSubmitted) return;
+
+            // Verificar se todas foram respondidas
+            let unanswered = 0;
+            questionsData.forEach(q => {
+                const selected = document.querySelector(`input[name="question_${q.id}"]:checked`);
+                if (!selected) unanswered++;
+            });
+
+            if (unanswered > 0) {
+                const confirmSubmit = confirm(`Você ainda tem ${unanswered} questão(ões) sem resposta. Deseja finalizar o quiz mesmo assim?`);
+                if (!confirmSubmit) return;
+            }
+
+            processQuizSubmission();
+        }
+
+        function submitQuizAuto() {
+            if (quizSubmitted) return;
+            processQuizSubmission();
+        }
+
+        function processQuizSubmission() {
+            quizSubmitted = true;
+            clearInterval(timerInterval);
+
+            const endTime = new Date();
+            const elapsedSecs = Math.round((endTime - quizStartTime) / 1000);
+            const elapsedMin = Math.floor(elapsedSecs / 60);
+            const elapsedRemSec = elapsedSecs % 60;
+            const timeFormatted = `${elapsedMin} min e ${elapsedRemSec} s`;
+
+            let correctCount = 0;
+            let userAnswers = {};
+
+            questionsData.forEach(q => {
+                const selected = document.querySelector(`input[name="question_${q.id}"]:checked`);
+                const val = selected ? selected.value : "N/A";
+                userAnswers[q.id] = val;
+                if (val === q.answer) correctCount++;
+            });
+
+            const percent = Math.round((correctCount / questionsData.length) * 100);
+            const authHash = "MAG03-" + Math.random().toString(36).substring(2, 8).toUpperCase() + `-${correctCount}X10`;
+            const formattedDate = new Date().toLocaleString("pt-BR");
+
+            // Salvar no localStorage
+            const resultData = {
+                student: studentData.name,
+                email: studentData.email,
+                score: correctCount,
+                total: questionsData.length,
+                percent: percent,
+                timeSpent: timeFormatted,
+                dateTime: formattedDate,
+                authCode: authHash,
+                answers: userAnswers
+            };
+
+            try {
+                localStorage.setItem("quiz_aula03_magnetismo_result", JSON.stringify(resultData));
+            } catch (e) {
+                console.warn("Não foi possível salvar no localStorage:", e);
+            }
+
+            // Envio Automático para a Planilha do Google via Google Apps Script (Aba Quiz-2)
+            if (GOOGLE_APP_SCRIPT_URL && GOOGLE_APP_SCRIPT_URL.startsWith("http")) {
+                fetch(GOOGLE_APP_SCRIPT_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        student: studentData.name,
+                        email: studentData.email,
+                        quiz: "Quiz-2",
+                        score: correctCount,
+                        total: questionsData.length,
+                        percent: percent + "%",
+                        timeSpent: timeFormatted,
+                        dateTime: formattedDate,
+                        authCode: authHash,
+                        answers: userAnswers
+                    })
+                }).then(() => {
+                    console.log("✅ Dados gravados automaticamente na aba Quiz-2 da Planilha Google!");
+                }).catch(err => {
+                    console.error("⚠️ Falha de envio para a Planilha Google:", err);
+                });
+            }
+
+            // Preencher a Tela 3
+            document.getElementById("resScoreNum").textContent = correctCount;
+            document.getElementById("resPercentText").textContent = `${percent}% de Aproveitamento`;
+            document.getElementById("resStudent").textContent = studentData.name;
+            document.getElementById("resEmail").textContent = studentData.email;
+            document.getElementById("resTime").textContent = timeFormatted;
+            document.getElementById("resDate").textContent = formattedDate;
+            document.getElementById("resAuthCode").textContent = authHash;
+
+            // Texto formatado para o comprovante
+            resultSummaryText = `COMPROVANTE DE QUIZ 2 — MAGNETISMO E ELETROMAGNETISMO
+==================================================
+Disciplina: FSC060804 / FCA060905 — Aula 03
+Estudante: ${studentData.name}
+E-mail: ${studentData.email}
+Data/Hora: ${formattedDate}
+--------------------------------------------------
+Pontuação: ${correctCount} de 10 acertos (${percent}%)
+Tempo Decorrido: ${timeFormatted}
+Código de Validação: ${authHash}
+==================================================`;
+
+            renderReview(userAnswers);
+
+            document.getElementById("quizScreen").style.display = "none";
+            document.getElementById("resultScreen").style.display = "block";
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function isGabaritoUnlocked() {
+            const now = new Date();
+            const release = new Date(GABARITO_RELEASE_DATE);
+            return now >= release;
+        }
+
+        // RENDERIZAR GABARITO E CORREÇÃO DETALHADA
+        function renderReview(userAnswers) {
+            const reviewContainer = document.getElementById("reviewContainer");
+            reviewContainer.innerHTML = "";
+
+            const unlocked = isGabaritoUnlocked();
+
+            if (!unlocked) {
+                const releaseFormatted = new Date(GABARITO_RELEASE_DATE).toLocaleString('pt-BR', { dateStyle: 'long', timeStyle: 'short' });
+                reviewContainer.innerHTML = `
+                    <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 1rem; padding: 1.8rem; text-align: center; margin-top: 1rem;">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔒</div>
+                        <h3 style="color: #fbbf24; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem;">Gabarito Comentado e Correção Detalhada Bloqueados Temporariamente</h3>
+                        <p style="color: #e2e8f0; font-size: 0.95rem; margin-bottom: 1.2rem; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                            Para garantir a integridade da avaliação entre todos os discentes durante a semana de realização do quiz, a correção questão por questão e as justificativas teóricas estarão disponíveis nesta mesma página a partir de:
+                        </p>
+                        <div style="display: inline-block; background: rgba(0,0,0,0.5); border: 1px solid #f59e0b; color: #fbbf24; padding: 0.6rem 1.4rem; border-radius: 0.6rem; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.2rem;">
+                            📅 ${releaseFormatted}
+                        </div>
+                        <p style="color: #94a3b8; font-size: 0.85rem; font-style: italic;">
+                            Sua pontuação, tempo e comprovante com o código de validação já foram salvos com sucesso.
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            questionsData.forEach(q => {
+                const userAns = userAnswers ? userAnswers[q.id] : "N/A";
+                const isCorrect = userAns === q.answer;
+
+                const card = document.createElement("div");
+                card.className = `review-card ${isCorrect ? 'correct' : 'incorrect'}`;
+
+                card.innerHTML = `
+                    <span class="status-badge ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Resposta Correta' : '✗ Resposta Incorreta'}
+                    </span>
+                    <div style="font-weight:700; font-size:1.05rem; margin-bottom:0.6rem; color:#fff;">${q.title}</div>
+                    <div style="font-size:0.9rem; margin-bottom:0.4rem;">
+                        <strong>Sua Resposta:</strong> <span style="color:${isCorrect ? '#4ade80' : '#fca5a5'}; font-weight:700;">${userAns}</span>
+                        ${!isCorrect ? `| <strong>Gabarito Correto:</strong> <span style="color:#4ade80; font-weight:700;">${q.answer}</span>` : ''}
+                    </div>
+                    <div class="rationale-box">
+                        <strong>📖 Justificativa Teórica:</strong> ${q.rationale}
+                    </div>
+                `;
+
+                reviewContainer.appendChild(card);
+            });
+        }
+
+        function copyComprovante() {
+            navigator.clipboard.writeText(resultSummaryText).then(() => {
+                alert("📋 Comprovante copiado com sucesso! Cole na mensagem ou envie ao professor.");
+            }).catch(err => {
+                alert("Erro ao copiar. Copie manualmente o código de validação.");
+            });
+        }
+
+        function downloadComprovante() {
+            const blob = new Blob([resultSummaryText], { type: "text/plain;charset=utf-8" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = `Comprovante_Quiz2_Aula03_${(studentData.name || "Aluno").replace(/\s+/g, '_')}.txt`;
+            a.click();
+        }
+    </script>
+</body>
+</html>

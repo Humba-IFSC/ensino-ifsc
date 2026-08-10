@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards — Aula 03: Magnetismo e Eletromagnetismo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: rgba(15, 23, 42, 0.85);
+            --border-card: rgba(56, 189, 248, 0.25);
+            --accent-green: #4ade80;
+            --accent-cyan: #38bdf8;
+            --accent-purple: #c084fc;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(74, 222, 128, 0.08) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateX(-2px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.75rem;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+        .progress-bar-bg {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin: 0 1rem;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .btn-ctrl {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #e2e8f0;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.6rem;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .btn-ctrl:hover {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: var(--accent-cyan);
+            color: #fff;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .flashcard {
+            perspective: 1000px;
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-card);
+        }
+
+        .card-front {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8));
+            color: #f1f5f9;
+        }
+
+        .card-back {
+            background: linear-gradient(145deg, rgba(16, 42, 66, 0.95), rgba(15, 23, 42, 0.95));
+            color: #e2e8f0;
+            transform: rotateY(180deg);
+            border-color: rgba(74, 222, 128, 0.4);
+        }
+
+        .card-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.4rem;
+        }
+        .card-front .card-tag {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        .card-back .card-tag {
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .card-body {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            width: 100%;
+            overflow-y: auto;
+            padding: 0.5rem 0;
+        }
+
+        .card-hint {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        @media (max-width: 640px) {
+            .grid-cards { grid-template-columns: 1fr; }
+            .flashcard { height: 270px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="btn-back">← Voltar para Central de Magnetismo</a>
+
+        <div class="header">
+            <h1>🧠 Flashcards de Estudo — Aula 03</h1>
+            <p>Conceitos Fundamentais de Magnetismo, Lei de Ampère, Biot-Savart, Indução e Correntes Alternadas</p>
+        </div>
+
+        <div class="stats-bar">
+            <span id="counterText">0 de 65 cartões explorados</span>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressFill"></div>
+            </div>
+            <span>Clique para revelar a resposta 🔄</span>
+        </div>
+
+        <div class="controls">
+            <button class="btn-ctrl" onclick="flipAll(true)">👁️ Revelar Todos</button>
+            <button class="btn-ctrl" onclick="flipAll(false)">🙈 Esconder Versos</button>
+            <button class="btn-ctrl" onclick="shuffleCards()">🔀 Embaralhar</button>
+        </div>
+
+        <div class="grid-cards" id="cardsGrid">
+            <!-- Card 1 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 1</span>
+                        <div class="card-body">Qual é a função da limalha de ferro no mapeamento do espectro magnético?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 1</span>
+                        <div class="card-body">Visualizar as linhas de indução ao se alinharem com o campo magnético.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 2</span>
+                        <div class="card-body">O que a Experiência de Oersted comprovou sobre a relação entre eletricidade e magnetismo?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 2</span>
+                        <div class="card-body">Que uma corrente elétrica circulando em um condutor gera um campo magnético ao seu redor.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 3</span>
+                        <div class="card-body">Na reprodução da Experiência de Oersted, qual deve ser a posição inicial da bússola em relação ao fio condutor?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 3</span>
+                        <div class="card-body">A agulha magnética deve estar posicionada paralelamente ao fio.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 4</span>
+                        <div class="card-body">Qual é a expressão matemática da Lei de Ampère para a circulação do vetor indução magnética?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 4</span>
+                        <div class="card-body">$C(\vec{B}) = \mu_0 \cdot \sum i$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 5</span>
+                        <div class="card-body">Como é caracterizado o campo magnético no interior de um solenoide percorrido por corrente?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 5</span>
+                        <div class="card-body">O campo é praticamente uniforme e suas linhas de indução são paralelas ao seu eixo geométrico.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 6</span>
+                        <div class="card-body">Qual é a fórmula para calcular o módulo do campo magnético no interior de um solenoide ideal?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 6</span>
+                        <div class="card-body">$B = \mu_0 \cdot \frac{N}{L} \cdot i$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 7</span>
+                        <div class="card-body">Em um mapeamento de solenoide, o que define as extremidades como polos norte ou sul?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 7</span>
+                        <div class="card-body">O sentido da corrente elétrica, determinado pela regra da mão direita $n^o$ 1.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 8</span>
+                        <div class="card-body">Para utilizar a Lei de Ampère em condutores com simetria cilíndrica, qual formato de percurso fechado é geralmente escolhido?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 8</span>
+                        <div class="card-body">Uma circunferência centrada no condutor e perpendicular a ele.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 9</span>
+                        <div class="card-body">Qual regra prática permite determinar o sentido das linhas de indução em torno de um fio reto?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 9</span>
+                        <div class="card-body">Regra da mão direita $n^o$ 1 (polegar no sentido da corrente).</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 10</span>
+                        <div class="card-body">Por que a agulha de uma bússola sofre deflexão quando colocada perpendicularmente abaixo de um fio com corrente?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 10</span>
+                        <div class="card-body">Pela interação entre o campo magnético da agulha e o campo gerado pela corrente elétrica.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 11</span>
+                        <div class="card-body">O que afirma o princípio da inseparabilidade dos polos de um ímã?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 11</span>
+                        <div class="card-body">É impossível isolar um único polo magnético; ao partir um ímã, novos polos norte e sul surgem nas metades.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 12 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 12</span>
+                        <div class="card-body">Qual é o sentido das linhas de indução magnética na região externa de um ímã?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 12</span>
+                        <div class="card-body">Elas emergem do polo norte e entram no polo sul.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 13 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 13</span>
+                        <div class="card-body">Qual é a unidade de medida do vetor indução magnética $\vec{B}$ no Sistema Internacional?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 13</span>
+                        <div class="card-body">Tesla ($T$)</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 14 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 14</span>
+                        <div class="card-body">Como se define um campo magnético uniforme?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 14</span>
+                        <div class="card-body">Aquele onde o vetor $\vec{B}$ possui mesma direção, sentido e intensidade em todos os pontos.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 15 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 15</span>
+                        <div class="card-body">O que representa a declinação magnética terrestre?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 15</span>
+                        <div class="card-body">O ângulo formado entre a direção do Norte Geográfico e a direção indicada pelo Norte Magnético.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 16 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 16</span>
+                        <div class="card-body">Termo: Lei de Biot-Savart</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 16</span>
+                        <div class="card-body">Definição: Lei fundamental que permite calcular o campo magnético gerado por um elemento de corrente em um ponto do espaço.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 17 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 17</span>
+                        <div class="card-body">Qual é a fórmula do campo magnético gerado por um fio retilíneo e longo a uma distância $r$?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 17</span>
+                        <div class="card-body">$B = \frac{\mu_0 \cdot i}{2 \cdot \pi \cdot r}$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 18 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 18</span>
+                        <div class="card-body">No centro de uma espira circular de raio $R$, qual é o módulo do campo magnético?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 18</span>
+                        <div class="card-body">$B = \frac{\mu_0 \cdot i}{2 \cdot R}$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 19 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 19</span>
+                        <div class="card-body">Qual é o valor da permeabilidade magnética do vácuo $\mu_0$ no SI?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 19</span>
+                        <div class="card-body">$4 \cdot \pi \cdot 10^{-7} \, T \cdot m/A$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 20 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 20</span>
+                        <div class="card-body">Pela Regra do Relógio, uma face de espira com corrente no sentido horário é um polo _____.</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 20</span>
+                        <div class="card-body">Sul</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 21 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 21</span>
+                        <div class="card-body">O que representam os símbolos $\odot$ e $\otimes$ em diagramas de vetores?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 21</span>
+                        <div class="card-body">$\odot$ indica um vetor saindo do plano (para o observador) e $\otimes$ indica um vetor entrando no plano.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 22 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 22</span>
+                        <div class="card-body">Qual é a fórmula da força magnética (Força de Lorentz) sobre uma carga móvel?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 22</span>
+                        <div class="card-body">$F_m = |q| \cdot v \cdot B \cdot \sin \theta$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 23 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 23</span>
+                        <div class="card-body">Na regra da mão direita $n^o$ 2 para força magnética, o que representa a palma da mão para uma carga positiva?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 23</span>
+                        <div class="card-body">O sentido da força magnética (o "empurrão").</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 24 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 24</span>
+                        <div class="card-body">Qual é a trajetória de uma carga elétrica lançada perpendicularmente a um campo magnético uniforme?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 24</span>
+                        <div class="card-body">Movimento Circular Uniforme ($MCU$).</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 25 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 25</span>
+                        <div class="card-body">Sob qual condição a força magnética sobre uma carga em movimento dentro de um campo $\vec{B}$ é nula?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 25</span>
+                        <div class="card-body">Quando a velocidade $v$ é paralela às linhas de indução ($\theta = 0^o$ ou $180^o$).</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 26 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 26</span>
+                        <div class="card-body">Qual é a fórmula da força magnética que atua sobre um condutor retilíneo de comprimento $L$?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 26</span>
+                        <div class="card-body">$F_m = B \cdot i \cdot L \cdot \sin \theta$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 27 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 27</span>
+                        <div class="card-body">Dois fios paralelos percorridos por correntes de mesmo sentido sofrem uma força magnética de _____.</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 27</span>
+                        <div class="card-body">Atração</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 28 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 28</span>
+                        <div class="card-body">Como se definem as substâncias ferromagnéticas?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 28</span>
+                        <div class="card-body">Materiais que aumentam intensamente o campo magnético resultante em seu interior, como o ferro e o cobalto.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 29 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 29</span>
+                        <div class="card-body">O que caracteriza o comportamento de uma substância diamagnética?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 29</span>
+                        <div class="card-body">Ela enfraquece levemente o campo magnético resultante em relação ao campo externo aplicado.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 30 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 30</span>
+                        <div class="card-body">O que são os Domínios de Weiss?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 30</span>
+                        <div class="card-body">Regiões microscópicas em materiais ferromagnéticos onde os momentos magnéticos atômicos estão alinhados espontaneamente.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 31 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 31</span>
+                        <div class="card-body">Qual é a definição de Fluxo Magnético $\Phi$ através de uma superfície?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 31</span>
+                        <div class="card-body">O produto da indução magnética pela área e pelo cosseno do ângulo entre o campo e a normal: $\Phi = B \cdot A \cdot \cos \theta$.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 32 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 32</span>
+                        <div class="card-body">Qual é a unidade de medida do fluxo magnético no Sistema Internacional?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 32</span>
+                        <div class="card-body">Weber ($Wb$)</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 33 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 33</span>
+                        <div class="card-body">O que enuncia a Lei de Lenz sobre o sentido da corrente induzida?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 33</span>
+                        <div class="card-body">O sentido da corrente induzida é tal que o campo magnético por ela criado se opõe à variação do fluxo que a originou.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 34 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 34</span>
+                        <div class="card-body">Qual é a expressão da Lei de Faraday-Neumann para a força eletromotriz induzida média?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 34</span>
+                        <div class="card-body">$\epsilon = - \frac{\Delta \Phi}{\Delta t}$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 35 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 35</span>
+                        <div class="card-body">O que afirma a Lei de Felici sobre a carga elétrica total escoada em um processo de indução?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 35</span>
+                        <div class="card-body">A carga escoada depende apenas da variação do fluxo magnético e da resistência do circuito: $\Delta q = \frac{|\Delta \Phi|}{R}$.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 36 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 36</span>
+                        <div class="card-body">Como se define o Valor Eficaz ($i_{ef}$ ou $U_{ef}$) de uma grandeza alternada?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 36</span>
+                        <div class="card-body">O valor de uma corrente ou tensão contínua que dissiparia a mesma energia em um resistor no mesmo intervalo de tempo.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 37 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 37</span>
+                        <div class="card-body">Qual é a relação entre o valor máximo ($U_{max}$) e o valor eficaz ($U_{ef}$) para uma tensão senoidal?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 37</span>
+                        <div class="card-body">$U_{ef} = \frac{U_{max}}{\sqrt{2}}$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 38 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 38</span>
+                        <div class="card-body">Qual é a função básica de um transformador?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 38</span>
+                        <div class="card-body">Modificar valores de tensão e corrente alternada mantendo a frequência constante.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 39 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 39</span>
+                        <div class="card-body">Qual é a relação fundamental entre tensões e número de espiras em um transformador ideal?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 39</span>
+                        <div class="card-body">$\frac{U_p}{U_s} = \frac{N_p}{N_s}$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 40 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 40</span>
+                        <div class="card-body">Por que transformadores operam exclusivamente com corrente alternada ($CA$)?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 40</span>
+                        <div class="card-body">Porque dependem da variação temporal do fluxo magnético para induzir tensão no secundário.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 41 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 41</span>
+                        <div class="card-body">O que são as Correntes de Foucault?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 41</span>
+                        <div class="card-body">Correntes induzidas em massas metálicas condutoras sujeitas a campos magnéticos variáveis, gerando perdas por efeito Joule.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 42 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 42</span>
+                        <div class="card-body">Como se minimizam as perdas por Correntes de Foucault nos núcleos de transformadores?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 42</span>
+                        <div class="card-body">Construindo o núcleo com lâminas delgadas isoladas umas das outras.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 43 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 43</span>
+                        <div class="card-body">O que define a pulsação $\omega$ de uma corrente alternada?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 43</span>
+                        <div class="card-body">$\omega = 2 \cdot \pi \cdot f$ (onde $f$ é a frequência em Hertz).</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 44 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 44</span>
+                        <div class="card-body">Qual é a frequência padrão da energia elétrica distribuída comercialmente no Brasil?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 44</span>
+                        <div class="card-body">$60 \, Hz$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 45 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 45</span>
+                        <div class="card-body">Como funciona um detector de metais manual baseado na lei de Faraday?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 45</span>
+                        <div class="card-body">A variação de fluxo gerada pela aproximação de um metal induz correntes no objeto, que criam um campo alterando o sinal de referência.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 46 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 46</span>
+                        <div class="card-body">O que é um Eletroímã?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 46</span>
+                        <div class="card-body">Um dispositivo formado por um núcleo de ferro envolto por uma bobina que se imanta apenas quando percorrido por corrente elétrica.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 47 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 47</span>
+                        <div class="card-body">Qual é a principal diferença entre um Alternador e um Dínamo?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 47</span>
+                        <div class="card-body">O alternador gera corrente alternada senoidal, enquanto o dínamo gera corrente contínua retificada por um comutador.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 48 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 48</span>
+                        <div class="card-body">O que acontece com o magnetismo de um material ferromagnético ao atingir a Temperatura de Curie?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 48</span>
+                        <div class="card-body">O material perde suas propriedades ferromagnéticas e passa a se comportar como paramagnético.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 49 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 49</span>
+                        <div class="card-body">Qual é a característica do campo magnético resultante em um ponto P entre dois fios com correntes de sentidos opostos?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 49</span>
+                        <div class="card-body">Os campos gerados por cada fio se somam vetorialmente no mesmo sentido naquele ponto.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 50 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 50</span>
+                        <div class="card-body">O que é a Inclinação Magnética?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 50</span>
+                        <div class="card-body">O ângulo que o vetor indução magnética terrestre $\vec{B}_t$ forma com a horizontal em um determinado ponto da superfície.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 51 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 51</span>
+                        <div class="card-body">Qual é o mineral conhecido como ímã natural?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 51</span>
+                        <div class="card-body">Magnetita ($Fe_3O_4$).</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 52 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 52</span>
+                        <div class="card-body">Em um transformador, o que caracteriza um dispositivo "elevador"?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 52</span>
+                        <div class="card-body">Apresentar um número de espiras no secundário maior que no primário ($N_s > N_p$).</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 53 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 53</span>
+                        <div class="card-body">Na indução eletromagnética, como se converte energia mecânica em elétrica?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 53</span>
+                        <div class="card-body">Através do trabalho realizado para mover um condutor ou ímã contra a força magnética induzida.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 54 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 54</span>
+                        <div class="card-body">Qual é a unidade de medida da força eletromotriz induzida no SI?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 54</span>
+                        <div class="card-body">Volt ($V$)</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 55 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 55</span>
+                        <div class="card-body">O que é a Imantação Residual ($B_R$)?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 55</span>
+                        <div class="card-body">A intensidade magnética que permanece em um material ferromagnético após o campo externo ser reduzido a zero.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 56 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 56</span>
+                        <div class="card-body">Como se define a Potência Média em um resistor sob corrente alternada?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 56</span>
+                        <div class="card-body">$Pot_m = U_{ef} \cdot i_{ef} = R \cdot i_{ef}^2$</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 57 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 57</span>
+                        <div class="card-body">O que representa o fator $\cos \theta$ na fórmula do fluxo magnético?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 57</span>
+                        <div class="card-body">O ângulo entre o vetor indução magnética e o vetor normal à superfície da espira.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 58 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 58</span>
+                        <div class="card-body">Em uma usina hidrelétrica, qual componente é responsável por girar a armadura do gerador?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 58</span>
+                        <div class="card-body">A turbina, movida pela energia potencial gravitacional da queda d'água.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 59 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 59</span>
+                        <div class="card-body">Qual é a principal vantagem do uso de corrente alternada para transmissão a longa distância?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 59</span>
+                        <div class="card-body">A facilidade de elevar a tensão via transformadores para reduzir as perdas por efeito Joule na linha.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 60 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 60</span>
+                        <div class="card-body">O que ocorre com a força magnética entre dois condutores paralelos se as correntes tiverem sentidos opostos?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 60</span>
+                        <div class="card-body">Eles se repelem mutuamente.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 61 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 61</span>
+                        <div class="card-body">O que acontece com a velocidade de uma carga se ela for lançada paralelamente a um campo magnético uniforme?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 61</span>
+                        <div class="card-body">A carga manterá um Movimento Retilíneo Uniforme ($MRU$), pois a força magnética será nula.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 62 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 62</span>
+                        <div class="card-body">Como o campo magnético terrestre protege a Terra?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 62</span>
+                        <div class="card-body">Desviando partículas carregadas provenientes do espaço (vento solar) por meio da força de Lorentz.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 63 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 63</span>
+                        <div class="card-body">Na Lei de Faraday, o que significa o sinal negativo na fórmula $\epsilon = - \frac{\Delta \Phi}{\Delta t}$?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 63</span>
+                        <div class="card-body">Reflete a Lei de Lenz, indicando que a fem induzida se opõe à variação do fluxo.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 64 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 64</span>
+                        <div class="card-body">Qual é a característica do campo magnético externo a um solenoide longo e ideal?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 64</span>
+                        <div class="card-body">O campo magnético externo é considerado nulo.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 65 -->
+            <div class="flashcard" onclick="toggleCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-tag">Cartão 65</span>
+                        <div class="card-body">O que define a constante de permeabilidade magnética relativa $\mu_r$?</div>
+                        <div class="card-hint">Clique para virar 🔄</div>
+                    </div>
+                    <div class="card-back">
+                        <span class="card-tag">Resposta 65</span>
+                        <div class="card-body">A razão entre o campo magnético no material ($B$) e o campo no vácuo ($B_0$): $\mu_r = \frac{B}{B_0}$.</div>
+                        <div class="card-hint">Clique para voltar ↩️</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const totalCards = 65;
+
+        function toggleCard(cardElement) {
+            cardElement.classList.toggle('flipped');
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const flipped = document.querySelectorAll('.flashcard.flipped').length;
+            const fill = document.getElementById('progressFill');
+            const percent = Math.round((flipped / totalCards) * 100);
+            fill.style.width = Math.max(percent, 0) + '%';
+            document.getElementById('counterText').textContent = `${flipped} de ${totalCards} cartões explorados`;
+        }
+
+        function flipAll(state) {
+            const cards = document.querySelectorAll('.flashcard');
+            cards.forEach(c => {
+                if (state) c.classList.add('flipped');
+                else c.classList.remove('flipped');
+            });
+            updateProgress();
+        }
+
+        function shuffleCards() {
+            const grid = document.getElementById('cardsGrid');
+            const cards = Array.from(grid.children);
+            cards.sort(() => Math.random() - 0.5);
+            cards.forEach(c => grid.appendChild(c));
+        }
+    </script>
+</body>
+</html>
