@@ -28,7 +28,7 @@
 
 5. **Slides da Aula 03:**
    - Unificados e substituídos pelo arquivo PDF mais recente:
-     `optica-acustica/Aulas/Bloco-1/Aula03/fenomenos-acusticos-fontes-aula03.pdf`
+     `optica-acustica/Aulas/Bloco-1/Aula03/introducao-ondas-sonoras-aula02-aula03.pdf`
    - Links nos portais `FSC060805/index.html`, `FCA060906/index.html` e `optica-acustica/index.html` devidamente atualizados.
 
 6. **Versionamento Git & GitHub:**
