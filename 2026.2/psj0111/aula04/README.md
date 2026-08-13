@@ -13,6 +13,13 @@
 
 ---
 
+## 🌐 Portal da Wikipédia MPE-2026-2
+
+Acesse o portal interativo com o mapeamento completo dos 15 anteprojetos de TCC da turma, pilares teóricos e delineamentos metodológicos:
+👉 **[Acessar o Portal da Wikipédia MPE-2026-2](../wikipedia/index.html)** (URL Web: `https://humba-ifsc.github.io/ensino-ifsc/2026.2/psj0111/wikipedia/`)
+
+---
+
 ## 📋 Roteiro Orientador do Seminário das Metodologias
 
 As equipes devem estruturar seus slides e apresentações abordando os seguintes itens obrigatórios:
