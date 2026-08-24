@@ -1,327 +1,330 @@
 {
-  "title": "Eletromagnetismo Quiz",
+  "title": "Quiz 2 — Campo Magnético das Correntes Elétricas (Biot-Savart)",
+  "course": "Magnetismo e Eletromagnetismo (FSC060804 / FCA060905)",
+  "block": 1,
+  "chapter": 13,
   "totalQuestions": 10,
-  "extractedAt": "2026-08-10T14:44:05.391Z",
+  "updatedAt": "2026-08-24T16:40:00.000Z",
   "questions": [
     {
       "number": 1,
-      "question": "Durante a reprodução da Experiência de Oersted, o que acontece com a agulha de uma bússola quando uma corrente elétrica contínua passa por um condutor posicionado paralelamente acima dela?",
+      "question": "Em 1820, Hans Christian Oersted realizou um experimento crucial que unificou os campos da Eletricidade e do Magnetismo. Qual foi a observação fundamental desse experimento?",
       "options": [
         {
           "label": "A",
-          "text": "A agulha permanece alinhada ao campo magnético terrestre, sem sofrer influência.",
-          "isCorrect": false,
-          "rationale": "Este pensamento ignora a descoberta fundamental de Oersted de que eletricidade em movimento gera efeitos magnéticos."
+          "text": "A agulha magnética da bússola sofreu uma deflexão, tendendo a se orientar perpendicularmente ao fio condutor quando este era percorrido por corrente elétrica.",
+          "isCorrect": true,
+          "rationale": "A passagem de corrente elétrica contínua cria ao redor do fio um campo magnético cujas linhas são circunferências concêntricas perpendiculares ao condutor. Essa interação exerce um torque sobre a agulha da bússola, fazendo-a defletir em direção perpendicular ao fio."
         },
         {
           "label": "B",
-          "text": "A agulha é atraída radialmente em direção ao centro do fio condutor.",
+          "text": "A agulha da bússola foi atraída eletrostaticamente e colou-se ao fio condutor.",
           "isCorrect": false,
-          "rationale": "Este erro confunde o comportamento de atração eletrostática com o comportamento do campo magnético, que é rotacional e não radial."
+          "rationale": "O efeito observado por Oersted é de natureza puramente magnética devido ao movimento de cargas, e não atração eletrostática por cargas em repouso."
         },
         {
           "label": "C",
-          "text": "A agulha começa a girar continuamente no sentido horário enquanto houver corrente.",
+          "text": "O fio condutor perdeu sua condutividade elétrica na presença do campo magnético da Terra.",
           "isCorrect": false,
-          "rationale": "A agulha busca uma posição de equilíbrio estático onde o campo resultante seja nulo ou aponte em uma direção fixa, não um movimento perpétuo."
+          "rationale": "A condutividade do fio permanece a mesma; o fenômeno decorre da criação de um novo campo magnético."
         },
         {
           "label": "D",
-          "text": "A agulha sofre um desvio, tendendo a se posicionar perpendicularmente ao fio.",
-          "isCorrect": true,
-          "rationale": "A passagem de corrente elétrica gera um campo magnético cujas linhas são circunferências concêntricas ao fio, exercendo torque sobre a bússola."
+          "text": "A agulha da bússola começou a girar ininterruptamente sem encontrar nenhuma posição de equilíbrio.",
+          "isCorrect": false,
+          "rationale": "A agulha atinge uma posição estável de equilíbrio determinada pelo vetor resultante entre o campo terrestre e o campo gerado pela corrente."
         }
       ],
-      "hint": "Lembre-se da relação entre o sentido do campo gerado pela corrente e a orientação original norte-sul da agulha.",
-      "correctAnswer": "D"
-    },
-    {
-      "number": 2,
-      "question": "Ao utilizar limalha de ferro para mapear o espectro magnético de um ímã em barra, o que as linhas formadas pelos fragmentos representam fisicamente?",
-      "options": [
-        {
-          "label": "A",
-          "text": "As linhas de indução magnética, que são tangentes ao vetor campo magnético em cada ponto.",
-          "isCorrect": true,
-          "rationale": "Cada fragmento de limalha atua como uma pequena agulha magnética que se alinha com o vetor $\\vec{B}$ local."
-        },
-        {
-          "label": "B",
-          "text": "O fluxo de corrente elétrica que circula internamente no material ferromagnético.",
-          "isCorrect": false,
-          "rationale": "Embora correntes microscópicas gerem o campo, a limalha visualiza o efeito externo (campo) e não a causa interna (corrente)."
-        },
-        {
-          "label": "C",
-          "text": "As linhas de força eletrostática que atraem os metais para o polo norte.",
-          "isCorrect": false,
-          "rationale": "O fenômeno observado é estritamente magnético e envolve torque de alinhamento, não atração de cargas elétricas em repouso."
-        },
-        {
-          "label": "D",
-          "text": "As trajetórias percorridas pelos elétrons que escapam dos polos do ímã.",
-          "isCorrect": false,
-          "rationale": "O magnetismo em ímãs permanentes deve-se ao movimento orbital e spin dos elétrons internos, não à emissão de partículas."
-        }
-      ],
-      "hint": "Considere o papel da limalha como um indicador visual da direção do vetor indução magnética.",
+      "hint": "Pense no efeito que uma corrente elétrica contínua em um fio reto exerce sobre uma bússola colocada paralelamente a ele.",
       "correctAnswer": "A"
     },
     {
-      "number": 3,
-      "question": "De acordo com a Lei de Ampère, qual é a relação entre a intensidade do campo magnético $B$ gerado por um condutor reto e extenso e a distância $r$ de um ponto até o fio?",
+      "number": 2,
+      "question": "De acordo com a Regra da Mão Direita nº 1, para um condutor retilíneo muito longo percorrido por corrente contínua $I$, como se determinam a forma e o sentido das linhas de indução magnética?",
       "options": [
         {
           "label": "A",
-          "text": "$B$ independe da distância $r$, sendo uniforme em todo o espaço.",
+          "text": "As linhas são radiais divergentes, saindo do condutor para o infinito.",
           "isCorrect": false,
-          "rationale": "Campos magnéticos uniformes são raros e geralmente produzidos no interior de solenoides, não por condutores retilíneos isolados."
+          "rationale": "Linhas radiais caracterizam o campo eletrostático de uma carga pontual, não um campo magnético de corrente."
         },
         {
           "label": "B",
-          "text": "$B$ é inversamente proporcional à distância $r$.",
-          "isCorrect": true,
-          "rationale": "A fórmula derivada da Lei de Ampère para essa simetria é $B = \\frac{\\mu_0 i}{2\\pi r}$, mostrando a relação $B \\propto \\frac{1}{r}$."
+          "text": "As linhas são retas paralelas ao condutor, no mesmo sentido da corrente.",
+          "isCorrect": false,
+          "rationale": "Linhas paralelas ao condutor não refletem a rotacionalidade do campo gerado por corrente."
         },
         {
           "label": "C",
-          "text": "$B$ é inversamente proporcional ao quadrado da distância $r^2$.",
-          "isCorrect": false,
-          "rationale": "Esta é uma confusão comum com a Lei de Coulomb ou a Gravitação Universal, mas para fios infinitos a dependência é linear com a distância."
+          "text": "As linhas são circunferências concêntricas ao fio em planos perpendiculares a ele, e o sentido do vetor $\\vec{B}$ é indicado pelo fechamento dos demais dedos da mão direita.",
+          "isCorrect": true,
+          "rationale": "O campo magnético ao redor de um condutor retilíneo tem simetria cilíndrica. As linhas de indução são circunferências concêntricas ao redor do eixo do fio, orientadas no sentido em que os quatro dedos da mão direita envolvem o fio quando o polegar aponta no sentido da corrente."
         },
         {
           "label": "D",
-          "text": "$B$ é diretamente proporcional à distância $r$.",
+          "text": "As linhas são espirais cônicas que se afastam do condutor à medida que a corrente aumenta.",
           "isCorrect": false,
-          "rationale": "Isso implicaria que o campo ficaria mais forte conforme nos afastamos da fonte, o que viola o princípio de conservação e decaimento de campo."
+          "rationale": "Para corrente contínua em condutor retilíneo, as linhas são circunferências fechadas no plano ortogonal."
         }
       ],
-      "hint": "Analise a expressão matemática onde o raio da circunferência de circuitação aparece no denominador.",
-      "correctAnswer": "B"
+      "hint": "O polegar direito aponta no sentido da corrente elétrica $I$.",
+      "correctAnswer": "C"
+    },
+    {
+      "number": 3,
+      "question": "Pela Lei de Biot-Savart, o módulo do campo magnético $B$ gerado por um condutor retilíneo longo a uma distância $d$ é $B = \\frac{\\mu_0 I}{2\\pi d}$. Se triplicarmos a corrente elétrica ($3I$) e duplicarmos a distância até o ponto ($2d$), qual será o novo campo magnético $B'$?",
+      "options": [
+        {
+          "label": "A",
+          "text": "$B' = 1{,}5 B$ (o campo aumenta em 50%).",
+          "isCorrect": true,
+          "rationale": "Como $B = \\frac{\\mu_0 I}{2\\pi d}$, com $I' = 3I$ e $d' = 2d$ temos $B' = \\frac{\\mu_0 (3I)}{2\\pi (2d)} = \\frac{3}{2} \\left(\\frac{\\mu_0 I}{2\\pi d}\\right) = 1{,}5 B$."
+        },
+        {
+          "label": "B",
+          "text": "$B' = 6{,}0 B$ (o campo é multiplicado por 6).",
+          "isCorrect": false,
+          "rationale": "A distância está no denominador; multiplicar a distância por 2 reduz o campo pela metade, não o multiplica."
+        },
+        {
+          "label": "C",
+          "text": "$B' = 0{,}67 B$ (o campo diminui para dois terços).",
+          "isCorrect": false,
+          "rationale": "A razão entre o fator da corrente (3) e da distância (2) resulta em 3/2 = 1,5 e não 2/3."
+        },
+        {
+          "label": "D",
+          "text": "$B' = 0{,}75 B$ (o campo diminui em 25%).",
+          "isCorrect": false,
+          "rationale": "O campo resultante aumenta porque o aumento da corrente (3x) supera o aumento da distância (2x)."
+        }
+      ],
+      "hint": "Substitua $I' = 3I$ e $d' = 2d$ na expressão do campo do fio reto.",
+      "correctAnswer": "A"
     },
     {
       "number": 4,
-      "question": "No mapeamento de um solenoide (bobina longa) percorrido por corrente, como se comporta o campo magnético em seu interior, longe das extremidades?",
+      "question": "Um fio retilíneo e longo no vácuo ($\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$) é percorrido por uma corrente $I = 5{,}0\\text{ A}$. Qual é a intensidade do campo magnético $B$ em um ponto situado a $d = 10\\text{ cm}$ ($0{,}10\\text{ m}$) do fio?",
       "options": [
         {
           "label": "A",
-          "text": "O campo é circular, girando em torno do eixo central do solenoide.",
-          "isCorrect": false,
-          "rationale": "As linhas circulares ocorrem ao redor de fios retos; no solenoide, as linhas são longitudinais ao longo do eixo."
+          "text": "$B = 1{,}0 \\times 10^{-5}\\text{ T}$ ($10\\,\\mu\\text{T}$)",
+          "isCorrect": true,
+          "rationale": "Aplicando a fórmula: $B = \\frac{\\mu_0 I}{2\\pi d} = \\frac{(4\\pi \\times 10^{-7}) \\cdot 5{,}0}{2\\pi \\cdot 0{,}10} = \\frac{2 \\times 10^{-6}}{0{,}10} = 1{,}0 \\times 10^{-5}\\text{ T} = 10\\,\\mu\\text{T}$."
         },
         {
           "label": "B",
-          "text": "O campo é praticamente uniforme, com linhas de indução paralelas e igualmente espaçadas.",
-          "isCorrect": true,
-          "rationale": "Em um solenoide ideal, a superposição dos campos de cada espira resulta em um vetor $\\vec{B}$ constante em direção, sentido e módulo no centro."
+          "text": "$B = 2{,}5 \\times 10^{-6}\\text{ T}$ ($2{,}5\\,\\mu\\text{T}$)",
+          "isCorrect": false,
+          "rationale": "Erro de cálculo ao simplificar $4\\pi / 2\\pi = 2$."
         },
         {
           "label": "C",
-          "text": "O campo é nulo, pois as correntes das espiras opostas se cancelam.",
+          "text": "$B = 5{,}0 \\times 10^{-5}\\text{ T}$ ($50\\,\\mu\\text{T}$)",
           "isCorrect": false,
-          "rationale": "As correntes nas espiras vizinhas somam seus efeitos no interior, reforçando o campo em vez de anulá-lo."
+          "rationale": "Esquecimento da divisão pelo fator de distância $0{,}10\\text{ m}$ ou simplificação incorreta."
         },
         {
           "label": "D",
-          "text": "O campo atinge seu valor máximo nos fios e cai a zero exatamente no eixo central.",
+          "text": "$B = 2{,}0 \\times 10^{-4}\\text{ T}$ ($200\\,\\mu\\text{T}$)",
           "isCorrect": false,
-          "rationale": "Pela simetria e Lei de Ampère, o campo é máximo e mais estável justamente ao longo do eixo central interno."
+          "rationale": "Valor com ordem de grandeza incorreta."
         }
       ],
-      "hint": "Pense na configuração de um dispositivo projetado para criar um campo magnético controlado e constante.",
-      "correctAnswer": "B"
+      "hint": "Lembre-se de converter centímetros para metros antes de aplicar $B = \\frac{\\mu_0 I}{2\\pi d}$.",
+      "correctAnswer": "A"
     },
     {
       "number": 5,
-      "question": "A Regra da Mão Direita $n^o 1$ é essencial para determinar o sentido das linhas de indução. Se o polegar aponta no sentido da corrente elétrica $i$, o que representam os demais dedos dobrados?",
+      "question": "No centro geométrico de uma espira circular plana de raio $R$ percorrida por uma corrente $I$, qual é a expressão correta do vetor indução magnética $\\vec{B}$ e sua orientação?",
       "options": [
         {
           "label": "A",
-          "text": "A direção da força magnética que atuará sobre uma carga em movimento.",
-          "isCorrect": false,
-          "rationale": "Este é o uso da Regra da Mão Direita $n^o 2$ (ou regra da palma), utilizada para força de Lorentz, não para fontes de campo."
+          "text": "$B = \\frac{\\mu_0 I}{2 R}$, perpendicular ao plano da espira, com sentido determinado pelo enrolamento da mão direita.",
+          "isCorrect": true,
+          "rationale": "Pela integração da Lei de Biot-Savart, o campo no centro de uma espira circular é $B = \\frac{\\mu_0 I}{2 R}$. A direção é perpendicular ao plano formado pela espira e o sentido segue o enrolamento dos dedos acompanhando a corrente."
         },
         {
           "label": "B",
-          "text": "O sentido da aceleração dos elétrons dentro do metal.",
+          "text": "$B = \\frac{\\mu_0 I}{2\\pi R}$, contido no plano da espira e apontando para o centro.",
           "isCorrect": false,
-          "rationale": "A regra da mão direita é uma convenção para campos magnéticos e não descreve a dinâmica cinemática das partículas de carga."
+          "rationale": "O fator $\\pi$ não aparece no denominador da espira circular no centro, e o vetor é perpendicular ao plano da espira, não contido nele."
         },
         {
           "label": "C",
-          "text": "A direção do campo elétrico gerado pela diferença de potencial no condutor.",
+          "text": "$B = \\frac{\\mu_0 I}{4\\pi R^2}$, radial saindo do centro da espira.",
           "isCorrect": false,
-          "rationale": "O campo elétrico dentro de um fio condutor segue a direção longitudinal do próprio fio, não uma trajetória circular."
+          "rationale": "Essa fórmula não tem a dimensão correta de campo magnético."
         },
         {
           "label": "D",
-          "text": "O sentido das linhas de indução do campo magnético $\\vec{B}$ que circundam o fio.",
-          "isCorrect": true,
-          "rationale": "A regra estabelece uma relação de produto vetorial onde o fechamento da mão indica a rotacionalidade do campo magnético."
+          "text": "$B = 0$, pois os campos dos semicírculos opostos sempre se anulam no centro.",
+          "isCorrect": false,
+          "rationale": "Os campos de cada elemento de corrente da espira somam-se construtivamente na direção perpendicular ao plano, resultando em um campo máximo no centro."
         }
       ],
-      "hint": "Considere como as linhas de campo 'envolvem' o condutor percorrido por corrente.",
-      "correctAnswer": "D"
+      "hint": "Compare o denominador da fórmula da espira circular com a fórmula do condutor reto.",
+      "correctAnswer": "A"
     },
     {
       "number": 6,
-      "question": "Ao comparar o espectro magnético de um solenoide com o de um ímã em barra, qual a principal semelhança observada no campo externo?",
+      "question": "Uma espira circular de raio $R$ produz em seu centro um campo $B$. Se o raio dessa espira for duplicado ($2R$) e a corrente for quadruplicada ($4I$), qual será o novo campo magnético $B'$ no centro?",
       "options": [
         {
           "label": "A",
-          "text": "As linhas do solenoide são radiais, enquanto as do ímã são sempre circulares.",
-          "isCorrect": false,
-          "rationale": "Ambos apresentam o mesmo formato de linhas de dipolo; nenhum dos dois produz campos puramente radiais."
+          "text": "$B' = 2 B$ (o campo dobra de intensidade).",
+          "isCorrect": true,
+          "rationale": "Como $B = \\frac{\\mu_0 I}{2 R}$, ao substituir $I' = 4I$ e $R' = 2R$, obtemos $B' = \\frac{\\mu_0 (4I)}{2 (2R)} = 2 \\left(\\frac{\\mu_0 I}{2 R}\\right) = 2 B$."
         },
         {
           "label": "B",
-          "text": "As linhas de indução emergem de uma extremidade (Norte) e entram na outra (Sul), de forma idêntica.",
-          "isCorrect": true,
-          "rationale": "Externamente, o solenoide se comporta como um dipolo magnético, possuindo polos identificáveis que seguem as mesmas leis de atração e repulsão."
+          "text": "$B' = 4 B$ (o campo quadruplica).",
+          "isCorrect": false,
+          "rationale": "Ignora o efeito do aumento do raio no denominador que reduz o campo pela metade."
         },
         {
           "label": "C",
-          "text": "O campo do solenoide é muito mais fraco e não consegue orientar bússolas.",
+          "text": "$B' = 0{,}5 B$ (o campo cai pela metade).",
           "isCorrect": false,
-          "rationale": "Eletroímãs baseados em solenoides podem produzir campos extremamente intensos, muito superiores aos de ímãs permanentes comuns."
+          "rationale": "Inversão dos fatores de proporção da corrente e do raio."
         },
         {
           "label": "D",
-          "text": "O solenoide não possui polos fixos, ao contrário do ímã em barra.",
+          "text": "$B' = B$ (o campo permanece inalterado).",
           "isCorrect": false,
-          "rationale": "Embora os polos do solenoide dependam da corrente, enquanto ela flui, eles são tão fixos e definidos quanto os de um ímã natural."
+          "rationale": "Para permanecer inalterado, a corrente precisaria apenas ter duplicado, mas quadruplicou."
         }
       ],
-      "hint": "Lembre-se da aplicação prática de solenoides na construção de eletroímãs.",
-      "correctAnswer": "B"
+      "hint": "Use $B = \\frac{\\mu_0 I}{2 R}$ e compare $B'$ com $B$.",
+      "correctAnswer": "A"
     },
     {
       "number": 7,
-      "question": "Na Lei de Ampère, o termo $\\mu_0$ representa a permeabilidade magnética do vácuo. Qual é o papel desse parâmetro físico no cálculo do campo?",
+      "question": "Uma bobina chata é formada por $N = 100$ espiras circulares justapostas de mesmo raio $R = 5{,}0\\text{ cm}$ ($0{,}05\\text{ m}$). Ao conduzir uma corrente de $I = 2{,}0\\text{ A}$ no vácuo ($\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$), qual é o campo magnético resultante em seu centro?",
       "options": [
         {
           "label": "A",
-          "text": "É uma constante que depende exclusivamente da temperatura do fio condutor.",
-          "isCorrect": false,
-          "rationale": "$\\mu_0$ é uma constante universal do vácuo; propriedades térmicas afetam a resistividade do material, não a permeabilidade do espaço."
+          "text": "$B = 8\\pi \\times 10^{-4}\\text{ T} \\approx 2{,}51 \\times 10^{-3}\\text{ T}$",
+          "isCorrect": true,
+          "rationale": "Cálculo: $B = N \\frac{\\mu_0 I}{2 R} = 100 \\cdot \\frac{(4\\pi \\times 10^{-7}) \\cdot 2{,}0}{2 \\cdot 0{,}05} = 100 \\cdot \\frac{8\\pi \\times 10^{-7}}{0{,}10} = 100 \\cdot (8\\pi \\times 10^{-6}) = 8\\pi \\times 10^{-4}\\text{ T} \\approx 2{,}51\\text{ mT}$."
         },
         {
           "label": "B",
-          "text": "Indica a facilidade com que o meio permite o estabelecimento de linhas de indução magnética.",
-          "isCorrect": true,
-          "rationale": "A permeabilidade é uma propriedade do meio que escala a intensidade do campo gerado por uma dada corrente."
+          "text": "$B = 4\\pi \\times 10^{-5}\\text{ T} \\approx 1{,}26 \\times 10^{-4}\\text{ T}$",
+          "isCorrect": false,
+          "rationale": "Esquecimento de multiplicar pelo número de espiras $N = 100$."
         },
         {
           "label": "C",
-          "text": "Representa a resistência elétrica do vácuo à passagem de correntes induzidas.",
+          "text": "$B = 2\\pi \\times 10^{-3}\\text{ T} \\approx 6{,}28 \\times 10^{-3}\\text{ T}$",
           "isCorrect": false,
-          "rationale": "O vácuo é um isolante perfeito (resistência infinita), e $\\mu_0$ não está relacionado à oposição ao fluxo de cargas."
+          "rationale": "Erro de simplificação no raio ou corrente."
         },
         {
           "label": "D",
-          "text": "Mede a velocidade com que o campo magnético se propaga no interior do condutor.",
+          "text": "$B = 16\\pi \\times 10^{-4}\\text{ T} \\approx 5{,}03 \\times 10^{-3}\\text{ T}$",
           "isCorrect": false,
-          "rationale": "A velocidade de propagação está relacionada à velocidade da luz, que envolve tanto $\\mu_0$ quanto $\\epsilon_0$, mas $\\mu_0$ isoladamente não é uma velocidade."
+          "rationale": "Não divisão pelo 2 do denominador $2R$."
         }
       ],
-      "hint": "Pense em como diferentes materiais (como o ferro no interior de uma bobina) alteram a força do magnetismo.",
-      "correctAnswer": "B"
+      "hint": "Para uma bobina chata de $N$ espiras justapostas, o campo total é a soma dos campos de cada espira: $B = N \\frac{\\mu_0 I}{2 R}$.",
+      "correctAnswer": "A"
     },
     {
       "number": 8,
-      "question": "Em um experimento de laboratório, se invertermos o sentido da corrente elétrica em um solenoide, o que ocorrerá com o mapeamento feito com bússolas ao seu redor?",
+      "question": "Em relação ao campo magnético no interior de um solenoide longo e ideal ($L \\gg R$) percorrido por corrente contínua $I$, é correto afirmar que:",
       "options": [
         {
           "label": "A",
-          "text": "As agulhas das bússolas inverterão seus sentidos, pois os polos Norte e Sul do solenoide serão trocados.",
+          "text": "O campo no interior é praticamente uniforme, com linhas de indução paralelas e igualmente espaçadas, e seu módulo vale $B = \\mu_0 \\frac{N}{L} I = \\mu_0 n I$.",
           "isCorrect": true,
-          "rationale": "O sentido do campo magnético é diretamente dependente do sentido da corrente; a inversão desta inverte o vetor $\\vec{B}$."
+          "rationale": "No interior de um solenoide ideal longo, o campo magnético é uniforme (mesmo módulo, direção e sentido em todos os pontos internos longe das bordas) e sua intensidade depende exclusivamente da permeabilidade do meio, da densidade linear de espiras $n = N/L$ e da corrente $I$ ($B = \\mu_0 n I$), sendo independente do raio $R$ da espira."
         },
         {
           "label": "B",
-          "text": "O espectro magnético desaparecerá completamente.",
+          "text": "O campo magnético depende fortemente do raio $R$ das espiras e atinge o valor máximo exatamente na parede interna do tubo.",
           "isCorrect": false,
-          "rationale": "O campo só desaparece se a corrente for interrompida; a inversão apenas muda a orientação vetorial."
+          "rationale": "O campo interno de um solenoide ideal não depende do raio $R$ de suas espiras."
         },
         {
           "label": "C",
-          "text": "As bússolas passarão a girar rapidamente tentando encontrar o novo polo.",
+          "text": "O campo no centro do solenoide é nulo, concentrando-se apenas nas extremidades externas.",
           "isCorrect": false,
-          "rationale": "As bússolas sofrerão um torque e se estabilizarão rapidamente na nova direção oposta à anterior."
+          "rationale": "O campo é máximo e uniforme em todo o interior do solenoide."
         },
         {
           "label": "D",
-          "text": "As agulhas apontarão todas para o centro do solenoide devido à indução eletrostática.",
+          "text": "O campo interno é circular em torno do eixo do solenoide, sem componente longitudinal.",
           "isCorrect": false,
-          "rationale": "Bússolas respondem ao campo magnético e buscam alinhamento com as linhas de indução, não atração central."
+          "rationale": "As linhas de campo no interior do solenoide são retilíneas e axiais (longitudinais ao eixo da bobina)."
         }
       ],
-      "hint": "Considere a relação direta entre o sentido da corrente (causa) e o sentido do campo (efeito).",
+      "hint": "Considere o comportamento das linhas de indução dentro de um solenoide longo.",
       "correctAnswer": "A"
     },
     {
       "number": 9,
-      "question": "Considere um percurso fechado (amperiano) que não enlaça nenhuma corrente elétrica. Segundo a Lei de Ampère, qual é o valor da circulação do vetor $\\vec{B}$ ao longo desse percurso?",
+      "question": "Um solenoide de comprimento $L = 40\\text{ cm}$ ($0{,}40\\text{ m}$) possui $N = 800$ espiras. Um segundo solenoide de comprimento $L = 20\\text{ cm}$ ($0{,}20\\text{ m}$) possui $N = 600$ espiras. Sendo ambos percorridos pela mesma corrente $I$, qual é a razão entre os campos internos $B_2 / B_1$?",
       "options": [
         {
           "label": "A",
-          "text": "Depende apenas da intensidade do campo magnético terrestre no local.",
-          "isCorrect": false,
-          "rationale": "A Lei de Ampère trata especificamente da relação entre correntes locais e o campo por elas gerado no percurso definido."
+          "text": "$\\frac{B_2}{B_1} = 1{,}5$",
+          "isCorrect": true,
+          "rationale": "Densidades de espiras: $n_1 = \\frac{800}{0{,}40} = 2000\\text{ espiras/m}$; $n_2 = \\frac{600}{0{,}20} = 3000\\text{ espiras/m}$. Como $B = \\mu_0 n I$, temos $\\frac{B_2}{B_1} = \\frac{n_2}{n_1} = \\frac{3000}{2000} = 1{,}5$."
         },
         {
           "label": "B",
-          "text": "Igual ao valor de $\\mu_0$.",
+          "text": "$\\frac{B_2}{B_1} = 0{,}75$",
           "isCorrect": false,
-          "rationale": "$\\mu_0$ é a constante de proporcionalidade; sem corrente para multiplicar, o resultado deve ser nulo."
+          "rationale": "Considerou apenas a razão entre o número de espiras (600/800 = 0,75) sem levar em conta o comprimento dos solenoides."
         },
         {
           "label": "C",
-          "text": "Incalculável, pois a lei só se aplica se houver correntes no centro.",
+          "text": "$\\frac{B_2}{B_1} = 2{,}0$",
           "isCorrect": false,
-          "rationale": "A lei é perfeitamente aplicável e prediz que a circulação líquida será zero se nenhuma corrente for atravessada pela superfície do percurso."
+          "rationale": "Considerou apenas a razão entre os comprimentos (40/20 = 2) sem levar em conta o número de espiras."
         },
         {
           "label": "D",
-          "text": "Zero.",
-          "isCorrect": true,
-          "rationale": "A circulação é proporcional à soma algébrica das correntes enlaçadas; se $\\sum i = 0$, então $\\oint \\vec{B} \\cdot d\\vec{l} = 0$."
+          "text": "$\\frac{B_2}{B_1} = 1{,}2$",
+          "isCorrect": false,
+          "rationale": "Erro na razão aritmética das densidades lineares."
         }
       ],
-      "hint": "Observe o termo da equação que representa a 'soma das correntes enlaçadas'.",
-      "correctAnswer": "D"
+      "hint": "Calcule a densidade linear de espiras $n_1 = N_1/L_1$ e $n_2 = N_2/L_2$. A razão dos campos é $n_2 / n_1$.",
+      "correctAnswer": "A"
     },
     {
       "number": 10,
-      "question": "Por que a utilização de um núcleo de ferro dentro de um solenoide (formando um eletroímã) aumenta a intensidade do campo magnético em comparação ao núcleo de ar?",
+      "question": "Um observador olha frontalmente para uma espira circular condutora e nota que a corrente elétrica circula no sentido anti-horário. Qual é a polaridade magnética dessa face da espira e o que acontece com as linhas de indução?",
       "options": [
         {
           "label": "A",
-          "text": "Porque o ferro impede que o campo magnético escape para fora do solenoide.",
-          "isCorrect": false,
-          "rationale": "O ferro não 'bloqueia' o campo, ele o amplifica e o canaliza devido à sua alta permeabilidade magnética."
+          "text": "A face observada comporta-se como um Polo Norte magnético, de onde as linhas de indução emergem (saem) em direção ao observador.",
+          "isCorrect": true,
+          "rationale": "Convenção mnemônica clássica: corrente no sentido Anti-horário $\\rightarrow$ face Norte (letra $\\mathbf{N}$ com setas nas pontas no sentido anti-horário), o que indica que o vetor campo $\\vec{B}$ aponta para fora da espira (em direção ao observador), comportando-se exatamente como o polo norte de um ímã."
         },
         {
           "label": "B",
-          "text": "Porque o ferro atrai os elétrons para o centro da bobina, concentrando a carga.",
+          "text": "A face observada comporta-se como um Polo Sul magnético, onde as linhas de indução convergem e entram na espira.",
           "isCorrect": false,
-          "rationale": "O magnetismo não se deve à concentração de cargas estáticas, mas à orientação de momentos magnéticos atômicos."
+          "rationale": "A face Sul corresponde à circulação no sentido horário (letra $\\mathbf{S}$)."
         },
         {
           "label": "C",
-          "text": "Porque o ferro é uma substância ferromagnética com alta permeabilidade, cujos domínios magnéticos se alinham ao campo da bobina.",
-          "isCorrect": true,
-          "rationale": "O alinhamento dos domínios de Weiss no ferro soma um campo adicional muito forte ao campo original produzido pela corrente."
+          "text": "A espira não apresenta polaridade magnética frontal quando a corrente é contínua.",
+          "isCorrect": false,
+          "rationale": "Toda espira percorrida por corrente contínua constitui um dipolo magnético com faces Norte e Sul bem definidas."
         },
         {
           "label": "D",
-          "text": "Porque o ferro reduz a resistência elétrica do fio de cobre, permitindo mais corrente.",
+          "text": "As linhas de indução circulam tangencialmente na borda da espira sem atravessar seu plano.",
           "isCorrect": false,
-          "rationale": "O núcleo de ferro costuma ser isolado eletricamente do fio; o aumento do campo é um efeito magnético, não uma mudança na Lei de Ohm."
+          "rationale": "As linhas de campo atravessam o plano da espira perpendicularmente no seu centro."
         }
       ],
-      "hint": "Lembre-se das propriedades das substâncias ferromagnéticas e como elas reagem a campos externos.",
-      "correctAnswer": "C"
+      "hint": "Lembre-se da regra mnemônica das letras N (anti-horário) e S (horário).",
+      "correctAnswer": "A"
     }
   ]
 }
