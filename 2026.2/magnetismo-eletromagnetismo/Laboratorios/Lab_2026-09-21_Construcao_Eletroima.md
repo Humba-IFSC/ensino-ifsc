@@ -18,7 +18,7 @@ tags:
 ---
 
 ## 📖 Referência do Livro
-- Consulte os guias experimentais do livro base: [[Magnetismo_Eletromag/Caps_Ramalho/Magnetismo_Física_Vol3.pdf|Capítulo 14 - Magnetismo]]
+- Consulte os guias experimentais do livro base: [[Magnetismo_Eletromag/Caps_Ramalho/Bloco-2-Fundamentos_Teoria.pdf|Capítulo 14 - Teoria e Práticas]]
 - Guia da Prática: [[Magnetismo_Eletromag/Aulas/Bloco-2/Aula08/Pratica-Bloco-2.pdf|Guia de Prática do Bloco 2 (PDF)]]
 
 ---

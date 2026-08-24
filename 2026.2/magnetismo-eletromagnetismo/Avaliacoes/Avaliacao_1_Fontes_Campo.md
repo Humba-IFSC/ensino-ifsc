@@ -22,7 +22,7 @@ tags:
 ---
 
 ## 📖 Referência Bibliográfica
-- Revisar todo o conteúdo do: [[Magnetismo_Eletromag/Caps_Ramalho/Magnetismo_Física_Vol3.pdf|Capítulo 13 - Magnetismo]]
+- Revisar todo o conteúdo do: [[Magnetismo_Eletromag/Caps_Ramalho/Bloco-1-Fundamentos_Teoria.pdf|Capítulo 13 - Teoria]] e [[Magnetismo_Eletromag/Caps_Ramalho/Bloco-1-Fundamentos_Respostas.pdf|Gabarito]]
 - Material Complementar: [[Magnetismo_Eletromag/Aulas/Bloco-1/Aula05-Ava1/Magnetismo_Decodificado.pdf|Magnetismo Decodificado (PDF)]]
 - Lista de Revisão: [[Magnetismo_Eletromag/Aulas/Bloco-1/Aula04-EP/Revisao-Bloco-1.pdf|Lista de Revisão do Bloco 1 (PDF)]]
 

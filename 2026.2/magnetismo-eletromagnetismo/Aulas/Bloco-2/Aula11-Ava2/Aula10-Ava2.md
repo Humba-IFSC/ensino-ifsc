@@ -22,7 +22,7 @@ tags:
 ---
 
 ## 📖 Referência Bibliográfica
-- Revisar todo o conteúdo do: [[Magnetismo_Eletromag/Caps_Ramalho/Magnetismo_Física_Vol3.pdf|Capítulo 14 - Magnetismo]]
+- Revisar todo o conteúdo do: [[Magnetismo_Eletromag/Caps_Ramalho/Bloco-2-Fundamentos_Teoria.pdf|Capítulo 14 - Teoria]] e [[Magnetismo_Eletromag/Caps_Ramalho/Bloco-2-Fundamentos_Respostas.pdf|Gabarito]]
 
 ---
 

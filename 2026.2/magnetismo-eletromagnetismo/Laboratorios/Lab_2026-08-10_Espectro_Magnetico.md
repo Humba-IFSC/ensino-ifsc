@@ -19,7 +19,7 @@ tags:
 ---
 
 ## 📖 Referência do Livro
-- Consulte os guias experimentais na unidade inicial do livro: [[Magnetismo_Eletromag/Caps_Ramalho/Magnetismo_Física_Vol3.pdf|Capítulo 13 - Magnetismo]]
+- Consulte os guias experimentais na unidade inicial do livro: [[Magnetismo_Eletromag/Caps_Ramalho/Bloco-1-Fundamentos_Teoria.pdf|Capítulo 13 - Teoria e Práticas]]
 
 ---
 

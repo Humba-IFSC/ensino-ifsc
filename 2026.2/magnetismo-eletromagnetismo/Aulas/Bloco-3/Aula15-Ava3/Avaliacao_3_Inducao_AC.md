@@ -22,7 +22,7 @@ tags:
 ---
 
 ## 📖 Referência Bibliográfica
-- Revisar todo o conteúdo do: [[Magnetismo_Eletromag/Caps_Ramalho/Indução_Física_Vol3.pdf|Capítulo 15 - Indução Eletromagnética]] e Capítulo 16.
+- Revisar todo o conteúdo em: [[Magnetismo_Eletromag/Caps_Ramalho/Bloco-3ParteA-Fundamentos_Teoria.pdf|Capítulo 15 - Teoria (Indução)]], [[Magnetismo_Eletromag/Caps_Ramalho/Bloco-3ParteB-Fundamentos_Teoria.pdf|Capítulo 16 - Teoria (AC)]] e [[Magnetismo_Eletromag/Caps_Ramalho/Bloco-3-Fundamentos_Respostas.pdf|Gabarito]]
 
 ---
 
