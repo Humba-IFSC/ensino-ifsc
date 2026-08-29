@@ -169,13 +169,33 @@ IFSC Câmpus São José
     return assunto, corpo_txt, corpo_html
 
 
+DEFAULT_SENDER = "hloliveira@gmail.com"
+
+def carregar_env_local():
+    """Tenta carregar variáveis de um arquivo .env na raiz do repo se existir."""
+    env_file = os.path.join(REPO_ROOT, '.env')
+    if os.path.exists(env_file):
+        try:
+            with open(env_file, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith('#') and '=' in line:
+                        k, v = line.split('=', 1)
+                        k = k.strip()
+                        v = v.strip().strip("'").strip('"')
+                        if k and not os.environ.get(k):
+                            os.environ[k] = v
+        except Exception:
+            pass
+
+
 def enviar_emails(contatos, assunto, corpo_txt, corpo_html, smtp_host, smtp_port, smtp_user, smtp_pass):
     """Envia os e-mails usando envio CCO (BCC) para preservar privacidade."""
     destinatarios = [c['email'] for c in contatos]
 
     msg = MIMEMultipart('alternative')
     msg['Subject'] = assunto
-    msg['From'] = f"PSJ0111 - IFSC <{smtp_user}>"
+    msg['From'] = f"Prof. Humberto Luz Oliveira (PSJ0111 - IFSC) <{smtp_user}>"
     msg['To'] = smtp_user  # O remetente recebe a cópia pública
     # Todos os alunos e professores recebem em cópia oculta (BCC)
 
@@ -184,20 +204,37 @@ def enviar_emails(contatos, assunto, corpo_txt, corpo_html, smtp_host, smtp_port
     msg.attach(part1)
     msg.attach(part2)
 
-    with smtplib.SMTP(smtp_host, smtp_port) as server:
-        server.starttls()
-        server.login(smtp_user, smtp_pass)
-        server.sendmail(smtp_user, destinatarios, msg.as_string())
-    
-    print(f"✅ Notificação enviada com sucesso para {len(destinatarios)} contatos!")
+    try:
+        with smtplib.SMTP(smtp_host, smtp_port) as server:
+            server.starttls()
+            server.login(smtp_user, smtp_pass)
+            server.sendmail(smtp_user, destinatarios, msg.as_string())
+        print(f"\n🎉 SUCESSO: Notificação enviada para {len(destinatarios)} destinatários (Docentes e Discentes)!")
+        return True
+    except smtplib.SMTPAuthenticationError as e:
+        print("\n❌ ERRO DE AUTENTICAÇÃO NO GMAIL:")
+        print("A conta Google requer uma 'Senha de Aplicativo' (App Password) de 16 caracteres quando a verificação em duas etapas está ativada.")
+        print("Como gerar:")
+        print("1. Acesse: https://myaccount.google.com/apppasswords")
+        print("2. Crie uma senha chamada 'Antigravity Mala Direta'")
+        print("3. Insira o código de 16 letras gerado.")
+        return False
+    except Exception as e:
+        print(f"\n❌ Erro ao enviar e-mail: {e}")
+        return False
 
 
 def main():
     import argparse
+    import getpass
+
+    carregar_env_local()
+
     parser = argparse.ArgumentParser(description="Notificador de Atualizações do GitHub para PSJ0111")
     parser.add_argument('--send', action='store_true', help='Enviar e-mails de fato via SMTP')
-    parser.add_argument('--preview', action='store_true', default=True, help='Apenas pré-visualizar a mensagem e lista')
+    parser.add_argument('--preview', action='store_true', help='Apenas pré-visualizar a mensagem e lista')
     parser.add_argument('--msg', type=str, default="", help='Mensagem ou aviso adicional')
+    parser.add_argument('--user', type=str, default=DEFAULT_SENDER, help='E-mail do remetente (padrão: hloliveira@gmail.com)')
     parser.add_argument('--excel', type=str, default=EXCEL_PATH, help='Caminho para o Excel de Mala Direta')
     args = parser.parse_args()
 
@@ -206,8 +243,8 @@ def main():
     print(f"👥 Total de contatos carregados da Mala Direta: {len(contatos)}")
     docentes = [c for c in contatos if c['categoria'] == 'Docente']
     discentes = [c for c in contatos if c['categoria'] == 'Discente']
-    print(f"   • Docentes: {len(docentes)}")
-    print(f"   • Discentes: {len(discentes)}")
+    print(f"   • Docentes ({len(docentes)}): {', '.join([c['email'] for c in docentes])}")
+    print(f"   • Discentes: {len(discentes)} estudantes")
 
     # 2. Obter arquivos atualizados do git
     arquivos = obter_arquivos_atualizados()
@@ -218,25 +255,41 @@ def main():
 
     print("\n" + "="*70)
     print(f"📬 ASSUNTO: {assunto}")
+    print(f"👤 REMETENTE: {args.user}")
     print("="*70)
     print(corpo_txt)
     print("="*70)
 
     if args.send:
-        smtp_user = os.environ.get("SMTP_USER")
+        smtp_user = os.environ.get("SMTP_USER", args.user)
         smtp_pass = os.environ.get("SMTP_PASS")
         smtp_host = os.environ.get("SMTP_HOST", "smtp.gmail.com")
         smtp_port = int(os.environ.get("SMTP_PORT", 587))
 
-        if not smtp_user or not smtp_pass:
-            print("\n❌ ERRO: Variáveis de ambiente SMTP_USER e SMTP_PASS não configuradas!")
-            print("Configure com: export SMTP_USER='seu-email@gmail.com' e export SMTP_PASS='sua-senha-de-app'")
-            sys.exit(1)
+        if not smtp_pass:
+            print(f"\n🔐 Digite a Senha de Aplicativo da conta Google ({smtp_user}):")
+            smtp_pass = getpass.getpass(prompt="Senha (os caracteres ficarão ocultos): ").strip()
 
-        print(f"\n🚀 Disparando e-mails para {len(contatos)} destinatários...")
+            if not smtp_pass:
+                print("❌ Senha não fornecida. Cancelando envio.")
+                sys.exit(1)
+
+            salvar = input("\nDeseja salvar essa senha localmente no arquivo .env para os próximos envios? (s/N): ").strip().lower()
+            if salvar in ['s', 'sim', 'y', 'yes']:
+                env_file = os.path.join(REPO_ROOT, '.env')
+                with open(env_file, 'w', encoding='utf-8') as f:
+                    f.write(f"SMTP_USER='{smtp_user}'\n")
+                    f.write(f"SMTP_PASS='{smtp_pass}'\n")
+                    f.write(f"SMTP_HOST='{smtp_host}'\n")
+                    f.write(f"SMTP_PORT={smtp_port}\n")
+                os.chmod(env_file, 0o600)
+                print(f"🔒 Credenciais salvas com segurança em {env_file} (permissão 600, ignorado no git).")
+
+        print(f"\n🚀 Disparando e-mails para {len(contatos)} destinatários via {smtp_host}:{smtp_port}...")
         enviar_emails(contatos, assunto, corpo_txt, corpo_html, smtp_host, smtp_port, smtp_user, smtp_pass)
     else:
-        print("\nℹ️ Modo PREVIEW ativo. Para efetuar o envio real, use o parâmetro --send com as variáveis SMTP configuradas.")
+        print("\nℹ️ Modo PREVIEW. Para efetuar o envio real aos alunos e professores, execute:")
+        print(f"   python3 .agents/skills/notificador-atualizacoes-psj0111/scripts/notificar_atualizacao.py --send")
 
 
 if __name__ == "__main__":
