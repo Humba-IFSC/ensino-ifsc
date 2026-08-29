@@ -1,46 +1,331 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 06 · Portal CAPES, Fichamento, Zotero e IA Generativa na Pesquisa - PSJ0111</title>
+    <title>Aula 06 · Portal CAPES, Fichamento, Zotero e IA Generativa na Pesquisa — PSJ0111</title>
+    <meta name="description" content="Vídeos-tutoriais e materiais da Aula 06: Portal de Periódicos CAPES/CAFe, gerenciador Zotero, 4 etapas de fichamento de Antonio Carlos Gil e síntese com NotebookLM.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg-main: #0f172a;
+            --bg-main: #0a0e17;
+            --bg-surface: rgba(15, 23, 42, 0.75);
             --bg-card: #1e293b;
-            --border-color: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
             --brand-green: #10b981;
+            --brand-green-glow: rgba(16, 185, 129, 0.2);
+            --brand-blue: #3b82f6;
+            --brand-purple: #c084fc;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
             --radius-lg: 16px;
             --radius-md: 10px;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-primary); line-height: 1.6; padding-bottom: 60px; }
-        header { background: linear-gradient(135deg, #064e3b 0%, #0f172a 70%, #1e1b4b 100%); border-bottom: 1px solid rgba(16, 185, 129, 0.3); padding: 40px 24px; }
-        .header-container { max-width: 900px; margin: 0 auto; }
-        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px; }
-        .breadcrumb a { color: #34d399; text-decoration: none; font-weight: 500; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #064e3b 0%, #0f172a 70%, #1e1b4b 100%);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 40px 24px;
+        }
+
+        .header-container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .breadcrumb a {
+            color: #34d399;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
         .breadcrumb a:hover { text-decoration: underline; }
-        .aula-badge { display: inline-block; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); color: #34d399; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 12px; }
-        h1 { font-family: 'Outfit', sans-serif; font-size: 2.1rem; font-weight: 800; background: linear-gradient(90deg, #34d399 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; line-height: 1.2; }
-        .meta-info { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; color: var(--text-secondary); }
-        .meta-item { display: flex; align-items: center; gap: 6px; }
-        .main-container { max-width: 900px; margin: 30px auto 0; padding: 0 24px; }
-        .section-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 24px; }
-        .section-title { font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 700; color: #34d399; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-        ul, ol { padding-left: 20px; margin-bottom: 12px; }
-        li { margin-bottom: 8px; color: var(--text-primary); }
-        .materials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 14px; }
-        .material-btn { display: flex; align-items: center; gap: 12px; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 14px 16px; color: var(--text-primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: all 0.2s ease; }
-        .material-btn:hover { border-color: #10b981; background: rgba(16, 185, 129, 0.1); transform: translateY(-2px); }
-        .material-icon { font-size: 1.3rem; flex-shrink: 0; }
-        .back-nav { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; }
-        .btn-back { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: var(--radius-md); color: #34d399; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s ease; }
-        .btn-back:hover { background: rgba(16, 185, 129, 0.15); border-color: #10b981; }
+
+        .aula-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #34d399;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #34d399 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .main-container {
+            max-width: 980px;
+            margin: 30px auto 0;
+            padding: 0 24px;
+        }
+
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #34d399;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ─── VIDEO TUTORIAL CARDS ─── */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 24px;
+            margin-top: 18px;
+        }
+
+        .video-card {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .video-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .video-tag {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+        }
+
+        .video-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .video-desc {
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .video-player-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #020617;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-player-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+            color: #94a3b8;
+            padding: 20px;
+            text-align: center;
+            gap: 12px;
+        }
+
+        .video-btn {
+            background: #dc2626;
+            color: #ffffff !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .video-btn:hover {
+            background: #b91c1c;
+            transform: scale(1.03);
+        }
+
+        /* ─── PEDAGOGICAL ALERT NOTE ─── */
+        .pedagogical-note {
+            background: rgba(245, 158, 11, 0.08);
+            border-left: 4px solid #f59e0b;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .pedagogical-note strong {
+            color: #fbbf24;
+        }
+
+        /* ─── MATERIALS GRID ─── */
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .material-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .material-btn:hover {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .material-icon {
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #cbd5e1;
+        }
+
+        li strong {
+            color: #ffffff;
+        }
+
+        .back-nav {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: #34d399;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: #10b981;
+        }
     </style>
 </head>
 <body>
@@ -62,6 +347,68 @@
 
     <main class="main-container">
 
+        <!-- ═══ VÍDEOS-TUTORIAIS DA AULA ═══ -->
+        <section class="section-card" id="videos">
+            <h2 class="section-title">🎬 Vídeos-Tutoriais de Apoio Metodológico</h2>
+            <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 16px;">
+                Tutoriais práticos gravados pelo corpo docente orientando o fluxo de pesquisa, busca bibliográfica e síntese acadêmica:
+            </p>
+
+            <div class="video-grid">
+                <!-- VÍDEO PARTE I -->
+                <div class="video-card">
+                    <div class="video-header">
+                        <span class="video-tag">Vídeo · Parte I</span>
+                        <span style="font-size: 0.8rem; color: #94a3b8;">YouTube</span>
+                    </div>
+                    <h3 class="video-title">NotebookLM + Portal CAPES / Acesso CAFe</h3>
+                    <p class="video-desc">
+                        Acesso remoto via CAFe/RNP, estratégias de busca avançada no Portal de Periódicos CAPES (Web of Science / Scopus) com operadores booleanos e triagem de literatura científica com apoio de IA (NotebookLM).
+                    </p>
+                    <div class="video-player-container" id="player-parte-1">
+                        <!-- Substitua 'VIDEO_ID_PARTE_1' pelo link/ID do YouTube -->
+                        <div class="video-placeholder">
+                            <span style="font-size: 2rem;">📺</span>
+                            <strong>Vídeo-Parte-I: Notebooklm + Capes/Cafe</strong>
+                            <p style="font-size: 0.8rem; margin: 0;">Pronto para receber o link do YouTube</p>
+                            <a href="https://www.youtube.com" target="_blank" class="video-btn">
+                                Assistir no YouTube ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VÍDEO PARTE II -->
+                <div class="video-card">
+                    <div class="video-header">
+                        <span class="video-tag" style="background:rgba(168,85,247,0.2); color:#c084fc; border-color:rgba(168,85,247,0.4);">Vídeo · Parte II</span>
+                        <span style="font-size: 0.8rem; color: #94a3b8;">YouTube</span>
+                    </div>
+                    <h3 class="video-title">Zotero + Fichamento Metodológico + NotebookLM</h3>
+                    <p class="video-desc">
+                        Gestão da biblioteca de referências com Zotero, aplicação das 4 etapas de fichamento de Antonio Carlos Gil com a planilha modelo e produção de sínteses estruturadas com IA Generativa.
+                    </p>
+                    <div class="video-player-container" id="player-parte-2">
+                        <!-- Substitua 'VIDEO_ID_PARTE_2' pelo link/ID do YouTube -->
+                        <div class="video-placeholder">
+                            <span style="font-size: 2rem;">📺</span>
+                            <strong>Vídeo-Parte-II: Zotero + Fichamento + Notebooklm</strong>
+                            <p style="font-size: 0.8rem; margin: 0;">Pronto para receber o link do YouTube</p>
+                            <a href="https://www.youtube.com" target="_blank" class="video-btn">
+                                Assistir no YouTube ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOTA PEDAGÓGICA SOBRE A PLANILHA -->
+            <div class="pedagogical-note">
+                💡 <strong>Observação Metodológica:</strong> As referências preenchidas na <em>Planilha de Fichamento Metodológico</em> consistem em <strong>simulações didáticas (fictícias)</strong> preparadas especificamente para fins de demonstração pedagógica da técnica de fichamento. Elas não foram extraídas de bases de dados científicas reais e nem constam no arquivo <code>Dicas_Fichamento.pdf</code> (cuja única referência bibliográfica real é o livro clássico <em>"Como Elaborar Projetos de Pesquisa"</em>, de Antônio Carlos Gil).
+            </div>
+        </section>
+
+        <!-- ═══ OBJETIVOS DA AULA ═══ -->
         <section class="section-card">
             <h2 class="section-title">🎯 Objetivos da Aula</h2>
             <ul>
@@ -71,6 +418,7 @@
             </ul>
         </section>
 
+        <!-- ═══ TÓPICOS E FERRAMENTAS ═══ -->
         <section class="section-card">
             <h2 class="section-title">📖 Tópicos e Ferramentas</h2>
             <ol>
@@ -81,20 +429,21 @@
             </ol>
         </section>
 
+        <!-- ═══ MATERIAIS E DOWNLOADS ═══ -->
         <section class="section-card">
-            <h2 class="section-title">📁 Materiais e Links da Aula</h2>
+            <h2 class="section-title">📁 Materiais e Roteiro da Aula</h2>
             <div class="materials-grid">
                 <a href="busca-wos-ia.html" class="material-btn" style="border-color: #10b981; background: rgba(16, 185, 129, 0.12);">
                     <span class="material-icon">🌐</span>
                     <span>Guia Web of Science & IA Generativa (HTML)</span>
                 </a>
-                <a href="Fichamento_Metodologico.xlsx" download class="material-btn">
-                    <span class="material-icon">📊</span>
-                    <span>Planilha de Fichamento Metodológico (XLSX)</span>
-                </a>
-                <a href="guia-pesquisa-ambiental.pptx" download class="material-btn">
+                <a href="guia-pesquisa-ambiental.pptx" download class="material-btn" style="border-color: #3b82f6; background: rgba(59, 130, 246, 0.1);">
                     <span class="material-icon">📽️</span>
                     <span>Guia de Pesquisa Ambiental (PPTX)</span>
+                </a>
+                <a href="Fichamento_Metodologico.xlsx" download class="material-btn" style="border-color: #10b981; background: rgba(16, 185, 129, 0.1);">
+                    <span class="material-icon">📊</span>
+                    <span>Planilha de Fichamento Metodológico (XLSX)</span>
                 </a>
                 <a href="Dicas_Fichamento%20(1)-1.pdf" target="_blank" class="material-btn">
                     <span class="material-icon">📄</span>
@@ -115,10 +464,11 @@
             </div>
         </section>
 
+        <!-- ═══ NAVEGAÇÃO ═══ -->
         <div class="back-nav">
             <a href="../aula05/index.html" class="btn-back">← Aula Anterior</a>
-            <a href="../index.html" class="btn-back">Página Principal</a>
-            <a href="../aula07/index.html" class="btn-back">Próxima: Aula 07 →</a>
+            <a href="../index.html" class="btn-back">🏠 Página Principal</a>
+            <a href="../aula07/index.html" class="btn-back">Próxima: Aula 07 (Seminários) →</a>
         </div>
 
     </main>
