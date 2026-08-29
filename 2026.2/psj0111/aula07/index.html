@@ -1,51 +1,369 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 07 · Seminário das Metodologias da Pesquisa em Educação (Parte I) - PSJ0111</title>
+    <title>Aula 07 · Seminário das Metodologias da Pesquisa em Educação — PSJ0111</title>
+    <meta name="description" content="Orientações completas, cronograma de apresentações, equipes de seminaristas e roteiro dos slides para o Seminário das Metodologias da Pesquisa em Educação.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg-main: #0f172a;
+            --bg-main: #0a0e17;
+            --bg-surface: rgba(15, 23, 42, 0.75);
             --bg-card: #1e293b;
-            --border-color: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
             --brand-green: #10b981;
+            --brand-amber: #f59e0b;
+            --brand-purple: #c084fc;
+            --brand-blue: #3b82f6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
             --radius-lg: 16px;
             --radius-md: 10px;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-primary); line-height: 1.6; padding-bottom: 60px; }
-        header { background: linear-gradient(135deg, #7c2d12 0%, #0f172a 70%, #1e1b4b 100%); border-bottom: 1px solid rgba(245, 158, 11, 0.3); padding: 40px 24px; }
-        .header-container { max-width: 900px; margin: 0 auto; }
-        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px; }
-        .breadcrumb a { color: #fbbf24; text-decoration: none; font-weight: 500; }
-        .breadcrumb a:hover { text-decoration: underline; }
-        .aula-badge { display: inline-block; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); color: #fbbf24; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 12px; }
-        h1 { font-family: 'Outfit', sans-serif; font-size: 2.1rem; font-weight: 800; background: linear-gradient(90deg, #fbbf24 0%, #f97316 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; line-height: 1.2; }
-        .meta-info { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; color: var(--text-secondary); }
-        .meta-item { display: flex; align-items: center; gap: 6px; }
-        .main-container { max-width: 900px; margin: 30px auto 0; padding: 0 24px; }
-        .section-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 24px; }
-        .section-title { font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 700; color: #fbbf24; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-        ul, ol { padding-left: 20px; margin-bottom: 12px; }
-        li { margin-bottom: 8px; color: var(--text-primary); }
-        .note-box {
-            background: rgba(245, 158, 11, 0.1);
-            border-left: 4px solid #f59e0b;
-            border-radius: 0 10px 10px 0;
-            padding: 16px 20px;
-            margin-top: 20px;
-            font-size: 0.92rem;
-            color: var(--text-primary);
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
         }
-        .back-nav { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; }
-        .btn-back { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: var(--radius-md); color: #fbbf24; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s ease; }
-        .btn-back:hover { background: rgba(245, 158, 11, 0.15); border-color: #f59e0b; }
+
+        header {
+            background: linear-gradient(135deg, #7c2d12 0%, #0f172a 70%, #1e1b4b 100%);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 40px 24px;
+        }
+
+        .header-container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .breadcrumb a {
+            color: #fbbf24;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .badge-aula {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: #fbbf24;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #fbbf24 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .main-container {
+            max-width: 980px;
+            margin: 30px auto 0;
+            padding: 0 24px;
+        }
+
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ─── ALERT BOX ─── */
+        .alert-banner {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(239, 68, 68, 0.15) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .alert-icon {
+            font-size: 2.2rem;
+            background: rgba(245, 158, 11, 0.2);
+            padding: 10px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .alert-content h3 {
+            margin: 0 0 6px 0;
+            font-size: 1.2rem;
+            color: #fbbf24;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .alert-content p {
+            margin: 0;
+            font-size: 0.92rem;
+            color: #f1f5f9;
+            line-height: 1.5;
+        }
+
+        /* ─── TIMING GRID ─── */
+        .timing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 16px 0 24px;
+        }
+
+        .timing-box {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            text-align: center;
+        }
+
+        .timing-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #34d399;
+            margin-bottom: 4px;
+        }
+
+        .timing-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ─── SEMINAR SCHEDULE CARDS ─── */
+        .day-group {
+            margin-bottom: 24px;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+            background: rgba(15, 23, 42, 0.9);
+            border-left: 4px solid #f59e0b;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .day-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fbbf24;
+        }
+
+        .day-date {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .seminar-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .seminar-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .seminar-card:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            transform: translateX(4px);
+            background: rgba(30, 41, 59, 0.7);
+        }
+
+        .seminar-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .seminar-num {
+            background: #0284c7;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 0.78rem;
+            padding: 4px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .seminar-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #f8fafc;
+        }
+
+        .seminar-presenters {
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .badge-date-tag {
+            background: #a21caf;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        /* ─── IMAGE VIEWER ─── */
+        .image-container {
+            background: #0b1120;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* ─── GUIDELINES LIST ─── */
+        .guide-list {
+            padding-left: 20px;
+            margin: 14px 0;
+        }
+
+        .guide-list li {
+            margin-bottom: 12px;
+            color: #cbd5e1;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .guide-list strong {
+            color: #f8fafc;
+        }
+
+        .guide-list a {
+            color: #34d399;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .guide-list a:hover {
+            text-decoration: underline;
+        }
+
+        .back-nav {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: #fbbf24;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(245, 158, 11, 0.15);
+            border-color: #f59e0b;
+        }
     </style>
 </head>
 <body>
@@ -53,12 +371,12 @@
     <header>
         <div class="header-container">
             <div class="breadcrumb">
-                <a href="../index.html">PSJ0111</a> / <span>Aula 07</span>
+                <a href="../index.html">PSJ0111</a> / <span>Aula 07</span> / <span>Seminário das Metodologias</span>
             </div>
-            <div class="aula-badge">Aula 07 · Seminário (Dia 1)</div>
-            <h1>Seminário das Metodologias da Pesquisa em Educação (Parte I)</h1>
+            <div class="badge-aula">🎤 Aulas 07, 08 e 09 · Seminário das Metodologias</div>
+            <h1>Seminário das Metodologias da Pesquisa em Educação</h1>
             <div class="meta-info">
-                <div class="meta-item">📅 03/09/2026 (Quinta-feira)</div>
+                <div class="meta-item">📅 Aulas: 03/09, 10/09 e 17/09/2026</div>
                 <div class="meta-item">📍 IFSC Câmpus São José</div>
                 <div class="meta-item">🎓 Esp. em Educação Ambiental</div>
             </div>
@@ -67,32 +385,204 @@
 
     <main class="main-container">
 
+        <!-- ═══ BANNER DE ALERTA GERAL ═══ -->
+        <div class="alert-banner">
+            <div class="alert-icon">📢</div>
+            <div class="alert-content">
+                <h3>Atenção: Início do Seminário das Metodologias</h3>
+                <p>
+                    As apresentações orais iniciam-se na <strong>Aula 07 (03/09/2026)</strong> e continuam nas <strong>Aulas 08 (10/09/2026)</strong> e <strong>09 (17/09/2026)</strong>. Todos os grupos devem atentar para a ordem das apresentações, tempo regulamentar e envio dos slides no SIGAA.
+                </p>
+            </div>
+        </div>
+
+        <!-- ═══ DINÂMICA E TEMPOS ═══ -->
         <section class="section-card">
-            <h2 class="section-title">🎯 Objetivos da Aula</h2>
-            <ul>
-                <li>Realizar o primeiro dia de apresentações do <strong>Seminário das Metodologias da Pesquisa em Educação</strong>.</li>
-                <li>Discutir abordagens metodológicas participativas, documentais e dialéticas aplicadas à educação e formação ambiental.</li>
-            </ul>
+            <h2 class="section-title">⏱️ Dinâmica e Tempos Regulamentares</h2>
+            <div class="timing-grid">
+                <div class="timing-box">
+                    <div class="timing-val">30 min</div>
+                    <div class="timing-label">Apresentação Oral (Duplas)</div>
+                </div>
+                <div class="timing-box">
+                    <div class="timing-val" style="color: #38bdf8;">Até 40 min</div>
+                    <div class="timing-label">Apresentação Oral (Trios)</div>
+                </div>
+                <div class="timing-box">
+                    <div class="timing-val" style="color: #fbbf24;">~15 min</div>
+                    <div class="timing-label">Diálogo, Dúvidas & Ponderações</div>
+                </div>
+            </div>
+            <p style="font-size: 0.9rem; color: #cbd5e1; margin: 0;">
+                <em>Todos os membros da equipe devem participar ativamente da fala durante a apresentação. Ao final de cada seminário, a turma e os docentes farão destaques e contribuições formativas.</em>
+            </p>
         </section>
 
+        <!-- ═══ CRONOGRAMA OFICIAL DAS APRESENTAÇÕES ═══ -->
         <section class="section-card">
-            <h2 class="section-title">🎤 Metodologias Programadas (Dia 1)</h2>
-            <ol>
-                <li><strong>🔄 Pesquisa-Ação:</strong> Fundamentos teóricos (Thiollent, Tripp), ciclos de planejamento, ação, observação e reflexão nas práticas educativas.</li>
-                <li><strong>📄 Pesquisa Documental:</strong> Fontes primárias e secundárias, crítica documental e análise de políticas e documentos curriculares em Educação Ambiental.</li>
-                <li><strong>⚖️ Pesquisa Dialética:</strong> Materialismo histórico-dialético (Marx, Saviani), contradição, totalidade e transformação social.</li>
-                <li><strong>🔍 Pesquisa Etnográfica:</strong> Imersão no campo, observação participante, diários de campo e interpretação de culturas escolares e comunitárias.</li>
-            </ol>
+            <h2 class="section-title">📋 Cronograma de Apresentações e Seminaristas</h2>
 
-            <div class="note-box">
-                ⏱️ <strong>Instruções das Apresentações:</strong> Cada equipe dispõe de tempo regulamentar para apresentação oral acompanhada de debates reflexivos com a turma e banca docente.
+            <!-- DIA 1 -->
+            <div class="day-group">
+                <div class="day-header">
+                    <span class="day-title">🗓️ Dia 1 — Aula 07</span>
+                    <span class="day-date">03/09/2026 (Quinta-feira)</span>
+                </div>
+                <div class="seminar-list">
+                    <div class="seminar-card">
+                        <div class="seminar-meta">
+                            <span class="seminar-num">1ª Apresentação</span>
+                            <span class="seminar-name">📚 Pesquisa Bibliográfica</span>
+                        </div>
+                        <div class="seminar-presenters">
+                            👥 <strong>Gabriel e Paulo</strong>
+                            <span class="badge-date-tag">03/09</span>
+                        </div>
+                    </div>
+
+                    <div class="seminar-card">
+                        <div class="seminar-meta">
+                            <span class="seminar-num">2ª Apresentação</span>
+                            <span class="seminar-name">🔄 Pesquisa-ação</span>
+                        </div>
+                        <div class="seminar-presenters">
+                            👥 <strong>André, Eduardo e Elisa</strong>
+                            <span class="badge-date-tag">03/09</span>
+                        </div>
+                    </div>
+
+                    <div class="seminar-card">
+                        <div class="seminar-meta">
+                            <span class="seminar-num">3ª Apresentação</span>
+                            <span class="seminar-name">📝 Análise Textual Discursiva (ATD)</span>
+                        </div>
+                        <div class="seminar-presenters">
+                            👥 <strong>Marina e Mariana Camargo</strong>
+                            <span class="badge-date-tag">03/09</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIA 2 -->
+            <div class="day-group">
+                <div class="day-header" style="border-left-color: #38bdf8;">
+                    <span class="day-title" style="color: #38bdf8;">🗓️ Dia 2 — Aula 08</span>
+                    <span class="day-date">10/09/2026 (Quinta-feira)</span>
+                </div>
+                <div class="seminar-list">
+                    <div class="seminar-card">
+                        <div class="seminar-meta">
+                            <span class="seminar-num" style="background:#0284c7;">4ª Apresentação</span>
+                            <span class="seminar-name">🗺️ Pesquisa Cartográfica em Educação</span>
+                        </div>
+                        <div class="seminar-presenters">
+                            👥 <strong>Paula, Fábio e Lígia</strong>
+                            <span class="badge-date-tag">10/09</span>
+                        </div>
+                    </div>
+
+                    <div class="seminar-card">
+                        <div class="seminar-meta">
+                            <span class="seminar-num" style="background:#0284c7;">5ª Apresentação</span>
+                            <span class="seminar-name">🔍 Análise de Conteúdo</span>
+                        </div>
+                        <div class="seminar-presenters">
+                            👥 <strong>Franciane, Nataly e Fernanda</strong>
+                            <span class="badge-date-tag">10/09</span>
+                        </div>
+                    </div>
+
+                    <div class="seminar-card">
+                        <div class="seminar-meta">
+                            <span class="seminar-num" style="background:#0284c7;">6ª Apresentação</span>
+                            <span class="seminar-name">🌐 Pesquisa Etnográfica em Educação</span>
+                        </div>
+                        <div class="seminar-presenters">
+                            👥 <strong>Mariana de Sá e Francisco</strong>
+                            <span class="badge-date-tag">10/09</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIA 3 -->
+            <div class="day-group" style="margin-bottom: 0;">
+                <div class="day-header" style="border-left-color: #c084fc;">
+                    <span class="day-title" style="color: #c084fc;">🗓️ Dia 3 — Aula 09 (Encerramento)</span>
+                    <span class="day-date">17/09/2026 (Quinta-feira)</span>
+                </div>
+                <div class="seminar-list">
+                    <div class="seminar-card">
+                        <div class="seminar-meta">
+                            <span class="seminar-num" style="background:#7c3aed;">7ª Apresentação</span>
+                            <span class="seminar-name">📊 Estudo de Caso</span>
+                        </div>
+                        <div class="seminar-presenters">
+                            👥 <strong>Silvana e Márcio</strong>
+                            <span class="badge-date-tag">17/09</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- ═══ ROTEIRO OBRIGATÓRIO DOS SLIDES ═══ -->
+        <section class="section-card">
+            <h2 class="section-title">📌 Pontos Obrigatórios para Pesquisa e Apresentação</h2>
+            <p style="color: #cbd5e1; font-size: 0.92rem; margin-bottom: 12px;">
+                Os slides e a explanação oral devem contemplar a seguinte estrutura conceitual:
+            </p>
+
+            <ol class="guide-list">
+                <li>
+                    <strong>1. Definições Teóricas:</strong> Fundamentação conceitual baseada em autores de referência no método pesquisado.
+                </li>
+                <li>
+                    <strong>2. Procedimentos e Etapas:</strong> Passo a passo que a metodologia propõe para tratamento, coleta e análise dos dados.
+                </li>
+                <li>
+                    <strong>3. Cuidados e Orientações:</strong> Recomendações e atenções éticas/metodológicas que o pesquisador deve adotar ao aplicar o método.
+                </li>
+                <li>
+                    <strong>4. Características da Análise:</strong> Potencial analítico da abordagem (o que e como ela possibilita analisar e seus limites).
+                </li>
+                <li>
+                    <strong>5. Estudo / Tese Exemplo (CAPES):</strong> Identificar uma pesquisa que aplicou a metodologia, apresentando resumo, problema, objetivos, instrumentos de coleta e contextualização do método de análise (preferencialmente tese de doutorado no <a href="https://catalogodeteses.capes.gov.br/catalogo-teses/#!/" target="_blank">Banco de Teses da CAPES ↗</a>).
+                </li>
+                <li>
+                    <strong>6. Aplicação no TCC:</strong> Descrição breve de como o método pode ser mobilizado no projeto de TCC dos membros da equipe (em duplas/trios, abordar individualmente).
+                </li>
+                <li>
+                    <strong>7. Problemas Correlatos:</strong> Listar brevemente outras situações ou questões educacionais/ambientais onde o método é relevante.
+                </li>
+                <li>
+                    <strong>8. Referências Bibliográficas:</strong> Lista de obras citadas e referências recomendadas para aprofundamento.
+                </li>
+                <li>
+                    <strong>9. Postagem no SIGAA:</strong> Inserir os slides ou link de acesso no SIGAA (preferencialmente editável) para compartilhamento com a turma.
+                </li>
+            </ol>
+        </section>
+
+        <!-- ═══ REGISTRO VISUAL (IMAGEM OFICIAL) ═══ -->
+        <section class="section-card">
+            <h2 class="section-title">📷 Registro do Planejamento dos Seminários</h2>
+            <div class="image-container">
+                <a href="cronograma-seminarios.png" target="_blank" title="Clique para ampliar a imagem">
+                    <img src="cronograma-seminarios.png" alt="Quadro de Planejamento dos Seminários das Metodologias e Seminaristas">
+                </a>
+                <div class="image-caption">
+                    Registro oficial das orientações gerais e distribuição de temas e seminaristas (Aulas 07 a 09). Clique para abrir em tamanho real.
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ NAVEGAÇÃO ═══ -->
         <div class="back-nav">
-            <a href="../aula06/index.html" class="btn-back">← Aula Anterior</a>
-            <a href="../index.html" class="btn-back">Página Principal</a>
-            <a href="../aula08/index.html" class="btn-back">Próxima: Aula 08 →</a>
+            <a href="../aula06/index.html" class="btn-back">← Aula 06: Ferramentas & IA</a>
+            <a href="../index.html" class="btn-back">🏠 Portal PSJ0111</a>
+            <a href="../aula08/index.html" class="btn-back">Avançar: Aula 08 →</a>
         </div>
 
     </main>
