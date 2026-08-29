@@ -31,7 +31,7 @@ David Tripp (2005) complementa enfatizando a natureza de **ciclos contínuos de 
 
 ## 🌿 2. APLICAÇÃO NA EDUCAÇÃO AMBIENTAL
 
-Na Educação Ambiental Crítica (Freire, 1987; Loureiro, 2012), a Pesquisa-Ação é um instrumento privileged. Em vez de estudar a comunidade ou a escola como objetos passivos de observação, a Pesquisa-Ação engaja discentes, professores e trabalhadores como **co-pesquisadores**, transformando práticas cotidianas de gestão de resíduos, prevenção de riscos e sensibilização ecológica.
+Na Educação Ambiental Crítica (Freire, 1987; Loureiro, 2012), a Pesquisa-Ação é um instrumento privilegiado. Em vez de estudar a comunidade ou a escola como objetos passivos de observação, a Pesquisa-Ação engaja discentes, professores e trabalhadores como **co-pesquisadores**, transformando práticas cotidianas de gestão de resíduos, prevenção de riscos e sensibilização ecológica.
 
 ---
 
@@ -39,11 +39,11 @@ Na Educação Ambiental Crítica (Freire, 1987; Loureiro, 2012), a Pesquisa-Aç�
 
 Clique nas fichas individuais dos discentes do cluster de Pesquisa-Ação para acompanhar a aplicação prática:
 
-*   [Marcio Alexandre Botti](../aula02/Levantamento-Tema/Tema-Pesquisa/Marcio%20Alexandre%20Botti.md) — *Sequência Didática Multidisciplinar sobre Meliponicultura no EF I.*
-*   [Andre Barbosa da Silva](../aula02/Levantamento-Tema/Tema-Pesquisa/Andre%20Barbosa%20da%20Silva.md) — *Plano Participativo de Gestão de Resíduos Químicos no SeLAV-SC.*
-*   [Ligia Wherli Siqueira Furtwaengler](../aula02/Levantamento-Tema/Tema-Pesquisa/LIGIA%20WHERLI%20SIQUEIRA%20FURTWAENGLER.md) — *Apoio à Prática Pedagógica no Programa Defesa Civil na Escola (EF II).*
-*   [Edecio João Porto Júnior](../aula02/Levantamento-Tema/Tema-Pesquisa/Edecio%20Jo%C3%A3o%20Porto%20J%C3%BAnior.md) — *Gamificação e Tecnologias Ativas (IoT) para Letramento Científico nas Mudanças Climáticas.*
-*   [Elaine Cristina Dal Pont Pereira](../aula02/Levantamento-Tema/Tema-Pesquisa/Elaine%20Cristina%20Dal%20Pont%20Pereira.md) — *Práticas de Aprendizagem Significativa e Ensino Inclusivo na Educação Especial.*
+*   `[[Marcio Alexandre Botti]]` — *Sequência Didática Multidisciplinar sobre Meliponicultura no Ensino Fundamental I.*
+*   `[[Andre Barbosa da Silva]]` — *Plano Participativo de Gestão e Minimização de Resíduos Químicos no SeLAV-SC.*
+*   `[[LIGIA WHERLI SIQUEIRA FURTWAENGLER]]` — *Apoio à Prática Pedagógica no Programa Defesa Civil na Escola (EF II).*
+*   `[[Edecio João Porto Júnior]]` — *Gamificação e Tecnologias Ativas (IoT) para Letramento Científico em Mudanças Climáticas.*
+*   `[[Elaine Cristina Dal Pont Pereira]]` — *Práticas de Aprendizagem Significativa e Ensino Inclusivo na Educação Especial.*
 
 ---
 
@@ -54,4 +54,4 @@ Clique nas fichas individuais dos discentes do cluster de Pesquisa-Ação para a
 *   TRIPP, David. Pesquisa-ação: uma introdução metodológica. **Educação e Pesquisa**, São Paulo, v. 31, n. 3, p. 443-466, 2005.
 
 ---
-🔙 Retornar ao [Portal Home da Wikipédia](../00%20-%20Portal/Home.md) | Ver Pilar [3. Procedimento](../01%20-%20Pilares%20Metodol%C3%B3gicos/3.%20Procedimento.md)
+🔙 Retornar ao `[[Home|Portal Home da Wikipédia]]` | Ver Pilar `[[3. Procedimento]]`

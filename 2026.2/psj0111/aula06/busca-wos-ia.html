@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estratégias de Busca na Web of Science & IA Generativa — Aula 06 · PSJ0111</title>
+    <meta name="description" content="Guia prático de estratégias de busca avançada na Web of Science (WOS) utilizando operadores booleanos e prompts com IA Generativa / NotebookLM.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-surface: rgba(15, 23, 42, 0.75);
+            --bg-card: #1e293b;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --brand-green: #10b981;
+            --brand-green-glow: rgba(16, 185, 129, 0.2);
+            --brand-blue: #3b82f6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #064e3b 0%, #0f172a 70%, #1e1b4b 100%);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 40px 24px;
+        }
+
+        .header-container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .breadcrumb a {
+            color: #34d399;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .badge-tag {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #34d399;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #34d399 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .main-container {
+            max-width: 960px;
+            margin: 30px auto 0;
+            padding: 0 24px;
+        }
+
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #34d399;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prompt-box {
+            background: rgba(10, 14, 23, 0.85);
+            border-left: 4px solid #3b82f6;
+            border-radius: 0 10px 10px 0;
+            padding: 18px 22px;
+            margin: 16px 0;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .code-container {
+            position: relative;
+            background: #0b1120;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        pre code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.88rem;
+            color: #93c5fd;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            color: #93c5fd;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: rgba(59, 130, 246, 0.4);
+            color: #ffffff;
+        }
+
+        .field-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .field-item {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .field-name {
+            font-weight: 700;
+            color: #38bdf8;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .field-query {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: #34d399;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 6px 10px;
+            border-radius: 6px;
+            word-break: break-all;
+        }
+
+        .field-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .tip-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            border-radius: var(--radius-md);
+            padding: 16px;
+        }
+
+        .tip-card h4 {
+            color: #fbbf24;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tip-card p {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        .back-nav {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: #34d399;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: #10b981;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="breadcrumb">
+                <a href="../index.html">PSJ0111</a> / <a href="index.html">Aula 06</a> / <span>Busca WOS & IA</span>
+            </div>
+            <div class="badge-tag">🔬 Guia de Pesquisa & IA Generativa</div>
+            <h1>Estratégias de Busca na Web of Science (WOS) & Síntese com NotebookLM</h1>
+            <p style="color: #cbd5e1; font-size: 1rem; max-width: 800px;">
+                Orientações para estruturação de strings de busca booleana de alto impacto e aplicação de IA Generativa para triagem bibliográfica e fichamento.
+            </p>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <!-- CONTEXTO DO PROMPT -->
+        <section class="section-card">
+            <h2 class="section-title">💡 Cenário & Prompt de Pesquisa Inicial</h2>
+            <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 12px;">
+                Exemplo prático aplicado a um anteprojeto de Educação Ambiental articulado à <strong>Lei nº 14.260/2021</strong> (Incentivo fiscal à cadeia de reciclagem) e ao método de <strong>Análise de Conteúdo (Laurence Bardin)</strong>:
+            </p>
+            <div class="prompt-box">
+                <em>"Quero fazer uma busca na Web of Science começando por artigos de alto impacto sobre incentivo fiscal à cadeia produtiva da reciclagem (Lei nº 14.260/2021) voltados para a Educação Ambiental, estudos em reciclagem e aplicação restrita à metodologia de Análise de Conteúdo de Laurence Bardin. Estruture os campos para Fielded Search e Query Builder com operadores booleanos em inglês para máximo alcance."</em>
+            </div>
+        </section>
+
+        <!-- MÉTODO 1: FIELDED SEARCH -->
+        <section class="section-card">
+            <h2 class="section-title">🔍 1. Fielded Search (Busca por Campos Individuais)</h2>
+            <p style="color: #cbd5e1; font-size: 0.92rem;">
+                Na interface padrão da <strong>Web of Science</strong>, utilize o botão <strong>"+ Add row"</strong> para adicionar múltiplas linhas no campo <strong>Topic</strong> conectadas pelo operador <strong>AND</strong>:
+            </p>
+
+            <ul class="field-list">
+                <li class="field-item">
+                    <span class="field-name">Campo 1 — Topic (Políticas de Incentivo Fiscal / Lei)</span>
+                    <div class="field-query">("tax incentive*" OR "fiscal incentive*" OR "tax benefit*" OR "Law 14260" OR "Law 14.260" OR "Lei 14260" OR "Lei 14.260")</div>
+                    <span class="field-desc">Cobre políticas fiscais e menções diretas à legislação nacional e internacional correspondente.</span>
+                </li>
+                <li class="field-item">
+                    <span class="field-name">Campo 2 — Topic (Reciclagem & Cadeia Produtiva) [AND]</span>
+                    <div class="field-query">("recycling" OR "recycle*" OR "recycling chain*" OR "recycling industry" OR "waste management")</div>
+                    <span class="field-desc">Foca no processo de reciclagem, gestão de resíduos sólidos e setor produtivo.</span>
+                </li>
+                <li class="field-item">
+                    <span class="field-name">Campo 3 — Topic (Educação Ambiental) [AND]</span>
+                    <div class="field-query">("environmental education" OR "sustainability education" OR "green education")</div>
+                    <span class="field-desc">Garante o enquadramento na área de Educação Ambiental e sustentabilidade.</span>
+                </li>
+                <li class="field-item">
+                    <span class="field-name">Campo 4 — Topic (Metodologia: Laurence Bardin) [AND]</span>
+                    <div class="field-query">("content analysis" AND ("Bardin" OR "Laurence Bardin"))</div>
+                    <span class="field-desc">Restringe os resultados estritamente à metodologia de análise de conteúdo de Laurence Bardin.</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- MÉTODO 2: QUERY BUILDER -->
+        <section class="section-card">
+            <h2 class="section-title">⚡ 2. Query Builder / Busca Avançada (Linha Única)</h2>
+            <p style="color: #cbd5e1; font-size: 0.92rem;">
+                String consolidada com prefixo <code>TS=</code> (Topic), que pesquisa simultaneamente no Título, Resumo (Abstract) e Palavras-chave dos autores:
+            </p>
+
+            <div class="code-container">
+                <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('query-str-1').innerText); alert('Copiado para a área de transferência!');">Copiar String</button>
+                <pre><code id="query-str-1">TS=(("tax incentive*" OR "fiscal incentive*" OR "tax benefit*" OR "Law 14260" OR "Law 14.260" OR "Lei 14260") AND ("recycling" OR "recycle*" OR "recycling chain*") AND ("environmental education" OR "sustainability education") AND ("content analysis" AND (Bardin OR "Laurence Bardin")))</code></pre>
+            </div>
+
+            <h3 style="font-size: 1.1rem; color: #60a5fa; margin: 20px 0 8px;">Versão Alternativa (Mais Ampla):</h3>
+            <p style="color: #cbd5e1; font-size: 0.88rem;">
+                Como a citação a Laurence Bardin em periódicos internacionais em língua inglesa pode ocorrer apenas no corpo das referências bibliográficas, use esta string se a anterior retornar poucos resultados:
+            </p>
+
+            <div class="code-container">
+                <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('query-str-2').innerText); alert('Copiado para a área de transferência!');">Copiar String</button>
+                <pre><code id="query-str-2">TS=(("tax incentive*" OR "fiscal incentive*" OR "tax benefit*" OR "Law 14260" OR "Law 14.260" OR "Lei 14260") AND ("recycling" OR "recycle*" OR "recycling chain*") AND ("environmental education" OR "sustainability education") AND "content analysis")</code></pre>
+            </div>
+        </section>
+
+        <!-- DICAS DE ALTO IMPACTO -->
+        <section class="section-card">
+            <h2 class="section-title">🏆 Dicas para Identificar Artigos de Alto Impacto</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>📊 Ordenação por Citações</h4>
+                    <p>Altere o filtro de ordenação padrão (Relevance) para <strong>"Citations: highest first"</strong> para visualizar no topo as obras mais citadas e seminais do campo.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>⭐ Highly Cited Papers</h4>
+                    <p>Ative na barra lateral o filtro <strong>"Highly Cited Papers"</strong> para selecionar artigos situados no top 1% de citações globais em sua área acadêmica.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>📑 Refinar por Tipo</h4>
+                    <p>Filtre por <strong>"Article"</strong> (pesquisa empírica) e <strong>"Review Article"</strong> (revisões de literatura para mapear o estado da arte e lacunas de pesquisa).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NAVEGAÇÃO -->
+        <div class="back-nav">
+            <a href="index.html" class="btn-back">← Voltar ao Guia da Aula 06</a>
+            <a href="../index.html" class="btn-back">🏠 Portal PSJ0111</a>
+            <a href="../aula07/index.html" class="btn-back">Avançar para Aula 07 →</a>
+        </div>
+
+    </main>
+
+</body>
+</html>

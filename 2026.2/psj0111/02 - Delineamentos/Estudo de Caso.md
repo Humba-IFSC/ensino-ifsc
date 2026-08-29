@@ -20,27 +20,32 @@
 
 O **Estudo de Caso** é compreendido por Robert K. Yin (2015) como uma investigação empírica que analisa um fenômeno contemporâneo em profundidade e em seu contexto de vida real, especialmente quando os limites entre o fenômeno e o contexto não estão claramente evidentes.
 
-Segundo Gil (2017), as principais características do Estudo de Caso incluem a delimitação precisa da unidade (uma instituição, escola, programa ou condomínio) e a triangulação de fontes de evidência.
+Segundo Gil (2017), as principais características do Estudo de Caso incluem:
+*   **Delimitação Precisa da Unidade:** O "caso" pode ser um indivíduo, uma instituição, um programa formativo específico ou um espaço habitacional delimitado.
+*   **Triangulação de Fontes de Evidência:** Combina entrevistas, documentos oficiais, observações diretas e artefatos físicos para validar as conclusões.
 
 ---
 
 ## 🌿 2. APLICAÇÃO NA EDUCAÇÃO AMBIENTAL
 
-No campo da Educação Ambiental, o Estudo de Caso permite analisar em profundidade como diretrizes de sustentabilidade ou programas institucionais são vivenciados na prática por atores específicos.
+No campo da Educação Ambiental, o Estudo de Caso permite analisar em profundidade como diretrizes de sustentabilidade ou programas institucionais são vivenciados na prática por atores específicos. Permite responder a perguntas do tipo *"como"* e *"por que"* determinadas políticas públicas ou práticas habitacionais funcionam em contextos locais.
 
 ---
 
 ## 👥 3. DISCENTES QUE ADOTAM O ESTUDO DE CASO NO VAULT MPE-2026-2
 
-*   [Franciane Prazeres](../aula02/Levantamento-Tema/Tema-Pesquisa/Franciane%20Prazeres.md) — *Análise do processo formativo de Educadores Ambientais na Polícia Militar de SC (Programa PROA/PUMA).*
-*   [Mariana de Sá Rodrigues da Silva](../aula02/Levantamento-Tema/Tema-Pesquisa/Mariana%20de%20S%C3%A1%20Rodrigues%20da%20Silva.md) — *A inserção da Educação Ambiental para sustentabilidade em Habitação de Interesse Social (HIS).*
+Clique nas fichas individuais dos discentes para explorar a delimitação de seus casos de estudo:
+
+*   `[[Franciane Prazeres]]` — *Análise do processo formativo de Educadores Ambientais na Polícia Militar de SC (Programa PROA/PUMA).*
+*   `[[Mariana de Sá Rodrigues da Silva]]` — *A inserção da Educação Ambiental para sustentabilidade em Habitação de Interesse Social (HIS).*
 
 ---
 
 ## 📚 REFERÊNCIAS BIBLIOGRÁFICAS (ABNT)
 
 *   GIL, Antônio Carlos. **Como elaborar projetos de pesquisa**. 6. ed. São Paulo: Atlas, 2017.
+*   STAKE, Robert E. **A arte da investigação com estudos de caso**. Lisboa: Fundação Calouste Gulbenkian, 2009.
 *   YIN, Robert K. **Estudo de caso**: planejamento e métodos. 5. ed. Porto Alegre: Bookman, 2015.
 
 ---
-🔙 Retornar ao [Portal Home da Wikipédia](../00%20-%20Portal/Home.md) | Ver Pilar [3. Procedimento](../01%20-%20Pilares%20Metodol%C3%B3gicos/3.%20Procedimento.md)
+🔙 Retornar ao `[[Home|Portal Home da Wikipédia]]` | Ver Pilar `[[3. Procedimento]]`

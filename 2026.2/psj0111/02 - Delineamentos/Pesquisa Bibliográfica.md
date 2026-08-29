@@ -1,5 +1,5 @@
 # 📚 DELINEAMENTO: PESQUISA BIBLIOGRÁFICA
-### Levantamento, Fichamento e Síntese Analítica de Obras Publicadas
+### Levantamento, Fichamento e Análise Crítica de Obras Publicadas
 *Unidade Curricular: Metodologia de Pesquisa em Educação (PSJ0111) — IFSC Câmpus São José*
 
 <div style="float: right; width: 310px; margin: 0 0 1em 1em; padding: 12px; border: 1px solid #f59e0b; border-radius: 8px; background-color: rgba(30, 41, 59, 0.6); font-size: 0.88em;">
@@ -8,8 +8,8 @@
   </div>
   <table style="width: 100%; border-collapse: collapse;">
     <tr><td style="padding: 3px 0; font-weight: bold;">Categoria:</td><td>Procedimento de Gabinete</td></tr>
-    <tr><td style="padding: 3px 0; font-weight: bold;">Fonte de Dados:</td><td>Obras e Artigos Publicados</td></tr>
-    <tr><td style="padding: 3px 0; font-weight: bold;">Autores-Chave:</td><td>Severino, Gil, Salvador</td></tr>
+    <tr><td style="padding: 3px 0; font-weight: bold;">Fonte de Dados:</td><td>Livros, Artigos e Teses Publicados</td></tr>
+    <tr><td style="padding: 3px 0; font-weight: bold;">Autores-Chave:</td><td>Salvador, Gil, Severino</td></tr>
     <tr><td style="padding: 3px 0; font-weight: bold;">Foco na EA:</td><td>Estado da Arte & Epistemologia</td></tr>
   </table>
 </div>
@@ -18,23 +18,30 @@
 
 ## 📖 1. FUNDAMENTAÇÃO TEÓRICA (ABNT)
 
-A **Pesquisa Bibliográfica** desenvolve-se a partir do levantamento de referenciamento teórico já publicado em livros, artigos científicos, teses e dissertações (Severino, 2014; Gil, 2017).
+A **Pesquisa Bibliográfica** é elaborada a partir de material já publicado, constituído principalmente por livros, artigos de periódicos e atualmente com material disponibilizado na internet (Gil, 2017). Sua principal vantagem reside no fato de permitir ao investigador a cobertura de uma gama de fenômenos muito mais ampla do que aquela que poderia pesquisar diretamente.
+
+Severino (2014) ressalta que a pesquisa bibliográfica exige um processo sistemático de:
+1.  **Seleção e Triagem:** Escolha de fontes reconhecidas cientificamente.
+2.  **Fichamento Analítico:** Leitura crítica e registro dos conceitos principais.
+3.  **Sintese Hermenêutica:** Reconstrução teórica e diálogo entre autores.
 
 ---
 
 ## 🌿 2. APLICAÇÃO NA EDUCAÇÃO AMBIENTAL
 
-Construção do estado da arte sobre química analítica de óleos isolantes, desenvolvimento moral em ecologia infantil, concepção espacial de escolas e bases da Geografia Nova de Milton Santos.
+Permite fundamentar teoricamente os conceitos de Educação Ambiental Crítica, mapear o estado da arte sobre psicologia do desenvolvimento ecológico infantil ou analisar correntes epistemológicas da Geografia e da Químico-Ambiental.
 
 ---
 
 ## 👥 3. DISCENTES QUE ADOTAM A PESQUISA BIBLIOGRÁFICA NO VAULT MPE-2026-2
 
-*   [Nataly Meurer](../aula02/Levantamento-Tema/Tema-Pesquisa/Nataly%20Meurer.md) — *Avaliação dos aspectos químicos e analíticos do óleo mineral isolante.*
-*   [Dinah Guimaraes](../aula02/Levantamento-Tema/Tema-Pesquisa/Dinah%20Guimaraes.md) — *Abordagem infanto-juvenil para a Educação Ambiental.*
-*   [Silvana Rodrigues Seara](../aula02/Levantamento-Tema/Tema-Pesquisa/Silvana%20Rodrigues%20Seara.md) — *O espaço físico educacional para além de muros e paredes.*
-*   [Fernanda Martins da Silva](../aula02/Levantamento-Tema/Tema-Pesquisa/Fernanda%20Martins%20da%20Silva.md) — *Educação Ambiental Crítica e a Lei de Incentivo à Reciclagem (Lei nº 14.260/2021).*
-*   [Paulo Henrique Rosa](../aula02/Levantamento-Tema/Tema-Pesquisa/Paulo%20Henrique%20Rosa.md) — *Espaço Geográfico e Natureza na obra de Milton Santos.*
+Clique nas fichas discentes para conferir o referencial teórico dos projetos:
+
+*   `[[Nataly Meurer]]` — *Levantamento analítico dos aspectos químicos e ambientais do óleo mineral isolante.*
+*   `[[Dinah Guimaraes]]` — *Bases da psicologia do desenvolvimento ambiental e identidade ecológica infanto-juvenil.*
+*   `[[Silvana Rodrigues Seara]]` — *Referencial teórico-crítico sobre arquitetura escolar e espaço pedagógico além dos muros.*
+*   `[[Fernanda Martins da Silva]]` — *Análise teórica da Educação Ambiental Crítica e cidadania à luz de Freire e Torres.*
+*   `[[Paulo Henrique Rosa]]` — *Estudo exaustivo do conceito de Espaço Geográfico e Natureza na obra de Milton Santos.*
 
 ---
 
@@ -44,4 +51,4 @@ Construção do estado da arte sobre química analítica de óleos isolantes, de
 *   SEVERINO, Antônio Joaquim. **Metodologia do trabalho científico**. 23. ed. São Paulo: Cortez, 2014.
 
 ---
-🔙 Retornar ao [Portal Home da Wikipédia](../00%20-%20Portal/Home.md) | Ver Pilar [3. Procedimento](../01%20-%20Pilares%20Metodol%C3%B3gicos/3.%20Procedimento.md)
+🔙 Retornar ao `[[Home|Portal Home da Wikipédia]]` | Ver Pilar `[[3. Procedimento]]`

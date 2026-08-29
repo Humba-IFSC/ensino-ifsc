@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wikipédia MPE-2026-2 | Portal Metodológico de Educação Ambiental</title>
-    <meta name="description" content="Wikipédia Acadêmica de Metodologia de Pesquisa em Educação Ambiental — IFSC Câmpus São José.">
+    <title>🌐 Wikipédia Acadêmica | Metodologia da Pesquisa em Educação (PSJ0111)</title>
+    <meta name="description" content="Portal Wikipédia Acadêmica de Educação Ambiental — IFSC São José. Mapeamento conceitual e anteprojetos de TCC da Especialização em Educação Ambiental.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-main: #0a0e17;
+            --bg-surface: rgba(15, 23, 42, 0.75);
             --bg-card: #1e293b;
-            --bg-card-hover: #2d3748;
             --border-color: rgba(255, 255, 255, 0.08);
             --brand-green: #10b981;
+            --brand-green-glow: rgba(16, 185, 129, 0.2);
             --brand-blue: #3b82f6;
-            --brand-purple: #8b5cf6;
-            --brand-amber: #f59e0b;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --radius-lg: 16px;
@@ -25,6 +26,7 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-main);
@@ -33,241 +35,409 @@
             padding-bottom: 60px;
         }
 
-        header {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(15, 23, 42, 0.8) 100%);
+        .navbar {
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
-            padding: 40px 24px;
-            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 14px 24px;
         }
-        .header-container { max-width: 1100px; margin: 0 auto; }
-        .badge {
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-brand {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #34d399;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-links { display: flex; gap: 16px; list-style: none; }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #ffffff; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 30px 24px; }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(6, 78, 59, 0.4) 0%, rgba(15, 23, 42, 0.8) 60%, rgba(30, 27, 75, 0.4) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .hero-badge {
             display: inline-block;
-            padding: 6px 14px;
-            background: rgba(16, 185, 129, 0.2);
+            background: rgba(16, 185, 129, 0.15);
             border: 1px solid rgba(16, 185, 129, 0.4);
             color: #34d399;
-            font-size: 0.85rem;
-            font-weight: 700;
+            padding: 4px 12px;
             border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 700;
             margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
-        h1 {
+        .hero h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-weight: 800;
-            background: linear-gradient(90deg, #34d399, #60a5fa);
+            background: linear-gradient(90deg, #34d399 0%, #60a5fa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
         }
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 750px;
-            margin: 0 auto 20px;
-        }
-        .btn-nav-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            color: #60a5fa;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-        }
-        .btn-nav-home:hover { background: rgba(59, 130, 246, 0.2); border-color: #60a5fa; }
+        .hero p { color: var(--text-muted); font-size: 1.05rem; max-width: 800px; }
 
-        main { max-width: 1100px; margin: 40px auto; padding: 0 24px; }
+        .section-header { margin: 36px 0 18px; display: flex; align-items: center; gap: 10px; }
         .section-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.6rem;
-            color: var(--text-main);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #34d399;
         }
-        
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 50px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-bottom: 50px; }
-        
+
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 20px; }
+
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 24px;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            transition: all 0.25s ease;
             text-decoration: none;
             color: var(--text-main);
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            justify-content: space-between;
         }
         .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(16, 185, 129, 0.5);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            background: var(--bg-card-hover);
+            border-color: rgba(16, 185, 129, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
         }
-        .card-icon { font-size: 2rem; margin-bottom: 12px; }
-        .card-title { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; color: #34d399; margin-bottom: 8px; }
-        .card-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex-grow: 1; }
-        .card-link { font-size: 0.85rem; font-weight: 600; color: #60a5fa; display: flex; align-items: center; gap: 4px; }
+        .card-icon { font-size: 1.8rem; margin-bottom: 10px; }
+        .card h3 { font-family: 'Outfit', sans-serif; font-size: 1.1rem; color: #f1f5f9; margin-bottom: 6px; }
+        .card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #34d399;
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
 
-        .students-section { background: rgba(30, 41, 59, 0.4); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 30px; }
-        .cluster-title { font-size: 1.1rem; color: #fbbf24; font-weight: 700; margin: 20px 0 12px; border-left: 3px solid #f59e0b; padding-left: 10px; }
-        .student-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
-        .student-item {
+        .cluster-box {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        .cluster-header {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 10px 14px;
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
-        .student-item:hover { border-color: #34d399; background: rgba(16, 185, 129, 0.1); color: #34d399; }
+        .cluster-header h3 { font-family: 'Outfit', sans-serif; font-size: 1.2rem; color: #60a5fa; }
         
-        footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border-color); }
+        .student-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .student-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: #e2e8f0;
+        }
+        .student-item:hover {
+            background: rgba(16, 185, 129, 0.12);
+            border-color: rgba(16, 185, 129, 0.3);
+            color: #ffffff;
+            transform: translateX(4px);
+        }
+        .student-name { font-weight: 600; font-size: 0.9rem; }
+        .student-topic { font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
+
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        footer a { color: #34d399; text-decoration: none; }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <span class="badge">Especialização em Educação Ambiental — IFSC</span>
-            <h1>🌐 Wikipédia MPE-2026-2</h1>
-            <p class="subtitle">Portal Integrado de Metodologia da Pesquisa em Educação, Pilares Científicos e Anteprojetos de TCC da Turma.</p>
-            <a href="../index.html" class="btn-nav-home">← Voltar à Página Principal do Curso</a>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand">
+                <span>🌐</span> Wikipédia MPE-2026-2
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">🏠 Site da UC</a></li>
+                <li><a href="#pilares">🏛️ Pilares</a></li>
+                <li><a href="#delineamentos">🛠️ Delineamentos</a></li>
+                <li><a href="#gtm">👥 Clusters (GTM)</a></li>
+                <li><a href="../manual-obsidian.html">📖 Manual Obsidian</a></li>
+                <li><a href="../arvore-mpe.html">🌳 Árvore</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <!-- 🏛️ PILARES METODOLÓGICOS -->
-        <h2 class="section-title">🏛️ Pilares Metodológicos (Fundamentação Teórica)</h2>
-        <div class="grid-4">
-            <a href="pilares/natureza.html" class="card">
-                <div class="card-icon">🎯</div>
-                <div class="card-title">1. Natureza</div>
-                <div class="card-desc">Finalidade da pesquisa: Aplicada, Básica Estratégica ou Básica Pura.</div>
-                <div class="card-link">Explorar Pilar →</div>
-            </a>
-            <a href="pilares/objetivos.html" class="card">
-                <div class="card-icon">🔭</div>
-                <div class="card-title">2. Objetivos</div>
-                <div class="card-desc">Grau de aprofundamento: Exploratória, Descritiva ou Explicativa.</div>
-                <div class="card-link">Explorar Pilar →</div>
-            </a>
-            <a href="pilares/procedimento.html" class="card">
-                <div class="card-icon">🗺️</div>
-                <div class="card-title">3. Procedimento</div>
-                <div class="card-desc">Estratégia de dados: Fontes de Papel (Documental) vs. Fontes de Pessoas.</div>
-                <div class="card-link">Explorar Pilar →</div>
-            </a>
-            <a href="pilares/abordagem.html" class="card">
-                <div class="card-icon">📊</div>
-                <div class="card-title">4. Abordagem</div>
-                <div class="card-desc">Paradigma interpretativo: Qualitativo vs. Misto (Quali-Quanti).</div>
-                <div class="card-link">Explorar Pilar →</div>
-            </a>
-        </div>
+    <main class="container">
 
-        <!-- 🛠️ DELINEAMENTOS PRÁTICOS -->
-        <h2 class="section-title">🛠️ Delineamentos Práticos da Turma</h2>
-        <div class="grid-3">
-            <a href="delineamentos/pesquisa-acao.html" class="card">
-                <div class="card-icon">🤝</div>
-                <div class="card-title">Pesquisa-Ação</div>
-                <div class="card-desc">Intervenção participativa e transformadora em sala de aula (5 alunos).</div>
-                <div class="card-link">Ver Delineamento →</div>
-            </a>
-            <a href="delineamentos/estudo-de-caso.html" class="card">
-                <div class="card-icon">🔍</div>
-                <div class="card-title">Estudo de Caso</div>
-                <div class="card-desc">Investigação profunda de unidade delimitada (2 alunos).</div>
-                <div class="card-link">Ver Delineamento →</div>
-            </a>
-            <a href="delineamentos/levantamento-survey.html" class="card">
-                <div class="card-icon">📋</div>
-                <div class="card-title">Levantamento (Survey)</div>
-                <div class="card-desc">Interrogação direta por questionários de amostragem (2 alunos).</div>
-                <div class="card-link">Ver Delineamento →</div>
-            </a>
-            <a href="delineamentos/estudo-etnografico.html" class="card">
-                <div class="card-icon">🌿</div>
-                <div class="card-title">Estudo Etnográfico</div>
-                <div class="card-desc">Imersão participante na cultura e saberes tradicionais (1 aluno).</div>
-                <div class="card-link">Ver Delineamento →</div>
-            </a>
-            <a href="delineamentos/pesquisa-bibliografica.html" class="card">
-                <div class="card-icon">📚</div>
-                <div class="card-title">Pesquisa Bibliográfica</div>
-                <div class="card-desc">Levantamento e fichamento analítico de obras publicadas (5 alunos).</div>
-                <div class="card-link">Ver Delineamento →</div>
-            </a>
-            <a href="delineamentos/pesquisa-documental.html" class="card">
-                <div class="card-icon">📄</div>
-                <div class="card-title">Pesquisa Documental</div>
-                <div class="card-desc">Investigação de fontes primárias e leis sem tratamento prévio (4 alunos).</div>
-                <div class="card-link">Ver Delineamento →</div>
-            </a>
-        </div>
+        <!-- ═══ HERO ═══ -->
+        <header class="hero">
+            <span class="hero-badge">🌐 PORTAL WIKIPÉDIA INTEGRADOR</span>
+            <h1>Wikipédia Acadêmica de Educação Ambiental</h1>
+            <p>Conectando a fundamentação científica dos 4 Pilares Metodológicos e 6 Delineamentos aos <strong>15 anteprojetos de TCC</strong> dos discentes do IFSC Câmpus São José.</p>
+        </header>
 
-        <!-- 👥 ALUNOS E GRUPOS DE TRABALHO -->
-        <section class="students-section">
-            <h2 class="section-title" style="border:none; padding:0; margin-bottom:10px;">👥 Anteprojetos dos 15 Discentes (Clusters GTM)</h2>
-            <p style="color:var(--text-muted); font-size:0.95rem;">Clique no nome do aluno para acessar a Ficha Metodológica completa:</p>
-
-            <div class="cluster-title">🤝 Cluster 1: Pesquisa-Ação e Sequências Didáticas Interventivas</div>
-            <div class="student-list">
-                <a href="alunos/marcio-botti.html" class="student-item"><span>🐝</span> Marcio Alexandre Botti</a>
-                <a href="alunos/andre-barbosa.html" class="student-item"><span>🔬</span> Andre Barbosa da Silva</a>
-                <a href="alunos/ligia-wherli.html" class="student-item"><span>🛡️</span> Ligia Wherli S. Furtwaengler</a>
-                <a href="alunos/edecio-porto.html" class="student-item"><span>🎮</span> Edecio João Porto Júnior</a>
-                <a href="alunos/elaine-dalpont.html" class="student-item"><span>♿</span> Elaine C. Dal Pont Pereira</a>
+        <!-- ═══ 1. PILARES METODOLÓGICOS ═══ -->
+        <section id="pilares">
+            <div class="section-header">
+                <span>🏛️</span>
+                <h2 class="section-title">1. Pilares Metodológicos</h2>
             </div>
-
-            <div class="cluster-title">🔍 Cluster 2: Estudos de Caso em Ambientes Formativos e Sociais</div>
-            <div class="student-list">
-                <a href="alunos/franciane-prazeres.html" class="student-item"><span>👮‍♀️</span> Franciane Prazeres</a>
-                <a href="alunos/mariana-rodrigues.html" class="student-item"><span>🏢</span> Mariana de Sá R. da Silva</a>
-            </div>
-
-            <div class="cluster-title">📋 Cluster 3: Levantamentos (Survey) e Percepções de Comunidade</div>
-            <div class="student-list">
-                <a href="alunos/fabio-zandonai.html" class="student-item"><span>💧</span> Fabio Luiz Zandonai da Silva</a>
-                <a href="alunos/marina-borges.html" class="student-item"><span>🌪️</span> Marina Luiza Borges Costa</a>
-            </div>
-
-            <div class="cluster-title">🌿 Cluster 4: Etnografia e Ecologia Saberes Tradicionais</div>
-            <div class="student-list">
-                <a href="alunos/elisa-macedo.html" class="student-item"><span>🧶</span> Elisa Duarte Macedo de Sousa</a>
-            </div>
-
-            <div class="cluster-title">📚 Cluster 5: Pesquisa Bibliográfica e Documental (Epistemologia e Leis)</div>
-            <div class="student-list">
-                <a href="alunos/nataly-meurer.html" class="student-item"><span>⚡</span> Nataly Meurer</a>
-                <a href="alunos/dinah-guimaraes.html" class="student-item"><span>🧸</span> Dinah Guimaraes</a>
-                <a href="alunos/silvana-seara.html" class="student-item"><span>🏫</span> Silvana Rodrigues Seara</a>
-                <a href="alunos/fernanda-martins.html" class="student-item"><span>♻️</span> Fernanda Martins da Silva</a>
-                <a href="alunos/paulo-henrique-rosa.html" class="student-link student-item"><span>🌍</span> Paulo Henrique Rosa</a>
+            <div class="grid-4">
+                <a href="pilares/natureza.html" class="card">
+                    <div>
+                        <div class="card-icon">🎯</div>
+                        <h3>1. Natureza</h3>
+                        <p>Classificação quanto à finalidade: Aplicada, Básica Estratégica e Básica Pura.</p>
+                    </div>
+                    <span class="card-tag">Acessar Pilar →</span>
+                </a>
+                <a href="pilares/objetivos.html" class="card">
+                    <div>
+                        <div class="card-icon">🔍</div>
+                        <h3>2. Objetivos</h3>
+                        <p>Graus de aprofundamento do problema: Exploratória, Descritiva e Explicativa.</p>
+                    </div>
+                    <span class="card-tag">Acessar Pilar →</span>
+                </a>
+                <a href="pilares/procedimento.html" class="card">
+                    <div>
+                        <div class="card-icon">📂</div>
+                        <h3>3. Procedimentos</h3>
+                        <p>Mapeamento de dados de Fontes de Papel vs. Interrogação de Pessoas/Campo.</p>
+                    </div>
+                    <span class="card-tag">Acessar Pilar →</span>
+                </a>
+                <a href="pilares/abordagem.html" class="card">
+                    <div>
+                        <div class="card-icon">📊</div>
+                        <h3>4. Abordagem</h3>
+                        <p>Tratamento analítico dos dados: Abordagem Qualitativa vs. Mista (Quali-Quanti).</p>
+                    </div>
+                    <span class="card-tag">Acessar Pilar →</span>
+                </a>
             </div>
         </section>
+
+        <!-- ═══ 2. DELINEAMENTOS METODOLÓGICOS ═══ -->
+        <section id="delineamentos">
+            <div class="section-header">
+                <span>🛠️</span>
+                <h2 class="section-title">2. Delineamentos Práticos</h2>
+            </div>
+            <div class="grid-3">
+                <a href="delineamentos/pesquisa-acao.html" class="card">
+                    <div>
+                        <div class="card-icon" style="color:#60a5fa;">🤝</div>
+                        <h3>Pesquisa-Ação</h3>
+                        <p>Intervenção participativa e transformadora no ambiente escolar e institucional (Thiollent, Tripp).</p>
+                    </div>
+                    <span class="card-tag">Ver Conceito & 5 Alunos →</span>
+                </a>
+                <a href="delineamentos/estudo-de-caso.html" class="card">
+                    <div>
+                        <div class="card-icon" style="color:#34d399;">🔍</div>
+                        <h3>Estudo de Caso</h3>
+                        <p>Investigação empírica profunda sobre unidade delimitada em seu contexto real (Yin, Stake).</p>
+                    </div>
+                    <span class="card-tag">Ver Conceito & 2 Alunos →</span>
+                </a>
+                <a href="delineamentos/levantamento-survey.html" class="card">
+                    <div>
+                        <div class="card-icon" style="color:#a78bfa;">📋</div>
+                        <h3>Levantamento (Survey)</h3>
+                        <p>Interrogação direta de população/amostra via questionários padronizados (Babbie, Gil).</p>
+                    </div>
+                    <span class="card-tag">Ver Conceito & 2 Alunos →</span>
+                </a>
+                <a href="delineamentos/estudo-etnografico.html" class="card">
+                    <div>
+                        <div class="card-icon" style="color:#f472b6;">🌿</div>
+                        <h3>Estudo Etnográfico</h3>
+                        <p>Imersão participante e descrição densa de padrões culturais e saberes locais (Geertz, André).</p>
+                    </div>
+                    <span class="card-tag">Ver Conceito & 1 Aluno →</span>
+                </a>
+                <a href="delineamentos/pesquisa-bibliografica.html" class="card">
+                    <div>
+                        <div class="card-icon" style="color:#fbbf24;">📚</div>
+                        <h3>Pesquisa Bibliográfica</h3>
+                        <p>Levantamento sistemático, fichamento e síntese analítica de obras acadêmicas (Severino, Gil).</p>
+                    </div>
+                    <span class="card-tag">Ver Conceito & 5 Alunos →</span>
+                </a>
+                <a href="delineamentos/pesquisa-documental.html" class="card">
+                    <div>
+                        <div class="card-icon" style="color:#67e8f9;">📄</div>
+                        <h3>Pesquisa Documental</h3>
+                        <p>Análise hermenêutica de documentos de fonte primária não tratados previamente (Cellard).</p>
+                    </div>
+                    <span class="card-tag">Ver Conceito & 4 Alunos →</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ═══ 3. CLUSTERS DISCENTES (GTM) ═══ -->
+        <section id="gtm">
+            <div class="section-header">
+                <span>👥</span>
+                <h2 class="section-title">3. Grupos de Trabalho Metodológico (GTM / 15 Alunos)</h2>
+            </div>
+
+            <div class="grid-2">
+                <!-- Cluster 1 -->
+                <div class="cluster-box">
+                    <div class="cluster-header">
+                        <span>🤝</span>
+                        <h3>Cluster 1: Pesquisa-Ação e Sequências Didáticas</h3>
+                    </div>
+                    <div class="student-list">
+                        <a href="alunos/marcio-botti.html" class="student-item">
+                            <span class="student-name">Marcio Alexandre Botti</span>
+                            <span class="student-topic">Meliponicultura e BNCC/ODS</span>
+                        </a>
+                        <a href="alunos/andre-barbosa.html" class="student-item">
+                            <span class="student-name">Andre Barbosa da Silva</span>
+                            <span class="student-topic">Gestão de Resíduos no SeLAV-SC</span>
+                        </a>
+                        <a href="alunos/ligia-wherli.html" class="student-item">
+                            <span class="student-name">Ligia Wherli Siqueira Furtwaengler</span>
+                            <span class="student-topic">Programa Defesa Civil na Escola</span>
+                        </a>
+                        <a href="alunos/edecio-porto.html" class="student-item">
+                            <span class="student-name">Edecio João Porto Júnior</span>
+                            <span class="student-topic">Gamificação e Mudanças Climáticas</span>
+                        </a>
+                        <a href="alunos/elaine-dalpont.html" class="student-item">
+                            <span class="student-name">Elaine Cristina Dal Pont Pereira</span>
+                            <span class="student-topic">Ensino Inclusivo e Aprendizagem</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cluster 2 -->
+                <div class="cluster-box">
+                    <div class="cluster-header">
+                        <span>🔍</span>
+                        <h3>Cluster 2: Estudos de Caso em Ambientes Sociais</h3>
+                    </div>
+                    <div class="student-list">
+                        <a href="alunos/franciane-prazeres.html" class="student-item">
+                            <span class="student-name">Franciane Prazeres</span>
+                            <span class="student-topic">Formação de Educadores Ambientais PMSC</span>
+                        </a>
+                        <a href="alunos/mariana-rodrigues.html" class="student-item">
+                            <span class="student-name">Mariana de Sá Rodrigues da Silva</span>
+                            <span class="student-topic">Habitação de Interesse Social (HIS)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cluster 3 -->
+                <div class="cluster-box">
+                    <div class="cluster-header">
+                        <span>📋</span>
+                        <h3>Cluster 3: Levantamentos (Survey) e Percepções</h3>
+                    </div>
+                    <div class="student-list">
+                        <a href="alunos/fabio-zandonai.html" class="student-item">
+                            <span class="student-name">Fabio Luiz Zandonai da Silva</span>
+                            <span class="student-topic">Uso Consciente dos Recursos Hídricos</span>
+                        </a>
+                        <a href="alunos/marina-borges.html" class="student-item">
+                            <span class="student-name">Marina Luiza Borges Costa</span>
+                            <span class="student-topic">Concepção de Desastres por Faixa Etária</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cluster 4 & 5 -->
+                <div class="cluster-box">
+                    <div class="cluster-header">
+                        <span>📚</span>
+                        <h3>Cluster 4 & 5: Etnografia e Pesquisa Bibliográfica/Documental</h3>
+                    </div>
+                    <div class="student-list">
+                        <a href="alunos/elisa-macedo.html" class="student-item">
+                            <span class="student-name">Elisa Duarte Macedo de Sousa</span>
+                            <span class="student-topic">Renda de Bilro e Ecologia (Etnografia)</span>
+                        </a>
+                        <a href="alunos/nataly-meurer.html" class="student-item">
+                            <span class="student-name">Nataly Meurer</span>
+                            <span class="student-topic">Óleo Mineral Isolante e Química</span>
+                        </a>
+                        <a href="alunos/dinah-guimaraes.html" class="student-item">
+                            <span class="student-name">Dinah Guimaraes</span>
+                            <span class="student-topic">Identidade Ecológica Infanto-Juvenil</span>
+                        </a>
+                        <a href="alunos/silvana-seara.html" class="student-item">
+                            <span class="student-name">Silvana Rodrigues Seara</span>
+                            <span class="student-topic">Espaço Físico Educacional além dos Muros</span>
+                        </a>
+                        <a href="alunos/fernanda-martins.html" class="student-item">
+                            <span class="student-name">Fernanda Martins da Silva</span>
+                            <span class="student-topic">Lei nº 14.260/2021 (Reciclagem & Freire)</span>
+                        </a>
+                        <a href="alunos/paulo-henrique-rosa.html" class="student-item">
+                            <span class="student-name">Paulo Henrique Rosa</span>
+                            <span class="student-topic">Espaço Geográfico em Milton Santos</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
-        <p>© 2026 Wikipédia Metodológica MPE-2026-2 · IFSC Câmpus São José · Prof. Dr. Humberto Luz Oliveira</p>
+        <p>© 2026 Wikipédia Acadêmica MPE-2026-2 · IFSC Câmpus São José</p>
+        <p style="margin-top: 6px;"><a href="../index.html">← Voltar ao Portal da Unidade Curricular PSJ0111</a></p>
     </footer>
+
 </body>
 </html>

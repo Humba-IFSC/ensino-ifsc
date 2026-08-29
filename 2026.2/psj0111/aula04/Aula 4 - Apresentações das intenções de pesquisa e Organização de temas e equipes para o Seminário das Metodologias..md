@@ -1,9 +1,3 @@
-### 🌐 Portal da Wikipédia MPE-2026-2 & Intenções de Pesquisa
-Mapeamento integrado dos 15 anteprojetos de TCC, pilares teóricos e delineamentos metodológicos:
-👉 **[Acessar a Wikipédia MPE-2026-2](../wikipedia/index.html)** (URL Web: `https://humba-ifsc.github.io/ensino-ifsc/2026.2/psj0111/wikipedia/`)
-
----
-
 ### Parte I
 
 Orientações quanto aos pontos a serem pesquisados sobre a metodologia escolhida, para constar nos slides e na apresentação do seminário:

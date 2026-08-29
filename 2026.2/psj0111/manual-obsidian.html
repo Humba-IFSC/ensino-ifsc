@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Operacional: Portal Wikipédia & Vault Obsidian — PSJ0111</title>
+    <meta name="description" content="Manual de configuração, importação e expansão da Wikipédia Acadêmica de Educação Ambiental integrada ao Obsidian (Vault MPE-2026-2).">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-surface: rgba(15, 23, 42, 0.75);
+            --bg-card: #1e293b;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --brand-green: #10b981;
+            --brand-green-glow: rgba(16, 185, 129, 0.2);
+            --brand-blue: #3b82f6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #064e3b 0%, #0f172a 70%, #1e1b4b 100%);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 40px 24px;
+        }
+
+        .header-container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .breadcrumb a {
+            color: #34d399;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .badge-tag {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #34d399;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #34d399 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .main-container {
+            max-width: 960px;
+            margin: 30px auto 0;
+            padding: 0 24px;
+        }
+
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #34d399;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tree-block {
+            background: #0b1120;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.88rem;
+            color: #93c5fd;
+            line-height: 1.5;
+            margin: 16px 0;
+        }
+
+        ul, ol {
+            padding-left: 24px;
+            margin: 12px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #cbd5e1;
+        }
+
+        .step-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            margin-bottom: 16px;
+        }
+
+        .step-box h3 {
+            font-size: 1.1rem;
+            color: #60a5fa;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rule-card {
+            background: rgba(245, 158, 11, 0.08);
+            border-left: 4px solid #f59e0b;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: 16px 20px;
+            margin: 14px 0;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .back-nav {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: #34d399;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: #10b981;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="breadcrumb">
+                <a href="index.html">PSJ0111</a> / <a href="wikipedia/index.html">Wikipédia MPE</a> / <span>Manual do Obsidian</span>
+            </div>
+            <div class="badge-tag">🌐 Manual de Integração & Vault</div>
+            <h1>Manual Operacional: Portal Wikipédia no Obsidian (MPE-2026-2)</h1>
+            <p style="color: #cbd5e1; font-size: 1rem; max-width: 800px;">
+                Guia docente e discente para navegação hipertextual, atualização de Infoboxes e uso de links bidirecionais no cofre da disciplina.
+            </p>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <!-- VISÃO GERAL -->
+        <section class="section-card">
+            <h2 class="section-title">🏛️ 1. O Ecossistema da Wikipédia Acadêmica</h2>
+            <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">
+                A <strong>Wikipédia Acadêmica de Educação Ambiental</strong> foi estruturada para integrar o acervo conceitual de Metodologia Científica (Natureza, Objetivos, Procedimentos e Abordagens) e os <strong>15 anteprojetos de TCC</strong> dos discentes em uma rede conectada por links bidirecionais (<code>[[Wiki-Links]]</code>) e <em>Infoboxes</em> estilizadas.
+            </p>
+        </section>
+
+        <!-- ÁRVORE DE DIRETÓRIOS -->
+        <section class="section-card">
+            <h2 class="section-title">📂 2. Estrutura de Diretórios e Notas</h2>
+            <p style="color: #cbd5e1; font-size: 0.92rem;">
+                Mapeamento integrado no cofre do Obsidian e reproduzido na versão web do GitHub Pages:
+            </p>
+
+            <pre class="tree-block"><code>📁 MPE-2026-2/
+├── 📁 00 - Portal/
+│   └── 📄 Home.md                         <-- Dashboard Central de Navegação
+├── 📁 01 - Pilares Metodológicos/
+│   ├── 📄 1. Natureza.md                  <-- Pesquisa Básica vs. Aplicada
+│   ├── 📄 2. Objetivos.md                  <-- Exploratória, Descritiva e Explicativa
+│   ├── 📄 3. Procedimento.md              <-- Mapeamento Geral de Fontes & Delineamentos
+│   └── 📄 4. Abordagem.md                 <-- Qualitativa, Quantitativa e Mista
+├── 📁 02 - Delineamentos/
+│   ├── 📄 Pesquisa-Ação.md                <-- Definição, Ciclos e Aplicação na EA
+│   ├── 📄 Estudo de Caso.md               <-- Limites, Unidades e Protocolos
+│   ├── 📄 Levantamento (Survey).md        <-- Questionários, Amostragem e Escalas
+│   ├── 📄 Estudo Etnográfico.md           <-- Imersão, Observação e Diários
+│   ├── 📄 Pesquisa Bibliográfica.md       <-- RSL, Fichamento e Bases CAPES/WOS
+│   └── 📄 Pesquisa Documental.md          <-- Fontes Primárias e Análise Documental
+└── 📁 aula02/
+    └── 📁 Levantamento-Tema/
+        └── 📁 Tema-Pesquisa/
+            ├── 📄 Andre Barbosa da Silva.md   <-- Fichas Individuais com Infobox
+            ├── ... (15 estudantes)
+            └── 📄 Silvana Rodrigues Seara.md</code></pre>
+        </section>
+
+        <!-- PROCEDIMENTOS DE IMPORTAÇÃO -->
+        <section class="section-card">
+            <h2 class="section-title">🛠️ 3. Importação e Atualização no Obsidian</h2>
+            
+            <div class="step-box">
+                <h3>📥 Método Principal: Mesclagem Direta no Cofre</h3>
+                <ol>
+                    <li>Extraia os arquivos sobre a pasta do seu cofre <strong>`MPE-2026-2`</strong>.</li>
+                    <li>Confirme a substituição das notas na pasta <code>Tema-Pesquisa</code> caso solicitado.</li>
+                    <li>Abra o Obsidian e acesse a nota <code>00 - Portal/Home.md</code>.</li>
+                </ol>
+            </div>
+
+            <div class="step-box">
+                <h3>🔍 Navegação por Backlinks e Matriz</h3>
+                <p style="color: #cbd5e1; font-size: 0.9rem;">
+                    Ao abrir qualquer nota de delineamento (ex: <code>Pesquisa-Ação.md</code>), o painel lateral de <strong>Backlinks</strong> do Obsidian lista automaticamente todos os alunos que utilizam aquele método no TCC.
+                </p>
+            </div>
+        </section>
+
+        <!-- REGRAS PEDAGÓGICAS -->
+        <section class="section-card">
+            <h2 class="section-title">⚡ 4. Manutenção Pedagógica & Citações</h2>
+            
+            <div class="rule-card">
+                🔄 <strong>Atualização Dinâmica:</strong> Se um aluno alterar o delineamento metodológico do projeto, basta atualizar a linha correspondente na <em>Infobox</em> (ex: trocar <code>[[Estudo de Caso]]</code> por <code>[[Pesquisa-Ação]]</code>). O grafo de conexões se atualiza em tempo real.
+            </div>
+
+            <div class="rule-card">
+                📖 <strong>Normas ABNT:</strong> Todas as páginas conceituais e fichas de anteprojetos seguem a padronização das normas <strong>ABNT NBR 10520</strong> (citações) e <strong>ABNT NBR 6023</strong> (referências).
+            </div>
+        </section>
+
+        <!-- NAVEGAÇÃO -->
+        <div class="back-nav">
+            <a href="index.html" class="btn-back">← Portal PSJ0111</a>
+            <a href="wikipedia/index.html" class="btn-back">🌐 Abrir Wikipédia MPE</a>
+            <a href="arvore-mpe.html" class="btn-back">Ver Árvore de Arquivos →</a>
+        </div>
+
+    </main>
+
+</body>
+</html>

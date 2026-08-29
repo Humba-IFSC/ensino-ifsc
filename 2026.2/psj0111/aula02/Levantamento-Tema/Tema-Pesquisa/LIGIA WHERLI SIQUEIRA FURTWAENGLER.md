@@ -1,58 +1,90 @@
-# Levantamento Inicial: Seu Caminho para o TCC (Pesquisa em Educação)
+# LIGIA WHERLI SIQUEIRA FURTWAENGLER
 
-## SEÇÃO 1: Identificação Básica
+<div style="float: right; width: 330px; margin: 0 0 1em 1em; padding: 14px; border: 1px solid #4a5568; border-radius: 8px; background-color: rgba(30, 41, 59, 0.7); font-size: 0.88em; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);">
+  <div style="text-align: center; font-weight: bold; font-size: 1.1em; padding-bottom: 8px; border-bottom: 2px solid #3b82f6; margin-bottom: 10px; color: #60a5fa;">
+    🏛️ FICHA DE PESQUISADOR (TCC)
+  </div>
+  <div style="text-align: center; margin-bottom: 12px;">
+    <strong style="font-size: 1.05em;">Ligia Wherli Siqueira Furtwaengler</strong><br/>
+    <span style="font-size: 0.85em; opacity: 0.85;">Especialização em Educação Ambiental (IFSC)</span>
+  </div>
+  <table style="width: 100%; border-collapse: collapse; font-size: 0.88em;">
+    <tr><td style="padding: 4px 0; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1);">UC:</td><td style="padding: 4px 0;">PSJ0111 (MPE)</td></tr>
+    <tr><td style="padding: 4px 0; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1);">Docentes:</td><td style="padding: 4px 0;">Humberto, Joce e Volmir</td></tr>
+    <tr><td style="padding: 4px 0; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1);">1. Natureza:</td><td style="padding: 4px 0;">[[1. Natureza|Aplicada]]</td></tr>
+    <tr><td style="padding: 4px 0; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1);">2. Objetivos:</td><td style="padding: 4px 0;">[[2. Objetivos|Descritiva]]</td></tr>
+    <tr><td style="padding: 4px 0; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1);">3. Procedimento:</td><td style="padding: 4px 0;">[[3. Procedimento|Pesquisa-Ação]] / [[Pesquisa-Ação]]</td></tr>
+    <tr><td style="padding: 4px 0; font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1);">4. Abordagem:</td><td style="padding: 4px 0;">[[4. Abordagem|Qualitativa]]</td></tr>
+  </table>
+</div>
+
+### 📌 TÍTULO PROVISÓRIO DO TCC
+*Educação Ambiental no Programa Defesa Civil na Escola: uma proposta de apoio à prática pedagógica no Ensino Fundamental II*
+
+---
+
+## 🎯 1. DELIMITAÇÃO DO TEMA E PROBLEMA DE PESQUISA
+*   **Tema:** Desenvolvimento de material pedagógico/jogo de apoio didático para o Programa Defesa Civil na Escola (PDCE) no Ensino Fundamental II.
+*   **Problema de Pesquisa:** De que forma o PDCE pode fortalecer a Educação Ambiental para redução de riscos e desastres, apoiando os professores na construção de atividades mais próximas da realidade local e capazes de despertar maior interesse e participação dos estudantes?
+
+---
+
+## 🏛️ 2. MATRIZ DE CLASSIFICAÇÃO METODOLÓGICA E JUSTIFICATIVAS (ABNT)
+
+| Pilar Metodológico | Classificação | Justificativa Científica e Epistemológica |
+| :--- | :--- | :--- |
+| **1. Natureza** | `[[1. Natureza\|Aplicada]]` | Elabora um material pedagógico prático direcionado a resolver demandas urgentes de apoio ao docente em sala de aula. |
+| **2. Objetivos** | `[[2. Objetivos\|Descritiva]]` | Caracteriza as dinâmicas de percepção de risco e as dificuldades pedagógicas dos docentes do programa. |
+| **3. Procedimento** | `[[3. Procedimento\|Pesquisa-Ação]]` / `[[Pesquisa-Ação]]` | Desenvolve atividades interventivas conjuntas em sala de aula, reavaliando continuamente a prática de ERRD (Tripp, 2005). |
+| **4. Abordagem** | `[[4. Abordagem\|Qualitativa]]` | Interpreta em profundidade os relatos dos discentes e as observações de engajamento escolar em campo. |
+
+---
+
+## 📝 3. REGISTRO INTEGRAL DO LEVANTAMENTO INICIAL
+
+### SEÇÃO 1: Identificação Básica
 * **Nome Completo:** LIGIA WHERLI SIQUEIRA FURTWAENGLER
 * **Endereço de e-mail:** wherli.ligia@gmail.com
 * **Carimbo de data/hora:** 03/08/2026 21:25:23
 
 ---
 
-## SEÇÃO 2: O Ponto de Partida (Sua Curiosidade)
-
-#### ❓ Pergunta 2.1: Em poucas palavras e de forma simples: o que desperta a sua curiosidade na área da Educação? Que assunto, problema da prática escolar ou tema você gostaria de entender melhor no seu TCC?
-Trabalho no Programa Defesa Civil na Escola, que já propõe atividades transversais voltadas à redução de riscos e desastres. No entanto, gostaria de entender melhor como fortalecer a Educação Ambiental dentro desse programa, aproximando ainda mais as atividades da realidade local de cada comunidade escolar.
-No meu TCC, pretendo estudar como apoiar os professores do Ensino Fundamental II na construção de práticas pedagógicas mais dialógicas, críticas e participativas, inspiradas na lógica Freiriana. Gostaria de gerar um produto final. Que pode ser um jogo de tabuleiro, por exemplo. Em função de já ter afinidade com criação de materiais educativas. Mas essa é só uma ideia inicial.
+### SEÇÃO 2: O Ponto de Partida (Sua Curiosidade)
+#### ❓ Pergunta 2.1: Pergunta de Curiosidade
+Trabalho no Programa Defesa Civil na Escola (PDCE)... Gostaria de entender melhor como fortalecer a Educação Ambiental dentro desse programa, aproximando as atividades da realidade local de cada comunidade escolar, desenvolvendo um produto educacional (como um jogo de tabuleiro).
 
 ---
 
-## SEÇÃO 3: Afunilando o Assunto (Opcional)
-
+### SEÇÃO 3: Afunilando o Assunto
 #### ❓ Pergunta 3.1: Delimitação do Tema
 O fortalecimento da Educação Ambiental no Programa Defesa Civil na Escola, por meio de práticas pedagógicas voltadas à realidade local, com professores do Ensino Fundamental II.
-
- (Não sei se atende, mas escrevi pensando em responder algumas etapas que utilizo ao realizar projetos, sempre começo por estas perguntas: O que - Educação Ambiental no Programa Defesa Civil na Escola. Perspectiva- aproximar as atividades da realidade local.
-Sujeito ou para quem se destina - professores do Ensino Fundamental II.
-Contexto ou realidade abrangida -rede pública, no Programa Defesa Civil na Escola.)
 
 #### ❓ Pergunta 3.2: Título Provisório para o TCC
 Educação Ambiental no Programa Defesa Civil na Escola: uma proposta de apoio à prática pedagógica no Ensino Fundamental II
 
 ---
 
-## SEÇÃO 4: O "Porquê" e a Pergunta de Pesquisa (Opcional)
-
+### SEÇÃO 4: O "Porquê" e a Pergunta de Pesquisa
 #### ❓ Pergunta 4.1: Justificativa da Escolha
-A escolha desse tema surgiu a partir da minha vivência no PDCE, onde administro, acompanho açoes  e crio materiais o desenvolvimento de atividades relacionadas à prevenção de riscos e desastresnas escolas. Percebo que o programa já possui propostas importantes, mas acredito que existe a possibilidade de aproximar ainda mais essas atividades da realidade de cada escola e da comunidade onde os estudantes estão inseridos. Acredito que investigar essa questão é importante porque a Educação Ambiental pode contribuir para que os alunos compreendam melhor o lugar onde vivem, os problemas e riscos presentes no seu território e a importância de participarem da construção de soluções. Além disso, a pesquisa pode ajudar a pensar em materiais que apoiem os professores e que fomentem a curiosidade e maior engajamento dos alunos. A produção de materiais pedagógicos também pode contribuir não só para o programa de sc, mas também para outros programas e projetos que trabalhem com educação para redução de riscos e desastres. O poder de difusão do PDCE para outros Estados do Brasil é muito extenso, visto que o programa já recebe pedidos externos até internacionais de colaboração. Portanto, um materiail desse tipo pode contribuir para várias instituições nesta área.
+A escolha desse tema surgiu a partir da minha vivência no PDCE... A Educação Ambiental pode contribuir para que os alunos compreendam o lugar onde vivem, os problemas e riscos presentes no território e a importância de participarem da construção de soluções.
 
-#### ❓ Pergunta 4.2: O Problema de Pesquisa (Sua Dúvida Central)
+#### ❓ Pergunta 4.2: O Problema de Pesquisa
 De que forma o PDCE pode fortalecer a Educação Ambiental para redução de riscos e desastres, apoiando os professores na construção de atividades mais próximas da realidade local e capazes de despertar maior interesse e participação dos estudantes?
 
 ---
 
-## SEÇÃO 5: Metodologia - O "Como" Imaginado (Opcional)
+### SEÇÃO 5: Metodologia - O "Como" Imaginado
+#### ❓ Pergunta 5.1: Delineamento Imaginado
+Pesquisa Documental e Pesquisa-Ação.
 
-#### ❓ Pergunta 5.1: Qual caminho/delineamento você imagina trilhar para buscar as respostas para o seu estudo?
-Pesquisa Documental: Baseada em materiais que ainda não receberam tratamento analítico anterior (ex: regimentos escolares, projetos pedagógicos, relatórios internos, documentos oficiais)., Pesquisa-Ação: Realizada em estreita associação com uma ação ou intervenção prática para resolver um problema coletivo ou necessidade da comunidade escolar, exigindo a participação cooperativa do pesquisador e dos sujeitos.
+#### ❓ Pergunta 5.2: Ferramentas de Coleta
+Questionário.
 
-#### ❓ Pergunta 5.2: Se você pretende realizar trabalho de campo ou coleta de dados, que ferramentas de coleta você imagina utilizar?
-Questionário: Série ordenada de perguntas abertas, fechadas ou de múltipla escolha preenchidas diretamente pelo próprio respondente de forma escrita.
-
-#### ❓ Pergunta 5.3: Qual é a abordagem metodológica predominante que você vislumbra?
-Predominantemente Qualitativa: Focada na relação dinâmica entre o mundo real e a subjetividade dos sujeitos, interpretando fenômenos no ambiente natural e atribuindo-lhes significados descritivos (sem uso estatístico como centro da análise).
+#### ❓ Pergunta 5.3: Abordagem Predominante
+Predominantemente Qualitativa.
 
 ---
 
-## SEÇÃO 6: Diálogo Acadêmico (Opcional)
-
-#### ❓ Pergunta 6.1: Qual é a sua maior dúvida, medo ou dificuldade metodológica/teórica que você visualiza neste momento para iniciar a escrita do projeto?
-Minha principal dificuldade neste é delimitar melhor o tema. Eu já tenho uma ideia inicial, mas ainda tenho dúvidas se esse tema está bem direcionado ou se está muito amplo e básico. A escrita e a elaboração de projetos já fazem parte do meu trabalho diário, então não vejo isso como uma dificuldade. Minha maior preocupação é construir uma boa base para o TCC, com um tema que tenha relevância e que possa contribuir para minha continuidade acadêmica, pois pretendo me candidatar ano que vêm a um mestrado na área de desastres. Então fazer esta base no TCC pra mim é de grande importância.
+### SEÇÃO 6: Diálogo Acadêmico
+#### ❓ Pergunta 6.1: Dificuldade Principal
+Delimitar melhor o tema e construir uma boa base para o TCC voltada para prosseguimento no Mestrado na área de desastres.

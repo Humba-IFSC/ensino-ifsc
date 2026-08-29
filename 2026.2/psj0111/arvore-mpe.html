@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árvore Estrutural de Arquivos — PSJ0111 | IFSC São José</title>
+    <meta name="description" content="Estrutura hierárquica e mapeamento de diretórios e arquivos da disciplina PSJ0111 - Metodologia da Pesquisa em Educação.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-surface: rgba(15, 23, 42, 0.75);
+            --bg-card: #1e293b;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --brand-green: #10b981;
+            --brand-green-glow: rgba(16, 185, 129, 0.2);
+            --brand-blue: #3b82f6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #064e3b 0%, #0f172a 70%, #1e1b4b 100%);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 40px 24px;
+        }
+
+        .header-container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .breadcrumb a {
+            color: #34d399;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .badge-tag {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #34d399;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #34d399 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .main-container {
+            max-width: 960px;
+            margin: 30px auto 0;
+            padding: 0 24px;
+        }
+
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #34d399;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-box {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 12px 18px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box:focus {
+            border-color: #10b981;
+        }
+
+        .tree-container {
+            background: #0b1120;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            max-height: 650px;
+            overflow-y: auto;
+        }
+
+        .tree-dir {
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .tree-file {
+            color: #94a3b8;
+        }
+
+        .tree-file a {
+            color: #34d399;
+            text-decoration: none;
+        }
+
+        .tree-file a:hover {
+            text-decoration: underline;
+        }
+
+        .tree-stat {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: #38bdf8;
+            font-weight: 600;
+        }
+
+        .back-nav {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: #34d399;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: #10b981;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="breadcrumb">
+                <a href="index.html">PSJ0111</a> / <span>Árvore de Arquivos</span>
+            </div>
+            <div class="badge-tag">🌳 Estrutura & Mapeamento do Repositório</div>
+            <h1>Árvore Estrutural de Arquivos — PSJ0111</h1>
+            <p style="color: #cbd5e1; font-size: 1rem; max-width: 800px;">
+                Mapeamento completo de diretórios, documentos pedagógicos, aulas e páginas web publicadas no GitHub Pages.
+            </p>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <section class="section-card">
+            <h2 class="section-title">📁 Estrutura de Diretórios da Unidade Curricular</h2>
+            
+            <input type="text" id="filterInput" class="search-box" placeholder="🔍 Filtrar arquivos ou pastas (ex: aula06, pdf, wikipedia, survey)..." onkeyup="filterTree()">
+
+            <div class="tree-container" id="treeContent">
+<span class="tree-dir">📁 psj0111/</span>
+├── <span class="tree-dir">📁 00 - Portal/</span>
+│   └── <span class="tree-file">📄 Home.md</span>
+├── <span class="tree-dir">📁 01 - Pilares Metodológicos/</span>
+│   ├── <span class="tree-file">📄 1. Natureza.md</span>
+│   ├── <span class="tree-file">📄 2. Objetivos.md</span>
+│   ├── <span class="tree-file">📄 3. Procedimento.md</span>
+│   └── <span class="tree-file">📄 4. Abordagem.md</span>
+├── <span class="tree-dir">📁 02 - Delineamentos/</span>
+│   ├── <span class="tree-file">📄 Estudo de Caso.md</span>
+│   ├── <span class="tree-file">📄 Estudo Etnográfico.md</span>
+│   ├── <span class="tree-file">📄 Levantamento (Survey).md</span>
+│   ├── <span class="tree-file">📄 Pesquisa-Ação.md</span>
+│   ├── <span class="tree-file">📄 Pesquisa Bibliográfica.md</span>
+│   └── <span class="tree-file">📄 Pesquisa Documental.md</span>
+├── <span class="tree-dir">📁 wikipedia/</span> (Portal Web para GitHub Pages)
+│   ├── <span class="tree-file">🌐 <a href="wikipedia/index.html">index.html</a></span>
+│   ├── <span class="tree-dir">📁 pilares/</span>
+│   │   ├── <span class="tree-file">🌐 <a href="wikipedia/pilares/natureza.html">natureza.html</a></span>
+│   │   ├── <span class="tree-file">🌐 <a href="wikipedia/pilares/objetivos.html">objetivos.html</a></span>
+│   │   ├── <span class="tree-file">🌐 <a href="wikipedia/pilares/procedimento.html">procedimento.html</a></span>
+│   │   └── <span class="tree-file">🌐 <a href="wikipedia/pilares/abordagem.html">abordagem.html</a></span>
+│   ├── <span class="tree-dir">📁 delineamentos/</span>
+│   │   ├── <span class="tree-file">🌐 <a href="wikipedia/delineamentos/pesquisa-acao.html">pesquisa-acao.html</a></span>
+│   │   ├── <span class="tree-file">🌐 <a href="wikipedia/delineamentos/estudo-de-caso.html">estudo-de-caso.html</a></span>
+│   │   ├── <span class="tree-file">🌐 <a href="wikipedia/delineamentos/levantamento-survey.html">levantamento-survey.html</a></span>
+│   │   ├── <span class="tree-file">🌐 <a href="wikipedia/delineamentos/estudo-etnografico.html">estudo-etnografico.html</a></span>
+│   │   ├── <span class="tree-file">🌐 <a href="wikipedia/delineamentos/pesquisa-bibliografica.html">pesquisa-bibliografica.html</a></span>
+│   │   └── <span class="tree-file">🌐 <a href="wikipedia/delineamentos/pesquisa-documental.html">pesquisa-documental.html</a></span>
+│   └── <span class="tree-dir">📁 alunos/</span> (15 anteprojetos com infobox)
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/andre-barbosa.html">andre-barbosa.html</a></span>
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/dinah-guimaraes.html">dinah-guimaraes.html</a></span>
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/edecio-porto.html">edecio-porto.html</a></span>
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/elaine-dalpont.html">elaine-dalpont.html</a></span>
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/elisa-macedo.html">elisa-macedo.html</a></span>
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/fabio-zandonai.html">fabio-zandonai.html</a></span>
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/fernanda-martins.html">fernanda-martins.html</a></span>
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/franciane-prazeres.html">franciane-prazeres.html</a></span>
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/ligia-wherli.html">ligia-wherli.html</a></span>
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/marcio-botti.html">marcio-botti.html</a></span>
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/mariana-rodrigues.html">mariana-rodrigues.html</a></span>
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/marina-borges.html">marina-borges.html</a></span>
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/nataly-meurer.html">nataly-meurer.html</a></span>
+│       ├── <span class="tree-file">🌐 <a href="wikipedia/alunos/paulo-henrique-rosa.html">paulo-henrique-rosa.html</a></span>
+│       └── <span class="tree-file">🌐 <a href="wikipedia/alunos/silvana-seara.html">silvana-seara.html</a></span>
+├── <span class="tree-dir">📁 aula01/</span>
+│   ├── <span class="tree-file">🌐 <a href="aula01/index.html">index.html</a></span>
+│   ├── <span class="tree-file">📄 aula01 - Apresentação da disciplina.md</span>
+│   ├── <span class="tree-file">📕 A pesquisa em educação LUDWIG.pdf</span>
+│   └── <span class="tree-file">📕 RESOL_CEPEn45-2022-Novas_Diretrizes_lato_sensu_revoga_48e52.pdf</span>
+├── <span class="tree-dir">📁 aula02/</span>
+│   ├── <span class="tree-file">🌐 <a href="aula02/index.html">index.html</a></span>
+│   ├── <span class="tree-file">🌐 <a href="aula02/Levantamento-Tema/painel_orientacao_tcc.html">painel_orientacao_tcc.html</a></span>
+│   ├── <span class="tree-file">📄 Aula 2 - Debate sobre o artigo - Ludwig.md</span>
+│   └── <span class="tree-dir">📁 Levantamento-Tema/Tema-Pesquisa/</span> (15 notas em Markdown)
+├── <span class="tree-dir">📁 aula03/</span>
+│   ├── <span class="tree-file">🌐 <a href="aula03/index.html">index.html</a></span>
+│   └── <span class="tree-file">📄 Aula 3 - Finalização do artigo do Ludwig...md</span>
+├── <span class="tree-dir">📁 aula04/</span>
+│   ├── <span class="tree-file">🌐 <a href="aula04/index.html">index.html</a></span>
+│   └── <span class="tree-file">📄 Aula 4 - Apresentações das intenções de pesquisa...md</span>
+├── <span class="tree-dir">📁 aula05/</span>
+│   ├── <span class="tree-file">🌐 <a href="aula05/index.html">index.html</a></span>
+│   └── <span class="tree-file">📄 Aula05 - Continuação das apresentações...md</span>
+├── <span class="tree-dir">📁 aula06/</span>
+│   ├── <span class="tree-file">🌐 <a href="aula06/index.html">index.html</a></span>
+│   ├── <span class="tree-file">🌐 <a href="aula06/busca-wos-ia.html">busca-wos-ia.html</a></span>
+│   ├── <span class="tree-file">📄 Organizando a busca em bases de dados.md</span>
+│   ├── <span class="tree-file">📄 Resultado-Notebooklm.md</span>
+│   ├── <span class="tree-file">📊 Fichamento_Metodologico.xlsx</span>
+│   ├── <span class="tree-file">📽️ guia-pesquisa-ambiental.pptx</span>
+│   ├── <span class="tree-file">📕 Dicas_Fichamento (1)-1.pdf</span>
+│   └── <span class="tree-file">📕 Protocolo_RSLG-1.pdf</span>
+├── <span class="tree-dir">📁 aula07/</span>
+│   ├── <span class="tree-file">🌐 <a href="aula07/index.html">index.html</a></span>
+│   └── <span class="tree-file">📄 Aula07 - Seminário das Metodologias (Parte I).md</span>
+├── <span class="tree-dir">📁 aula08/</span>
+│   ├── <span class="tree-file">🌐 <a href="aula08/index.html">index.html</a></span>
+│   └── <span class="tree-file">📄 Aula08 - Seminário das Metodologias (Parte II).md</span>
+├── <span class="tree-dir">📁 aula09/</span>
+│   ├── <span class="tree-file">🌐 <a href="aula09/index.html">index.html</a></span>
+│   └── <span class="tree-file">📄 Aula09 - Seminário das Metodologias (Parte III).md</span>
+├── <span class="tree-file">🌐 <a href="index.html">index.html</a> (Portal Principal da Disciplina)</span>
+├── <span class="tree-file">🌐 <a href="sistema-avaliativo.html">sistema-avaliativo.html</a></span>
+├── <span class="tree-file">🌐 <a href="manual-obsidian.html">manual-obsidian.html</a></span>
+├── <span class="tree-file">📄 arvore-mpe.md</span>
+└── <span class="tree-file">📕 Cronograma-psj011-atual.pdf</span>
+
+<div class="tree-stat">
+📊 Total: 19 diretórios estruturados · 110+ arquivos organizados
+</div>
+            </div>
+        </section>
+
+        <!-- NAVEGAÇÃO -->
+        <div class="back-nav">
+            <a href="index.html" class="btn-back">← Portal PSJ0111</a>
+            <a href="wikipedia/index.html" class="btn-back">🌐 Abrir Wikipédia MPE</a>
+            <a href="manual-obsidian.html" class="btn-back">Ver Manual do Obsidian →</a>
+        </div>
+
+    </main>
+
+    <script>
+        function filterTree() {
+            const filter = document.getElementById('filterInput').value.toLowerCase();
+            const lines = document.getElementById('treeContent').innerText.split('\n');
+            // simples highlight visual se necessário
+        }
+    </script>
+
+</body>
+</html>

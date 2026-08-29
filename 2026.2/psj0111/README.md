@@ -1,3 +1,9 @@
+# 🌐 WIKIPÉDIA ACADÊMICA MPE-2026-2 (VAULT OBSIDIAN)
+> 🚀 **Portal Central da Wikipédia:** [[00 - Portal/Home.md|Acessar o Dashboard Central da Wikipédia]]  
+> Conectando os **Pilares Metodológicos**, os **Delineamentos Práticos** e os **15 Anteprojetos de TCC** discentes através de `[[Wiki-Links]]` bidirecionais e Infoboxes Wikipedia em HTML.
+
+---
+
 # 🎓 PSJ0111 — Metodologia da Pesquisa em Educação
 
 **Curso:** Especialização em Educação Ambiental com Ênfase na Formação de Professores (2026.1)  

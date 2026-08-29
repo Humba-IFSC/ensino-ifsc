@@ -9,7 +9,7 @@
   <table style="width: 100%; border-collapse: collapse;">
     <tr><td style="padding: 3px 0; font-weight: bold;">Categoria:</td><td>Imersão Antropológica</td></tr>
     <tr><td style="padding: 3px 0; font-weight: bold;">Fonte Primária:</td><td>Observação Participante de Campo</td></tr>
-    <tr><td style="padding: 3px 0; font-weight: bold;">Autores-Chave:</td><td>Geertz, André</td></tr>
+    <tr><td style="padding: 3px 0; font-weight: bold;">Autores-Chave:</td><td>Geertz, André, Brandão</td></tr>
     <tr><td style="padding: 3px 0; font-weight: bold;">Foco na EA:</td><td>Saberes Tradicionais & Ecologia Local</td></tr>
   </table>
 </div>
@@ -18,19 +18,26 @@
 
 ## 📖 1. FUNDAMENTAÇÃO TEÓRICA (ABNT)
 
-O **Estudo Etnográfico** fundamenta-se na antropologia interpretativa (Geertz, 1989; André, 2005) e busca a construção de uma **descrição densa** dos significados, rituais e valores atribuídos por determinado grupo social ao seu cotidiano.
+O **Estudo Etnográfico** fundamenta-se na antropologia cultural e visa à **descrição densa** dos significados, rituais, crenças e práticas de um grupo social em seu ambiente natural (Geertz, 1989). 
+
+Marli André (2005), ao transpor a etnografia para a educação (etnografia educacional), aponta que o método exige:
+1.  **Inserção Prolongada em Campo:** O pesquisador convive com os sujeitos no território.
+2.  **Observação Participante:** Acompanhamento das rotinas diárias e registros em diário de campo.
+3.  **Atenção aos Sentidos Nativos:** Compreensão do ponto de vista dos próprios atores locais.
 
 ---
 
 ## 🌿 2. APLICAÇÃO NA EDUCAÇÃO AMBIENTAL
 
-Permite analisar a relação simbiótica entre manifestações culturais açorianas (ex: Renda de Bilro) e o meio ambiente local, compreendendo como tradições populares lidam com problemas contemporâneos de saúde e saneamento (focos de Dengue).
+Na Educação Ambiental, o Estudo Etnográfico é essencial para compreender as dinâmicas socioculturais e ecológicas de comunidades tradicionais (rendeiras, pescadores, agricultores familiares), investigando como saberes ancestrais dialogam com desafios contemporâneos de saneamento e saúde pública.
 
 ---
 
-## 👥 3. DISCENTE QUE ADOTA O ESTUDO ETNOGRÁFICO NO VAULT MPE-2026-2
+## 👥 3. DISCENTES QUE ADOTAM O ESTUDO ETNOGRÁFICO NO VAULT MPE-2026-2
 
-*   [Elisa Duarte Macedo de Sousa](../aula02/Levantamento-Tema/Tema-Pesquisa/Elisa%20Duarte%20Macedo%20de%20Sousa.md) — *Mapeamento da relação cultura-natureza e ecologia local: da tradição da Renda de Bilro ao combate à Dengue.*
+Clique na ficha da discente para explorar o projeto etnográfico:
+
+*   `[[Elisa Duarte Macedo de Sousa]]` — *Mapeamento da relação cultura-natureza e ecologia local: tensões entre patrimônio cultural (Renda de Bilro) e saneamento (Dengue).*
 
 ---
 
@@ -40,4 +47,4 @@ Permite analisar a relação simbiótica entre manifestações culturais açoria
 *   GEERTZ, Clifford. **A interpretação das culturas**. Rio de Janeiro: LTC, 1989.
 
 ---
-🔙 Retornar ao [Portal Home da Wikipédia](../00%20-%20Portal/Home.md) | Ver Pilar [3. Procedimento](../01%20-%20Pilares%20Metodol%C3%B3gicos/3.%20Procedimento.md)
+🔙 Retornar ao `[[Home|Portal Home da Wikipédia]]` | Ver Pilar `[[3. Procedimento]]`
