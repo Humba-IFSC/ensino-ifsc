@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards — Aula 05/06: Princípios da Óptica e Espelhos Planos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: rgba(15, 23, 42, 0.85);
+            --border-card: rgba(56, 189, 248, 0.25);
+            --accent-green: #4ade80;
+            --accent-cyan: #38bdf8;
+            --accent-purple: #c084fc;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(74, 222, 128, 0.08) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateX(-2px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.75rem;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+        .progress-bar-bg {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin: 0 1rem;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 2%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .btn-ctrl {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #e2e8f0;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.6rem;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .btn-ctrl:hover {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: var(--accent-cyan);
+            color: #fff;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .flashcard {
+            perspective: 1000px;
+            height: 240px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-card);
+        }
+
+        .card-front {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8));
+            color: #f1f5f9;
+        }
+
+        .card-back {
+            background: linear-gradient(145deg, rgba(16, 42, 66, 0.95), rgba(15, 23, 42, 0.95));
+            color: #e2e8f0;
+            transform: rotateY(180deg);
+            border-color: rgba(74, 222, 128, 0.4);
+        }
+
+        .card-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.4rem;
+        }
+        .card-front .card-tag {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        .card-back .card-tag {
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .card-body {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.45;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            width: 100%;
+        }
+
+        .card-hint {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        @media (max-width: 640px) {
+            .grid-cards { grid-template-columns: 1fr; }
+            .flashcard { height: 260px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="btn-back">← Voltar para Central de Ensino</a>
+
+        <div class="header">
+            <h1>🧠 Flashcards de Estudo — Aula 05/06</h1>
+            <p>Princípios da Óptica Geométrica, Leis da Reflexão e Espelhos Planos</p>
+        </div>
+
+        <div class="stats-bar">
+            <span id="counterText">15 Cartões de Estudo</span>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressFill"></div>
+            </div>
+            <span>Clique para revelar a resposta 🔄</span>
+        </div>
+
+        <div class="controls">
+            <button class="btn-ctrl" onclick="shuffleCards()">🎲 Embaralhar</button>
+            <button class="btn-ctrl" onclick="flipAll()">🔄 Virar Todos</button>
+            <button class="btn-ctrl" onclick="resetCards()">↺ Reiniciar</button>
+        </div>
+
+        <div class="grid-cards" id="cardsGrid"></div>
+    </div>
+
+    <script>
+        const cardsData = [
+            {
+                        "front": "De acordo com a primeira lei da reflexão, qual é a relação espacial entre o raio incidente, o raio refletido e a reta normal?",
+                        "back": "Eles são coplanares, ou seja, estão situados no mesmo plano."
+            },
+            {
+                        "front": "Enuncie a segunda lei da reflexão em termos dos ângulos de incidência ($i$) e de reflexão ($r$).",
+                        "back": "O ângulo de reflexão é igual ao ângulo de incidência ($r = i$)."
+            },
+            {
+                        "front": "Qual é a natureza da imagem de um ponto-objeto real em um espelho plano?",
+                        "back": "A imagem é virtual, pois é formada pela interseção dos prolongamentos dos raios refletidos."
+            },
+            {
+                        "front": "Como se comparam a distância do objeto ao espelho plano e a distância da imagem ao mesmo espelho?",
+                        "back": "Elas são iguais, indicando que o objeto e a imagem são equidistantes e simétricos em relação à superfície refletora."
+            },
+            {
+                        "front": "O que caracteriza o fenômeno do enantiomorfismo em imagens de objetos extensos em espelhos planos?",
+                        "back": "A imagem não se superpõe ao objeto, havendo uma troca entre a direita e a esquerda."
+            },
+            {
+                        "front": "Quais fatores determinam o campo visual de um espelho plano em relação a um observador?",
+                        "back": "O tamanho do espelho, a posição do espelho e a posição do olho do observador."
+            },
+            {
+                        "front": "Se um espelho plano sofre uma translação de uma distância $d$ em relação a um objeto fixo, qual será o deslocamento $D$ da imagem?",
+                        "back": "O deslocamento da imagem será o dobro do deslocamento do espelho ($D = 2d$)."
+            },
+            {
+                        "front": "Qual é a relação entre a velocidade da imagem ($v_{i}$) e a velocidade de translação de um espelho plano ($v_{e}$) em relação a um objeto fixo?",
+                        "back": "A velocidade da imagem é o dobro da velocidade do espelho ($v_{i} = 2v_{e}$)."
+            },
+            {
+                        "front": "Ao girar um espelho plano de um ângulo $\\alpha$, qual é o valor do ângulo de rotação $\\Delta$ do raio refletido correspondente?",
+                        "back": "O ângulo de rotação do raio refletido é o dobro do ângulo de rotação do espelho ($\\Delta = 2\\alpha$)."
+            },
+            {
+                        "front": "Qual fórmula calcula o número de imagens ($N$) formadas por um objeto colocado entre dois espelhos planos que formam um ângulo $\\alpha$ entre si?",
+                        "back": "$N = \\frac{360^{\\circ}}{\\alpha} - 1$."
+            },
+            {
+                        "front": "Sob qual condição a fórmula $N = \\frac{360^{\\circ}}{\\alpha} - 1$ é válida quando a relação $\\frac{360^{\\circ}}{\\alpha}$ resulta em um número ímpar?",
+                        "back": "A fórmula é válida apenas se o objeto estiver posicionado no plano bissetor do ângulo $\\alpha$."
+            },
+            {
+                        "front": "Por que a imagem final formada por um periscópio não é enantiomorfa em relação ao objeto original?",
+                        "back": "Devido à ocorrência de uma dupla reflexão em espelhos paralelos, que reverte a inversão lateral inicial."
+            },
+            {
+                        "front": "Escreva a Equação de Gauss para o estudo analítico de espelhos esféricos utilizando a distância focal ($f$), distância do objeto ($p$) e distância da imagem ($p'$).",
+                        "back": "$\\frac{1}{f} = \\frac{1}{p} + \\frac{1}{p'}$."
+            },
+            {
+                        "front": "Diferencie um sistema óptico estigmático de um sistema astigmático.",
+                        "back": "O estigmático conjuga um único ponto-imagem a um ponto-objeto, enquanto o astigmático conjuga uma mancha luminosa."
+            },
+            {
+                        "front": "Como se define um 'ponto-imagem real' em termos de trajetória de raios luminosos?",
+                        "back": "É o ponto definido pela interseção efetiva dos raios luminosos emergentes (refletidos)."
+            }
+];
+
+        let currentCards = [...cardsData];
+        let flippedAll = false;
+
+        function renderCards() {
+            const grid = document.getElementById('cardsGrid');
+            grid.innerHTML = '';
+
+            currentCards.forEach((c, idx) => {
+                const cardEl = document.createElement('div');
+                cardEl.className = 'flashcard';
+                cardEl.onclick = () => cardEl.classList.toggle('flipped');
+
+                cardEl.innerHTML = `
+                    <div class="flashcard-inner">
+                        <div class="card-front">
+                            <span class="card-tag">Cartão ${idx + 1} de ${currentCards.length}</span>
+                            <div class="card-body">${c.front}</div>
+                            <div class="card-hint">💡 Clique para ver a resposta</div>
+                        </div>
+                        <div class="card-back">
+                            <span class="card-tag">Conceito / Resposta</span>
+                            <div class="card-body">${c.back}</div>
+                            <div class="card-hint">🔄 Clique para voltar à pergunta</div>
+                        </div>
+                    </div>
+                `;
+
+                grid.appendChild(cardEl);
+            });
+
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function shuffleCards() {
+            currentCards.sort(() => Math.random() - 0.5);
+            renderCards();
+        }
+
+        function flipAll() {
+            flippedAll = !flippedAll;
+            const allCards = document.querySelectorAll('.flashcard');
+            allCards.forEach(c => {
+                if (flippedAll) {
+                    c.classList.add('flipped');
+                } else {
+                    c.classList.remove('flipped');
+                }
+            });
+        }
+
+        function resetCards() {
+            flippedAll = false;
+            currentCards = [...cardsData];
+            renderCards();
+        }
+
+        window.onload = renderCards;
+    </script>
+</body>
+</html>

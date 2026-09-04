@@ -1,0 +1,255 @@
+{
+  "title": "Termologia Quiz - Aula 07",
+  "questions": [
+    {
+      "id": 1,
+      "title": "1. De acordo com os conceitos da Termologia, como deve ser corretamente definida a grandeza física 'calor'?",
+      "hint": "Considere o calor como um processo de transferência de energia e não como algo que um corpo possui.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Energia térmica em trânsito entre corpos motivada por uma diferença de temperatura."
+        },
+        {
+          "letter": "B",
+          "text": "A medida do grau de agitação das moléculas de um sistema isolado."
+        },
+        {
+          "letter": "C",
+          "text": "Uma substância fluida que preenche os espaços entre os átomos de um sólido."
+        },
+        {
+          "letter": "D",
+          "text": "A energia interna total contida em um corpo em repouso."
+        }
+      ],
+      "answer": "A",
+      "rationale": "O calor é caracterizado como energia em movimento de um corpo de maior temperatura para um de menor temperatura até o equilíbrio."
+    },
+    {
+      "id": 2,
+      "title": "2. Um corpo de massa $200$ g é constituído por uma substância de calor específico $0,4$ cal/g $\\cdot$ $^{\\circ}$C. Qual a quantidade de calor necessária para que sua temperatura varie de $20$ $^{\\circ}$C para $25$ $^{\\circ}$C?",
+      "hint": "Aplique a Equação Fundamental da Calorimetria utilizando a diferença entre as temperaturas.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "$1000$ cal"
+        },
+        {
+          "letter": "B",
+          "text": "$2000$ cal"
+        },
+        {
+          "letter": "C",
+          "text": "$400$ cal"
+        },
+        {
+          "letter": "D",
+          "text": "$80$ cal"
+        }
+      ],
+      "answer": "C",
+      "rationale": "Utilizando a equação fundamental $Q = m \\cdot c \\cdot \\Delta T$, temos $200 \\cdot 0,4 \\cdot 5 = 400$ calorias."
+    },
+    {
+      "id": 3,
+      "title": "3. Por que as fagulhas de um esmeril, apesar de estarem em altíssima temperatura, geralmente não causam queimaduras graves na pele do operador?",
+      "hint": "Relacione a massa pequena dessas partículas com a facilidade de perderem energia térmica.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pois possuem baixa capacidade térmica e cedem pouco calor até atingir o equilíbrio."
+        },
+        {
+          "letter": "B",
+          "text": "Devido ao fenômeno da convecção térmica que afasta o calor da pele."
+        },
+        {
+          "letter": "C",
+          "text": "Pelas fagulhas possuírem um calor específico extremamente elevado."
+        },
+        {
+          "letter": "D",
+          "text": "Porque a temperatura das fagulhas diminui instantaneamente no vácuo."
+        }
+      ],
+      "answer": "A",
+      "rationale": "Corpos com massa muito pequena têm baixa capacidade térmica, o que limita a quantidade total de energia que podem transferir."
+    },
+    {
+      "id": 4,
+      "title": "4. Ao fornecer calor a um bloco de gelo que se encontra exatamente a $0$ $^{\\circ}$C sob pressão de $1$ atm, o que se observa em relação à sua temperatura durante a fusão?",
+      "hint": "Lembre-se do comportamento das curvas de aquecimento durante as transições de fase.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "A temperatura aumenta imediatamente para $100$ $^{\\circ}$C para iniciar a ebulição."
+        },
+        {
+          "letter": "B",
+          "text": "A temperatura permanece constante em $0$ $^{\\circ}$C até que todo o gelo derreta."
+        },
+        {
+          "letter": "C",
+          "text": "A temperatura sobe linearmente de acordo com o calor específico do gelo."
+        },
+        {
+          "letter": "D",
+          "text": "Ocorre uma queda brusca de temperatura devido à absorção de calor latente."
+        }
+      ],
+      "answer": "B",
+      "rationale": "Durante a mudança de estado (calor latente), a energia é usada para romper as ligações moleculares, não para aumentar a agitação térmica."
+    },
+    {
+      "id": 5,
+      "title": "5. Determine a capacidade térmica de um bloco metálico que, ao receber $2000$ calorias, sofre uma variação de temperatura de $400$ $^{\\circ}$C.",
+      "hint": "A capacidade térmica mede quanto calor é necessário para variar a temperatura em apenas uma unidade ($1$ $^{\\circ}$C).",
+      "options": [
+        {
+          "letter": "A",
+          "text": "$5$ cal/$^{\\circ}$C"
+        },
+        {
+          "letter": "B",
+          "text": "$0,2$ cal/$^{\\circ}$C"
+        },
+        {
+          "letter": "C",
+          "text": "$800.000$ cal/$^{\\circ}$C"
+        },
+        {
+          "letter": "D",
+          "text": "$50$ cal/$^{\\circ}$C"
+        }
+      ],
+      "answer": "A",
+      "rationale": "A capacidade térmica $C$ é definida pela razão entre a quantidade de calor $Q$ e a variação de temperatura $\\Delta T$ ($2000 / 400$)."
+    },
+    {
+      "id": 6,
+      "title": "6. Diferente da condução e da convecção, a irradiação térmica é o único mecanismo de transferência de calor que:",
+      "hint": "Pense em como a energia do Sol atinge a Terra através do espaço.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ocorre apenas entre corpos que possuem a mesma temperatura."
+        },
+        {
+          "letter": "B",
+          "text": "Transporta matéria através de correntes circulares de fluidos."
+        },
+        {
+          "letter": "C",
+          "text": "Pode ocorrer no vácuo, sem a necessidade de um meio material."
+        },
+        {
+          "letter": "D",
+          "text": "Depende exclusivamente do contato direto entre as superfícies dos corpos."
+        }
+      ],
+      "answer": "C",
+      "rationale": "A irradiação ocorre por meio de ondas eletromagnéticas, como os raios infravermelhos, que não dependem de matéria para se propagar."
+    },
+    {
+      "id": 7,
+      "title": "7. Segundo a Lei de Kirchhoff, o que se pode afirmar sobre a relação entre a capacidade de absorção e de emissão de calor por um corpo?",
+      "hint": "Considere o comportamento de uma superfície escura (fuligem) em comparação a uma superfície espelhada.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Um bom absorvedor de calor é também um bom emissor."
+        },
+        {
+          "letter": "B",
+          "text": "A emissão de calor é independente da cor ou do acabamento da superfície."
+        },
+        {
+          "letter": "C",
+          "text": "Corpos polidos e claros são excelentes emissores de radiação térmica."
+        },
+        {
+          "letter": "D",
+          "text": "O poder absorvedor de um corpo negro é nulo para qualquer temperatura."
+        }
+      ],
+      "answer": "A",
+      "rationale": "A lei estabelece que a emissividade é igual à absorvidade ($e = a$) para um corpo em equilíbrio térmico."
+    },
+    {
+      "id": 8,
+      "title": "8. Nas estufas de plantas, o aquecimento interno ocorre porque o vidro apresenta qual comportamento físico em relação à radiação solar?",
+      "hint": "Pense no vidro como um filtro que deixa a luz entrar, mas impede o 'calor' de sair.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Atua como um condutor térmico perfeito, transferindo calor do ar externo para o interno."
+        },
+        {
+          "letter": "B",
+          "text": "Reflete totalmente a radiação incidente do Sol antes que ela toque o solo."
+        },
+        {
+          "letter": "C",
+          "text": "Transforma ondas eletromagnéticas em correntes de convecção de alta velocidade."
+        },
+        {
+          "letter": "D",
+          "text": "É transparente à luz visível mas opaco aos raios infravermelhos de baixa frequência reemitidos."
+        }
+      ],
+      "answer": "D",
+      "rationale": "A energia entra como luz, é absorvida e reemitida como infravermelho, que não consegue atravessar o vidro, ficando retida."
+    },
+    {
+      "id": 9,
+      "title": "9. Um sistema gasoso recebe $1000$ J de calor de uma fonte térmica e realiza um trabalho de $400$ J sobre o meio externo. Qual é a variação da energia interna desse sistema?",
+      "hint": "Utilize o balanço energético da Primeira Lei da Termodinâmica, atentando para os sinais de calor recebido e trabalho realizado.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "$-600$ J"
+        },
+        {
+          "letter": "B",
+          "text": "$1400$ J"
+        },
+        {
+          "letter": "C",
+          "text": "$600$ J"
+        },
+        {
+          "letter": "D",
+          "text": "$1000$ J"
+        }
+      ],
+      "answer": "C",
+      "rationale": "Pela Primeira Lei da Termodinâmica ($\\Delta U = Q - W$), a variação é a diferença entre o calor recebido e o trabalho realizado ($1000 - 400$)."
+    },
+    {
+      "id": 10,
+      "title": "10. Para derreter completamente uma barra de $50$ g de gelo que já se encontra a $0$ $^{\\circ}$C, sabendo que o calor latente de fusão do gelo é $L_f = 80$ cal/g, quanto calor deve ser fornecido?",
+      "hint": "Multiplique a massa total pelo calor necessário para fundir cada grama da substância.",
+      "options": [
+        {
+          "letter": "A",
+          "text": "$4000$ cal"
+        },
+        {
+          "letter": "B",
+          "text": "$80$ cal"
+        },
+        {
+          "letter": "C",
+          "text": "$1,6$ cal"
+        },
+        {
+          "letter": "D",
+          "text": "$400$ cal"
+        }
+      ],
+      "answer": "A",
+      "rationale": "A quantidade de calor latente é calculada por $Q = m \\cdot L$, resultando em $50 \\cdot 80 = 4000$ calorias."
+    }
+  ]
+}

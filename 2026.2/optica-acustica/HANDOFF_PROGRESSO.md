@@ -26,17 +26,10 @@
    - `quiz.html`: 10 questões com gabarito comentado, timer de 30 min e comprovante com código hash (`ACU03-...`).
    - Botões `📝 Quiz 2` e `🧠 Flashcards` vinculados nos portais `FSC060805/index.html`, `FCA060906/index.html` e `optica-acustica/index.html`.
 
-5. **Slides da Aula 03:**
-   - Unificados e substituídos pelo arquivo PDF mais recente:
-     `optica-acustica/Aulas/Bloco-1/Aula03/introducao-ondas-sonoras-aula02-aula03.pdf`
-   - Links nos portais `FSC060805/index.html`, `FCA060906/index.html` e `optica-acustica/index.html` devidamente atualizados.
+5. **Aula 05/06 (Bloco 2) — Flashcards & Quiz Interativo (Espelhos Planos):**
+   - `flashcards.html`: 15 cartões interativos cobrindo leis da reflexão, enantiomorfismo, campo visual, translação/rotação e associação de espelhos planos.
+   - `quiz.html`: 10 questões avaliativas com MathJax, cronômetro de 30 min, login institucional, hash de autenticidade (`OGREF02-...`) e gabarito comentado.
+   - Botões `📝 Quiz 3` e `🧠 Flashcards` vinculados nos portais `FSC060805/index.html`, `FCA060906/index.html` e `optica-acustica/index.html`.
 
 6. **Versionamento Git & GitHub:**
    - Todos os arquivos adicionados, comitados e sincronizados com o branch `master` no repositório remoto.
-
----
-
-## 🎯 Próximos Passos (Próxima Sessão):
-
-- [ ] Continuar com a atualização dos Flashcards e Quizzes da **Aula 04** em diante para o curso de Acústica e Óptica.
-- [ ] Atualizações pendentes para as unidades curriculares de Magnetismo e Eletromagnetismo.

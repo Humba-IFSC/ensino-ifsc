@@ -1,268 +1,318 @@
 {
-  "title": "Quiz-OGRef-1",
+  "title": "Quiz-OGRef-2",
   "questions": [
     {
-      "question": "De acordo com os princípios da Óptica Geométrica, o que acontece quando dois raios de luz se cruzam em um mesmo ponto do espaço?",
+      "question": "Um raio de luz incide sobre a superfície de um espelho plano formando um ângulo de $35^{\\circ}$ com a superfície refletora. Qual é o valor do ângulo de reflexão ($r$)?",
       "answerOptions": [
         {
-          "text": "Eles seguem suas trajetórias de forma independente, sem alterar a direção ou a energia um do outro.",
+          "text": "$55^{\\circ}$",
           "isCorrect": true,
-          "rationale": "O princípio da independência estabelece que a propagação de um raio de luz não é afetada pelo cruzamento com outros raios."
+          "rationale": "O ângulo de incidência é medido em relação à normal; como a normal faz $90^{\\circ}$ com a superfície, temos $i = 90^{\\circ} - 35^{\\circ} = 55^{\\circ}$. Pela segunda lei da reflexão, $r = i$."
         },
         {
-          "text": "Eles sofrem um desvio em suas trajetórias originais devido à colisão de fótons.",
+          "text": "$35^{\\circ}$",
           "isCorrect": false,
-          "rationale": "Na Óptica Geométrica, os raios de luz não interagem mecanicamente entre si ao se cruzarem."
+          "rationale": "Este valor corresponde ao ângulo formado com a superfície, e não ao ângulo de incidência ou reflexão, que são definidos em relação à reta normal."
         },
         {
-          "text": "A cor de ambos os raios é alterada permanentemente no ponto de intersecção.",
+          "text": "$70^{\\circ}$",
           "isCorrect": false,
-          "rationale": "A cor é uma propriedade da frequência da luz e não muda simplesmente pelo cruzamento de feixes."
+          "rationale": "Este seria o ângulo entre o raio incidente e o raio refletido, mas a pergunta pede especificamente o ângulo de reflexão isolado."
         },
         {
-          "text": "Eles se fundem em um único raio cuja direção é a resultante vetorial das direções iniciais.",
+          "text": "$90^{\\circ}$",
           "isCorrect": false,
-          "rationale": "Raios de luz mantêm suas identidades individuais e direções de propagação após passarem uns pelos outros."
+          "rationale": "Este é o ângulo da reta normal com a superfície, não representando a trajetória do raio refletido neste cenário."
+        },
+        {
+          "text": "$45^{\\circ}$",
+          "isCorrect": false,
+          "rationale": "Embora seja um ângulo comum em problemas de óptica, não há justificativa geométrica para este valor baseando-se no ângulo de $35^{\\circ}$ com a superfície."
         }
       ],
-      "hint": "Pense no comportamento de feixes de luz em um show ou teatro quando eles se interceptam."
+      "hint": "Lembre-se de que os ângulos de incidência e reflexão são medidos em relação à reta normal, que é perpendicular à superfície."
     },
     {
-      "question": "Um observador está em uma região da Terra onde ocorre um eclipse solar parcial. O que define a visão deste observador em termos de Óptica Geométrica?",
+      "question": "Se um espelho plano sofre uma translação de $12\\text{ cm}$ afastando-se de um objeto fixo, qual será o deslocamento total da imagem em relação à sua posição inicial?",
       "answerOptions": [
         {
-          "text": "Ele se encontra na região de penumbra projetada pela Lua sobre a superfície terrestre.",
+          "text": "$24\\text{ cm}$",
           "isCorrect": true,
-          "rationale": "A penumbra é a região que recebe luz de apenas alguns pontos da fonte extensa (Sol), resultando em uma ocultação parcial."
+          "rationale": "Na translação de um espelho plano, o deslocamento da imagem ($D$) é sempre o dobro do deslocamento do espelho ($d$), ou seja, $D = 2d$."
         },
         {
-          "text": "Ele está localizado exatamente no cone de sombra total da Lua.",
+          "text": "$12\\text{ cm}$",
           "isCorrect": false,
-          "rationale": "Na região de sombra total, o observador presenciaria um eclipse total, não parcial."
+          "rationale": "Este é o deslocamento do espelho; a imagem se move mais pois a distância entre objeto e espelho e espelho e imagem aumentam simultaneamente."
         },
         {
-          "text": "Ele está na região de sombra própria da Terra, impedindo a visão do Sol.",
+          "text": "$6\\text{ cm}$",
           "isCorrect": false,
-          "rationale": "A sombra própria da Terra define a noite, e não o fenômeno de eclipse solar causado pela Lua."
+          "rationale": "Este valor seria metade do deslocamento do espelho, o que contradiz a relação matemática da simetria em espelhos planos."
         },
         {
-          "text": "Ele visualiza a Lua entrando na sombra projetada pela Terra no espaço.",
+          "text": "$36\\text{ cm}$",
           "isCorrect": false,
-          "rationale": "Este cenário descreve um eclipse lunar, onde a Lua é o anteparo da sombra terrestre."
+          "rationale": "Pode ocorrer confusão ao somar o deslocamento do espelho com o da imagem, mas a fórmula correta prevê apenas o dobro do movimento do espelho."
+        },
+        {
+          "text": "$0\\text{ cm}$",
+          "isCorrect": false,
+          "rationale": "A imagem de um objeto fixo sempre se desloca quando o espelho que a projeta sofre translação."
         }
       ],
-      "hint": "Considere a diferença entre as regiões de bloqueio total e parcial da luz de uma fonte extensa."
+      "hint": "Pense na relação matemática entre o deslocamento do espelho ($d$) e o deslocamento da imagem ($D$)."
     },
     {
-      "question": "Considere uma câmara escura de orifício com comprimento $b$. Se um objeto de altura $m$ for afastado para uma distância que é o triplo da distância inicial $a$, o que ocorrerá com a altura da imagem $n$?",
+      "question": "Dois espelhos planos são posicionados de forma que suas superfícies refletoras formem um ângulo de $40^{\\circ}$ entre si. Quantas imagens de um objeto colocado entre eles serão formadas?",
       "answerOptions": [
         {
-          "text": "A altura da imagem será reduzida a um terço do seu valor original.",
+          "text": "8 imagens",
           "isCorrect": true,
-          "rationale": "Pela relação de semelhança $\\frac{m}{n} = \\frac{a}{b}$, a altura da imagem $n$ é inversamente proporcional à distância $a$ do objeto."
+          "rationale": "Utilizando a fórmula $N = \\frac{360^{\\circ}}{\\alpha} - 1$, temos $N = \\frac{360}{40} - 1 = 9 - 1 = 8$."
         },
         {
-          "text": "A altura da imagem triplicará para compensar o afastamento do objeto.",
+          "text": "9 imagens",
           "isCorrect": false,
-          "rationale": "O aumento da distância do objeto reduz o ângulo visual, resultando em uma imagem menor no anteparo."
+          "rationale": "Este é o resultado da divisão direta de $360^{\\circ}$ pelo ângulo, mas esquece-se de subtrair a unidade que representa o próprio objeto."
         },
         {
-          "text": "A altura da imagem permanecerá constante, alterando apenas sua nitidez.",
+          "text": "7 imagens",
           "isCorrect": false,
-          "rationale": "O tamanho da imagem projetada depende diretamente das proporções geométricas entre objeto, orifício e anteparo."
+          "rationale": "Este seria o resultado se o ângulo fosse de $45^{\\circ}$, evidenciando um erro de cálculo na divisão inicial."
         },
         {
-          "text": "A imagem se tornará virtual e direita devido à grande distância.",
+          "text": "Infinitas imagens",
           "isCorrect": false,
-          "rationale": "Câmaras escuras de orifício sempre produzem imagens reais e invertidas no anteparo oposto."
+          "rationale": "Imagens infinitas só ocorrem quando os espelhos são paralelos, ou seja, o ângulo entre eles é de $0^{\\circ}$."
+        },
+        {
+          "text": "4 imagens",
+          "isCorrect": false,
+          "rationale": "Este valor não corresponde à aplicação da fórmula de associação de espelhos planos para o ângulo de $40^{\\circ}$."
         }
       ],
-      "hint": "Lembre-se da semelhança de triângulos formada pelos raios que atravessam o orifício."
+      "hint": "Aplique a fórmula de associação de espelhos planos $N = \\frac{360^{\\circ}}{\\alpha} - 1$."
     },
     {
-      "question": "Por que um corpo iluminado pela luz solar (branca) é percebido com a cor verde?",
+      "question": "Em um espelho plano, qual é a natureza e a orientação da imagem formada de um objeto real?",
       "answerOptions": [
         {
-          "text": "Porque o corpo reflete difusamente a componente verde da luz branca e absorve as demais cores.",
+          "text": "Virtual, direita e enantiomorfa.",
           "isCorrect": true,
-          "rationale": "A cor de um corpo opaco por reflexão é determinada pela luz que ele não absorve e reenvia ao meio."
+          "rationale": "Espelhos planos sempre formam imagens virtuais (atrás do espelho), direitas (não invertidas verticalmente) e enantiomorfas (troca lateral de direita por esquerda)."
         },
         {
-          "text": "Porque o corpo transforma todas as radiações incidentes em luz monocromática verde.",
+          "text": "Real, invertida e menor.",
           "isCorrect": false,
-          "rationale": "Objetos não alteram a frequência da luz refletida; eles apenas selecionam quais frequências refletir."
+          "rationale": "Imagens reais não podem ser formadas por um único espelho plano a partir de objetos reais, e o tamanho é sempre idêntico ao do objeto."
         },
         {
-          "text": "Porque a luz verde é a única que consegue atravessar meios opacos por refração.",
+          "text": "Virtual, invertida e maior.",
           "isCorrect": false,
-          "rationale": "Meios opacos não permitem a passagem de luz (refração); a visualização ocorre pela reflexão."
+          "rationale": "O espelho plano não altera as dimensões do objeto nem inverte a imagem de cabeça para baixo."
         },
         {
-          "text": "Porque o corpo emite luz própria na frequência do verde ao ser aquecido pelo Sol.",
+          "text": "Real, direita e simétrica.",
           "isCorrect": false,
-          "rationale": "Nesse caso, o corpo é iluminado (fonte secundária), não luminoso (fonte primária)."
+          "rationale": "Embora seja simétrica, a imagem em um espelho plano é virtual, pois é formada pelo prolongamento dos raios refletidos."
+        },
+        {
+          "text": "Virtual, direita e de dimensões reduzidas.",
+          "isCorrect": false,
+          "rationale": "A redução de tamanho é característica de espelhos convexos, não de espelhos planos, onde objeto e imagem têm mesmas dimensões."
         }
       ],
-      "hint": "Pense no processo de absorção e reflexão seletiva das cores componentes da luz branca."
+      "hint": "Considere se a imagem pode ser projetada em uma tela e como as letras aparecem refletidas."
     },
     {
-      "question": "Um raio de luz incide sobre um espelho plano e o raio refletido forma um ângulo de $60^\\circ$ com a reta normal à superfície. Qual é o ângulo formado entre o raio incidente e o raio refletido?",
+      "question": "Um raio de luz incide em um espelho plano. Se girarmos o espelho de um ângulo $\\alpha = 10^{\\circ}$ em torno de um eixo contido em seu plano, de quanto girará o raio refletido?",
       "answerOptions": [
         {
-          "text": "$120^\\circ$",
+          "text": "$20^{\\circ}$",
           "isCorrect": true,
-          "rationale": "Pela lei da reflexão, $\\theta_i = \\theta_r = 60^\\circ$. O ângulo entre os raios é a soma de $\\theta_i$ e $\\theta_r$."
+          "rationale": "De acordo com as leis da reflexão e a geometria da rotação de espelhos, o desvio do raio refletido ($\\\\Delta$) é o dobro do ângulo de rotação do espelho ($\\\\alpha$)."
         },
         {
-          "text": "$60^\\circ$",
+          "text": "$10^{\\circ}$",
           "isCorrect": false,
-          "rationale": "Este é apenas o ângulo de um dos raios em relação à normal, não o ângulo total entre eles."
+          "rationale": "Pode-se pensar erroneamente que o raio acompanha o espelho na mesma proporção, mas a mudança na normal dobra o efeito sobre o ângulo refletido."
         },
         {
-          "text": "$30^\\circ$",
+          "text": "$5^{\\circ}$",
           "isCorrect": false,
-          "rationale": "Este seria o ângulo entre o raio e a superfície do espelho, e não entre os dois raios."
+          "rationale": "Este seria o caso se o ângulo do raio fosse metade do ângulo do espelho, o que não ocorre na reflexão especular."
         },
         {
-          "text": "$90^\\circ$",
+          "text": "$40^{\\circ}$",
           "isCorrect": false,
-          "rationale": "Isso ocorreria apenas se o ângulo de incidência fosse de $45^\\circ$."
+          "rationale": "Este valor superestima a relação de proporcionalidade entre a rotação do espelho e a do raio refletido."
+        },
+        {
+          "text": "$0^{\\circ}$",
+          "isCorrect": false,
+          "rationale": "Sempre que o espelho gira, o ângulo de incidência muda, o que obrigatoriamente altera a direção do raio refletido."
         }
       ],
-      "hint": "Aplique a primeira lei da reflexão e some os ângulos de incidência e reflexão."
+      "hint": "Lembre-se da relação $\\Delta = 2\\alpha$ para a rotação do raio refletido."
     },
     {
-      "question": "O princípio da reversibilidade dos raios de luz pode ser melhor exemplificado por qual das seguintes situações cotidianas?",
+      "question": "Qual é a condição necessária para que um sistema óptico seja considerado 'estigmático', como é o caso do espelho plano?",
       "answerOptions": [
         {
-          "text": "Um passageiro no banco de trás de um carro vê o rosto do motorista pelo retrovisor interno e vice-versa.",
+          "text": "A um ponto-objeto deve corresponder um único ponto-imagem.",
           "isCorrect": true,
-          "rationale": "O princípio afirma que a trajetória da luz é a mesma, independentemente do sentido de propagação entre dois pontos."
+          "rationale": "O estigmatismo ocorre quando todos os raios que partem de um ponto-objeto convergem (ou parecem divergir) de um único ponto-imagem nítido."
         },
         {
-          "text": "A formação de uma sombra nítida de um objeto quando iluminado por uma lanterna pequena.",
+          "text": "O sistema deve formar apenas imagens reais.",
           "isCorrect": false,
-          "rationale": "Isso exemplifica o princípio da propagação retilínea da luz."
+          "rationale": "O estigmatismo refere-se à nitidez e unicidade do ponto, independentemente de a imagem ser real ou virtual."
         },
         {
-          "text": "O cruzamento de dois feixes de luz de lanternas diferentes sem que eles se desviem.",
+          "text": "O sistema deve inverter a imagem lateralmente.",
           "isCorrect": false,
-          "rationale": "Isso exemplifica o princípio da independência dos raios de luz."
+          "rationale": "A inversão lateral (enantiomorfismo) é uma característica geométrica de espelhos planos, não uma definição de estigmatismo."
         },
         {
-          "text": "A mudança de cor de um objeto quando ele passa da luz do dia para uma lâmpada de mercúrio.",
+          "text": "A imagem deve ser sempre maior que o objeto.",
           "isCorrect": false,
-          "rationale": "Isso se refere à composição da luz e propriedades de reflexão seletiva, não à trajetória."
+          "rationale": "O tamanho da imagem está relacionado ao aumento linear, não à propriedade de convergência pontual do sistema."
+        },
+        {
+          "text": "O ponto-objeto deve estar localizado no infinito.",
+          "isCorrect": false,
+          "rationale": "Objetos no infinito geram pontos impróprios, mas o estigmatismo deve valer para objetos em distâncias finitas para garantir a nitidez."
         }
       ],
-      "hint": "Procure uma situação onde o caminho da luz é percorrido nos dois sentidos."
+      "hint": "Pense no termo oposto, 'astigmático', que produz uma mancha luminosa em vez de um ponto."
     },
     {
-      "question": "Sobre a formação de imagens em espelhos planos, qual afirmação descreve corretamente a natureza da imagem?",
+      "question": "No estudo analítico dos espelhos esféricos, qual é o nome do ponto onde os raios incidentes paralelos ao eixo principal convergem (no espelho côncavo) ou de onde parecem divergir (no espelho convexo)?",
       "answerOptions": [
         {
-          "text": "A imagem é virtual e se localiza atrás do espelho, a uma distância igual à do objeto em relação ao plano refletor.",
+          "text": "Foco principal ($F$)",
           "isCorrect": true,
-          "rationale": "Imagens em espelhos planos são formadas pelo prolongamento dos raios refletidos, mantendo a simetria em relação ao espelho."
+          "rationale": "Por definição, o foco principal de um espelho esférico é o ponto para o qual convergem (ou divergem) os raios que incidem paralelamente ao eixo óptico."
         },
         {
-          "text": "A imagem é real, pois pode ser projetada em uma tela colocada na frente do espelho.",
+          "text": "Centro de curvatura ($C$)",
           "isCorrect": false,
-          "rationale": "Imagens reais são formadas pelo encontro direto de raios; espelhos planos formam apenas imagens virtuais de objetos reais."
+          "rationale": "O centro de curvatura é o centro da esfera que originou o espelho; raios que passam por ele refletem sobre si mesmos."
         },
         {
-          "text": "A imagem é invertida verticalmente (de cabeça para baixo) em relação ao objeto.",
+          "text": "Vértice ($V$)",
           "isCorrect": false,
-          "rationale": "Espelhos planos produzem imagens direitas (não invertidas verticalmente), embora sejam enantiomorfas (troca direita/esquerda)."
+          "rationale": "O vértice é o ponto de interseção entre o eixo principal e a superfície do espelho, sendo a origem do sistema referencial."
         },
         {
-          "text": "A imagem possui tamanho reduzido quando o objeto se afasta do espelho.",
+          "text": "Eixo secundário",
           "isCorrect": false,
-          "rationale": "O tamanho da imagem em um espelho plano é sempre igual ao tamanho do objeto, embora o ângulo visual diminua com a distância."
+          "rationale": "O eixo secundário é qualquer reta que passe pelo centro de curvatura, não sendo um ponto específico de convergência de raios paralelos ao eixo principal."
+        },
+        {
+          "text": "Ponto de Gauss",
+          "isCorrect": false,
+          "rationale": "Embora Gauss tenha estabelecido as condições de nitidez, este termo não denomina o ponto focal do espelho."
         }
       ],
-      "hint": "Considere o conceito de simetria e onde os raios de luz parecem se originar."
+      "hint": "Este ponto está localizado exatamente no meio da distância entre o centro de curvatura e o vértice."
     },
     {
-      "question": "No vácuo, diferentes cores de luz monocromática, como a vermelha e a violeta, apresentam qual comportamento comum?",
+      "question": "Em um espelho esférico côncavo, um objeto é colocado a uma distância $p = 30\\text{ cm}$ do vértice. Sabendo que o raio de curvatura do espelho é $R = 40\\text{ cm}$, qual será a distância da imagem ($p'$) em relação ao espelho?",
       "answerOptions": [
         {
-          "text": "Elas se propagam com a mesma velocidade de aproximadamente $300.000\\ km/s$.",
+          "text": "$60\\text{ cm}$",
           "isCorrect": true,
-          "rationale": "No vácuo, a velocidade da luz é uma constante universal independente da cor (frequência) da luz."
+          "rationale": "O foco é $f = R/2 = 20\\text{ cm}$. Pela Equação de Gauss $\\frac{1}{20} = \\frac{1}{30} + \\frac{1}{p'}$, temos $\\frac{1}{p'} = \\frac{3-2}{60} = \\frac{1}{60}$."
         },
         {
-          "text": "Elas sofrem difração de forma idêntica ao atravessarem o mesmo orifício.",
+          "text": "$20\\text{ cm}$",
           "isCorrect": false,
-          "rationale": "A difração depende do comprimento de onda, que é diferente para o vermelho e o violeta."
+          "rationale": "Este valor corresponde à distância focal do espelho, não à posição da imagem para um objeto a $30\\text{ cm}$."
         },
         {
-          "text": "A luz violeta se propaga mais rápido por ter maior energia que a vermelha.",
+          "text": "$10\\text{ cm}$",
           "isCorrect": false,
-          "rationale": "Embora a luz violeta tenha mais energia/frequência, a velocidade no vácuo é idêntica para todas as radiações eletromagnéticas."
+          "rationale": "Este resultado sugere um erro na manipulação algébrica da Equação de Gauss ou na identificação da distância focal."
         },
         {
-          "text": "Ambas perdem velocidade gradualmente conforme se distanciam da fonte luminosa.",
+          "text": "$40\\text{ cm}$",
           "isCorrect": false,
-          "rationale": "Em um meio homogêneo como o vácuo, a velocidade da luz permanece constante durante a propagação."
+          "rationale": "Este é o raio de curvatura; se o objeto estivesse no centro ($p=40$), a imagem também estaria em $40$."
+        },
+        {
+          "text": "$15\\text{ cm}$",
+          "isCorrect": false,
+          "rationale": "Um valor de $15\\text{ cm}$ para $p'$ indicaria uma imagem entre o foco e o vértice, o que não ocorre para um objeto além do foco."
         }
       ],
-      "hint": "Pense na constante física fundamental que define a velocidade da luz no espaço vazio."
+      "hint": "Primeiro encontre a distância focal ($f$) usando o raio ($R$) e depois aplique a Equação de Gauss."
     },
     {
-      "question": "Uma fonte de luz extensa é capaz de produzir sombra e penumbra. Qual é a definição correta de penumbra nesse contexto?",
+      "question": "Um periscópio simples é construído com dois espelhos planos. Como esses espelhos devem ser posicionados para que o observador veja a imagem correta (não invertida lateralmente)?",
       "answerOptions": [
         {
-          "text": "Região do espaço que recebe luz de apenas alguns pontos da fonte luminosa.",
+          "text": "Paralelos entre si e inclinados a $45^{\\circ}$ em relação ao eixo do tubo.",
           "isCorrect": true,
-          "rationale": "A penumbra ocorre quando a obstrução é parcial, permitindo que parte da luz da fonte extensa atinja a região."
+          "rationale": "A dupla reflexão em espelhos paralelos compensa o enantiomorfismo da primeira reflexão, resultando em uma imagem final idêntica ao objeto."
         },
         {
-          "text": "Região do espaço que não recebe luz de nenhum ponto da fonte.",
+          "text": "Perpendiculares entre si para maximizar o ângulo morto.",
           "isCorrect": false,
-          "rationale": "Essa descrição corresponde à definição de sombra (ou umbra)."
+          "rationale": "Espelhos perpendiculares fariam o raio de luz retornar ou mudar de direção de forma a não sair pela outra extremidade do tubo."
         },
         {
-          "text": "Região onde a luz sofreu reflexão difusa antes de atingir o anteparo.",
+          "text": "Um deve ser côncavo e o outro convexo para ampliar a imagem.",
           "isCorrect": false,
-          "rationale": "A penumbra é um fenômeno de propagação retilínea e bloqueio parcial, não de reflexão secundária."
+          "rationale": "Periscópios básicos utilizam espelhos planos; o uso de espelhos curvos distorceria a imagem sem a devida compensação óptica."
         },
         {
-          "text": "Ponto exato onde os raios tangentes ao objeto se cruzam antes de chegar ao anteparo.",
+          "text": "Em um ângulo de $90^{\\circ}$ com a luz incidente para refletir de volta à fonte.",
           "isCorrect": false,
-          "rationale": "O cruzamento de raios tangentes define o vértice do cone de sombra, não a região de penumbra."
+          "rationale": "Esta configuração funcionaria como um refletor (olho de gato), não permitindo a visão de objetos acima do campo visual do observador."
+        },
+        {
+          "text": "Paralelos, mas voltados para a mesma direção externa.",
+          "isCorrect": false,
+          "rationale": "Se as faces refletoras não estiverem voltadas para o interior do trajeto óptico, a luz não será conduzida através do instrumento."
         }
       ],
-      "hint": "Diferencie entre a ausência total de luz e a iluminação parcial por uma fonte grande."
+      "hint": "Considere o efeito de uma segunda reflexão sobre uma imagem que já é enantiomorfa."
     },
     {
-      "question": "O que acontece com a nitidez e a luminosidade da imagem em uma câmara escura se aumentarmos o diâmetro do orifício?",
+      "question": "Considere as condições de nitidez de Gauss para espelhos esféricos. Para que as imagens sejam nítidas, os raios incidentes devem ser:",
       "answerOptions": [
         {
-          "text": "A luminosidade aumenta, mas a nitidez da imagem diminui.",
+          "text": "Paraxiais e o ângulo de abertura do espelho deve ser pequeno.",
           "isCorrect": true,
-          "rationale": "Um orifício maior permite a entrada de mais raios de luz (mais brilho), mas cada ponto do objeto passa a projetar uma mancha maior no anteparo (menos foco)."
+          "rationale": "As condições de Gauss exigem que os raios sejam próximos ao eixo principal (paraxiais) e o ângulo de abertura seja menor que $10^{\\circ}$ para minimizar aberrações."
         },
         {
-          "text": "A nitidez aumenta significativamente devido à maior entrada de raios de luz.",
+          "text": "Sempre paralelos entre si, independentemente do eixo principal.",
           "isCorrect": false,
-          "rationale": "Raios extras de diferentes ângulos causam sobreposição de imagens no anteparo, borrando a figura final."
+          "rationale": "Raios paralelos entre si mas muito inclinados em relação ao eixo principal não produzem imagens nítidas (estigmáticas)."
         },
         {
-          "text": "Tanto a luminosidade quanto a nitidez aumentam proporcionalmente.",
+          "text": "Raios que passem obrigatoriamente pelo centro de curvatura.",
           "isCorrect": false,
-          "rationale": "Há um compromisso físico entre esses dois fatores em uma câmara de orifício simples."
+          "rationale": "Embora esses raios sejam úteis na construção geométrica, a nitidez de uma imagem completa depende de todos os raios que atingem o espelho."
         },
         {
-          "text": "A imagem torna-se menor e mais nítida, concentrando a luz em um ponto único.",
+          "text": "Muito afastados do eixo principal para cobrir toda a superfície.",
           "isCorrect": false,
-          "rationale": "O tamanho da imagem depende das distâncias $a$ e $b$, não do diâmetro do orifício."
+          "rationale": "Raios marginais (afastados do eixo) causam aberração esférica, prejudicando a nitidez da imagem formada."
+        },
+        {
+          "text": "Provenientes de fontes de luz monocromática apenas.",
+          "isCorrect": false,
+          "rationale": "Embora a luz monocromática evite dispersão em lentes, em espelhos o problema principal é geométrico (esfericidade), não cromático."
         }
       ],
-      "hint": "Pense no efeito da sobreposição de vários raios de luz vindos do mesmo ponto do objeto."
+      "hint": "Pense na restrição de ângulo para evitar que o espelho 'se comporte mal' nas bordas."
     }
   ],
   "questionCount": 10,
-  "exportedAt": "2026-07-17T15:53:33.113Z",
+  "exportedAt": "2026-07-17T15:53:07.160Z",
   "source": "Web Clipper for NotebookLM"
 }
