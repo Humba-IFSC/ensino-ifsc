@@ -1,387 +1,369 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcards — Aula 07: Diagramas de Fases e Termologia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        window.MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
-            svg: { fontCache: 'global' }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-        :root {
-            --bg-main: #0a0e17;
-            --bg-card: rgba(15, 23, 42, 0.85);
-            --border-card: rgba(245, 158, 11, 0.25);
-            --accent-green: #4ade80;
-            --accent-amber: #f59e0b;
-            --accent-cyan: #38bdf8;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartões de Estudo - Diagramas de Fases & Termologia | Termodinâmica IFSC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --bg-primary: #0a0e17;
+      --bg-secondary: #121826;
+      --accent: #f59e0b;
+      --accent-hover: #d97706;
+      --accent-glow: rgba(245, 158, 11, 0.35);
+      --accent-light: #fbbf24;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border-card: rgba(255, 255, 255, 0.08);
+      --radius: 16px;
+    }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-primary);
-            min-height: 100vh;
-            padding: 2rem 1rem;
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(74, 222, 128, 0.08) 0%, transparent 40%);
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+    }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+    body {
+      background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, var(--bg-primary) 75%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1.5rem;
+    }
 
-        .btn-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.06);
-            color: #cbd5e1;
-            text-decoration: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 0.6rem;
-            font-size: 0.88rem;
-            font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 1.5rem;
-            transition: all 0.2s ease;
-        }
-        .btn-back:hover {
-            background: rgba(255, 255, 255, 0.12);
-            color: #fff;
-            transform: translateX(-2px);
-        }
+    .header-bar {
+      width: 100%;
+      max-width: 720px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .header h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-amber), var(--accent-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-        .header p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
+    .badge {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-light);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
 
-        .stats-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 0.75rem;
-            padding: 0.75rem 1.25rem;
-            margin-bottom: 1.5rem;
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-        }
-        .progress-bar-bg {
-            flex: 1;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            margin: 0 1rem;
-            overflow: hidden;
-        }
-        .progress-bar-fill {
-            height: 100%;
-            width: 2%;
-            background: linear-gradient(90deg, var(--accent-amber), var(--accent-green));
-            transition: width 0.3s ease;
-            border-radius: 4px;
-        }
+    .main-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff, var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.3rem;
+      text-align: center;
+    }
 
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        .btn-ctrl {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #e2e8f0;
-            padding: 0.6rem 1.2rem;
-            border-radius: 0.6rem;
-            font-weight: 600;
-            font-size: 0.88rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        .btn-ctrl:hover {
-            background: rgba(245, 158, 11, 0.15);
-            border-color: var(--accent-amber);
-            color: #fff;
-        }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
 
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 1.5rem;
-        }
+    /* Container do Flashcard 3D */
+    .card-scene {
+      width: 100%;
+      max-width: 640px;
+      height: 380px;
+      perspective: 1200px;
+      margin-bottom: 1.5rem;
+    }
 
-        .flashcard {
-            perspective: 1000px;
-            height: 240px;
-            cursor: pointer;
-        }
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
 
-        .flashcard-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-            border-radius: 1rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-        }
+    .card-inner.flipped {
+      transform: rotateY(180deg);
+    }
 
-        .flashcard.flipped .flashcard-inner {
-            transform: rotateY(180deg);
-        }
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: rgba(18, 24, 38, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-card);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
 
-        .card-front, .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid var(--border-card);
-        }
+    .card-face::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
 
-        .card-front {
-            background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8));
-            color: #f1f5f9;
-        }
+    .card-face.front {
+      color: var(--text-main);
+    }
 
-        .card-back {
-            background: linear-gradient(145deg, rgba(60, 30, 10, 0.95), rgba(15, 23, 42, 0.95));
-            color: #e2e8f0;
-            transform: rotateY(180deg);
-            border-color: rgba(245, 158, 11, 0.4);
-        }
+    .card-face.back {
+      transform: rotateY(180deg);
+      background: rgba(22, 30, 48, 0.95);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
 
-        .card-tag {
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.25rem 0.6rem;
-            border-radius: 0.4rem;
-        }
-        .card-front .card-tag {
-            background: rgba(245, 158, 11, 0.15);
-            color: var(--accent-amber);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-        .card-back .card-tag {
-            background: rgba(74, 222, 128, 0.15);
-            color: var(--accent-green);
-            border: 1px solid rgba(74, 222, 128, 0.3);
-        }
+    .card-tag {
+      position: absolute;
+      top: 1.2rem;
+      left: 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-light);
+    }
 
-        .card-body {
-            font-size: 0.95rem;
-            font-weight: 600;
-            line-height: 1.45;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-            width: 100%;
-        }
+    .flip-indicator {
+      position: absolute;
+      bottom: 1.2rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
 
-        .card-hint {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
+    .card-content {
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.6;
+      color: #fff;
+    }
 
-        @media (max-width: 640px) {
-            .grid-cards { grid-template-columns: 1fr; }
-            .flashcard { height: 260px; }
-        }
-    </style>
+    .back .card-content {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #e5e7eb;
+    }
+
+    /* Controls */
+    .controls {
+      width: 100%;
+      max-width: 640px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.4rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: #0a0e17;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--accent-glow);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-card);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: none;
+    }
+
+    .progress-text {
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-light);
+    }
+
+    .shortcuts-info {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    kbd {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <a href="../../../index.html" class="btn-back">← Voltar para Central de Ensino</a>
 
-        <div class="header">
-            <h1>🧠 Flashcards de Estudo — Aula 07</h1>
-            <p>Diagramas de Fases ($p 	imes T$), Ponto Triplo, Ponto Crítico e Mudanças de Fase sob Pressão</p>
-        </div>
+  <div class="header-bar">
+    <a href="index.html" class="btn btn-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">
+      ← Aula 07
+    </a>
+    <span class="badge">🧠 Cartões de Memorização</span>
+  </div>
 
-        <div class="stats-bar">
-            <span id="counterText">15 Cartões de Estudo</span>
-            <div class="progress-bar-bg">
-                <div class="progress-bar-fill" id="progressFill"></div>
-            </div>
-            <span>Clique para revelar a resposta 🔄</span>
-        </div>
+  <h1 class="main-title">Flashcards: Diagramas de Fases & Termologia</h1>
+  <p class="subtitle">Clique no cartão ou pressione <kbd>Espaço</kbd> para virar e testar sua compreensão.</p>
 
-        <div class="controls">
-            <button class="btn-ctrl" onclick="shuffleCards()">🎲 Embaralhar</button>
-            <button class="btn-ctrl" onclick="flipAll()">🔄 Virar Todos</button>
-            <button class="btn-ctrl" onclick="resetCards()">↺ Reiniciar</button>
-        </div>
-
-        <div class="grid-cards" id="cardsGrid"></div>
+  <div class="card-scene">
+    <div class="card-inner" id="flashcard" onclick="flipCard()">
+      <div class="card-face front">
+        <div class="card-tag" id="card-tag">Pergunta</div>
+        <div class="card-content" id="card-front-text">Carregando pergunta...</div>
+        <div class="flip-indicator">🔄 Clique para ver a resposta</div>
+      </div>
+      <div class="card-face back">
+        <div class="card-tag" style="color: #34d399;">Resposta / Conceito</div>
+        <div class="card-content" id="card-back-text">Carregando resposta...</div>
+        <div class="flip-indicator">🔄 Clique para voltar à pergunta</div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        const cardsData = [
-            {
-                        "front": "Como se define o diagrama de fases de uma substância pura?",
-                        "back": "É a representação gráfica da pressão $p$ em função da temperatura $\\theta$ que indica em qual estado físico a substância se encontra."
-            },
-            {
-                        "front": "O que representa o ponto triplo (ou tríplice) em um diagrama de fases?",
-                        "back": "O estado de equilíbrio simultâneo entre as três fases da substância: sólida, líquida e de vapor."
-            },
-            {
-                        "front": "No diagrama de fases, qual curva representa os estados de equilíbrio entre as fases sólida e líquida?",
-                        "back": "A curva de fusão."
-            },
-            {
-                        "front": "Qual é o efeito do aumento da pressão externa sobre a temperatura de ebulição de qualquer líquido?",
-                        "back": "O aumento da pressão eleva a temperatura de ebulição."
-            },
-            {
-                        "front": "Por que a temperatura de fusão da água diminui quando a pressão sobre ela aumenta?",
-                        "back": "Porque a água é uma substância que se contrai na fusão, e o aumento de pressão favorece essa redução de volume."
-            },
-            {
-                        "front": "O que caracteriza o ponto crítico ($C$) em um diagrama de fases?",
-                        "back": "É o ponto final da curva de vaporização acima do qual não é possível distinguir entre as fases líquida e de vapor."
-            },
-            {
-                        "front": "Termodinamicamente, qual é a diferença entre um vapor e um gás?",
-                        "back": "Vapor existe abaixo da temperatura crítica e pode ser liquefeito por compressão; gás existe acima dela e não pode ser liquefeito apenas por compressão."
-            },
-            {
-                        "front": "Qual curva no diagrama de fases delimita as regiões das fases sólida e de vapor?",
-                        "back": "A curva de sublimação."
-            },
-            {
-                        "front": "Explique o fenômeno do regelo observado na experiência de Tyndall.",
-                        "back": "A pressão de um fio sobre o gelo reduz seu ponto de fusão, fazendo-o derreter; ao passar o fio, a pressão volta ao normal e a água solidifica-se novamente."
-            },
-            {
-                        "front": "De qual fator físico depende exclusivamente a pressão máxima de vapor de uma substância?",
-                        "back": "Exclusivamente da temperatura da substância."
-            },
-            {
-                        "front": "Por que os alimentos cozinham em menos tempo no interior de uma panela de pressão?",
-                        "back": "Porque a pressão interna superior a $1$ $atm$ faz com que a água ferva a uma temperatura superior a $100$ $^\\circ C$."
-            },
-            {
-                        "front": "Sob quais condições de pressão e temperatura ocorre o ponto triplo da água?",
-                        "back": "Sob pressão de $4,58$ $mmHg$ e temperatura de $0,01$ $^\\circ C$."
-            },
-            {
-                        "front": "No gráfico $p \\times V$ (Isotermas de Andrews), o que ocorre com o patamar de liquefação quando a temperatura atinge o valor crítico?",
-                        "back": "O patamar desaparece, reduzindo-se a um único ponto denominado ponto crítico."
-            },
-            {
-                        "front": "Cite três exemplos de substâncias, além da água, que se contraem ao sofrer fusão.",
-                        "back": "Bismuto, ferro e antimônio."
-            },
-            {
-                        "front": "Por que o dióxido de carbono ($CO_{2}$) sólido (gelo-seco) sofre sublimação sob pressão atmosférica normal?",
-                        "back": "Porque a pressão de seu ponto triplo ($5$ $atm$) é superior à pressão atmosférica normal ($1$ $atm$)."
-            }
-];
+  <div class="controls">
+    <button class="btn btn-secondary" onclick="prevCard()" id="prev-btn">
+      ← Anterior
+    </button>
+    <div class="progress-text" id="card-counter">1 / 10</div>
+    <button class="btn" onclick="nextCard()" id="next-btn">
+      Próximo →
+    </button>
+  </div>
 
-        let currentCards = [...cardsData];
-        let flippedAll = false;
+  <div style="display: flex; gap: 0.8rem; margin-bottom: 1.5rem;">
+    <button class="btn btn-secondary" style="font-size: 0.85rem;" onclick="shuffleCards()">
+      🔀 Embaralhar
+    </button>
+    <a href="quiz.html" class="btn" style="font-size: 0.85rem;">
+      📝 Fazer Quiz da Aula
+    </a>
+  </div>
 
-        function renderCards() {
-            const grid = document.getElementById('cardsGrid');
-            grid.innerHTML = '';
+  <div class="shortcuts-info">
+    Atalhos de teclado: <kbd>←</kbd> Anterior | <kbd>→</kbd> Próximo | <kbd>Espaço</kbd> Virar
+  </div>
 
-            currentCards.forEach((c, idx) => {
-                const cardEl = document.createElement('div');
-                cardEl.className = 'flashcard';
-                cardEl.onclick = () => cardEl.classList.toggle('flipped');
+  <script>
+    let cards = [{"id": 1, "front": "O que é um diagrama de fases na Termodinâmica?", "back": "Uma representação gráfica da pressão ($p$) em função da temperatura ($\\theta$) que mapeia os estados físicos de uma substância pura."}, {"id": 2, "front": "Como se chama o ponto de interseção onde as fases sólida, líquida e gasosa coexistem em equilíbrio dinâmico?", "back": "Ponto Triplo (ou Ponto Tríplice)."}, {"id": 3, "front": "No diagrama de fases, qual curva representa os estados de equilíbrio entre as fases sólida e líquida?", "back": "Curva de Fusão."}, {"id": 4, "front": "Como o aumento da pressão externa afeta a temperatura de fusão de substâncias que se contraem ao derreter, como a água?", "back": "O aumento da pressão reduz a temperatura de fusão."}, {"id": 5, "front": "Para substâncias que se dilatam na fusão, qual é o efeito do aumento da pressão sobre a temperatura de fusão?", "back": "O aumento da pressão eleva a temperatura de fusão."}, {"id": 6, "front": "Conceito: Fenômeno do Regelo", "back": "Fusão do gelo provocada por aumento de pressão localizada, seguida de ressolidificação quando a pressão retorna ao normal."}, {"id": 7, "front": "Qual é o impacto do aumento da pressão sobre a temperatura de ebulição de qualquer substância pura?", "back": "O aumento da pressão sempre eleva a temperatura de ebulição."}, {"id": 8, "front": "Por que a água entra em ebulição a temperaturas menores (ex: $72\\ ^\\circ\\text{C}$) no topo do Monte Everest?", "back": "Devido à menor pressão atmosférica, que facilita a expansão volumétrica necessária para a vaporização."}, {"id": 9, "front": "A partir de qual limite térmico uma substância é classificada como gás e não pode mais ser liquefeita apenas por compressão isotérmica?", "back": "Temperatura Crítica ($\\theta_C$)."}, {"id": 10, "front": "O que representa o Ponto Crítico em um diagrama de fases?", "back": "O ponto terminal da curva de vaporização onde a distinção física entre líquido e vapor deixa de existir."}];
+    let currentIndex = 0;
 
-                cardEl.innerHTML = `
-                    <div class="flashcard-inner">
-                        <div class="card-front">
-                            <span class="card-tag">Cartão ${idx + 1} de ${currentCards.length}</span>
-                            <div class="card-body">${c.front}</div>
-                            <div class="card-hint">💡 Clique para ver a resposta</div>
-                        </div>
-                        <div class="card-back">
-                            <span class="card-tag">Conceito / Resposta</span>
-                            <div class="card-body">${c.back}</div>
-                            <div class="card-hint">🔄 Clique para voltar à pergunta</div>
-                        </div>
-                    </div>
-                `;
+    function renderCard() {
+      const card = cards[currentIndex];
+      const cardEl = document.getElementById('flashcard');
+      cardEl.classList.remove('flipped');
 
-                grid.appendChild(cardEl);
-            });
+      setTimeout(() => {
+        document.getElementById('card-front-text').innerHTML = card.front;
+        document.getElementById('card-back-text').innerHTML = card.back;
+        document.getElementById('card-counter').textContent = `${currentIndex + 1} / ${cards.length}`;
+        document.getElementById('card-tag').textContent = `Conceito ${currentIndex + 1}`;
 
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            }
+        if (window.MathJax) {
+          MathJax.typesetPromise();
         }
+      }, 150);
+    }
 
-        function shuffleCards() {
-            currentCards.sort(() => Math.random() - 0.5);
-            renderCards();
-        }
+    function flipCard() {
+      document.getElementById('flashcard').classList.toggle('flipped');
+    }
 
-        function flipAll() {
-            flippedAll = !flippedAll;
-            const allCards = document.querySelectorAll('.flashcard');
-            allCards.forEach(c => {
-                if (flippedAll) {
-                    c.classList.add('flipped');
-                } else {
-                    c.classList.remove('flipped');
-                }
-            });
-        }
+    function prevCard() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderCard();
+      } else {
+        currentIndex = cards.length - 1;
+        renderCard();
+      }
+    }
 
-        function resetCards() {
-            flippedAll = false;
-            currentCards = [...cardsData];
-            renderCards();
-        }
+    function nextCard() {
+      if (currentIndex < cards.length - 1) {
+        currentIndex++;
+        renderCard();
+      } else {
+        currentIndex = 0;
+        renderCard();
+      }
+    }
 
-        window.onload = renderCards;
-    </script>
+    function shuffleCards() {
+      for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+      }
+      currentIndex = 0;
+      renderCard();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        flipCard();
+      } else if (e.code === 'ArrowRight') {
+        nextCard();
+      } else if (e.code === 'ArrowLeft') {
+        prevCard();
+      }
+    });
+
+    // Init
+    renderCard();
+  </script>
 </body>
 </html>

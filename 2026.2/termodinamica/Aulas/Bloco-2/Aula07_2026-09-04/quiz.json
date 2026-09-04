@@ -1,255 +1,257 @@
 {
-  "title": "Termologia Quiz - Aula 07",
+  "title": "Quiz Interativo - Diagramas de Fases e Termologia (Aula 07)",
+  "durationMinutes": 30,
+  "totalQuestions": 10,
   "questions": [
     {
       "id": 1,
-      "title": "1. De acordo com os conceitos da Termologia, como deve ser corretamente definida a grandeza física 'calor'?",
-      "hint": "Considere o calor como um processo de transferência de energia e não como algo que um corpo possui.",
+      "question": "No diagrama de fases de uma substância pura, o que representa o 'Ponto Triplo' (ou Ponto Tríplice)?",
+      "hint": "Considere a interseção gráfica das três curvas de equilíbrio no diagrama $p \\times \\theta$.",
       "options": [
         {
-          "letter": "A",
-          "text": "Energia térmica em trânsito entre corpos motivada por uma diferença de temperatura."
+          "key": "A",
+          "text": "A pressão mínima necessária para que ocorra a vaporização instantânea do sólido."
         },
         {
-          "letter": "B",
-          "text": "A medida do grau de agitação das moléculas de um sistema isolado."
+          "key": "B",
+          "text": "O estado de equilíbrio simultâneo entre as fases sólida, líquida e de vapor."
         },
         {
-          "letter": "C",
-          "text": "Uma substância fluida que preenche os espaços entre os átomos de um sólido."
+          "key": "C",
+          "text": "O ponto onde a curva de sublimação termina e a substância torna-se um gás ideal."
         },
         {
-          "letter": "D",
-          "text": "A energia interna total contida em um corpo em repouso."
+          "key": "D",
+          "text": "A temperatura máxima em que a substância ainda pode existir no estado líquido."
         }
       ],
-      "answer": "A",
-      "rationale": "O calor é caracterizado como energia em movimento de um corpo de maior temperatura para um de menor temperatura até o equilíbrio."
+      "correctAnswer": "B",
+      "rationale": "O ponto triplo é a única condição de pressão e temperatura onde as três curvas de coexistência se encontram, permitindo o equilíbrio das três fases."
     },
     {
       "id": 2,
-      "title": "2. Um corpo de massa $200$ g é constituído por uma substância de calor específico $0,4$ cal/g $\\cdot$ $^{\\circ}$C. Qual a quantidade de calor necessária para que sua temperatura varie de $20$ $^{\\circ}$C para $25$ $^{\\circ}$C?",
-      "hint": "Aplique a Equação Fundamental da Calorimetria utilizando a diferença entre as temperaturas.",
+      "question": "Com base nas propriedades da água, o que ocorre com sua temperatura de fusão quando ela é submetida a um aumento de pressão externa?",
+      "hint": "Lembre-se que o gelo é menos denso que a água líquida e ocupa um volume maior.",
       "options": [
         {
-          "letter": "A",
-          "text": "$1000$ cal"
+          "key": "A",
+          "text": "A temperatura de fusão aumenta."
         },
         {
-          "letter": "B",
-          "text": "$2000$ cal"
+          "key": "B",
+          "text": "A água sublima diretamente sem passar pela fusão."
         },
         {
-          "letter": "C",
-          "text": "$400$ cal"
+          "key": "C",
+          "text": "A temperatura de fusão diminui."
         },
         {
-          "letter": "D",
-          "text": "$80$ cal"
+          "key": "D",
+          "text": "A temperatura de fusão permanece em $0\\ ^\\circ C$, independentemente da pressão."
         }
       ],
-      "answer": "C",
-      "rationale": "Utilizando a equação fundamental $Q = m \\cdot c \\cdot \\Delta T$, temos $200 \\cdot 0,4 \\cdot 5 = 400$ calorias."
+      "correctAnswer": "C",
+      "rationale": "A água é uma substância que se contrai na fusão; logo, o aumento da pressão favorece a redução de volume, facilitando a transição para o estado líquido em temperaturas menores."
     },
     {
       "id": 3,
-      "title": "3. Por que as fagulhas de um esmeril, apesar de estarem em altíssima temperatura, geralmente não causam queimaduras graves na pele do operador?",
-      "hint": "Relacione a massa pequena dessas partículas com a facilidade de perderem energia térmica.",
+      "question": "Por que a água ferve a uma temperatura inferior a $100\\ ^\\circ C$ em cidades de grande altitude, como La Paz?",
+      "hint": "Considere a relação entre a pressão externa e a dificuldade das moléculas se separarem durante a vaporização.",
       "options": [
         {
-          "letter": "A",
-          "text": "Pois possuem baixa capacidade térmica e cedem pouco calor até atingir o equilíbrio."
+          "key": "A",
+          "text": "Devido à menor concentração de oxigênio no ar, que altera as propriedades térmicas da água."
         },
         {
-          "letter": "B",
-          "text": "Devido ao fenômeno da convecção térmica que afasta o calor da pele."
+          "key": "B",
+          "text": "Porque o calor específico da água diminui proporcionalmente com a altitude."
         },
         {
-          "letter": "C",
-          "text": "Pelas fagulhas possuírem um calor específico extremamente elevado."
+          "key": "C",
+          "text": "Devido à menor pressão atmosférica, que facilita a expansão volumétrica necessária para a ebulição."
         },
         {
-          "letter": "D",
-          "text": "Porque a temperatura das fagulhas diminui instantaneamente no vácuo."
+          "key": "D",
+          "text": "Porque o ponto crítico da água é atingido mais rapidamente em baixas pressões."
         }
       ],
-      "answer": "A",
-      "rationale": "Corpos com massa muito pequena têm baixa capacidade térmica, o que limita a quantidade total de energia que podem transferir."
+      "correctAnswer": "C",
+      "rationale": "Em altitudes elevadas, a coluna de ar é menor, reduzindo a pressão externa e permitindo que o líquido atinja a pressão de vapor necessária para ferver em temperaturas mais baixas."
     },
     {
       "id": 4,
-      "title": "4. Ao fornecer calor a um bloco de gelo que se encontra exatamente a $0$ $^{\\circ}$C sob pressão de $1$ atm, o que se observa em relação à sua temperatura durante a fusão?",
-      "hint": "Lembre-se do comportamento das curvas de aquecimento durante as transições de fase.",
+      "question": "Qual é a principal distinção física entre um 'vapor' e um 'gás' de acordo com o diagrama de fases?",
+      "hint": "Pense no comportamento da substância quando submetida a um aumento de pressão em uma temperatura superior à crítica.",
       "options": [
         {
-          "letter": "A",
-          "text": "A temperatura aumenta imediatamente para $100$ $^{\\circ}$C para iniciar a ebulição."
+          "key": "A",
+          "text": "Gases são substâncias puras, enquanto vapores são sempre misturas heterogêneas."
         },
         {
-          "letter": "B",
-          "text": "A temperatura permanece constante em $0$ $^{\\circ}$C até que todo o gelo derreta."
+          "key": "B",
+          "text": "Vapores só existem abaixo do ponto triplo, enquanto gases existem acima dele."
         },
         {
-          "letter": "C",
-          "text": "A temperatura sobe linearmente de acordo com o calor específico do gelo."
+          "key": "C",
+          "text": "O gás possui uma densidade muito maior que a do vapor sob mesmas condições."
         },
         {
-          "letter": "D",
-          "text": "Ocorre uma queda brusca de temperatura devido à absorção de calor latente."
+          "key": "D",
+          "text": "Um vapor pode ser liquefeito por compressão isotérmica, enquanto um gás não pode."
         }
       ],
-      "answer": "B",
-      "rationale": "Durante a mudança de estado (calor latente), a energia é usada para romper as ligações moleculares, não para aumentar a agitação térmica."
+      "correctAnswer": "D",
+      "rationale": "A fase gasosa acima da temperatura crítica é denominada gás, onde nenhuma quantidade de pressão é capaz de aproximar as moléculas o suficiente para liquefação."
     },
     {
       "id": 5,
-      "title": "5. Determine a capacidade térmica de um bloco metálico que, ao receber $2000$ calorias, sofre uma variação de temperatura de $400$ $^{\\circ}$C.",
-      "hint": "A capacidade térmica mede quanto calor é necessário para variar a temperatura em apenas uma unidade ($1$ $^{\\circ}$C).",
+      "question": "Sobre o fenômeno da sublimação do 'gelo-seco' ($CO_2$ sólido) sob pressão atmosférica normal ($1\\ atm$), é correto afirmar que:",
+      "hint": "Compare a pressão ambiente com a pressão necessária para a coexistência das três fases do $CO_2$.",
       "options": [
         {
-          "letter": "A",
-          "text": "$5$ cal/$^{\\circ}$C"
+          "key": "A",
+          "text": "Ele ocorre porque a pressão atmosférica ($1\\ atm$) é inferior à pressão do seu ponto triplo ($5\\ atm$)."
         },
         {
-          "letter": "B",
-          "text": "$0,2$ cal/$^{\\circ}$C"
+          "key": "B",
+          "text": "O fenômeno é provocado pela alta umidade do ar que condensa sobre o sólido."
         },
         {
-          "letter": "C",
-          "text": "$800.000$ cal/$^{\\circ}$C"
+          "key": "C",
+          "text": "Ele ocorre porque o $CO_2$ não possui fase líquida estável em nenhuma condição de pressão."
         },
         {
-          "letter": "D",
-          "text": "$50$ cal/$^{\\circ}$C"
+          "key": "D",
+          "text": "A sublimação eleva a temperatura do bloco até que ele atinja o equilíbrio térmico a $0\\ ^\\circ C$."
         }
       ],
-      "answer": "A",
-      "rationale": "A capacidade térmica $C$ é definida pela razão entre a quantidade de calor $Q$ e a variação de temperatura $\\Delta T$ ($2000 / 400$)."
+      "correctAnswer": "A",
+      "rationale": "Substâncias cujos pontos triplos ocorrem em pressões superiores a $1\\ atm$ não conseguem manter-se líquidas sob pressão normal, passando direto do sólido para o vapor."
     },
     {
       "id": 6,
-      "title": "6. Diferente da condução e da convecção, a irradiação térmica é o único mecanismo de transferência de calor que:",
-      "hint": "Pense em como a energia do Sol atinge a Terra através do espaço.",
+      "question": "O fenômeno do 'regelo', observado na experiência de Tyndall com um fio metálico atravessando um bloco de gelo, explica-se por:",
+      "hint": "Foque no que acontece com a temperatura de fusão da água sob o efeito da compressão mecânica.",
       "options": [
         {
-          "letter": "A",
-          "text": "Ocorre apenas entre corpos que possuem a mesma temperatura."
+          "key": "A",
+          "text": "Fusão por aumento de pressão local seguida de solidificação após o alívio da pressão."
         },
         {
-          "letter": "B",
-          "text": "Transporta matéria através de correntes circulares de fluidos."
+          "key": "B",
+          "text": "Aquecimento do fio por atrito, derretendo o gelo por condução térmica direta."
         },
         {
-          "letter": "C",
-          "text": "Pode ocorrer no vácuo, sem a necessidade de um meio material."
+          "key": "C",
+          "text": "Sublimação instantânea do gelo devido ao campo magnético do metal."
         },
         {
-          "letter": "D",
-          "text": "Depende exclusivamente do contato direto entre as superfícies dos corpos."
+          "key": "D",
+          "text": "Aumento da temperatura de fusão provocado pela força peso nas extremidades."
         }
       ],
-      "answer": "C",
-      "rationale": "A irradiação ocorre por meio de ondas eletromagnéticas, como os raios infravermelhos, que não dependem de matéria para se propagar."
+      "correctAnswer": "A",
+      "rationale": "A pressão do fio diminui o ponto de fusão do gelo abaixo dele, causando derretimento; a água resultante congela novamente acima do fio ao retornar à pressão atmosférica."
     },
     {
       "id": 7,
-      "title": "7. Segundo a Lei de Kirchhoff, o que se pode afirmar sobre a relação entre a capacidade de absorção e de emissão de calor por um corpo?",
-      "hint": "Considere o comportamento de uma superfície escura (fuligem) em comparação a uma superfície espelhada.",
+      "question": "Determine a quantidade de calor necessária para elevar a temperatura de uma esfera de ferro de $100\\ g$ de $20\\ ^\\circ C$ para $80\\ ^\\circ C$. (Dado: calor específico do ferro $c = 0,11\\ cal/g \\cdot ^\\circ C$)",
+      "hint": "Aplique a equação fundamental da calorimetria usando a variação de temperatura.",
       "options": [
         {
-          "letter": "A",
-          "text": "Um bom absorvedor de calor é também um bom emissor."
+          "key": "A",
+          "text": "$110\\ cal$"
         },
         {
-          "letter": "B",
-          "text": "A emissão de calor é independente da cor ou do acabamento da superfície."
+          "key": "B",
+          "text": "$660\\ cal$"
         },
         {
-          "letter": "C",
-          "text": "Corpos polidos e claros são excelentes emissores de radiação térmica."
+          "key": "C",
+          "text": "$1100\\ cal$"
         },
         {
-          "letter": "D",
-          "text": "O poder absorvedor de um corpo negro é nulo para qualquer temperatura."
+          "key": "D",
+          "text": "$880\\ cal$"
         }
       ],
-      "answer": "A",
-      "rationale": "A lei estabelece que a emissividade é igual à absorvidade ($e = a$) para um corpo em equilíbrio térmico."
+      "correctAnswer": "B",
+      "rationale": "Utilizando $Q = m \\cdot c \\cdot \\Delta \\theta$, temos $100 \\cdot 0,11 \\cdot (80 - 20) = 11 \\cdot 60 = 660\\ cal$."
     },
     {
       "id": 8,
-      "title": "8. Nas estufas de plantas, o aquecimento interno ocorre porque o vidro apresenta qual comportamento físico em relação à radiação solar?",
-      "hint": "Pense no vidro como um filtro que deixa a luz entrar, mas impede o 'calor' de sair.",
+      "question": "Qual a quantidade total de calor necessária para fundir completamente um bloco de gelo de $50\\ g$ que já se encontra a $0\\ ^\\circ C$? (Dado: calor latente de fusão $L_F = 80\\ cal/g$)",
+      "hint": "Considere o calor latente necessário para romper as ligações moleculares do estado sólido.",
       "options": [
         {
-          "letter": "A",
-          "text": "Atua como um condutor térmico perfeito, transferindo calor do ar externo para o interno."
+          "key": "A",
+          "text": "$4000\\ cal$"
         },
         {
-          "letter": "B",
-          "text": "Reflete totalmente a radiação incidente do Sol antes que ela toque o solo."
+          "key": "B",
+          "text": "$0\\ cal$"
         },
         {
-          "letter": "C",
-          "text": "Transforma ondas eletromagnéticas em correntes de convecção de alta velocidade."
+          "key": "C",
+          "text": "$400\\ cal$"
         },
         {
-          "letter": "D",
-          "text": "É transparente à luz visível mas opaco aos raios infravermelhos de baixa frequência reemitidos."
+          "key": "D",
+          "text": "$2500\\ cal$"
         }
       ],
-      "answer": "D",
-      "rationale": "A energia entra como luz, é absorvida e reemitida como infravermelho, que não consegue atravessar o vidro, ficando retida."
+      "correctAnswer": "A",
+      "rationale": "Para mudança de fase sem variação de temperatura, usa-se $Q = m \\cdot L$, resultando em $50 \\cdot 80 = 4000\\ cal$."
     },
     {
       "id": 9,
-      "title": "9. Um sistema gasoso recebe $1000$ J de calor de uma fonte térmica e realiza um trabalho de $400$ J sobre o meio externo. Qual é a variação da energia interna desse sistema?",
-      "hint": "Utilize o balanço energético da Primeira Lei da Termodinâmica, atentando para os sinais de calor recebido e trabalho realizado.",
+      "question": "Em uma panela de pressão, a água ferve a $120\\ ^\\circ C$. Calcule o calor necessário para aquecer $70\\ g$ de água de $50\\ ^\\circ C$ até a ebulição e vaporizá-la totalmente. (Dados: $c = 1,0\\ cal/g \\cdot ^\\circ C$ e $L_V = 523,1\\ cal/g$)",
+      "hint": "A quantidade total é a soma do calor sensível de aquecimento com o calor latente de vaporização.",
       "options": [
         {
-          "letter": "A",
-          "text": "$-600$ J"
+          "key": "A",
+          "text": "$4900\\ cal$"
         },
         {
-          "letter": "B",
-          "text": "$1400$ J"
+          "key": "B",
+          "text": "$36617\\ cal$"
         },
         {
-          "letter": "C",
-          "text": "$600$ J"
+          "key": "C",
+          "text": "$42700\\ cal$"
         },
         {
-          "letter": "D",
-          "text": "$1000$ J"
+          "key": "D",
+          "text": "$41517\\ cal$"
         }
       ],
-      "answer": "C",
-      "rationale": "Pela Primeira Lei da Termodinâmica ($\\Delta U = Q - W$), a variação é a diferença entre o calor recebido e o trabalho realizado ($1000 - 400$)."
+      "correctAnswer": "D",
+      "rationale": "Calcula-se o calor sensível $Q_s = 70 \\cdot 1 \\cdot (120 - 50) = 4900$ e o latente $Q_l = 70 \\cdot 523,1 = 36617$. A soma é $41517\\ cal$."
     },
     {
       "id": 10,
-      "title": "10. Para derreter completamente uma barra de $50$ g de gelo que já se encontra a $0$ $^{\\circ}$C, sabendo que o calor latente de fusão do gelo é $L_f = 80$ cal/g, quanto calor deve ser fornecido?",
-      "hint": "Multiplique a massa total pelo calor necessário para fundir cada grama da substância.",
+      "question": "Um corpo de massa $50\\ g$ recebe $300\\ cal$ e sua temperatura sobe de $-10\\ ^\\circ C$ até $20\\ ^\\circ C$. Determine a capacidade térmica ($C$) deste corpo.",
+      "hint": "Lembre-se que a capacidade térmica relaciona o calor trocado diretamente com a variação de temperatura sofrida.",
       "options": [
         {
-          "letter": "A",
-          "text": "$4000$ cal"
+          "key": "A",
+          "text": "$30\\ cal/^\\circ C$"
         },
         {
-          "letter": "B",
-          "text": "$80$ cal"
+          "key": "B",
+          "text": "$10\\ cal/^\\circ C$"
         },
         {
-          "letter": "C",
-          "text": "$1,6$ cal"
+          "key": "C",
+          "text": "$15000\\ cal/^\\circ C$"
         },
         {
-          "letter": "D",
-          "text": "$400$ cal"
+          "key": "D",
+          "text": "$0,2\\ cal/g \\cdot ^\\circ C$"
         }
       ],
-      "answer": "A",
-      "rationale": "A quantidade de calor latente é calculada por $Q = m \\cdot L$, resultando em $50 \\cdot 80 = 4000$ calorias."
+      "correctAnswer": "B",
+      "rationale": "A capacidade térmica é definida como $C = Q / \\Delta \\theta$. Assim, $300 / (20 - (-10)) = 300 / 30 = 10\\ cal/^\\circ C$."
     }
   ]
 }

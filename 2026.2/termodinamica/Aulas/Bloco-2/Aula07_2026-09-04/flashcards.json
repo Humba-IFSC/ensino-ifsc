@@ -1,65 +1,56 @@
 {
-  "title": "Termologia Flashcards - Aula 07",
+  "title": "Cartões de Estudo - Diagramas de Fases e Termologia (Aula 07)",
+  "totalCards": 10,
   "cards": [
     {
-      "front": "Como se define o diagrama de fases de uma substância pura?",
-      "back": "É a representação gráfica da pressão $p$ em função da temperatura $\\theta$ que indica em qual estado físico a substância se encontra."
+      "id": 1,
+      "front": "O que é um diagrama de fases na Termodinâmica?",
+      "back": "Uma representação gráfica da pressão ($p$) em função da temperatura ($\\theta$) que mapeia os estados físicos de uma substância pura."
     },
     {
-      "front": "O que representa o ponto triplo (ou tríplice) em um diagrama de fases?",
-      "back": "O estado de equilíbrio simultâneo entre as três fases da substância: sólida, líquida e de vapor."
+      "id": 2,
+      "front": "Como se chama o ponto de interseção onde as fases sólida, líquida e gasosa coexistem em equilíbrio dinâmico?",
+      "back": "Ponto Triplo (ou Ponto Tríplice)."
     },
     {
+      "id": 3,
       "front": "No diagrama de fases, qual curva representa os estados de equilíbrio entre as fases sólida e líquida?",
-      "back": "A curva de fusão."
+      "back": "Curva de Fusão."
     },
     {
-      "front": "Qual é o efeito do aumento da pressão externa sobre a temperatura de ebulição de qualquer líquido?",
-      "back": "O aumento da pressão eleva a temperatura de ebulição."
+      "id": 4,
+      "front": "Como o aumento da pressão externa afeta a temperatura de fusão de substâncias que se contraem ao derreter, como a água?",
+      "back": "O aumento da pressão reduz a temperatura de fusão."
     },
     {
-      "front": "Por que a temperatura de fusão da água diminui quando a pressão sobre ela aumenta?",
-      "back": "Porque a água é uma substância que se contrai na fusão, e o aumento de pressão favorece essa redução de volume."
+      "id": 5,
+      "front": "Para substâncias que se dilatam na fusão, qual é o efeito do aumento da pressão sobre a temperatura de fusão?",
+      "back": "O aumento da pressão eleva a temperatura de fusão."
     },
     {
-      "front": "O que caracteriza o ponto crítico ($C$) em um diagrama de fases?",
-      "back": "É o ponto final da curva de vaporização acima do qual não é possível distinguir entre as fases líquida e de vapor."
+      "id": 6,
+      "front": "Conceito: Fenômeno do Regelo",
+      "back": "Fusão do gelo provocada por aumento de pressão localizada, seguida de ressolidificação quando a pressão retorna ao normal."
     },
     {
-      "front": "Termodinamicamente, qual é a diferença entre um vapor e um gás?",
-      "back": "Vapor existe abaixo da temperatura crítica e pode ser liquefeito por compressão; gás existe acima dela e não pode ser liquefeito apenas por compressão."
+      "id": 7,
+      "front": "Qual é o impacto do aumento da pressão sobre a temperatura de ebulição de qualquer substância pura?",
+      "back": "O aumento da pressão sempre eleva a temperatura de ebulição."
     },
     {
-      "front": "Qual curva no diagrama de fases delimita as regiões das fases sólida e de vapor?",
-      "back": "A curva de sublimação."
+      "id": 8,
+      "front": "Por que a água entra em ebulição a temperaturas menores (ex: $72\\ ^\\circ\\text{C}$) no topo do Monte Everest?",
+      "back": "Devido à menor pressão atmosférica, que facilita a expansão volumétrica necessária para a vaporização."
     },
     {
-      "front": "Explique o fenômeno do regelo observado na experiência de Tyndall.",
-      "back": "A pressão de um fio sobre o gelo reduz seu ponto de fusão, fazendo-o derreter; ao passar o fio, a pressão volta ao normal e a água solidifica-se novamente."
+      "id": 9,
+      "front": "A partir de qual limite térmico uma substância é classificada como gás e não pode mais ser liquefeita apenas por compressão isotérmica?",
+      "back": "Temperatura Crítica ($\\theta_C$)."
     },
     {
-      "front": "De qual fator físico depende exclusivamente a pressão máxima de vapor de uma substância?",
-      "back": "Exclusivamente da temperatura da substância."
-    },
-    {
-      "front": "Por que os alimentos cozinham em menos tempo no interior de uma panela de pressão?",
-      "back": "Porque a pressão interna superior a $1$ $atm$ faz com que a água ferva a uma temperatura superior a $100$ $^\\circ C$."
-    },
-    {
-      "front": "Sob quais condições de pressão e temperatura ocorre o ponto triplo da água?",
-      "back": "Sob pressão de $4,58$ $mmHg$ e temperatura de $0,01$ $^\\circ C$."
-    },
-    {
-      "front": "No gráfico $p \\times V$ (Isotermas de Andrews), o que ocorre com o patamar de liquefação quando a temperatura atinge o valor crítico?",
-      "back": "O patamar desaparece, reduzindo-se a um único ponto denominado ponto crítico."
-    },
-    {
-      "front": "Cite três exemplos de substâncias, além da água, que se contraem ao sofrer fusão.",
-      "back": "Bismuto, ferro e antimônio."
-    },
-    {
-      "front": "Por que o dióxido de carbono ($CO_{2}$) sólido (gelo-seco) sofre sublimação sob pressão atmosférica normal?",
-      "back": "Porque a pressão de seu ponto triplo ($5$ $atm$) é superior à pressão atmosférica normal ($1$ $atm$)."
+      "id": 10,
+      "front": "O que representa o Ponto Crítico em um diagrama de fases?",
+      "back": "O ponto terminal da curva de vaporização onde a distinção física entre líquido e vapor deixa de existir."
     }
   ]
 }

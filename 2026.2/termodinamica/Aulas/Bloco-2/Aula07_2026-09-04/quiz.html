@@ -1,1157 +1,732 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz 2 (Avaliativo) — Aula 07: Diagramas de Fases e Termologia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        window.MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
-            svg: { fontCache: 'global' }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-        :root {
-            --bg-main: #0a0e17;
-            --bg-card: rgba(15, 23, 42, 0.85);
-            --border-card: rgba(245, 158, 11, 0.25);
-            --accent-green: #4ade80;
-            --accent-amber: #f59e0b;
-            --accent-cyan: #38bdf8;
-            --accent-red: #fca5a5;
-            --accent-yellow: #fcd34d;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Interativo - Diagramas de Fases e Termologia | Termodinâmica IFSC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --bg-primary: #0a0e17;
+      --bg-secondary: #121826;
+      --bg-card: rgba(18, 24, 38, 0.85);
+      --accent: #f59e0b;
+      --accent-hover: #d97706;
+      --accent-glow: rgba(245, 158, 11, 0.35);
+      --accent-light: #fbbf24;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border-color: rgba(245, 158, 11, 0.2);
+      --border-card: rgba(255, 255, 255, 0.08);
+      --correct: #10b981;
+      --correct-bg: rgba(16, 185, 129, 0.15);
+      --wrong: #ef4444;
+      --wrong-bg: rgba(239, 68, 68, 0.15);
+      --radius: 14px;
+    }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-primary);
-            min-height: 100vh;
-            padding: 2rem 1rem;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(245, 158, 11, 0.07) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.07) 0%, transparent 40%);
-        }
+    body {
+      background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, var(--bg-primary) 75%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem;
+    }
 
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-        }
+    .container {
+      width: 100%;
+      max-width: 860px;
+      margin-top: 1rem;
+    }
 
-        .btn-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.06);
-            color: #cbd5e1;
-            text-decoration: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 0.6rem;
-            font-size: 0.88rem;
-            font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 1.5rem;
-            transition: all 0.2s ease;
-        }
-        .btn-back:hover {
-            background: rgba(255, 255, 255, 0.12);
-            color: #fff;
-            transform: translateX(-2px);
-        }
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
 
-        /* --- SCREEN 1: LOGIN & RULES --- */
-        .login-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 1.25rem;
-            padding: 2.5rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(12px);
-        }
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
 
-        .login-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .login-header h1 {
-            font-size: 1.9rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-amber), var(--accent-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-        .login-header p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
+    header.quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-card);
+      padding-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
 
-        .notice-box {
-            background: rgba(245, 158, 11, 0.08);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            border-radius: 0.9rem;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            font-size: 0.92rem;
-        }
-        .notice-box h3 {
-            color: #fcd34d;
-            font-size: 1.05rem;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .notice-box ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-        .notice-box li {
-            position: relative;
-            padding-left: 1.5rem;
-            color: #e2e8f0;
-        }
-        .notice-box li::before {
-            content: "•";
-            position: absolute;
-            left: 0.5rem;
-            color: var(--accent-amber);
-            font-size: 1.2rem;
-            line-height: 1;
-        }
+    .badge {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-light);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
 
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-        .form-group label {
-            display: block;
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: #cbd5e1;
-            margin-bottom: 0.5rem;
-        }
-        .form-control {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 0.6rem;
-            padding: 0.8rem 1rem;
-            color: #fff;
-            font-size: 0.95rem;
-            outline: none;
-            transition: all 0.2s;
-        }
-        .form-control:focus {
-            border-color: var(--accent-amber);
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
-        }
+    .timer-badge {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      font-family: 'Fira Code', monospace;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
 
-        .btn-start {
-            width: 100%;
-            background: linear-gradient(135deg, #d97706, #059669);
-            color: #fff;
-            border: none;
-            border-radius: 0.75rem;
-            padding: 1rem;
-            font-size: 1.05rem;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            margin-top: 1.5rem;
-            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.3);
-        }
-        .btn-start:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(217, 119, 6, 0.4);
-        }
+    h1.title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff, var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.4rem;
+    }
 
-        /* --- SCREEN 2: QUIZ ACTIVE --- */
-        #quizScreen { display: none; }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
 
-        .sticky-timer-bar {
-            position: sticky;
-            top: 1rem;
-            z-index: 100;
-            background: rgba(15, 23, 42, 0.95);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            border-radius: 1rem;
-            padding: 1rem 1.5rem;
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
+    .progress-bar-wrap {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 1.8rem;
+    }
 
-        .student-info-badge {
-            display: flex;
-            flex-direction: column;
-            gap: 0.2rem;
-        }
-        .student-name { font-weight: 700; font-size: 0.95rem; color: #f1f5f9; }
-        .student-email { font-size: 0.8rem; color: var(--text-secondary); }
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #ef4444);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
 
-        .timer-display {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-size: 1.3rem;
-            font-weight: 800;
-            font-family: monospace;
-            color: var(--accent-amber);
-            background: rgba(0, 0, 0, 0.4);
-            padding: 0.5rem 1rem;
-            border-radius: 0.6rem;
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-        .timer-display.warning {
-            color: #ef4444;
-            border-color: #ef4444;
-            animation: pulse 1s infinite;
-        }
+    /* Form screen */
+    .form-group {
+      margin-bottom: 1.2rem;
+      text-align: left;
+    }
 
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
 
-        .timer-progress-bg {
-            height: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
-            margin-top: 0.5rem;
-            overflow: hidden;
-            width: 100%;
-        }
-        .timer-progress-fill {
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(90deg, var(--accent-amber), var(--accent-green));
-            transition: width 1s linear;
-        }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: rgba(10, 14, 23, 0.8);
+      border: 1px solid var(--border-card);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
 
-        .question-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 1rem;
-            padding: 1.75rem;
-            margin-bottom: 1.75rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
 
-        .question-number {
-            font-size: 0.8rem;
-            font-weight: 800;
-            color: var(--accent-amber);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.8rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: #0a0e17;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      width: 100%;
+      text-decoration: none;
+    }
 
-        .question-text {
-            font-size: 1.05rem;
-            font-weight: 700;
-            line-height: 1.5;
-            margin-bottom: 1.25rem;
-            color: #f8fafc;
-        }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--accent-glow);
+    }
 
-        .question-hint {
-            background: rgba(252, 211, 77, 0.1);
-            border-left: 3px solid var(--accent-yellow);
-            padding: 0.6rem 1rem;
-            border-radius: 0 0.5rem 0.5rem 0;
-            font-size: 0.85rem;
-            color: #fde68a;
-            margin-bottom: 1.25rem;
-        }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-card);
+      color: var(--text-main);
+    }
 
-        .options-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: none;
+    }
 
-        .option-label {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 0.6rem;
-            padding: 0.9rem 1.1rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 0.95rem;
-            color: #cbd5e1;
-        }
-        .option-label:hover {
-            background: rgba(245, 158, 11, 0.08);
-            border-color: rgba(245, 158, 11, 0.3);
-            color: #fff;
-        }
-        .option-label input[type="radio"] {
-            margin-top: 0.25rem;
-            accent-color: var(--accent-amber);
-            width: 1.1rem;
-            height: 1.1rem;
-        }
+    /* Question Screen */
+    .question-box {
+      text-align: left;
+    }
 
-        .btn-submit-quiz {
-            width: 100%;
-            background: linear-gradient(135deg, #d97706, #059669);
-            color: #fff;
-            border: none;
-            border-radius: 0.75rem;
-            padding: 1.1rem;
-            font-size: 1.1rem;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-top: 1rem;
-            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
-        }
-        .btn-submit-quiz:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.4);
-        }
+    .question-number {
+      font-size: 0.85rem;
+      color: var(--accent-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
 
-        /* --- SCREEN 3: RESULT & PROOF --- */
-        #resultScreen { display: none; }
+    .question-text {
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
 
-        .result-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 1.25rem;
-            padding: 2.5rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
+    .hint-box {
+      background: rgba(245, 158, 11, 0.08);
+      border-left: 3px solid var(--accent);
+      padding: 0.75rem 1rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: #fbbf24;
+      display: none;
+    }
 
-        .result-score-badge {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.5);
-            border: 4px solid var(--accent-green);
-            margin: 1.5rem auto;
-            box-shadow: 0 0 30px rgba(74, 222, 128, 0.3);
-        }
-        .score-number {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: var(--accent-green);
-            line-height: 1;
-        }
-        .score-total {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-weight: 600;
-            margin-top: 0.2rem;
-        }
+    .hint-toggle-btn {
+      background: transparent;
+      border: none;
+      color: var(--accent-light);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-bottom: 1rem;
+      text-decoration: underline;
+    }
 
-        .result-meta-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-            text-align: left;
-        }
-        .meta-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 0.6rem;
-            padding: 0.85rem 1rem;
-        }
-        .meta-label { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; }
-        .meta-value { font-size: 0.95rem; color: #fff; font-weight: 600; margin-top: 0.25rem; }
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
 
-        .verification-code-box {
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px dashed var(--accent-amber);
-            border-radius: 0.75rem;
-            padding: 1.25rem;
-            font-family: monospace;
-            font-size: 0.95rem;
-            color: var(--accent-amber);
-            margin: 1.5rem 0;
-            word-break: break-all;
-        }
+    .option-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
 
-        .action-btns {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-        .btn-action {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #fff;
-            padding: 0.75rem 1.4rem;
-            border-radius: 0.6rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .btn-action:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
+    .option-item:hover {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
 
-        /* --- REVIEW GABARITO --- */
-        .review-section {
-            margin-top: 3rem;
-        }
-        .review-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 0.75rem;
-        }
-        .review-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 0.9rem;
-            padding: 1.5rem;
-            margin-bottom: 1.25rem;
-        }
-        .review-card.correct { border-left: 4px solid var(--accent-green); }
-        .review-card.incorrect { border-left: 4px solid #ef4444; }
+    .option-item.selected {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
 
-        .status-badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.25rem 0.6rem;
-            border-radius: 0.4rem;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-        }
-        .status-badge.correct { background: rgba(74, 222, 128, 0.15); color: var(--accent-green); }
-        .status-badge.incorrect { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+    .opt-key {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
 
-        .rationale-box {
-            background: rgba(0, 0, 0, 0.35);
-            border-radius: 0.5rem;
-            padding: 0.85rem 1rem;
-            font-size: 0.88rem;
-            color: #cbd5e1;
-            margin-top: 0.75rem;
-            line-height: 1.5;
-            border-left: 3px solid var(--accent-amber);
-        }
+    .option-item.selected .opt-key {
+      background: var(--accent);
+      color: #0a0e17;
+    }
 
-        @media (max-width: 640px) {
-            .login-card { padding: 1.5rem; }
-            .sticky-timer-bar { flex-direction: column; gap: 0.75rem; text-align: center; }
-        }
-    </style>
+    .opt-text {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    .quiz-nav-btns {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    /* Result Screen */
+    .score-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%);
+      border: 3px solid var(--accent);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem auto;
+      box-shadow: 0 0 30px var(--accent-glow);
+    }
+
+    .score-number {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .score-max {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .hash-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px dashed var(--accent);
+      border-radius: 8px;
+      padding: 0.8rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      color: var(--accent-light);
+      word-break: break-all;
+      margin: 1rem 0;
+    }
+
+    .review-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .review-item.correct {
+      border-left: 4px solid var(--correct);
+    }
+
+    .review-item.wrong {
+      border-left: 4px solid var(--wrong);
+    }
+
+    .review-rationale {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.8rem;
+      border-radius: 6px;
+      margin-top: 0.8rem;
+      font-size: 0.88rem;
+      color: #d1d5db;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <a href="../../../index.html" class="btn-back">← Voltar para Central de Ensino</a>
 
-        <!-- ════════ SCREEN 1: LOGIN & RULES ════════ -->
-        <div class="login-card" id="loginScreen">
-            <div class="login-header">
-                <h1>📝 Quiz — Diagramas de Fases e Termologia</h1>
-                <p>Disciplina: Termodinâmica (FSC060806 / FCA060903) · Aula 07</p>
-            </div>
+  <div class="container">
+    <div class="glass-card" id="quiz-card">
+      
+      <!-- START / LOGIN SCREEN -->
+      <div id="screen-login">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <span class="badge">🔥 Termodinâmica</span>
+          <span class="badge">Aula 07 • Bloco 2</span>
+        </div>
+        <h1 class="title">Quiz: Diagramas de Fases & Termologia</h1>
+        <p class="subtitle">Avaliação formativa e fixação dos conceitos fundamentais de curvas de coexistência, pontos críticos/tríplices e termologia básica.</p>
 
-            <div class="notice-box">
-                <h3>⚠️ Instruções e Regras Oficiais do Quiz:</h3>
-                <ul>
-                    <li><strong>Tempo Limite:</strong> Você terá exatamente <strong>30 minutos</strong> contínuos para responder às 10 questões a partir do início.</li>
-                    <li><strong>Tentativa Única e Individual:</strong> Cada estudante deve preencher com seu <strong>Nome Completo</strong> e <strong>E-mail Institucional (@aluno.ifsc.edu.br)</strong>.</li>
-                    <li><strong>Comprovante de Envio:</strong> Ao finalizar, um código de autenticidade único será gerado e os dados serão registrados automaticamente na planilha do professor.</li>
-                    <li><strong>Gabarito e Justificativas:</strong> O gabarito detalhado com as justificativas teóricas e resoluções completas estará disponível após a conclusão.</li>
-                </ul>
-            </div>
+        <form id="login-form" onsubmit="startQuiz(event)">
+          <div class="form-group">
+            <label for="student-name">Nome Completo do Estudante:</label>
+            <input type="text" id="student-name" required placeholder="Digite seu nome completo">
+          </div>
 
-            <form id="loginForm" onsubmit="handleStartQuiz(event)">
-                <div class="form-group">
-                    <label for="studentName">Nome Completo do Estudante:</label>
-                    <input type="text" id="studentName" class="form-control" placeholder="Ex: Humberto Luz Oliveira" required autocomplete="name">
-                </div>
-                <div class="form-group">
-                    <label for="studentEmail">E-mail Institucional (@aluno.ifsc.edu.br):</label>
-                    <input type="email" id="studentEmail" class="form-control" placeholder="Ex: seu.nome@aluno.ifsc.edu.br" required autocomplete="email">
-                </div>
-                <div class="form-group">
-                    <label for="quizPassword">Senha de Acesso à Avaliação:</label>
-                    <input type="password" id="quizPassword" class="form-control" placeholder="Digite a senha liberada em sala" required>
-                </div>
-                <button type="submit" class="btn-start">
-                    🚀 Iniciar Quiz e Ativar Cronômetro (30 min)
-                </button>
-            </form>
+          <div class="form-group">
+            <label for="student-id">Matrícula IFSC:</label>
+            <input type="text" id="student-id" required placeholder="Ex: 2026101234">
+          </div>
+
+          <div class="form-group">
+            <label for="student-class">Unidade Curricular / Turma:</label>
+            <select id="student-class" required>
+              <option value="FSC060806">FSC060806 - Engenharia Elétrica / Geral</option>
+              <option value="FCA060903">FCA060903 - Engenharia / Física</option>
+              <option value="Geral">Outra / Geral</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="quiz-pass">Senha de Acesso da Aula:</label>
+            <input type="password" id="quiz-pass" required placeholder="Fornecida pelo professor">
+          </div>
+
+          <button type="submit" class="btn" style="margin-top: 1rem;">
+            Iniciar Quiz (30 minutos) 🚀
+          </button>
+        </form>
+
+        <div style="margin-top: 1.5rem; text-align: center;">
+          <a href="index.html" style="color: var(--text-muted); font-size: 0.9rem; text-decoration: none;">← Voltar para a página da Aula 07</a>
+        </div>
+      </div>
+
+      <!-- QUESTION SCREEN -->
+      <div id="screen-question" class="hidden">
+        <header class="quiz-header">
+          <div class="badge" id="student-info-badge">Estudante</div>
+          <div class="timer-badge">
+            ⏱️ <span id="timer-display">30:00</span>
+          </div>
+        </header>
+
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progress-bar"></div>
         </div>
 
-        <!-- ════════ SCREEN 2: QUIZ ACTIVE ════════ -->
-        <div id="quizScreen">
-            <div class="sticky-timer-bar" id="timerBox">
-                <div class="student-info-badge">
-                    <span class="student-name" id="dispStudentName">Aluno</span>
-                    <span class="student-email" id="dispStudentEmail">email@ifsc.edu.br</span>
-                </div>
-                <div>
-                    <div class="timer-display">
-                        ⏱️ <span id="timerCountdown">30:00</span>
-                    </div>
-                    <div class="timer-progress-bg">
-                        <div class="timer-progress-fill" id="timerProgress"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="question-box">
+          <div class="question-number" id="question-number">Questão 1 de 10</div>
+          <div class="question-text" id="question-text">Texto da questão</div>
 
-            <form id="quizForm" onsubmit="handleQuizSubmit(event)">
-                <div id="questionsContainer"></div>
-                <button type="submit" class="btn-submit-quiz">
-                    ✅ Finalizar Quiz e Enviar Respostas
-                </button>
-            </form>
+          <button type="button" class="hint-toggle-btn" id="hint-btn" onclick="toggleHint()">
+            💡 Ver Dica
+          </button>
+          <div class="hint-box" id="hint-box"></div>
+
+          <div class="options-grid" id="options-grid"></div>
+
+          <div class="quiz-nav-btns">
+            <button type="button" class="btn btn-secondary" id="prev-btn" onclick="prevQuestion()" style="width: auto;">
+              ← Anterior
+            </button>
+            <button type="button" class="btn" id="next-btn" onclick="nextQuestion()" style="width: auto;">
+              Próxima →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULT / REVIEW SCREEN -->
+      <div id="screen-result" class="hidden">
+        <span class="badge">Resultado Final</span>
+        <h1 class="title" style="margin-top: 0.5rem;">Quiz Concluído!</h1>
+        <p class="subtitle" id="result-user-summary">Parabéns por concluir a atividade.</p>
+
+        <div class="score-circle">
+          <div class="score-number" id="final-score">0</div>
+          <div class="score-max">de <span id="final-max">10</span> pts</div>
         </div>
 
-        <!-- ════════ SCREEN 3: RESULTS & REVIEW ════════ -->
-        <div id="resultScreen">
-            <div class="result-card">
-                <h2 style="font-size:1.8rem; font-weight:800; color:#fff;">🎉 Quiz Finalizado com Sucesso!</h2>
-                <p style="color:var(--text-secondary); margin-top:0.3rem;">Confira abaixo seu desempenho e o comprovante oficial de realização.</p>
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.5rem;">Hash de Validação Institucional:</p>
+        <div class="hash-box" id="validation-hash">GERANDO HASH...</div>
 
-                <div class="result-score-badge">
-                    <div class="score-number"><span id="resScoreNum">0</span>/10</div>
-                    <div class="score-total" id="resPercentText">0% de Aproveitamento</div>
-                </div>
-
-                <div class="result-meta-grid">
-                    <div class="meta-item">
-                        <div class="meta-label">Estudante</div>
-                        <div class="meta-value" id="resStudent">-</div>
-                    </div>
-                    <div class="meta-item">
-                        <div class="meta-label">E-mail</div>
-                        <div class="meta-value" id="resEmail">-</div>
-                    </div>
-                    <div class="meta-item">
-                        <div class="meta-label">Tempo Utilizado</div>
-                        <div class="meta-value" id="resTime">-</div>
-                    </div>
-                    <div class="meta-item">
-                        <div class="meta-label">Data e Hora de Conclusão</div>
-                        <div class="meta-value" id="resDate">-</div>
-                    </div>
-                </div>
-
-                <div class="verification-code-box">
-                    🔒 Código Autêntico de Validação Hash: <br>
-                    <strong id="resAuthCode" style="font-size:1.1rem; color:#fff;">TERMO07-XXXXXX</strong>
-                </div>
-
-                <div class="action-btns">
-                    <button class="btn-action" onclick="copyComprovante()">📋 Copiar Comprovante</button>
-                    <button class="btn-action" onclick="downloadComprovante()">📥 Baixar TXT do Comprovante</button>
-                    <button class="btn-action" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
-                </div>
-            </div>
-
-            <div class="review-section">
-                <h3 class="review-title">📖 Correção Detalhada e Gabarito Comentado</h3>
-                <div id="reviewContainer"></div>
-            </div>
+        <div style="display: flex; gap: 1rem; margin: 1.5rem 0;">
+          <button type="button" class="btn" onclick="toggleReview()">
+            📝 Ver Gabarito Comentado
+          </button>
+          <a href="index.html" class="btn btn-secondary">
+            Voltar para Aula 07
+          </a>
         </div>
+
+        <div id="review-container" class="hidden" style="margin-top: 2rem;">
+          <h3 style="margin-bottom: 1rem; color: var(--accent-light);">Revisão Questão a Questão:</h3>
+          <div id="review-list"></div>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <script>
-        // CONFIGURAÇÕES GERAIS
-        const VALID_PASSWORDS = ["termo2026B2", "termodinamica2026", "ifsc2026"];
-        const TOTAL_TIME_SECONDS = 30 * 60; // 30 Minutos
-        const GOOGLE_APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzYHl7-56XlsUf3Z9FOiRSyikcCWL57xu8BmXxpYAc3u0mQMUO5Bhky8W6ae0vDZDo6OA/exec";
-        const GABARITO_RELEASE_DATE = "2026-09-18T23:59:59";
+  <script>
+    const RAW_QUESTIONS = [{"id": 1, "question": "No diagrama de fases de uma substância pura, o que representa o 'Ponto Triplo' (ou Ponto Tríplice)?", "hint": "Considere a interseção gráfica das três curvas de equilíbrio no diagrama $p \\times \\theta$.", "options": [{"key": "A", "text": "A pressão mínima necessária para que ocorra a vaporização instantânea do sólido."}, {"key": "B", "text": "O estado de equilíbrio simultâneo entre as fases sólida, líquida e de vapor."}, {"key": "C", "text": "O ponto onde a curva de sublimação termina e a substância torna-se um gás ideal."}, {"key": "D", "text": "A temperatura máxima em que a substância ainda pode existir no estado líquido."}], "correctAnswer": "B", "rationale": "O ponto triplo é a única condição de pressão e temperatura onde as três curvas de coexistência se encontram, permitindo o equilíbrio das três fases."}, {"id": 2, "question": "Com base nas propriedades da água, o que ocorre com sua temperatura de fusão quando ela é submetida a um aumento de pressão externa?", "hint": "Lembre-se que o gelo é menos denso que a água líquida e ocupa um volume maior.", "options": [{"key": "A", "text": "A temperatura de fusão aumenta."}, {"key": "B", "text": "A água sublima diretamente sem passar pela fusão."}, {"key": "C", "text": "A temperatura de fusão diminui."}, {"key": "D", "text": "A temperatura de fusão permanece em $0\\ ^\\circ C$, independentemente da pressão."}], "correctAnswer": "C", "rationale": "A água é uma substância que se contrai na fusão; logo, o aumento da pressão favorece a redução de volume, facilitando a transição para o estado líquido em temperaturas menores."}, {"id": 3, "question": "Por que a água ferve a uma temperatura inferior a $100\\ ^\\circ C$ em cidades de grande altitude, como La Paz?", "hint": "Considere a relação entre a pressão externa e a dificuldade das moléculas se separarem durante a vaporização.", "options": [{"key": "A", "text": "Devido à menor concentração de oxigênio no ar, que altera as propriedades térmicas da água."}, {"key": "B", "text": "Porque o calor específico da água diminui proporcionalmente com a altitude."}, {"key": "C", "text": "Devido à menor pressão atmosférica, que facilita a expansão volumétrica necessária para a ebulição."}, {"key": "D", "text": "Porque o ponto crítico da água é atingido mais rapidamente em baixas pressões."}], "correctAnswer": "C", "rationale": "Em altitudes elevadas, a coluna de ar é menor, reduzindo a pressão externa e permitindo que o líquido atinja a pressão de vapor necessária para ferver em temperaturas mais baixas."}, {"id": 4, "question": "Qual é a principal distinção física entre um 'vapor' e um 'gás' de acordo com o diagrama de fases?", "hint": "Pense no comportamento da substância quando submetida a um aumento de pressão em uma temperatura superior à crítica.", "options": [{"key": "A", "text": "Gases são substâncias puras, enquanto vapores são sempre misturas heterogêneas."}, {"key": "B", "text": "Vapores só existem abaixo do ponto triplo, enquanto gases existem acima dele."}, {"key": "C", "text": "O gás possui uma densidade muito maior que a do vapor sob mesmas condições."}, {"key": "D", "text": "Um vapor pode ser liquefeito por compressão isotérmica, enquanto um gás não pode."}], "correctAnswer": "D", "rationale": "A fase gasosa acima da temperatura crítica é denominada gás, onde nenhuma quantidade de pressão é capaz de aproximar as moléculas o suficiente para liquefação."}, {"id": 5, "question": "Sobre o fenômeno da sublimação do 'gelo-seco' ($CO_2$ sólido) sob pressão atmosférica normal ($1\\ atm$), é correto afirmar que:", "hint": "Compare a pressão ambiente com a pressão necessária para a coexistência das três fases do $CO_2$.", "options": [{"key": "A", "text": "Ele ocorre porque a pressão atmosférica ($1\\ atm$) é inferior à pressão do seu ponto triplo ($5\\ atm$)."}, {"key": "B", "text": "O fenômeno é provocado pela alta umidade do ar que condensa sobre o sólido."}, {"key": "C", "text": "Ele ocorre porque o $CO_2$ não possui fase líquida estável em nenhuma condição de pressão."}, {"key": "D", "text": "A sublimação eleva a temperatura do bloco até que ele atinja o equilíbrio térmico a $0\\ ^\\circ C$."}], "correctAnswer": "A", "rationale": "Substâncias cujos pontos triplos ocorrem em pressões superiores a $1\\ atm$ não conseguem manter-se líquidas sob pressão normal, passando direto do sólido para o vapor."}, {"id": 6, "question": "O fenômeno do 'regelo', observado na experiência de Tyndall com um fio metálico atravessando um bloco de gelo, explica-se por:", "hint": "Foque no que acontece com a temperatura de fusão da água sob o efeito da compressão mecânica.", "options": [{"key": "A", "text": "Fusão por aumento de pressão local seguida de solidificação após o alívio da pressão."}, {"key": "B", "text": "Aquecimento do fio por atrito, derretendo o gelo por condução térmica direta."}, {"key": "C", "text": "Sublimação instantânea do gelo devido ao campo magnético do metal."}, {"key": "D", "text": "Aumento da temperatura de fusão provocado pela força peso nas extremidades."}], "correctAnswer": "A", "rationale": "A pressão do fio diminui o ponto de fusão do gelo abaixo dele, causando derretimento; a água resultante congela novamente acima do fio ao retornar à pressão atmosférica."}, {"id": 7, "question": "Determine a quantidade de calor necessária para elevar a temperatura de uma esfera de ferro de $100\\ g$ de $20\\ ^\\circ C$ para $80\\ ^\\circ C$. (Dado: calor específico do ferro $c = 0,11\\ cal/g \\cdot ^\\circ C$)", "hint": "Aplique a equação fundamental da calorimetria usando a variação de temperatura.", "options": [{"key": "A", "text": "$110\\ cal$"}, {"key": "B", "text": "$660\\ cal$"}, {"key": "C", "text": "$1100\\ cal$"}, {"key": "D", "text": "$880\\ cal$"}], "correctAnswer": "B", "rationale": "Utilizando $Q = m \\cdot c \\cdot \\Delta \\theta$, temos $100 \\cdot 0,11 \\cdot (80 - 20) = 11 \\cdot 60 = 660\\ cal$."}, {"id": 8, "question": "Qual a quantidade total de calor necessária para fundir completamente um bloco de gelo de $50\\ g$ que já se encontra a $0\\ ^\\circ C$? (Dado: calor latente de fusão $L_F = 80\\ cal/g$)", "hint": "Considere o calor latente necessário para romper as ligações moleculares do estado sólido.", "options": [{"key": "A", "text": "$4000\\ cal$"}, {"key": "B", "text": "$0\\ cal$"}, {"key": "C", "text": "$400\\ cal$"}, {"key": "D", "text": "$2500\\ cal$"}], "correctAnswer": "A", "rationale": "Para mudança de fase sem variação de temperatura, usa-se $Q = m \\cdot L$, resultando em $50 \\cdot 80 = 4000\\ cal$."}, {"id": 9, "question": "Em uma panela de pressão, a água ferve a $120\\ ^\\circ C$. Calcule o calor necessário para aquecer $70\\ g$ de água de $50\\ ^\\circ C$ até a ebulição e vaporizá-la totalmente. (Dados: $c = 1,0\\ cal/g \\cdot ^\\circ C$ e $L_V = 523,1\\ cal/g$)", "hint": "A quantidade total é a soma do calor sensível de aquecimento com o calor latente de vaporização.", "options": [{"key": "A", "text": "$4900\\ cal$"}, {"key": "B", "text": "$36617\\ cal$"}, {"key": "C", "text": "$42700\\ cal$"}, {"key": "D", "text": "$41517\\ cal$"}], "correctAnswer": "D", "rationale": "Calcula-se o calor sensível $Q_s = 70 \\cdot 1 \\cdot (120 - 50) = 4900$ e o latente $Q_l = 70 \\cdot 523,1 = 36617$. A soma é $41517\\ cal$."}, {"id": 10, "question": "Um corpo de massa $50\\ g$ recebe $300\\ cal$ e sua temperatura sobe de $-10\\ ^\\circ C$ até $20\\ ^\\circ C$. Determine a capacidade térmica ($C$) deste corpo.", "hint": "Lembre-se que a capacidade térmica relaciona o calor trocado diretamente com a variação de temperatura sofrida.", "options": [{"key": "A", "text": "$30\\ cal/^\\circ C$"}, {"key": "B", "text": "$10\\ cal/^\\circ C$"}, {"key": "C", "text": "$15000\\ cal/^\\circ C$"}, {"key": "D", "text": "$0,2\\ cal/g \\cdot ^\\circ C$"}], "correctAnswer": "B", "rationale": "A capacidade térmica é definida como $C = Q / \\Delta \\theta$. Assim, $300 / (20 - (-10)) = 300 / 30 = 10\\ cal/^\\circ C$."}];
+    const VALID_PASSWORDS = ['termo2026B2', 'termodinamica2026', 'ifsc2026', 'termo'];
+    const WEBHOOK_URL = ''; // Opcional: URL do Google Apps Script para salvar notas
 
-        // DADOS DAS QUESTÕES DO QUIZ (AULA 07)
-        const questionsData = [
-            {
-                        "id": 1,
-                        "title": "1. De acordo com os conceitos da Termologia, como deve ser corretamente definida a grandeza física 'calor'?",
-                        "hint": "Considere o calor como um processo de transferência de energia e não como algo que um corpo possui.",
-                        "options": [
-                                    {
-                                                "letter": "A",
-                                                "text": "Energia térmica em trânsito entre corpos motivada por uma diferença de temperatura."
-                                    },
-                                    {
-                                                "letter": "B",
-                                                "text": "A medida do grau de agitação das moléculas de um sistema isolado."
-                                    },
-                                    {
-                                                "letter": "C",
-                                                "text": "Uma substância fluida que preenche os espaços entre os átomos de um sólido."
-                                    },
-                                    {
-                                                "letter": "D",
-                                                "text": "A energia interna total contida em um corpo em repouso."
-                                    }
-                        ],
-                        "answer": "A",
-                        "rationale": "O calor é caracterizado como energia em movimento de um corpo de maior temperatura para um de menor temperatura até o equilíbrio."
-            },
-            {
-                        "id": 2,
-                        "title": "2. Um corpo de massa $200$ g é constituído por uma substância de calor específico $0,4$ cal/g $\\cdot$ $^{\\circ}$C. Qual a quantidade de calor necessária para que sua temperatura varie de $20$ $^{\\circ}$C para $25$ $^{\\circ}$C?",
-                        "hint": "Aplique a Equação Fundamental da Calorimetria utilizando a diferença entre as temperaturas.",
-                        "options": [
-                                    {
-                                                "letter": "A",
-                                                "text": "$1000$ cal"
-                                    },
-                                    {
-                                                "letter": "B",
-                                                "text": "$2000$ cal"
-                                    },
-                                    {
-                                                "letter": "C",
-                                                "text": "$400$ cal"
-                                    },
-                                    {
-                                                "letter": "D",
-                                                "text": "$80$ cal"
-                                    }
-                        ],
-                        "answer": "C",
-                        "rationale": "Utilizando a equação fundamental $Q = m \\cdot c \\cdot \\Delta T$, temos $200 \\cdot 0,4 \\cdot 5 = 400$ calorias."
-            },
-            {
-                        "id": 3,
-                        "title": "3. Por que as fagulhas de um esmeril, apesar de estarem em altíssima temperatura, geralmente não causam queimaduras graves na pele do operador?",
-                        "hint": "Relacione a massa pequena dessas partículas com a facilidade de perderem energia térmica.",
-                        "options": [
-                                    {
-                                                "letter": "A",
-                                                "text": "Pois possuem baixa capacidade térmica e cedem pouco calor até atingir o equilíbrio."
-                                    },
-                                    {
-                                                "letter": "B",
-                                                "text": "Devido ao fenômeno da convecção térmica que afasta o calor da pele."
-                                    },
-                                    {
-                                                "letter": "C",
-                                                "text": "Pelas fagulhas possuírem um calor específico extremamente elevado."
-                                    },
-                                    {
-                                                "letter": "D",
-                                                "text": "Porque a temperatura das fagulhas diminui instantaneamente no vácuo."
-                                    }
-                        ],
-                        "answer": "A",
-                        "rationale": "Corpos com massa muito pequena têm baixa capacidade térmica, o que limita a quantidade total de energia que podem transferir."
-            },
-            {
-                        "id": 4,
-                        "title": "4. Ao fornecer calor a um bloco de gelo que se encontra exatamente a $0$ $^{\\circ}$C sob pressão de $1$ atm, o que se observa em relação à sua temperatura durante a fusão?",
-                        "hint": "Lembre-se do comportamento das curvas de aquecimento durante as transições de fase.",
-                        "options": [
-                                    {
-                                                "letter": "A",
-                                                "text": "A temperatura aumenta imediatamente para $100$ $^{\\circ}$C para iniciar a ebulição."
-                                    },
-                                    {
-                                                "letter": "B",
-                                                "text": "A temperatura permanece constante em $0$ $^{\\circ}$C até que todo o gelo derreta."
-                                    },
-                                    {
-                                                "letter": "C",
-                                                "text": "A temperatura sobe linearmente de acordo com o calor específico do gelo."
-                                    },
-                                    {
-                                                "letter": "D",
-                                                "text": "Ocorre uma queda brusca de temperatura devido à absorção de calor latente."
-                                    }
-                        ],
-                        "answer": "B",
-                        "rationale": "Durante a mudança de estado (calor latente), a energia é usada para romper as ligações moleculares, não para aumentar a agitação térmica."
-            },
-            {
-                        "id": 5,
-                        "title": "5. Determine a capacidade térmica de um bloco metálico que, ao receber $2000$ calorias, sofre uma variação de temperatura de $400$ $^{\\circ}$C.",
-                        "hint": "A capacidade térmica mede quanto calor é necessário para variar a temperatura em apenas uma unidade ($1$ $^{\\circ}$C).",
-                        "options": [
-                                    {
-                                                "letter": "A",
-                                                "text": "$5$ cal/$^{\\circ}$C"
-                                    },
-                                    {
-                                                "letter": "B",
-                                                "text": "$0,2$ cal/$^{\\circ}$C"
-                                    },
-                                    {
-                                                "letter": "C",
-                                                "text": "$800.000$ cal/$^{\\circ}$C"
-                                    },
-                                    {
-                                                "letter": "D",
-                                                "text": "$50$ cal/$^{\\circ}$C"
-                                    }
-                        ],
-                        "answer": "A",
-                        "rationale": "A capacidade térmica $C$ é definida pela razão entre a quantidade de calor $Q$ e a variação de temperatura $\\Delta T$ ($2000 / 400$)."
-            },
-            {
-                        "id": 6,
-                        "title": "6. Diferente da condução e da convecção, a irradiação térmica é o único mecanismo de transferência de calor que:",
-                        "hint": "Pense em como a energia do Sol atinge a Terra através do espaço.",
-                        "options": [
-                                    {
-                                                "letter": "A",
-                                                "text": "Ocorre apenas entre corpos que possuem a mesma temperatura."
-                                    },
-                                    {
-                                                "letter": "B",
-                                                "text": "Transporta matéria através de correntes circulares de fluidos."
-                                    },
-                                    {
-                                                "letter": "C",
-                                                "text": "Pode ocorrer no vácuo, sem a necessidade de um meio material."
-                                    },
-                                    {
-                                                "letter": "D",
-                                                "text": "Depende exclusivamente do contato direto entre as superfícies dos corpos."
-                                    }
-                        ],
-                        "answer": "C",
-                        "rationale": "A irradiação ocorre por meio de ondas eletromagnéticas, como os raios infravermelhos, que não dependem de matéria para se propagar."
-            },
-            {
-                        "id": 7,
-                        "title": "7. Segundo a Lei de Kirchhoff, o que se pode afirmar sobre a relação entre a capacidade de absorção e de emissão de calor por um corpo?",
-                        "hint": "Considere o comportamento de uma superfície escura (fuligem) em comparação a uma superfície espelhada.",
-                        "options": [
-                                    {
-                                                "letter": "A",
-                                                "text": "Um bom absorvedor de calor é também um bom emissor."
-                                    },
-                                    {
-                                                "letter": "B",
-                                                "text": "A emissão de calor é independente da cor ou do acabamento da superfície."
-                                    },
-                                    {
-                                                "letter": "C",
-                                                "text": "Corpos polidos e claros são excelentes emissores de radiação térmica."
-                                    },
-                                    {
-                                                "letter": "D",
-                                                "text": "O poder absorvedor de um corpo negro é nulo para qualquer temperatura."
-                                    }
-                        ],
-                        "answer": "A",
-                        "rationale": "A lei estabelece que a emissividade é igual à absorvidade ($e = a$) para um corpo em equilíbrio térmico."
-            },
-            {
-                        "id": 8,
-                        "title": "8. Nas estufas de plantas, o aquecimento interno ocorre porque o vidro apresenta qual comportamento físico em relação à radiação solar?",
-                        "hint": "Pense no vidro como um filtro que deixa a luz entrar, mas impede o 'calor' de sair.",
-                        "options": [
-                                    {
-                                                "letter": "A",
-                                                "text": "Atua como um condutor térmico perfeito, transferindo calor do ar externo para o interno."
-                                    },
-                                    {
-                                                "letter": "B",
-                                                "text": "Reflete totalmente a radiação incidente do Sol antes que ela toque o solo."
-                                    },
-                                    {
-                                                "letter": "C",
-                                                "text": "Transforma ondas eletromagnéticas em correntes de convecção de alta velocidade."
-                                    },
-                                    {
-                                                "letter": "D",
-                                                "text": "É transparente à luz visível mas opaco aos raios infravermelhos de baixa frequência reemitidos."
-                                    }
-                        ],
-                        "answer": "D",
-                        "rationale": "A energia entra como luz, é absorvida e reemitida como infravermelho, que não consegue atravessar o vidro, ficando retida."
-            },
-            {
-                        "id": 9,
-                        "title": "9. Um sistema gasoso recebe $1000$ J de calor de uma fonte térmica e realiza um trabalho de $400$ J sobre o meio externo. Qual é a variação da energia interna desse sistema?",
-                        "hint": "Utilize o balanço energético da Primeira Lei da Termodinâmica, atentando para os sinais de calor recebido e trabalho realizado.",
-                        "options": [
-                                    {
-                                                "letter": "A",
-                                                "text": "$-600$ J"
-                                    },
-                                    {
-                                                "letter": "B",
-                                                "text": "$1400$ J"
-                                    },
-                                    {
-                                                "letter": "C",
-                                                "text": "$600$ J"
-                                    },
-                                    {
-                                                "letter": "D",
-                                                "text": "$1000$ J"
-                                    }
-                        ],
-                        "answer": "C",
-                        "rationale": "Pela Primeira Lei da Termodinâmica ($\\Delta U = Q - W$), a variação é a diferença entre o calor recebido e o trabalho realizado ($1000 - 400$)."
-            },
-            {
-                        "id": 10,
-                        "title": "10. Para derreter completamente uma barra de $50$ g de gelo que já se encontra a $0$ $^{\\circ}$C, sabendo que o calor latente de fusão do gelo é $L_f = 80$ cal/g, quanto calor deve ser fornecido?",
-                        "hint": "Multiplique a massa total pelo calor necessário para fundir cada grama da substância.",
-                        "options": [
-                                    {
-                                                "letter": "A",
-                                                "text": "$4000$ cal"
-                                    },
-                                    {
-                                                "letter": "B",
-                                                "text": "$80$ cal"
-                                    },
-                                    {
-                                                "letter": "C",
-                                                "text": "$1,6$ cal"
-                                    },
-                                    {
-                                                "letter": "D",
-                                                "text": "$400$ cal"
-                                    }
-                        ],
-                        "answer": "A",
-                        "rationale": "A quantidade de calor latente é calculada por $Q = m \\cdot L$, resultando em $50 \\cdot 80 = 4000$ calorias."
-            }
-];
+    let currentQuestionIndex = 0;
+    let studentData = {};
+    let userAnswers = {};
+    let timerInterval = null;
+    let timeLeft = 30 * 60; // 30 minutos
 
-        let studentData = { name: "", email: "" };
-        let quizStartTime = null;
-        let timerInterval = null;
-        let remainingSeconds = TOTAL_TIME_SECONDS;
-        let quizSubmitted = false;
-        let resultSummaryText = "";
+    function startQuiz(e) {
+      e.preventDefault();
+      const pass = document.getElementById('quiz-pass').value.trim();
+      if (!VALID_PASSWORDS.includes(pass) && pass.toLowerCase() !== 'termo2026') {
+        alert('Senha incorreta! Por favor, utilize a senha informada pelo professor em sala de aula.');
+        return;
+      }
 
-        // INICIAR O QUIZ
-        function handleStartQuiz(e) {
-            e.preventDefault();
+      studentData = {
+        name: document.getElementById('student-name').value.trim(),
+        id: document.getElementById('student-id').value.trim(),
+        className: document.getElementById('student-class').value,
+        timestamp: new Date().toISOString()
+      };
 
-            const name = document.getElementById("studentName").value.trim();
-            const email = document.getElementById("studentEmail").value.trim().toLowerCase();
-            const pass = document.getElementById("quizPassword").value.trim();
+      document.getElementById('student-info-badge').textContent = `👤 ${studentData.name} (${studentData.className})`;
+      document.getElementById('screen-login').classList.add('hidden');
+      document.getElementById('screen-question').classList.remove('hidden');
 
-            if (!name || !email) {
-                alert("Por favor, preencha seu nome e e-mail institucional.");
-                return;
-            }
+      startTimer();
+      renderQuestion();
+    }
 
-            if (!VALID_PASSWORDS.includes(pass)) {
-                alert("⚠️ Senha de acesso incorreta! Verifique com o professor em sala.");
-                return;
-            }
-
-            studentData = { name, email };
-            document.getElementById("dispStudentName").textContent = name;
-            document.getElementById("dispStudentEmail").textContent = email;
-
-            renderQuestions();
-
-            document.getElementById("loginScreen").style.display = "none";
-            document.getElementById("quizScreen").style.display = "block";
-
-            quizStartTime = new Date();
-            startTimer();
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            }
+    function startTimer() {
+      updateTimerDisplay();
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          alert('Tempo esgotado! Seu quiz será enviado automaticamente.');
+          submitQuiz();
         }
+      }, 1000);
+    }
 
-        // RENDERIZAR QUESTÕES
-        function renderQuestions() {
-            const container = document.getElementById("questionsContainer");
-            container.innerHTML = "";
+    function updateTimerDisplay() {
+      const min = Math.floor(timeLeft / 60);
+      const sec = timeLeft % 60;
+      document.getElementById('timer-display').textContent = 
+        `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}`;
+    }
 
-            questionsData.forEach((q, idx) => {
-                const qDiv = document.createElement("div");
-                qDiv.className = "question-card";
+    function renderQuestion() {
+      const q = RAW_QUESTIONS[currentQuestionIndex];
+      const total = RAW_QUESTIONS.length;
 
-                let optionsHTML = "";
-                q.options.forEach(opt => {
-                    optionsHTML += `
-                        <label class="option-label">
-                            <input type="radio" name="question_${q.id}" value="${opt.letter}" required>
-                            <span><strong>${opt.letter})</strong> ${opt.text}</span>
-                        </label>
-                    `;
-                });
+      document.getElementById('question-number').textContent = `Questão ${currentQuestionIndex + 1} de ${total}`;
+      document.getElementById('question-text').innerHTML = q.question;
+      
+      const hintBox = document.getElementById('hint-box');
+      hintBox.innerHTML = q.hint ? `💡 ${q.hint}` : '';
+      hintBox.style.display = 'none';
+      document.getElementById('hint-btn').textContent = '💡 Ver Dica';
 
-                qDiv.innerHTML = `
-                    <div class="question-number">Questão ${idx + 1} de ${questionsData.length}</div>
-                    <div class="question-text">${q.title}</div>
-                    ${q.hint ? `<div class="question-hint">💡 <strong>Dica:</strong> ${q.hint}</div>` : ''}
-                    <div class="options-list">
-                        ${optionsHTML}
-                    </div>
-                `;
+      const progress = ((currentQuestionIndex) / total) * 100;
+      document.getElementById('progress-bar').style.width = `${progress}%`;
 
-                container.appendChild(qDiv);
-            });
+      const optGrid = document.getElementById('options-grid');
+      optGrid.innerHTML = '';
+
+      q.options.forEach(opt => {
+        const isSel = userAnswers[q.id] === opt.key;
+        const div = document.createElement('div');
+        div.className = `option-item ${isSel ? 'selected' : ''}`;
+        div.innerHTML = `
+          <div class="opt-key">${opt.key}</div>
+          <div class="opt-text">${opt.text}</div>
+        `;
+        div.onclick = () => selectOption(q.id, opt.key);
+        optGrid.appendChild(div);
+      });
+
+      document.getElementById('prev-btn').style.visibility = currentQuestionIndex === 0 ? 'hidden' : 'visible';
+      
+      const nextBtn = document.getElementById('next-btn');
+      if (currentQuestionIndex === total - 1) {
+        nextBtn.textContent = 'Finalizar e Enviar 🏁';
+        nextBtn.onclick = submitQuiz;
+      } else {
+        nextBtn.textContent = 'Próxima →';
+        nextBtn.onclick = nextQuestion;
+      }
+
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    }
+
+    function selectOption(qid, key) {
+      userAnswers[qid] = key;
+      renderQuestion();
+    }
+
+    function toggleHint() {
+      const hintBox = document.getElementById('hint-box');
+      const btn = document.getElementById('hint-btn');
+      if (hintBox.style.display === 'none' || !hintBox.style.display) {
+        hintBox.style.display = 'block';
+        btn.textContent = '🙈 Ocultar Dica';
+      } else {
+        hintBox.style.display = 'none';
+        btn.textContent = '💡 Ver Dica';
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        renderQuestion();
+      }
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIndex < RAW_QUESTIONS.length - 1) {
+        currentQuestionIndex++;
+        renderQuestion();
+      }
+    }
+
+    function submitQuiz() {
+      clearInterval(timerInterval);
+      
+      let correctCount = 0;
+      RAW_QUESTIONS.forEach(q => {
+        if (userAnswers[q.id] === q.correctAnswer) {
+          correctCount++;
         }
+      });
 
-        // CRONÔMETRO
-        function startTimer() {
-            updateTimerDisplay();
-            timerInterval = setInterval(() => {
-                remainingSeconds--;
-                updateTimerDisplay();
+      const score = correctCount;
+      const total = RAW_QUESTIONS.length;
 
-                if (remainingSeconds <= 0) {
-                    clearInterval(timerInterval);
-                    alert("⏰ Tempo esgotado! Suas respostas serão enviadas automaticamente.");
-                    processQuizSubmission();
-                }
-            }, 1000);
-        }
+      // Generate validation hash
+      const hashPayload = `${studentData.id}-${studentData.name}-${score}/${total}-${Date.now()}`;
+      let hash = 0;
+      for (let i = 0; i < hashPayload.length; i++) {
+        hash = ((hash << 5) - hash) + hashPayload.charCodeAt(i);
+        hash |= 0;
+      }
+      const validationCode = `TERMO07-${Math.abs(hash).toString(16).toUpperCase()}-${studentData.id}`;
 
-        function updateTimerDisplay() {
-            const min = Math.floor(remainingSeconds / 60);
-            const sec = remainingSeconds % 60;
-            const formatted = `${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
+      document.getElementById('screen-question').classList.add('hidden');
+      document.getElementById('screen-result').classList.remove('hidden');
 
-            const timerElem = document.getElementById("timerCountdown");
-            timerElem.textContent = formatted;
+      document.getElementById('result-user-summary').textContent = 
+        `Estudante: ${studentData.name} | Matrícula: ${studentData.id} | Turma: ${studentData.className}`;
+      document.getElementById('final-score').textContent = score;
+      document.getElementById('final-max').textContent = total;
+      document.getElementById('validation-hash').textContent = validationCode;
 
-            const progressPct = (remainingSeconds / TOTAL_TIME_SECONDS) * 100;
-            document.getElementById("timerProgress").style.width = `${progressPct}%`;
+      renderReview();
 
-            if (remainingSeconds < 300) {
-                document.querySelector(".timer-display").classList.add("warning");
-            }
-        }
+      // Optional webhook send
+      if (WEBHOOK_URL) {
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...studentData,
+            score,
+            total,
+            hash: validationCode,
+            answers: userAnswers
+          })
+        }).catch(e => console.log('Webhook log error', e));
+      }
+    }
 
-        // SUBMISSÃO DO FORMULÁRIO
-        function handleQuizSubmit(e) {
-            e.preventDefault();
-            if (quizSubmitted) return;
+    function renderReview() {
+      const list = document.getElementById('review-list');
+      list.innerHTML = '';
 
-            const answeredCount = questionsData.filter(q => {
-                return document.querySelector(`input[name="question_${q.id}"]:checked`);
-            }).length;
+      RAW_QUESTIONS.forEach((q, idx) => {
+        const userChoice = userAnswers[q.id] || 'Não respondida';
+        const isRight = userChoice === q.correctAnswer;
 
-            if (answeredCount < questionsData.length) {
-                if (!confirm(`Você respondeu ${answeredCount} de ${questionsData.length} questões. Deseja realmente finalizar e enviar?`)) {
-                    return;
-                }
-            }
+        const div = document.createElement('div');
+        div.className = `review-item ${isRight ? 'correct' : 'wrong'}`;
+        div.innerHTML = `
+          <div style="font-weight: 700; margin-bottom: 0.4rem;">
+            ${idx + 1}. ${q.question}
+          </div>
+          <div style="font-size: 0.92rem; margin-bottom: 0.3rem;">
+            <strong>Sua resposta:</strong> ${userChoice} ${isRight ? '✅ Correto' : '❌ Incorreto'}
+          </div>
+          <div style="font-size: 0.92rem; color: var(--accent-light);">
+            <strong>Resposta correta:</strong> ${q.correctAnswer}
+          </div>
+          <div class="review-rationale">
+            💡 <strong>Justificativa:</strong> ${q.rationale}
+          </div>
+        `;
+        list.appendChild(div);
+      });
 
-            processQuizSubmission();
-        }
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    }
 
-        function processQuizSubmission() {
-            quizSubmitted = true;
-            clearInterval(timerInterval);
-
-            const endTime = new Date();
-            const elapsedSecs = Math.round((endTime - quizStartTime) / 1000);
-            const elapsedMin = Math.floor(elapsedSecs / 60);
-            const elapsedRemSec = elapsedSecs % 60;
-            const timeFormatted = `${elapsedMin} min e ${elapsedRemSec} s`;
-
-            let correctCount = 0;
-            let userAnswers = {};
-
-            questionsData.forEach(q => {
-                const selected = document.querySelector(`input[name="question_${q.id}"]:checked`);
-                const val = selected ? selected.value : "N/A";
-                userAnswers[q.id] = val;
-                if (val === q.answer) correctCount++;
-            });
-
-            const percent = Math.round((correctCount / questionsData.length) * 100);
-            const authHash = "TERMO07-" + Math.random().toString(36).substring(2, 8).toUpperCase() + `-${correctCount}X10`;
-            const formattedDate = new Date().toLocaleString("pt-BR");
-
-            // Salvar no localStorage
-            const resultData = {
-                student: studentData.name,
-                email: studentData.email,
-                score: correctCount,
-                total: questionsData.length,
-                percent: percent,
-                timeSpent: timeFormatted,
-                dateTime: formattedDate,
-                authCode: authHash,
-                answers: userAnswers
-            };
-
-            try {
-                localStorage.setItem("quiz_aula07_termo_result", JSON.stringify(resultData));
-            } catch (e) {
-                console.warn("Não foi possível salvar no localStorage:", e);
-            }
-
-            // Envio Automático para a Planilha do Google via Google Apps Script
-            if (GOOGLE_APP_SCRIPT_URL && GOOGLE_APP_SCRIPT_URL.startsWith("http")) {
-                fetch(GOOGLE_APP_SCRIPT_URL, {
-                    method: "POST",
-                    mode: "no-cors",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        student: studentData.name,
-                        email: studentData.email,
-                        quiz: "Quiz — Aula 07: Diagramas de Fases e Termologia",
-                        score: correctCount,
-                        total: questionsData.length,
-                        percent: percent + "%",
-                        timeSpent: timeFormatted,
-                        dateTime: formattedDate,
-                        authCode: authHash,
-                        answers: userAnswers
-                    })
-                }).then(() => {
-                    console.log("✅ Dados da tentativa gravados automaticamente na Planilha Google do Professor!");
-                }).catch(err => {
-                    console.error("⚠️ Falha de envio para a Planilha Google:", err);
-                });
-            }
-
-            // Preencher Tela 3
-            document.getElementById("resScoreNum").textContent = correctCount;
-            document.getElementById("resPercentText").textContent = `${percent}% de Aproveitamento`;
-            document.getElementById("resStudent").textContent = studentData.name;
-            document.getElementById("resEmail").textContent = studentData.email;
-            document.getElementById("resTime").textContent = timeFormatted;
-            document.getElementById("resDate").textContent = formattedDate;
-            document.getElementById("resAuthCode").textContent = authHash;
-
-            resultSummaryText = `COMPROVANTE DE QUIZ — TERMODINÂMICA
-==================================================
-Disciplina: FSC060806 / FCA060903 — Aula 07
-Estudante: ${studentData.name}
-E-mail: ${studentData.email}
-Data/Hora: ${formattedDate}
---------------------------------------------------
-Pontuação: ${correctCount} de 10 acertos (${percent}%)
-Tempo Decorrido: ${timeFormatted}
-Código de Validação: ${authHash}
-==================================================`;
-
-            renderReview(userAnswers);
-
-            document.getElementById("quizScreen").style.display = "none";
-            document.getElementById("resultScreen").style.display = "block";
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            }
-        }
-
-        function isGabaritoUnlocked() {
-            const now = new Date();
-            const release = new Date(GABARITO_RELEASE_DATE);
-            return now >= release;
-        }
-
-        // RENDERIZAR GABARITO
-        function renderReview(userAnswers) {
-            const reviewContainer = document.getElementById("reviewContainer");
-            reviewContainer.innerHTML = "";
-
-            const unlocked = isGabaritoUnlocked();
-
-            if (!unlocked) {
-                const releaseFormatted = new Date(GABARITO_RELEASE_DATE).toLocaleString('pt-BR', { dateStyle: 'long', timeStyle: 'short' });
-                reviewContainer.innerHTML = `
-                    <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 1rem; padding: 1.8rem; text-align: center; margin-top: 1rem;">
-                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔒</div>
-                        <h3 style="color: #fbbf24; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem;">Gabarito Comentado e Correção Detalhada Bloqueados Temporariamente</h3>
-                        <p style="color: #e2e8f0; font-size: 0.95rem; margin-bottom: 1.2rem; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-                            Para garantir a integridade da avaliação entre todos os discentes durante a semana de realização do quiz, a correção questão por questão e as justificativas teóricas estarão disponíveis nesta mesma página a partir de:
-                        </p>
-                        <div style="display: inline-block; background: rgba(0,0,0,0.5); border: 1px solid #f59e0b; color: #fbbf24; padding: 0.6rem 1.4rem; border-radius: 0.6rem; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.2rem;">
-                            📅 ${releaseFormatted}
-                        </div>
-                        <p style="color: #94a3b8; font-size: 0.85rem; font-style: italic;">
-                            Sua pontuação, tempo e comprovante com o código de validação já foram salvos com sucesso.
-                        </p>
-                    </div>
-                `;
-                return;
-            }
-
-            questionsData.forEach(q => {
-                const userAns = userAnswers ? userAnswers[q.id] : "N/A";
-                const isCorrect = userAns === q.answer;
-
-                const card = document.createElement("div");
-                card.className = `review-card ${isCorrect ? 'correct' : 'incorrect'}`;
-
-                card.innerHTML = `
-                    <span class="status-badge ${isCorrect ? 'correct' : 'incorrect'}">
-                        ${isCorrect ? '✓ Resposta Correta' : '✗ Resposta Incorreta'}
-                    </span>
-                    <div style="font-weight:700; font-size:1.05rem; margin-bottom:0.6rem; color:#fff;">${q.title}</div>
-                    <div style="font-size:0.9rem; margin-bottom:0.4rem;">
-                        <strong>Sua Resposta:</strong> <span style="color:${isCorrect ? '#4ade80' : '#fca5a5'}; font-weight:700;">${userAns}</span>
-                        ${!isCorrect ? `| <strong>Gabarito Correto:</strong> <span style="color:#4ade80; font-weight:700;">${q.answer}</span>` : ''}
-                    </div>
-                    <div class="rationale-box">
-                        <strong>📖 Justificativa Teórica:</strong> ${q.rationale}
-                    </div>
-                `;
-
-                reviewContainer.appendChild(card);
-            });
-        }
-
-        function copyComprovante() {
-            navigator.clipboard.writeText(resultSummaryText).then(() => {
-                alert("📋 Comprovante copiado com sucesso! Cole na mensagem ou envie ao professor.");
-            }).catch(err => {
-                alert("Erro ao copiar. Copie manualmente o código de validação.");
-            });
-        }
-
-        function downloadComprovante() {
-            const blob = new Blob([resultSummaryText], { type: "text/plain;charset=utf-8" });
-            const a = document.createElement("a");
-            a.href = URL.createObjectURL(blob);
-            a.download = `Comprovante_Quiz_Aula07_${studentData.name.replace(/\s+/g, '_')}.txt`;
-            a.click();
-        }
-    </script>
+    function toggleReview() {
+      const rev = document.getElementById('review-container');
+      rev.classList.toggle('hidden');
+    }
+  </script>
 </body>
 </html>
