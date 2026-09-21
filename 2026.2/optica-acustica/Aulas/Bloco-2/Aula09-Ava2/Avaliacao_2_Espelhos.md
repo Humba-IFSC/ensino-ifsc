@@ -24,7 +24,7 @@ tags:
 ## 📖 Referência Bibliográfica
 - Revisar o material de referência:
   - [[Óptica_Acústica/Caps_Ramalho/Cap.11-Reflexao-Espelhos.pdf|Capítulos 10 e 11 - Reflexão]]
-  - [[Óptica_Acústica/Caps_Ramalho/Cap.12-Espelhos-Esfericos.pdf|Capítulo 12 - Espelhos Esféricos]]
+  - [[Óptica_Acústica/Caps_Ramalho/Reflexao-Espelhos_Fisica_Vol2.pdf|Capítulo 12 - Espelhos Esféricos]]
 
 ---
 

@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 4 (Avaliativo) — Aula 06: Espelhos Esféricos Côncavos e Convexos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: rgba(15, 23, 42, 0.85);
+            --border-card: rgba(56, 189, 248, 0.2);
+            --accent-green: #4ade80;
+            --accent-cyan: #38bdf8;
+            --accent-red: #fca5a5;
+            --accent-yellow: #fcd34d;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(239, 68, 68, 0.06) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateX(-2px);
+        }
+
+        /* --- SCREEN 1: LOGIN & RULES --- */
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-header h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .login-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .notice-box {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 0.9rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 0.92rem;
+        }
+        .notice-box h3 {
+            color: #fca5a5;
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .notice-box ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .notice-box li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: #e2e8f0;
+        }
+        .notice-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #ef4444;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+        }
+        .form-control {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 0.6rem;
+            padding: 0.8rem 1rem;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .form-control:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        .btn-start {
+            width: 100%;
+            background: linear-gradient(135deg, #16a34a, #059669);
+            color: #fff;
+            border: none;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            font-size: 1.05rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
+        }
+        .btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(22, 163, 74, 0.4);
+        }
+
+        /* --- SCREEN 2: QUIZ ACTIVE --- */
+        #quizScreen { display: none; }
+
+        .sticky-timer-bar {
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .student-info-badge {
+            display: flex;
+            flex-direction: column;
+        }
+        .student-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #fff;
+        }
+        .student-email {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        .timer-display {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            font-variant-numeric: tabular-nums;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .timer-display.warning {
+            color: #ef4444;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .timer-progress-bg {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 0.4rem;
+            overflow: hidden;
+        }
+        .timer-progress-fill {
+            height: 100%;
+            background: var(--accent-cyan);
+            width: 100%;
+            transition: width 1s linear;
+        }
+
+        .question-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1rem;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .question-number {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .question-text {
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.55;
+            margin-bottom: 0.8rem;
+            color: #f1f5f9;
+        }
+        .question-hint {
+            background: rgba(56, 189, 248, 0.06);
+            border-left: 3px solid var(--accent-cyan);
+            padding: 0.6rem 0.9rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            font-size: 0.85rem;
+            color: #93c5fd;
+            margin-bottom: 1.25rem;
+            line-height: 1.4;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.9rem 1.1rem;
+            border-radius: 0.65rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+        }
+        .option-label:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+        .option-label input[type="radio"] {
+            appearance: none;
+            width: 1.15rem;
+            height: 1.15rem;
+            border: 2px solid #64748b;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            flex-shrink: 0;
+            position: relative;
+            transition: all 0.2s;
+        }
+        .option-label input[type="radio"]:checked {
+            border-color: var(--accent-cyan);
+            background-color: var(--accent-cyan);
+            box-shadow: inset 0 0 0 3px #0f172a;
+        }
+        .option-label:has(input[type="radio"]:checked) {
+            background: rgba(56, 189, 248, 0.12);
+            border-color: var(--accent-cyan);
+            color: #fff;
+        }
+
+        .btn-submit-quiz {
+            width: 100%;
+            background: linear-gradient(135deg, #0284c7, #2563eb);
+            color: #fff;
+            border: none;
+            border-radius: 0.85rem;
+            padding: 1.15rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 1.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+        }
+        .btn-submit-quiz:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.45);
+        }
+
+        /* --- SCREEN 3: RESULTS --- */
+        #resultScreen { display: none; }
+
+        .result-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .result-score-badge {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(15, 23, 42, 0.5) 100%);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 1.25rem;
+            padding: 1.5rem 3rem;
+            margin: 1.5rem 0;
+        }
+        .score-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1;
+        }
+        .score-total {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+        }
+
+        .result-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        .meta-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 0.8rem 1rem;
+            border-radius: 0.6rem;
+        }
+        .meta-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+        .meta-value {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #fff;
+            word-break: break-all;
+        }
+
+        .verification-code-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 0.6rem;
+            padding: 0.8rem;
+            font-family: monospace;
+            font-size: 0.88rem;
+            color: var(--accent-cyan);
+            margin: 1.5rem 0;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-action {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            padding: 0.65rem 1.25rem;
+            border-radius: 0.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-action:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .review-section {
+            margin-top: 2rem;
+        }
+        .review-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.9rem;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+        .review-card.correct { border-left: 4px solid var(--accent-green); }
+        .review-card.incorrect { border-left: 4px solid #ef4444; }
+
+        .status-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.35rem;
+            margin-bottom: 0.6rem;
+            text-transform: uppercase;
+        }
+        .status-badge.correct { background: rgba(74, 222, 128, 0.15); color: var(--accent-green); }
+        .status-badge.incorrect { background: rgba(239, 68, 68, 0.15); color: #fca5a5; }
+
+        .rationale-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 0.5rem;
+            padding: 0.85rem 1rem;
+            margin-top: 0.8rem;
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+            border-left: 3px solid var(--accent-cyan);
+        }
+
+        @media (max-width: 640px) {
+            .login-card { padding: 1.5rem; }
+            .sticky-timer-bar { flex-direction: column; gap: 0.75rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../../index.html" class="btn-back">← Voltar para Central de Ensino</a>
+
+        <!-- ════════ SCREEN 1: LOGIN & RULES ════════ -->
+        <div class="login-card" id="loginScreen">
+            <div class="login-header">
+                <h1>📝 Quiz 4 — Espelhos Esféricos Côncavos e Convexos</h1>
+                <p>Disciplina: Acústica e Óptica Geométrica (FSC060805 / FCA060906)</p>
+            </div>
+
+            <div class="notice-box">
+                <h3>⚠️ Instruções e Regras Oficiais do Quiz:</h3>
+                <ul>
+                    <li><strong>Tempo Limite:</strong> Você terá exatamente <strong>30 minutos</strong> contínuos para responder às 10 questões a partir do início.</li>
+                    <li><strong>Tentativa Única e Individual:</strong> Cada estudante deve preencher com seu <strong>Nome Completo</strong> e <strong>E-mail Institucional (@aluno.ifsc.edu.br)</strong>.</li>
+                    <li><strong>Comprovante de Envio:</strong> Ao finalizar, um código de autenticidade único será gerado e os dados serão registrados automaticamente na planilha do professor.</li>
+                    <li><strong>Gabarito e Justificativas:</strong> O gabarito detalhado com as justificativas teóricas e matemáticas será liberado após a data estipulada para a turma.</li>
+                </ul>
+            </div>
+
+            <form id="loginForm" onsubmit="handleStartQuiz(event)">
+                <div class="form-group">
+                    <label for="studentName">Nome Completo do Estudante:</label>
+                    <input type="text" id="studentName" class="form-control" placeholder="Ex: Humberto Luz Oliveira" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="studentEmail">E-mail Institucional (@aluno.ifsc.edu.br):</label>
+                    <input type="email" id="studentEmail" class="form-control" placeholder="Ex: seu.nome@aluno.ifsc.edu.br" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="quizPassword">Senha de Acesso à Avaliação:</label>
+                    <input type="password" id="quizPassword" class="form-control" placeholder="Digite a senha liberada em sala" required>
+                </div>
+                <button type="submit" class="btn-start">
+                    🚀 Iniciar Quiz e Ativar Cronômetro (30 min)
+                </button>
+            </form>
+        </div>
+
+        <!-- ════════ SCREEN 2: QUIZ ACTIVE ════════ -->
+        <div id="quizScreen">
+            <div class="sticky-timer-bar" id="timerBox">
+                <div class="student-info-badge">
+                    <span class="student-name" id="dispStudentName">Aluno</span>
+                    <span class="student-email" id="dispStudentEmail">email@ifsc.edu.br</span>
+                </div>
+                <div>
+                    <div class="timer-display">
+                        ⏱️ <span id="timerCountdown">30:00</span>
+                    </div>
+                    <div class="timer-progress-bg">
+                        <div class="timer-progress-fill" id="timerProgress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="quizForm" onsubmit="handleQuizSubmit(event)">
+                <div id="questionsContainer"></div>
+                <button type="submit" class="btn-submit-quiz">
+                    ✅ Finalizar Quiz e Enviar Respostas
+                </button>
+            </form>
+        </div>
+
+        <!-- ════════ SCREEN 3: RESULTS & REVIEW ════════ -->
+        <div id="resultScreen">
+            <div class="result-card">
+                <h2 style="font-size:1.8rem; font-weight:800; color:#fff;">🎉 Quiz Finalizado com Sucesso!</h2>
+                <p style="color:var(--text-secondary); margin-top:0.3rem;">Confira abaixo seu desempenho e o comprovante oficial de realização.</p>
+
+                <div class="result-score-badge">
+                    <div class="score-number"><span id="resScoreNum">0</span>/10</div>
+                    <div class="score-total" id="resPercentText">0% de Aproveitamento</div>
+                </div>
+
+                <div class="result-meta-grid">
+                    <div class="meta-item">
+                        <div class="meta-label">Estudante</div>
+                        <div class="meta-value" id="resStudent">-</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">E-mail</div>
+                        <div class="meta-value" id="resEmail">-</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Tempo Utilizado</div>
+                        <div class="meta-value" id="resTime">-</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Data e Hora de Conclusão</div>
+                        <div class="meta-value" id="resDate">-</div>
+                    </div>
+                </div>
+
+                <div class="verification-code-box">
+                    🔒 Código Autêntico de Validação Hash: <br>
+                    <strong id="resAuthCode" style="font-size:1.1rem; color:#fff;">OGREF04-XXXXXX</strong>
+                </div>
+
+                <div class="action-btns">
+                    <button class="btn-action" onclick="copyComprovante()">📋 Copiar Comprovante</button>
+                    <button class="btn-action" onclick="downloadComprovante()">📥 Baixar TXT do Comprovante</button>
+                    <button class="btn-action" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
+                </div>
+            </div>
+
+            <div class="review-section">
+                <h3 class="review-title">📖 Correção Detalhada e Gabarito Comentado</h3>
+                <div id="reviewContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // CONFIGURAÇÕES GERAIS
+        const VALID_PASSWORDS = ["optica2026B2", "espelhos2026", "ifsc2026"];
+        const TOTAL_TIME_SECONDS = 30 * 60; // 30 Minutos
+        const GOOGLE_APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzYHl7-56XlsUf3Z9FOiRSyikcCWL57xu8BmXxpYAc3u0mQMUO5Bhky8W6ae0vDZDo6OA/exec";
+        const GABARITO_RELEASE_DATE = "2026-09-28T23:59:59";
+
+        // DADOS DAS QUESTÕES DO QUIZ 4 (ESPELHOS ESFÉRICOS)
+        const questionsData = [
+            {
+                "id": 1,
+                "title": "1. Considerando as propriedades dos espelhos esféricos mencionadas na introdução do Capítulo 12, qual é a principal razão para o uso de espelhos convexos como retrovisores em veículos?",
+                "hint": "Pense na relação entre o tamanho da imagem produzida e a área total que o motorista consegue enxergar.",
+                "options": [
+                    { "letter": "A", "text": "Eles eliminam completamente o fenômeno da reflexão difusa na superfície do espelho." },
+                    { "letter": "B", "text": "Eles permitem a ampliação do campo visual ao formarem imagens direitas e menores que os objetos." },
+                    { "letter": "C", "text": "Eles obedecem rigorosamente às leis da refração para evitar deformações nas bordas." },
+                    { "letter": "D", "text": "Eles formam imagens reais e invertidas que facilitam a noção de distância do motorista." },
+                    { "letter": "E", "text": "Eles concentram a luz solar em um único ponto para aumentar a nitidez da imagem refletida." }
+                ],
+                "answer": "B",
+                "rationale": "Espelhos convexos divergem os raios de luz, permitindo que uma área maior seja refletida para o observador, embora a imagem resultante seja reduzida."
+            },
+            {
+                "id": 2,
+                "title": "2. Para que as imagens formadas por espelhos esféricos sejam consideradas nítidas e sem deformações consideráveis, devem ser obedecidas as condições de Gauss. Segundo o texto, essas condições exigem que:",
+                "hint": "Lembre-se da posição dos raios incidentes em relação à linha central que atravessa o espelho.",
+                "options": [
+                    { "letter": "A", "text": "O objeto esteja localizado exatamente sobre o centro de curvatura do espelho." },
+                    { "letter": "B", "text": "O ângulo de incidência seja sempre o dobro do ângulo de reflexão na superfície curva." },
+                    { "letter": "C", "text": "O espelho seja submerso em um meio com índice de refração maior que o do ar." },
+                    { "letter": "D", "text": "A superfície refletora seja obrigatoriamente parabólica para garantir a convergência absoluta." },
+                    { "letter": "E", "text": "Os raios de luz incidam paralelos ou pouco inclinados e próximos ao eixo principal." }
+                ],
+                "answer": "E",
+                "rationale": "As condições de nitidez de Gauss restringem a incidência a raios paraxiais para minimizar aberrações esféricas e garantir um ponto de imagem definido."
+            },
+            {
+                "id": 3,
+                "title": "3. Em um estudo sobre espelhos planos e esféricos, um estudante observa a formação de imagens. Sobre a natureza das imagens em espelhos planos, é correto afirmar que:",
+                "hint": "Considere se os raios de luz realmente se cruzam ou se apenas parecem vir de trás do espelho.",
+                "options": [
+                    { "letter": "A", "text": "A distância da imagem ao espelho é sempre o dobro da distância do objeto ao espelho." },
+                    { "letter": "B", "text": "A imagem é invertida verticalmente, fazendo com que o topo do objeto apareça na base da imagem." },
+                    { "letter": "C", "text": "O objeto e a imagem possuem naturezas iguais: se o objeto é real, a imagem também será real." },
+                    { "letter": "D", "text": "A imagem de um objeto real é sempre virtual, de mesmas dimensões e simétrica em relação ao plano do espelho." },
+                    { "letter": "E", "text": "A imagem formada é real pois pode ser projetada em um anteparo posicionado atrás do espelho." }
+                ],
+                "answer": "D",
+                "rationale": "Espelhos planos não alteram o tamanho do objeto e a imagem é formada pelo prolongamento dos raios, caracterizando-a como virtual e equidistante."
+            },
+            {
+                "id": 4,
+                "title": "4. O periscópio é um instrumento óptico que utiliza dois espelhos planos paralelos. Qual característica da imagem final o diferencia de uma reflexão em um único espelho plano?",
+                "hint": "Lembre-se do que acontece com a 'mão direita' em um espelho e imagine o que ocorre se essa imagem for refletida novamente.",
+                "options": [
+                    { "letter": "A", "text": "O campo visual do observador é reduzido pela metade a cada espelho adicionado ao tubo." },
+                    { "letter": "B", "text": "A imagem final é real e pode ser visualizada mesmo em ambientes sem luz própria." },
+                    { "letter": "C", "text": "A distância aparente do objeto é reduzida, fazendo com que ele pareça estar mais próximo do que realmente está." },
+                    { "letter": "D", "text": "Os espelhos devem ser inclinados a $90^{\\circ}$ para que a luz sofra refração total interna." },
+                    { "letter": "E", "text": "A imagem final não é enantiomorfa em relação ao objeto original devido à dupla reflexão." }
+                ],
+                "answer": "E",
+                "rationale": "Cada reflexão inverte a lateralidade; duas reflexões sucessivas em espelhos paralelos restauram a orientação original da direita e esquerda."
+            },
+            {
+                "id": 5,
+                "title": "5. Um raio de luz incide sobre a superfície de um espelho plano de modo que o ângulo entre o raio incidente e o raio refletido é de $60^{\\circ}$. Qual é o valor do ângulo que o raio incidente forma com a superfície do espelho?",
+                "hint": "Primeiro determine o ângulo de incidência em relação à reta normal e depois subtraia de $90^{\\circ}$.",
+                "options": [
+                    { "letter": "A", "text": "$60^{\\circ}$" },
+                    { "letter": "B", "text": "$30^{\\circ}$" },
+                    { "letter": "C", "text": "$0^{\\circ}$" },
+                    { "letter": "D", "text": "$90^{\\circ}$" },
+                    { "letter": "E", "text": "$45^{\\circ}$" }
+                ],
+                "answer": "A",
+                "rationale": "Se o ângulo entre os raios é $60^{\\circ}$, o ângulo de incidência $i$ é $30^{\\circ}$ ($i+r=60$ e $i=r$). Como a normal faz $90^{\\circ}$ com a superfície, o ângulo com a superfície é $90-30 = 60^{\\circ}$."
+            },
+            {
+                "id": 6,
+                "title": "6. Um objeto pontual é colocado entre dois espelhos planos que formam entre si um ângulo $\\alpha$. Sabendo que o sistema conjuga exatamente 8 imagens, qual é o valor do ângulo $\\alpha$?",
+                "hint": "Use a relação matemática entre o número de imagens e o ângulo completo de uma circunferência.",
+                "options": [
+                    { "letter": "A", "text": "$45^{\\circ}$" },
+                    { "letter": "B", "text": "$60^{\\circ}$" },
+                    { "letter": "C", "text": "$36^{\\circ}$" },
+                    { "letter": "D", "text": "$30^{\\circ}$" },
+                    { "letter": "E", "text": "$40^{\\circ}$" }
+                ],
+                "answer": "E",
+                "rationale": "Utilizando a fórmula $N = \\frac{360}{\\alpha} - 1$, temos $8 = \\frac{360}{\\alpha} - 1$, logo $9 = \\frac{360}{\\alpha}$, resultando em $\\alpha = 40^{\\circ}$."
+            },
+            {
+                "id": 7,
+                "title": "7. Um objeto fixo está a uma distância de $15\\text{ cm}$ de um espelho plano. Se o espelho for deslocado $5\\text{ cm}$ para longe do objeto, em uma direção normal ao seu plano, qual será a distância entre a posição da imagem antiga e a nova imagem?",
+                "hint": "Considere a relação $D = 2d$ estabelecida no estudo da translação de espelhos.",
+                "options": [
+                    { "letter": "A", "text": "$5\\text{ cm}$" },
+                    { "letter": "B", "text": "$30\\text{ cm}$" },
+                    { "letter": "C", "text": "$20\\text{ cm}$" },
+                    { "letter": "D", "text": "$15\\text{ cm}$" },
+                    { "letter": "E", "text": "$10\\text{ cm}$" }
+                ],
+                "answer": "E",
+                "rationale": "De acordo com o princípio de translação, o deslocamento da imagem ($D$) é o dobro do deslocamento do espelho ($d$). Logo, $D = 2 \\times 5 = 10\\text{ cm}$."
+            },
+            {
+                "id": 8,
+                "title": "8. Um raio de luz vertical atinge um espelho plano horizontal. O espelho sofre uma rotação de $15^{\\circ}$ em torno de um eixo contido no seu plano. Qual é o ângulo formado entre o raio refletido antes da rotação e o raio refletido após a rotação?",
+                "hint": "A variação angular do raio refletido é sempre proporcional ao dobro do giro do espelho.",
+                "options": [
+                    { "letter": "A", "text": "$45^{\\circ}$" },
+                    { "letter": "B", "text": "$60^{\\circ}$" },
+                    { "letter": "C", "text": "$30^{\\circ}$" },
+                    { "letter": "D", "text": "$15^{\\circ}$" },
+                    { "letter": "E", "text": "$7,5^{\\circ}$" }
+                ],
+                "answer": "C",
+                "rationale": "Quando um espelho gira de um ângulo $\\alpha$, o raio refletido sofre um desvio angular $\\Delta = 2\\alpha$. Assim, $2 \\times 15^{\\circ} = 30^{\\circ}$."
+            },
+            {
+                "id": 9,
+                "title": "9. Um homem corre em direção a um espelho plano vertical fixo com uma velocidade de $4\\text{ m/s}$ em relação ao solo. Qual é o módulo da velocidade com que o homem se aproxima de sua própria imagem?",
+                "hint": "Pense no deslocamento total que ocorre entre os dois pontos (objeto e imagem) em um mesmo intervalo de tempo.",
+                "options": [
+                    { "letter": "A", "text": "$4\\text{ m/s}$" },
+                    { "letter": "B", "text": "$8\\text{ m/s}$" },
+                    { "letter": "C", "text": "$0\\text{ m/s}$" },
+                    { "letter": "D", "text": "$2\\text{ m/s}$" },
+                    { "letter": "E", "text": "$16\\text{ m/s}$" }
+                ],
+                "answer": "B",
+                "rationale": "O homem se move a $4\\text{ m/s}$ para a direita e sua imagem a $4\\text{ m/s}$ para a esquerda (em relação ao solo). A velocidade relativa de aproximação é a soma dos módulos: $4 + 4 = 8\\text{ m/s}$."
+            },
+            {
+                "id": 10,
+                "title": "10. Um jogador de basquete de $2,00\\text{ m}$ de altura deseja comprar um espelho plano para ver-se de corpo inteiro. De acordo com as leis da reflexão e a geometria de formação de imagens, qual deve ser a altura mínima deste espelho e como ele deve ser posicionado?",
+                "hint": "Analise a semelhança de triângulos entre o olho do observador e as extremidades da imagem refletida.",
+                "options": [
+                    { "letter": "A", "text": "A borda superior do espelho deve estar obrigatoriamente no nível do solo para captar os pés." },
+                    { "letter": "B", "text": "O espelho deve ter $2,00\\text{ m}$ de altura para que a imagem não sofra distorções nas extremidades." },
+                    { "letter": "C", "text": "O espelho deve ter $1,50\\text{ m}$ de altura, pois a imagem virtual é sempre menor que o objeto real." },
+                    { "letter": "D", "text": "A altura mínima do espelho depende da distância do jogador: quanto mais longe, menor pode ser o espelho." },
+                    { "letter": "E", "text": "O espelho deve ter no mínimo $1,00\\text{ m}$ de altura, independentemente da distância do jogador ao espelho." }
+                ],
+                "answer": "E",
+                "rationale": "A altura mínima do espelho ($d$) necessária para ver o corpo inteiro ($H$) é sempre $d = H/2$, e esse valor não depende da distância $x$ entre a pessoa e o espelho."
+            }
+        ];
+
+        let studentData = { name: "", email: "" };
+        let quizStartTime = null;
+        let timerInterval = null;
+        let remainingSeconds = TOTAL_TIME_SECONDS;
+        let quizSubmitted = false;
+        let resultSummaryText = "";
+
+        // INICIAR O QUIZ
+        function handleStartQuiz(e) {
+            e.preventDefault();
+
+            const name = document.getElementById("studentName").value.trim();
+            const email = document.getElementById("studentEmail").value.trim().toLowerCase();
+            const pass = document.getElementById("quizPassword").value.trim();
+
+            if (!name || !email) {
+                alert("Por favor, preencha seu nome e e-mail institucional.");
+                return;
+            }
+
+            if (!VALID_PASSWORDS.includes(pass)) {
+                alert("⚠️ Senha de acesso incorreta! Verifique com o professor em sala.");
+                return;
+            }
+
+            studentData = { name, email };
+            document.getElementById("dispStudentName").textContent = name;
+            document.getElementById("dispStudentEmail").textContent = email;
+
+            renderQuestions();
+
+            document.getElementById("loginScreen").style.display = "none";
+            document.getElementById("quizScreen").style.display = "block";
+
+            quizStartTime = new Date();
+            startTimer();
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        // RENDERIZAR QUESTÕES
+        function renderQuestions() {
+            const container = document.getElementById("questionsContainer");
+            container.innerHTML = "";
+
+            questionsData.forEach((q, idx) => {
+                const qDiv = document.createElement("div");
+                qDiv.className = "question-card";
+
+                let optionsHTML = "";
+                q.options.forEach(opt => {
+                    optionsHTML += `
+                        <label class="option-label">
+                            <input type="radio" name="question_${q.id}" value="${opt.letter}" required>
+                            <span><strong>${opt.letter})</strong> ${opt.text}</span>
+                        </label>
+                    `;
+                });
+
+                qDiv.innerHTML = `
+                    <div class="question-number">Questão ${idx + 1} de ${questionsData.length}</div>
+                    <div class="question-text">${q.title}</div>
+                    ${q.hint ? `<div class="question-hint">💡 <strong>Dica:</strong> ${q.hint}</div>` : ''}
+                    <div class="options-list">
+                        ${optionsHTML}
+                    </div>
+                `;
+
+                container.appendChild(qDiv);
+            });
+        }
+
+        // CRONÔMETRO
+        function startTimer() {
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                remainingSeconds--;
+                updateTimerDisplay();
+
+                if (remainingSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    alert("⏰ Tempo esgotado! Suas respostas serão enviadas automaticamente.");
+                    processQuizSubmission();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const min = Math.floor(remainingSeconds / 60);
+            const sec = remainingSeconds % 60;
+            const formatted = `${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
+
+            const timerElem = document.getElementById("timerCountdown");
+            timerElem.textContent = formatted;
+
+            const progressPct = (remainingSeconds / TOTAL_TIME_SECONDS) * 100;
+            document.getElementById("timerProgress").style.width = `${progressPct}%`;
+
+            if (remainingSeconds < 300) {
+                document.querySelector(".timer-display").classList.add("warning");
+            }
+        }
+
+        // SUBMISSÃO DO FORMULÁRIO
+        function handleQuizSubmit(e) {
+            e.preventDefault();
+            if (quizSubmitted) return;
+
+            const answeredCount = questionsData.filter(q => {
+                return document.querySelector(`input[name="question_${q.id}"]:checked`);
+            }).length;
+
+            if (answeredCount < questionsData.length) {
+                if (!confirm(`Você respondeu ${answeredCount} de ${questionsData.length} questões. Deseja realmente finalizar e enviar?`)) {
+                    return;
+                }
+            }
+
+            processQuizSubmission();
+        }
+
+        function processQuizSubmission() {
+            quizSubmitted = true;
+            clearInterval(timerInterval);
+
+            const endTime = new Date();
+            const elapsedSecs = Math.round((endTime - quizStartTime) / 1000);
+            const elapsedMin = Math.floor(elapsedSecs / 60);
+            const elapsedRemSec = elapsedSecs % 60;
+            const timeFormatted = `${elapsedMin} min e ${elapsedRemSec} s`;
+
+            let correctCount = 0;
+            let userAnswers = {};
+
+            questionsData.forEach(q => {
+                const selected = document.querySelector(`input[name="question_${q.id}"]:checked`);
+                const val = selected ? selected.value : "N/A";
+                userAnswers[q.id] = val;
+                if (val === q.answer) correctCount++;
+            });
+
+            const percent = Math.round((correctCount / questionsData.length) * 100);
+            const authHash = "OGREF04-" + Math.random().toString(36).substring(2, 8).toUpperCase() + `-${correctCount}X10`;
+            const formattedDate = new Date().toLocaleString("pt-BR");
+
+            // Salvar no localStorage
+            const resultData = {
+                student: studentData.name,
+                email: studentData.email,
+                score: correctCount,
+                total: questionsData.length,
+                percent: percent,
+                timeSpent: timeFormatted,
+                dateTime: formattedDate,
+                authCode: authHash,
+                answers: userAnswers
+            };
+
+            try {
+                localStorage.setItem("quiz_aula07_optica_result", JSON.stringify(resultData));
+            } catch (e) {
+                console.warn("Não foi possível salvar no localStorage:", e);
+            }
+
+            // Envio Automático para a Planilha do Google via Google Apps Script
+            if (GOOGLE_APP_SCRIPT_URL && GOOGLE_APP_SCRIPT_URL.startsWith("http")) {
+                fetch(GOOGLE_APP_SCRIPT_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        student: studentData.name,
+                        email: studentData.email,
+                        quiz: "Quiz 4 — Aula 06 (Espelhos Esféricos Côncavos e Convexos)",
+                        score: correctCount,
+                        total: questionsData.length,
+                        percent: percent + "%",
+                        timeSpent: timeFormatted,
+                        dateTime: formattedDate,
+                        authCode: authHash,
+                        answers: userAnswers
+                    })
+                }).then(() => {
+                    console.log("✅ Dados da tentativa gravados automaticamente na Planilha Google do Professor!");
+                }).catch(err => {
+                    console.error("⚠️ Falha de envio para a Planilha Google:", err);
+                });
+            }
+
+            // Preencher Tela 3
+            document.getElementById("resScoreNum").textContent = correctCount;
+            document.getElementById("resPercentText").textContent = `${percent}% de Aproveitamento`;
+            document.getElementById("resStudent").textContent = studentData.name;
+            document.getElementById("resEmail").textContent = studentData.email;
+            document.getElementById("resTime").textContent = timeFormatted;
+            document.getElementById("resDate").textContent = formattedDate;
+            document.getElementById("resAuthCode").textContent = authHash;
+
+            resultSummaryText = `COMPROVANTE DE QUIZ — ACÚSTICA E ÓPTICA GEOMÉTRICA
+==================================================
+Disciplina: FSC060805 / FCA060906 — Aula 06 (Espelhos Esféricos)
+Estudante: ${studentData.name}
+E-mail: ${studentData.email}
+Data/Hora: ${formattedDate}
+--------------------------------------------------
+Pontuação: ${correctCount} de 10 acertos (${percent}%)
+Tempo Decorrido: ${timeFormatted}
+Código de Validação: ${authHash}
+==================================================`;
+
+            renderReview(userAnswers);
+
+            document.getElementById("quizScreen").style.display = "none";
+            document.getElementById("resultScreen").style.display = "block";
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function isGabaritoUnlocked() {
+            const now = new Date();
+            const release = new Date(GABARITO_RELEASE_DATE);
+            return now >= release;
+        }
+
+        // RENDERIZAR GABARITO
+        function renderReview(userAnswers) {
+            const reviewContainer = document.getElementById("reviewContainer");
+            reviewContainer.innerHTML = "";
+
+            const unlocked = isGabaritoUnlocked();
+
+            if (!unlocked) {
+                const releaseFormatted = new Date(GABARITO_RELEASE_DATE).toLocaleString('pt-BR', { dateStyle: 'long', timeStyle: 'short' });
+                reviewContainer.innerHTML = `
+                    <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 1rem; padding: 1.8rem; text-align: center; margin-top: 1rem;">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔒</div>
+                        <h3 style="color: #fbbf24; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem;">Gabarito Comentado e Correção Detalhada Bloqueados Temporariamente</h3>
+                        <p style="color: #e2e8f0; font-size: 0.95rem; margin-bottom: 1.2rem; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                            Para garantir a integridade da avaliação entre todos os discentes durante a semana de realização do quiz, a correção questão por questão e as justificativas teóricas estarão disponíveis nesta mesma página a partir de:
+                        </p>
+                        <div style="display: inline-block; background: rgba(0,0,0,0.5); border: 1px solid #f59e0b; color: #fbbf24; padding: 0.6rem 1.4rem; border-radius: 0.6rem; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.2rem;">
+                            📅 ${releaseFormatted}
+                        </div>
+                        <p style="color: #94a3b8; font-size: 0.85rem; font-style: italic;">
+                            Sua pontuação, tempo e comprovante com o código de validação já foram salvos com sucesso.
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            questionsData.forEach(q => {
+                const userAns = userAnswers ? userAnswers[q.id] : "N/A";
+                const isCorrect = userAns === q.answer;
+
+                const card = document.createElement("div");
+                card.className = `review-card ${isCorrect ? 'correct' : 'incorrect'}`;
+
+                card.innerHTML = `
+                    <span class="status-badge ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Resposta Correta' : '✗ Resposta Incorreta'}
+                    </span>
+                    <div style="font-weight:700; font-size:1.05rem; margin-bottom:0.6rem; color:#fff;">${q.title}</div>
+                    <div style="font-size:0.9rem; margin-bottom:0.4rem;">
+                        <strong>Sua Resposta:</strong> <span style="color:${isCorrect ? '#4ade80' : '#fca5a5'}; font-weight:700;">${userAns}</span>
+                        ${!isCorrect ? `| <strong>Gabarito Correto:</strong> <span style="color:#4ade80; font-weight:700;">${q.answer}</span>` : ''}
+                    </div>
+                    <div class="rationale-box">
+                        <strong>📖 Justificativa Teórica:</strong> ${q.rationale}
+                    </div>
+                `;
+
+                reviewContainer.appendChild(card);
+            });
+        }
+
+        function copyComprovante() {
+            navigator.clipboard.writeText(resultSummaryText).then(() => {
+                alert("📋 Comprovante copiado com sucesso! Cole na mensagem ou envie ao professor.");
+            }).catch(err => {
+                alert("Erro ao copiar. Copie manualmente o código de validação.");
+            });
+        }
+
+        function downloadComprovante() {
+            const blob = new Blob([resultSummaryText], { type: "text/plain;charset=utf-8" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = `Comprovante_Quiz_Aula06_Espelhos_${studentData.name.replace(/\s+/g, '_')}.txt`;
+            a.click();
+        }
+    </script>
+</body>
+</html>
