@@ -1,0 +1,137 @@
+{
+  "title": "Quiz 5 (Avaliativo) — Aula 09: Lab 02: Construção de Eletroímã e Fenômenos Magnéticos",
+  "course": "Magnetismo e Eletromagnetismo (FSC060804 / FCA060905)",
+  "lesson": "Aula 09 — Lab 02: Construção de Eletroímã e Fenômenos Magnéticos",
+  "questions": [
+    {
+      "id": 1,
+      "title": "1. O que caracteriza fundamentalmente os chamados 'domínios de Weiss' em um material ferromagnético em seu estado natural desmagnetizado?",
+      "hint": "Pense na organização interna dos spins eletrônicos em escala microscópica antes da aplicação de um campo externo.",
+      "options": [
+        { "letter": "A", "text": "Regiões microscópicas onde os spins dos elétrons estão espontaneamente alinhados paralelamente em uma mesma direção." },
+        { "letter": "B", "text": "Zonas onde o campo magnético orbital dos elétrons anula exatamente o campo magnético de spin do cristal." },
+        { "letter": "C", "text": "Pequenas cavidades no material onde o vácuo permite a circulação de correntes elétricas sem resistência." },
+        { "letter": "D", "text": "Áreas do material que atingiram o ponto de saturação magnética permanente sem influência de calor." }
+      ],
+      "answer": "A",
+      "rationale": "Materiais ferromagnéticos possuem regiões microscópicas denominadas domínios de Weiss, nas quais as interações de troca orientam espontaneamente os momentos magnéticos atômicos em paralelo."
+    },
+    {
+      "id": 2,
+      "title": "2. Um prego de ferro é fortemente atraído por um ímã. Se esse prego for aquecido até atingir uma temperatura de \\(780^{\\circ}\\text{C}\\), o que ocorrerá com a interação magnética entre eles?",
+      "hint": "Considere a temperatura de Curie do ferro (\\(770^{\\circ}\\text{C}\\)) e o efeito da agitação térmica sobre a organização dos domínios magnéticos.",
+      "options": [
+        { "letter": "A", "text": "A atração aumentará, pois o calor facilita a movimentação dos elétrons e a formação de campos magnéticos." },
+        { "letter": "B", "text": "O prego passará a repelir o ímã, transformando-se temporariamente em uma substância diamagnética." },
+        { "letter": "C", "text": "O prego deixará de ser atraído pelo ímã, pois terá superado o Ponto de Curie e perdido suas propriedades ferromagnéticas." },
+        { "letter": "D", "text": "Nada mudará, pois a magnetização é uma propriedade intrínseca invariável da massa do ferro." }
+      ],
+      "answer": "C",
+      "rationale": "Acima do ponto de Curie (cerca de \\(770^{\\circ}\\text{C}\\) para o ferro), a agitação térmica desorganiza o alinhamento dos domínios magnéticos de Weiss, e o material passa a se comportar apenas como paramagnético."
+    },
+    {
+      "id": 3,
+      "title": "3. Em substâncias diamagnéticas (como bismuto, prata e cobre), qual é o comportamento do campo magnético resultante \\(B\\) no interior do material em relação ao campo magnético externo \\(B_0\\) aplicado?",
+      "hint": "Lembre-se da reação microscópica dos orbitais eletrônicos à aplicação de um campo magnético externo.",
+      "options": [
+        { "letter": "A", "text": "O campo resultante \\(B\\) é ligeiramente menor que o campo externo \\(B_0\\) aplicado, gerando uma fraca repulsão." },
+        { "letter": "B", "text": "O campo resultante \\(B\\) é milhares de vezes mais intenso que \\(B_0\\), amplificando fortemente as linhas de indução." },
+        { "letter": "C", "text": "O campo interno anula-se permanentemente apenas na presença de campos elétricos oscilantes." },
+        { "letter": "D", "text": "O campo resultante \\(B\\) assume valor idêntico ao campo gerado por ímãs de neodímio permanentes." }
+      ],
+      "answer": "A",
+      "rationale": "Nas substâncias diamagnéticas, a aplicação do campo externo induz momentos magnéticos orbitais que se opõem ao campo aplicado (Lei de Lenz microscópica), tornando o campo total interno \\(B\\) ligeiramente inferior a \\(B_0\\)."
+    },
+    {
+      "id": 4,
+      "title": "4. A descoberta de materiais cerâmicos que apresentam supercondutividade e o Efeito Meissner revolucionou a física moderna. Qual das seguintes opções descreve uma propriedade ou aplicação direta desse fenômeno?",
+      "hint": "Considere o comportamento da resistência elétrica e a interação com linhas de campo magnético externo.",
+      "options": [
+        { "letter": "A", "text": "Levitação magnética estável de ímãs sobre o material supercondutor devido à expulsão total do campo magnético de seu interior (Efeito Meissner)." },
+        { "letter": "B", "text": "Condução de corrente elétrica acompanhada de alta dissipação térmica por efeito Joule para aquecimento de trilhos." },
+        { "letter": "C", "text": "Necessidade de operar acima de \\(1000^{\\circ}\\text{C}\\) para permitir o fluxo contínuo de cargas elétricas." },
+        { "letter": "D", "text": "Conversão instantânea de forças magnéticas atrativas em campos gravitacionais repulsivos." }
+      ],
+      "answer": "A",
+      "rationale": "O Efeito Meissner consiste na expulsão das linhas de indução magnética do interior do material quando este atinge o estado supercondutor, gerando repulsão suficiente para sustentar a levitação magnética de ímãs."
+    },
+    {
+      "id": 5,
+      "title": "5. Em uma campainha elétrica residencial baseada em um eletroímã, como funciona o mecanismo de intermitência que mantém o martelo batendo no gongo continuamente?",
+      "hint": "Pense no que acontece com o contato elétrico no instante em que a armadura metálica é puxada em direção ao núcleo do eletroímã.",
+      "options": [
+        { "letter": "A", "text": "Ao ser atraída pelo eletroímã, a armadura flexível bate no gongo e afasta-se de um parafuso de contato, interrompendo a corrente e permitindo que uma mola a traga de volta para reiniciar o ciclo." },
+        { "letter": "B", "text": "Um circuito integrado digital inverte a polaridade da bateria milhares de vezes por segundo sem peças mecânicas." },
+        { "letter": "C", "text": "A campainha depende do aquecimento por efeito Joule de um fio bimetálico que desliga a corrente por dilatação." },
+        { "letter": "D", "text": "O martelo é mantido permanentemente colado ao núcleo de ferro por histerese, transmitindo ondas sonoras por ressonância." }
+      ],
+      "answer": "A",
+      "rationale": "Quando a corrente passa pela bobina, o eletroímã puxa a armadura para bater no gongo. Esse deslocamento abre o contato elétrico, desligando a corrente. O eletroímã perde a força, a mola puxa a armadura de volta, fechando o contato e reiniciando a vibração contínua."
+    },
+    {
+      "id": 6,
+      "title": "6. Na curva de histerese magnética de uma substância ferromagnética, o que representa o ponto de 'imantação residual' (\\(B_R\\))?",
+      "hint": "Analise o que acontece com o material quando a corrente na bobina é desligada após a magnetização completa.",
+      "options": [
+        { "letter": "A", "text": "A energia dissipada sob a forma de calor durante cada ciclo de magnetização do material." },
+        { "letter": "B", "text": "O valor máximo absoluto de magnetização que o material pode suportar antes de se fundir." },
+        { "letter": "C", "text": "A intensidade da indução magnética que permanece retida no material após o campo magnetizante externo ser reduzido a zero." },
+        { "letter": "D", "text": "A intensidade do campo externo em sentido contrário necessária para desmagnetizar totalmente a amostra." }
+      ],
+      "answer": "C",
+      "rationale": "A histerese magnética acarreta um retardo na desimantação; quando a excitação magnética externa cessa (\\(H = 0\\)), muitos domínios permanecem alinhados, configurando a indução remanente ou imantação residual \\(B_R\\)."
+    },
+    {
+      "id": 7,
+      "title": "7. Para a fabricação de um guindaste eletromagnético eficiente e seguro, por que se utiliza um núcleo de 'ferro doce' em vez de aço temperado?",
+      "hint": "Considere a necessidade de 'ligar' para içar a carga e 'desligar' para soltá-la no local desejado.",
+      "options": [
+        { "letter": "A", "text": "Porque o ferro doce desimanta-se quase que instantaneamente ao cessar a corrente, permitindo soltar a sucata de forma imediata." },
+        { "letter": "B", "text": "Porque o aço temperado é um material diamagnético e repeliria os objetos ferrosos." },
+        { "letter": "C", "text": "Porque o ferro doce possui permeabilidade menor que a do ar, tornando o equipamento mais leve." },
+        { "letter": "D", "text": "Porque o ferro doce é um supercondutor à temperatura ambiente e dispensa fios condutores." }
+      ],
+      "answer": "A",
+      "rationale": "Materiais ferromagnéticos macios (como o ferro doce) possuem ciclo de histerese estreito e baixa imantação residual, permitindo que a bobina solte a carga instantaneamente ao abrir o interruptor elétrico."
+    },
+    {
+      "id": 8,
+      "title": "8. Substâncias magnéticas reagem de formas distintas a campos externos. Qual das seguintes afirmações sobre substâncias paramagnéticas é correta?",
+      "hint": "Pense no alinhamento de spins atômicos e na resposta magnética total em comparação com o vácuo.",
+      "options": [
+        { "letter": "A", "text": "Elas possuem dipolos atômicos permanentes que tendem a se alinhar na direção do campo externo, tornando o campo resultante \\(B\\) ligeiramente superior ao campo externo \\(B_0\\)." },
+        { "letter": "B", "text": "Apresentam o efeito Meissner à temperatura ambiente, expulsando integralmente o campo magnético." },
+        { "letter": "C", "text": "Mantêm uma forte imantação residual permanente após a remoção definitiva do campo externo." },
+        { "letter": "D", "text": "Geram campos internos em oposição ao campo externo, provocando forte repulsão magnética." }
+      ],
+      "answer": "A",
+      "rationale": "Em materiais paramagnéticos (como alumínio e platina), os momentos magnéticos atômicos alinham-se parcialmente com o campo externo aplicado, gerando um pequeno reforço no campo magnético resultante (\\(B > B_0\\))."
+    },
+    {
+      "id": 9,
+      "title": "9. O fenômeno do atraso do processo de desimantação em relação ao de imantação em materiais ferromagnéticos submetidos a ciclos de campo magnético é denominado:",
+      "hint": "O termo de origem grega refere-se ao conceito de 'retardo' ou 'atraso' observado na resposta magnética do material.",
+      "options": [
+        { "letter": "A", "text": "Histerese magnética" },
+        { "letter": "B", "text": "Efeito Meissner" },
+        { "letter": "C", "text": "Ponto de Curie" },
+        { "letter": "D", "text": "Efeito Peltier" }
+      ],
+      "answer": "A",
+      "rationale": "Histerese (da palavra grega hystéresis, que significa retardo ou atraso) descreve a defasagem entre a indução magnética \\(B\\) e a intensidade de campo magnetizante \\(H\\) em materiais ferromagnéticos."
+    },
+    {
+      "id": 10,
+      "title": "10. Os trens de levitação magnética (Maglev) utilizam propriedades avançadas do eletromagnetismo para atingir altíssimas velocidades. Qual princípio físico permite que esses trens flutuem sobre os trilhos sem contato mecânico?",
+      "hint": "Pense na interação controlada de forças magnéticas que substitui as rodas tradicionais por campos de sustentação.",
+      "options": [
+        { "letter": "A", "text": "Forças magnéticas de atração ou repulsão entre eletroímãs no trem e no leito da via (ou bobinas supercondutoras), eliminando o atrito de rolamento." },
+        { "letter": "B", "text": "O uso de jatos pressurizados de ar criados por reatores térmicos bimetálicos sob os vagões." },
+        { "letter": "C", "text": "O Efeito Peltier, que resfria a atmosfera ao redor dos trilhos a zero kelvin, reduzindo o peso do comboio." },
+        { "letter": "D", "text": "A repulsão eletrostática gerada pelo atrito do ar com a fuselagem de alumínio." }
+      ],
+      "answer": "A",
+      "rationale": "A tecnologia Maglev baseia-se na levitação magnética controlada (seja por repulsão eletrodinâmica através de supercondutores ou por atração eletromagnética), suspendendo o trem a poucos centímetros dos trilhos e eliminando o atrito sólido."
+    }
+  ]
+}
