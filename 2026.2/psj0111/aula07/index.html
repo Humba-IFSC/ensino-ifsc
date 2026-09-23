@@ -284,6 +284,84 @@
             border-radius: 4px;
         }
 
+        /* ─── TABELA DE APRESENTAÇÕES & SLIDES ─── */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 18px 0 28px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        .table-cronograma {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        .table-cronograma th {
+            background: rgba(15, 23, 42, 0.95);
+            color: #fbbf24;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 12px 16px;
+            border-bottom: 2px solid rgba(245, 158, 11, 0.35);
+            white-space: nowrap;
+        }
+
+        .table-cronograma td {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: middle;
+        }
+
+        .table-cronograma tr:hover td {
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        .btn-pdf {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.22) 0%, rgba(185, 28, 28, 0.3) 100%);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            color: #fca5a5;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+            white-space: nowrap;
+        }
+
+        .btn-pdf:hover {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.45) 0%, rgba(220, 38, 38, 0.6) 100%);
+            color: #ffffff;
+            border-color: #ef4444;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-pdf-pending {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            color: #94a3b8;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            cursor: default;
+            white-space: nowrap;
+        }
+
         /* ─── IMAGE VIEWER ─── */
         .image-container {
             background: #0b1120;
@@ -418,9 +496,114 @@
             </p>
         </section>
 
-        <!-- ═══ CRONOGRAMA OFICIAL DAS APRESENTAÇÕES ═══ -->
+        <!-- ═══ CRONOGRAMA OFICIAL DAS APRESENTAÇÕES & ACERVO DE SLIDES ═══ -->
         <section class="section-card">
-            <h2 class="section-title">📋 Cronograma de Apresentações e Seminaristas</h2>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 14px;">
+                <div>
+                    <h2 class="section-title" style="margin-bottom: 6px;">📋 Cronograma de Apresentações e Acervo de Slides</h2>
+                    <p style="color: #cbd5e1; font-size: 0.9rem; margin: 0;">
+                        Distribuição das metodologias apresentadas, seminaristas e repositório permanente dos slides em formato <strong>PDF (não editável)</strong> para consulta dos acadêmicos e turmas futuras (2027.2).
+                    </p>
+                </div>
+            </div>
+
+            <!-- TABELA OFICIAL CONSOLIDADA -->
+            <div class="table-responsive">
+                <table class="table-cronograma">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px; text-align: center;">#</th>
+                            <th style="width: 140px;">Encontro / Data</th>
+                            <th>Metodologia da Pesquisa</th>
+                            <th>Equipe de Seminaristas</th>
+                            <th style="width: 190px; text-align: center;">Slides (PDF)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center; font-weight: 700; color: #fbbf24;">1ª</td>
+                            <td><span class="badge-date-tag">03/09 · Aula 07</span></td>
+                            <td><strong style="color: #f8fafc;">📚 Pesquisa Bibliográfica</strong></td>
+                            <td style="color: #cbd5e1;">Gabriel Beck de Albuquerque e Paulo Henrique Rosa</td>
+                            <td style="text-align: center;"><span class="btn-pdf-pending">⏳ Aguardando envio</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; font-weight: 700; color: #fbbf24;">2ª</td>
+                            <td><span class="badge-date-tag">03/09 · Aula 07</span></td>
+                            <td><strong style="color: #f8fafc;">🔄 Pesquisa-ação</strong></td>
+                            <td style="color: #cbd5e1;">André Barbosa da Silva, Eduardo Kimoto Hosokawa e Elisa Duarte Macedo de Sousa</td>
+                            <td style="text-align: center;">
+                                <a href="../Seminarios-Apresentacao/Pesquisa-acao-andre-eduardo-elisa.pdf" target="_blank" rel="noopener" class="btn-pdf">
+                                    📥 Baixar PDF
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; font-weight: 700; color: #fbbf24;">3ª</td>
+                            <td><span class="badge-date-tag">03/09 · Aula 07</span></td>
+                            <td><strong style="color: #f8fafc;">📝 Análise Textual Discursiva (ATD)</strong></td>
+                            <td style="color: #cbd5e1;">Marina Luíza Borges Costa e Mariana Camargo Oliveira</td>
+                            <td style="text-align: center;">
+                                <a href="../Seminarios-Apresentacao/ATD-Marina-e-Mariana.pdf" target="_blank" rel="noopener" class="btn-pdf">
+                                    📥 Baixar PDF
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; font-weight: 700; color: #38bdf8;">4ª</td>
+                            <td><span class="badge-date-tag" style="background: #0284c7;">10/09 · Aula 08</span></td>
+                            <td><strong style="color: #f8fafc;">🗺️ Pesquisa Cartográfica em Educação</strong></td>
+                            <td style="color: #cbd5e1;">Paula Ramos de Mello, Fábio Luiz Zandonai e Lígia Wherli Siqueira</td>
+                            <td style="text-align: center;">
+                                <a href="../Seminarios-Apresentacao/Cartografica-Fabio-Ligia-Paula.pdf" target="_blank" rel="noopener" class="btn-pdf">
+                                    📥 Baixar PDF
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; font-weight: 700; color: #38bdf8;">5ª</td>
+                            <td><span class="badge-date-tag" style="background: #0284c7;">10/09 · Aula 08</span></td>
+                            <td><strong style="color: #f8fafc;">🔍 Análise de Conteúdo</strong></td>
+                            <td style="color: #cbd5e1;">Franciane Prazeres, Nataly Meurer e Fernanda Martins da Silva</td>
+                            <td style="text-align: center;">
+                                <a href="../Seminarios-Apresentacao/AC-Fran-Fer-Nat.pdf" target="_blank" rel="noopener" class="btn-pdf">
+                                    📥 Baixar PDF
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; font-weight: 700; color: #38bdf8;">6ª</td>
+                            <td><span class="badge-date-tag" style="background: #0284c7;">10/09 · Aula 08</span></td>
+                            <td><strong style="color: #f8fafc;">🌐 Pesquisa Etnográfica em Educação</strong></td>
+                            <td style="color: #cbd5e1;">Mariana de Sá Rodrigues da Silva e Francisco Souza da Silva Castro</td>
+                            <td style="text-align: center;"><span class="btn-pdf-pending">⏳ Aguardando envio</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; font-weight: 700; color: #c084fc;">7ª</td>
+                            <td><span class="badge-date-tag" style="background: #7c3aed;">17/09 · Aula 09</span></td>
+                            <td><strong style="color: #f8fafc;">📊 Estudo de Caso</strong></td>
+                            <td style="color: #cbd5e1;">Silvana Rodrigues Seara e Márcio Alexandre Botti</td>
+                            <td style="text-align: center;"><span class="btn-pdf-pending">⏳ Aguardando envio</span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; font-weight: 700; color: #c084fc;">8ª</td>
+                            <td><span class="badge-date-tag" style="background: #7c3aed;">17/09 · Aula 09</span></td>
+                            <td><strong style="color: #f8fafc;">💬 Análise do Discurso (AD)</strong></td>
+                            <td style="color: #cbd5e1;">Edecio João Porto Júnior</td>
+                            <td style="text-align: center;">
+                                <a href="../Seminarios-Apresentacao/AD-Edecio.pdf" target="_blank" rel="noopener" class="btn-pdf">
+                                    📥 Baixar PDF
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- VISUALIZAÇÃO DETALHADA POR DIAS DE APRESENTAÇÃO -->
+            <h3 style="font-size: 1.1rem; color: #fbbf24; margin: 24px 0 14px; font-family: 'Outfit', sans-serif;">
+                🗓️ Detalhamento por Dia de Apresentação
+            </h3>
 
             <!-- DIA 1 -->
             <div class="day-group">
@@ -435,8 +618,9 @@
                             <span class="seminar-name">📚 Pesquisa Bibliográfica</span>
                         </div>
                         <div class="seminar-presenters">
-                            👥 <strong>Gabriel e Paulo</strong>
+                            <span>👥 <strong>Gabriel e Paulo</strong></span>
                             <span class="badge-date-tag">03/09</span>
+                            <span class="btn-pdf-pending">⏳ Aguardando PDF</span>
                         </div>
                     </div>
 
@@ -446,8 +630,11 @@
                             <span class="seminar-name">🔄 Pesquisa-ação</span>
                         </div>
                         <div class="seminar-presenters">
-                            👥 <strong>André, Eduardo e Elisa</strong>
+                            <span>👥 <strong>André, Eduardo e Elisa</strong></span>
                             <span class="badge-date-tag">03/09</span>
+                            <a href="../Seminarios-Apresentacao/Pesquisa-acao-andre-eduardo-elisa.pdf" target="_blank" rel="noopener" class="btn-pdf">
+                                📥 Slides (PDF)
+                            </a>
                         </div>
                     </div>
 
@@ -457,8 +644,11 @@
                             <span class="seminar-name">📝 Análise Textual Discursiva (ATD)</span>
                         </div>
                         <div class="seminar-presenters">
-                            👥 <strong>Marina e Mariana Camargo</strong>
+                            <span>👥 <strong>Marina e Mariana Camargo</strong></span>
                             <span class="badge-date-tag">03/09</span>
+                            <a href="../Seminarios-Apresentacao/ATD-Marina-e-Mariana.pdf" target="_blank" rel="noopener" class="btn-pdf">
+                                📥 Slides (PDF)
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -477,8 +667,11 @@
                             <span class="seminar-name">🗺️ Pesquisa Cartográfica em Educação</span>
                         </div>
                         <div class="seminar-presenters">
-                            👥 <strong>Paula, Fábio e Lígia</strong>
-                            <span class="badge-date-tag">10/09</span>
+                            <span>👥 <strong>Paula, Fábio e Lígia</strong></span>
+                            <span class="badge-date-tag" style="background: #0284c7;">10/09</span>
+                            <a href="../Seminarios-Apresentacao/Cartografica-Fabio-Ligia-Paula.pdf" target="_blank" rel="noopener" class="btn-pdf">
+                                📥 Slides (PDF)
+                            </a>
                         </div>
                     </div>
 
@@ -488,8 +681,11 @@
                             <span class="seminar-name">🔍 Análise de Conteúdo</span>
                         </div>
                         <div class="seminar-presenters">
-                            👥 <strong>Franciane, Nataly e Fernanda</strong>
-                            <span class="badge-date-tag">10/09</span>
+                            <span>👥 <strong>Franciane, Nataly e Fernanda</strong></span>
+                            <span class="badge-date-tag" style="background: #0284c7;">10/09</span>
+                            <a href="../Seminarios-Apresentacao/AC-Fran-Fer-Nat.pdf" target="_blank" rel="noopener" class="btn-pdf">
+                                📥 Slides (PDF)
+                            </a>
                         </div>
                     </div>
 
@@ -499,8 +695,9 @@
                             <span class="seminar-name">🌐 Pesquisa Etnográfica em Educação</span>
                         </div>
                         <div class="seminar-presenters">
-                            👥 <strong>Mariana de Sá e Francisco</strong>
-                            <span class="badge-date-tag">10/09</span>
+                            <span>👥 <strong>Mariana de Sá e Francisco</strong></span>
+                            <span class="badge-date-tag" style="background: #0284c7;">10/09</span>
+                            <span class="btn-pdf-pending">⏳ Aguardando PDF</span>
                         </div>
                     </div>
                 </div>
@@ -519,8 +716,23 @@
                             <span class="seminar-name">📊 Estudo de Caso</span>
                         </div>
                         <div class="seminar-presenters">
-                            👥 <strong>Silvana e Márcio</strong>
-                            <span class="badge-date-tag">17/09</span>
+                            <span>👥 <strong>Silvana e Márcio</strong></span>
+                            <span class="badge-date-tag" style="background: #7c3aed;">17/09</span>
+                            <span class="btn-pdf-pending">⏳ Aguardando PDF</span>
+                        </div>
+                    </div>
+
+                    <div class="seminar-card">
+                        <div class="seminar-meta">
+                            <span class="seminar-num" style="background:#7c3aed;">8ª Apresentação</span>
+                            <span class="seminar-name">💬 Análise do Discurso (AD)</span>
+                        </div>
+                        <div class="seminar-presenters">
+                            <span>👥 <strong>Edecio João Porto Júnior</strong></span>
+                            <span class="badge-date-tag" style="background: #7c3aed;">17/09</span>
+                            <a href="../Seminarios-Apresentacao/AD-Edecio.pdf" target="_blank" rel="noopener" class="btn-pdf">
+                                📥 Slides (PDF)
+                            </a>
                         </div>
                     </div>
                 </div>

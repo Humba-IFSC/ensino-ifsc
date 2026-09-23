@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Frequência — PSJ0111 | Metodologia da Pesquisa em Educação</title>
+    <meta name="description" content="Planilha e registro de frequência dos cursistas da disciplina PSJ0111 - Metodologia da Pesquisa em Educação, Semestre 2026.2, IFSC Câmpus São José.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/style.css">
+
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-surface: rgba(15, 23, 42, 0.75);
+            --bg-card: #1e293b;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(16, 185, 129, 0.3);
+            --brand-green: #10b981;
+            --brand-green-glow: rgba(16, 185, 129, 0.2);
+            --brand-blue: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 70px;
+        }
+
+        /* ═══ HEADER ═══ */
+        header {
+            background: linear-gradient(135deg, #064e3b 0%, #0f172a 70%, #1e1b4b 100%);
+            border-bottom: 1px solid var(--border-accent);
+            padding: 36px 24px;
+        }
+
+        .header-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb a {
+            color: #34d399;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .badge-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #34d399;
+            padding: 4px 14px;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #34d399 0%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        /* ═══ MAIN LAYOUT ═══ */
+        .main-container {
+            max-width: 1300px;
+            margin: 28px auto 0;
+            padding: 0 24px;
+        }
+
+        /* ═══ STATS GRID ═══ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            background: rgba(16, 185, 129, 0.12);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            flex-shrink: 0;
+        }
+
+        .stat-content .val {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #f8fafc;
+            line-height: 1.1;
+        }
+
+        .stat-content .lbl {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* ═══ TOOLBAR / CONTROLS ═══ */
+        .toolbar {
+            background: var(--bg-surface);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 260px;
+            max-width: 420px;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            padding: 9px 14px 9px 36px;
+            color: #f8fafc;
+            font-size: 0.88rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-filter {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: #cbd5e1;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-filter:hover, .btn-filter.active {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #10b981;
+            color: #34d399;
+        }
+
+        .action-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-action {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-action:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+        }
+
+        /* ═══ TABLE CONTAINER ═══ */
+        .table-card {
+            background: var(--bg-surface);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.84rem;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        thead tr:first-child th {
+            background: rgba(15, 23, 42, 0.95);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #94a3b8;
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+
+        thead tr:last-child th {
+            background: rgba(17, 24, 39, 0.9);
+            color: #cbd5e1;
+            font-weight: 700;
+            font-size: 0.76rem;
+            padding: 12px 14px;
+            border-bottom: 2px solid rgba(16, 185, 129, 0.35);
+        }
+
+        th.col-num { width: 44px; text-align: center; }
+        th.col-matr { width: 130px; font-family: 'Fira Code', monospace; }
+        th.col-nome { min-width: 280px; text-align: left; }
+        th.col-date { text-align: center; width: 62px; }
+        th.col-total { text-align: center; width: 68px; }
+        th.col-perc { text-align: center; width: 75px; }
+
+        tbody tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            transition: background 0.15s ease;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        tbody td {
+            padding: 10px 14px;
+            vertical-align: middle;
+        }
+
+        td.td-num {
+            text-align: center;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        td.td-matr {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        td.td-nome {
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        td.td-freq {
+            text-align: center;
+        }
+
+        /* Badges de presença */
+        .pres-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 26px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .pres-full {
+            background: rgba(16, 185, 129, 0.16);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+        }
+
+        .pres-zero {
+            background: rgba(239, 68, 68, 0.1);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.25);
+        }
+
+        .total-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            font-family: 'Fira Code', monospace;
+            background: rgba(255, 255, 255, 0.06);
+            color: #f8fafc;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .perc-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .perc-high {
+            background: rgba(16, 185, 129, 0.18);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+
+        .perc-mid {
+            background: rgba(56, 189, 248, 0.16);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.35);
+        }
+
+        .perc-low {
+            background: rgba(245, 158, 11, 0.14);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .perc-min {
+            background: rgba(239, 68, 68, 0.12);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.25);
+        }
+
+        /* ═══ FOOTER ROW OF TABLE ═══ */
+        tfoot tr td {
+            background: rgba(15, 23, 42, 0.95);
+            font-weight: 700;
+            padding: 12px 14px;
+            border-top: 2px solid rgba(16, 185, 129, 0.35);
+            color: #cbd5e1;
+        }
+
+        /* ═══ INFO NOTES & METADATA ═══ */
+        .info-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            margin-top: 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: #38bdf8;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .info-body h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 6px;
+        }
+
+        .info-body p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        .info-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .info-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 3px 10px;
+            font-size: 0.78rem;
+            color: #cbd5e1;
+        }
+
+        /* ═══ PRINT STYLES ═══ */
+        @media print {
+            body { background: #fff !important; color: #000 !important; }
+            header, .toolbar, .info-card, .btn-action, .breadcrumb { display: none !important; }
+            .main-container { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+            .table-card { border: 1px solid #ccc !important; box-shadow: none !important; }
+            table { font-size: 9pt !important; }
+            th, td { border: 1px solid #ddd !important; color: #000 !important; }
+            .pres-full { background: #e6f4ea !important; color: #137333 !important; }
+            .pres-zero { background: #fce8e6 !important; color: #c5221f !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+
+    <!-- ═══ HEADER ═══ -->
+    <header>
+        <div class="header-container">
+            <div class="breadcrumb">
+                <a href="../index.html">🏠 Semestre 2026.2</a>
+                <span>/</span>
+                <a href="index.html">PSJ0111</a>
+                <span>/</span>
+                <span style="color: #cbd5e1;">Registro de Frequência</span>
+            </div>
+
+            <span class="badge-tag">
+                <span>📋</span> Controle Semestral de Presença
+            </span>
+
+            <h1>Registro de Frequência da Turma</h1>
+            <p class="subtitle">
+                Metodologia da Pesquisa em Educação (PSJ0111) — Cursistas matriculados e frequência nos 9 encontros presenciais.
+            </p>
+        </div>
+    </header>
+
+    <!-- ═══ MAIN ═══ -->
+    <main class="main-container">
+
+        <!-- ═══ STATS CARDS ═══ -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-content">
+                    <div class="val" id="stat-total-alunos">27</div>
+                    <div class="lbl">Cursistas Registrados</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-content">
+                    <div class="val">9</div>
+                    <div class="lbl">Encontros Realizados</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⏱️</div>
+                <div class="stat-content">
+                    <div class="val">36h</div>
+                    <div class="lbl">Aulas Presenciais (55 min/aula)</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🌟</div>
+                <div class="stat-content">
+                    <div class="val">8</div>
+                    <div class="lbl">Presença Plena (36h / 100%)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ TOOLBAR CONTROLS ═══ -->
+        <div class="toolbar">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Filtrar por nome ou matrícula..." onkeyup="filterTable()">
+            </div>
+
+            <div class="filter-group">
+                <button class="btn-filter active" onclick="setFilter('all', this)">Todos (27)</button>
+                <button class="btn-filter" onclick="setFilter('full', this)">Presença Plena (36h)</button>
+                <button class="btn-filter" onclick="setFilter('partial', this)">Com Ausências (&lt; 36h)</button>
+            </div>
+
+            <div class="action-group">
+                <a href="Frequencia-PSJ0111-2026.png" target="_blank" rel="noopener" class="btn-action" title="Abrir imagem original da planilha emitida pelo sistema">
+                    🖼️ Ver Planilha Original
+                </a>
+                <button onclick="window.print()" class="btn-action" title="Imprimir ou salvar em PDF">
+                    🖨️ Imprimir / PDF
+                </button>
+                <a href="index.html" class="btn-action" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">
+                    🏠 Voltar ao Dashboard
+                </a>
+            </div>
+        </div>
+
+        <!-- ═══ TABLE CARD ═══ -->
+        <div class="table-card">
+            <div class="table-responsive">
+                <table id="freqTable">
+                    <thead>
+                        <tr>
+                            <th colspan="3" style="text-align: left; padding-left: 20px;">Identificação do Estudante</th>
+                            <th colspan="2">Julho / 2026</th>
+                            <th colspan="4">Agosto / 2026</th>
+                            <th colspan="3">Setembro / 2026</th>
+                            <th colspan="2">Total Acumulado</th>
+                        </tr>
+                        <tr>
+                            <th class="col-num">#</th>
+                            <th class="col-matr">Matrícula</th>
+                            <th class="col-nome">Nome Completo</th>
+                            <th class="col-date" title="23 de Julho de 2026 (Aula 01)">23/07<br><span style="font-size: 0.68rem; font-weight: normal; color: #94a3b8;">4h</span></th>
+                            <th class="col-date" title="30 de Julho de 2026 (Aula 02)">30/07<br><span style="font-size: 0.68rem; font-weight: normal; color: #94a3b8;">4h</span></th>
+                            <th class="col-date" title="06 de Agosto de 2026 (Aula 03)">06/08<br><span style="font-size: 0.68rem; font-weight: normal; color: #94a3b8;">4h</span></th>
+                            <th class="col-date" title="13 de Agosto de 2026 (Aula 04)">13/08<br><span style="font-size: 0.68rem; font-weight: normal; color: #94a3b8;">4h</span></th>
+                            <th class="col-date" title="20 de Agosto de 2026 (Aula 05)">20/08<br><span style="font-size: 0.68rem; font-weight: normal; color: #94a3b8;">4h</span></th>
+                            <th class="col-date" title="27 de Agosto de 2026 (Aula 06)">27/08<br><span style="font-size: 0.68rem; font-weight: normal; color: #94a3b8;">4h</span></th>
+                            <th class="col-date" title="03 de Setembro de 2026 (Aula 07 - Seminário I)">03/09<br><span style="font-size: 0.68rem; font-weight: normal; color: #94a3b8;">4h</span></th>
+                            <th class="col-date" title="10 de Setembro de 2026 (Aula 08 - Seminário II)">10/09<br><span style="font-size: 0.68rem; font-weight: normal; color: #94a3b8;">4h</span></th>
+                            <th class="col-date" title="17 de Setembro de 2026 (Aula 09 - Seminário III Encerramento)">17/09<br><span style="font-size: 0.68rem; font-weight: normal; color: #94a3b8;">4h</span></th>
+                            <th class="col-total" title="Total de horas presenciais computadas">Qtd</th>
+                            <th class="col-perc" title="Percentual oficial registrado na planilha da turma">%</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- 1 -->
+                        <tr data-qtd="36">
+                            <td class="td-num">1</td>
+                            <td class="td-matr">20261401152</td>
+                            <td class="td-nome">ALESSANDRO VIVEIROS GOMES</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="total-badge">36</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-high">80%</span></td>
+                        </tr>
+                        <!-- 2 -->
+                        <tr data-qtd="8">
+                            <td class="td-num">2</td>
+                            <td class="td-matr">20261400116</td>
+                            <td class="td-nome">ANDRE BARBOSA DA SILVA</td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">8</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-min">17.77%</span></td>
+                        </tr>
+                        <!-- 3 -->
+                        <tr data-qtd="36">
+                            <td class="td-num">3</td>
+                            <td class="td-matr">20261400762</td>
+                            <td class="td-nome">CLEILIM ALBERT DIAS DE SOUSA</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="total-badge">36</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-high">80%</span></td>
+                        </tr>
+                        <!-- 4 -->
+                        <tr data-qtd="12">
+                            <td class="td-num">4</td>
+                            <td class="td-matr">20261400115</td>
+                            <td class="td-nome">DINAH MENDES DE SA GUIMARAES</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">12</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-low">26.66%</span></td>
+                        </tr>
+                        <!-- 5 -->
+                        <tr data-qtd="20">
+                            <td class="td-num">5</td>
+                            <td class="td-matr">20261401131</td>
+                            <td class="td-nome">EDECIO JOAO PORTO JUNIOR</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">20</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-mid">44.44%</span></td>
+                        </tr>
+                        <!-- 6 -->
+                        <tr data-qtd="12">
+                            <td class="td-num">6</td>
+                            <td class="td-matr">20261400118</td>
+                            <td class="td-nome">EDUARDO KIMOTO HOSOKAWA</td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="total-badge">12</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-low">26.66%</span></td>
+                        </tr>
+                        <!-- 7 -->
+                        <tr data-qtd="36">
+                            <td class="td-num">7</td>
+                            <td class="td-matr">20251600867</td>
+                            <td class="td-nome">ELAINE CRISTINA DAL PONT PEREIRA</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="total-badge">36</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-high">80%</span></td>
+                        </tr>
+                        <!-- 8 -->
+                        <tr data-qtd="36">
+                            <td class="td-num">8</td>
+                            <td class="td-matr">20261400259</td>
+                            <td class="td-nome">ELICLEIA DAMASCENO SANTOS</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="total-badge">36</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-high">80%</span></td>
+                        </tr>
+                        <!-- 9 -->
+                        <tr data-qtd="4">
+                            <td class="td-num">9</td>
+                            <td class="td-matr">20251600825</td>
+                            <td class="td-nome">ELISA DUARTE MACEDO DE SOUSA</td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">4</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-min">8.88%</span></td>
+                        </tr>
+                        <!-- 10 -->
+                        <tr data-qtd="4">
+                            <td class="td-num">10</td>
+                            <td class="td-matr">20261401125</td>
+                            <td class="td-nome">FABIO LUIZ ZANDONAI DA SILVA</td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">4</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-min">8.88%</span></td>
+                        </tr>
+                        <!-- 11 -->
+                        <tr data-qtd="0">
+                            <td class="td-num">11</td>
+                            <td class="td-matr">20261400261</td>
+                            <td class="td-nome">FERNANDA MARTINS DA SILVA</td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">0</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-min">0%</span></td>
+                        </tr>
+                        <!-- 12 -->
+                        <tr data-qtd="8">
+                            <td class="td-num">12</td>
+                            <td class="td-matr">20261400119</td>
+                            <td class="td-nome">FRANCIANE PRAZERES</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">8</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-min">17.77%</span></td>
+                        </tr>
+                        <!-- 13 -->
+                        <tr data-qtd="16">
+                            <td class="td-num">13</td>
+                            <td class="td-matr">20261400258</td>
+                            <td class="td-nome">FRANCISCO SOUZA DA SILVA CASTRO</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">16</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-low">35.55%</span></td>
+                        </tr>
+                        <!-- 14 -->
+                        <tr data-qtd="20">
+                            <td class="td-num">14</td>
+                            <td class="td-matr">20261400869</td>
+                            <td class="td-nome">GABRIEL BECK DE ALBUQUERQUE</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="total-badge">20</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-mid">44.44%</span></td>
+                        </tr>
+                        <!-- 15 -->
+                        <tr data-qtd="36">
+                            <td class="td-num">15</td>
+                            <td class="td-matr">20261401127</td>
+                            <td class="td-nome">LEVI GOES DE OLIVEIRA</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="total-badge">36</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-high">80%</span></td>
+                        </tr>
+                        <!-- 16 -->
+                        <tr data-qtd="12">
+                            <td class="td-num">16</td>
+                            <td class="td-matr">20261401051</td>
+                            <td class="td-nome">LIGIA WHERLI SIQUEIRA</td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">12</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-low">26.66%</span></td>
+                        </tr>
+                        <!-- 17 -->
+                        <tr data-qtd="36">
+                            <td class="td-num">17</td>
+                            <td class="td-matr">20261401128</td>
+                            <td class="td-nome">LOUISE TOCCHETTO PEREIRA</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="total-badge">36</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-high">80%</span></td>
+                        </tr>
+                        <!-- 18 -->
+                        <tr data-qtd="12">
+                            <td class="td-num">18</td>
+                            <td class="td-matr">20261401132</td>
+                            <td class="td-nome">MARCIO ALEXANDRE BOTTI</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">12</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-low">26.66%</span></td>
+                        </tr>
+                        <!-- 19 -->
+                        <tr data-qtd="4">
+                            <td class="td-num">19</td>
+                            <td class="td-matr">20261400217</td>
+                            <td class="td-nome">MARIANA CAMARGO OLIVEIRA</td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">4</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-min">8.88%</span></td>
+                        </tr>
+                        <!-- 20 -->
+                        <tr data-qtd="4">
+                            <td class="td-num">20</td>
+                            <td class="td-matr">20261400690</td>
+                            <td class="td-nome">MARIANA DE SA RODRIGUES DA SILVA</td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">4</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-min">8.88%</span></td>
+                        </tr>
+                        <!-- 21 -->
+                        <tr data-qtd="8">
+                            <td class="td-num">21</td>
+                            <td class="td-matr">20261401137</td>
+                            <td class="td-nome">MARINA LUIZA BORGES COSTA</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">8</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-min">17.77%</span></td>
+                        </tr>
+                        <!-- 22 -->
+                        <tr data-qtd="36">
+                            <td class="td-num">22</td>
+                            <td class="td-matr">20261400262</td>
+                            <td class="td-nome">MAYARA PEREIRA CABANHE</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="total-badge">36</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-high">80%</span></td>
+                        </tr>
+                        <!-- 23 -->
+                        <tr data-qtd="36">
+                            <td class="td-num">23</td>
+                            <td class="td-matr">20261401052</td>
+                            <td class="td-nome">NATALIA APARECIDA CUCHI</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="total-badge">36</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-high">80%</span></td>
+                        </tr>
+                        <!-- 24 -->
+                        <tr data-qtd="8">
+                            <td class="td-num">24</td>
+                            <td class="td-matr">20261400891</td>
+                            <td class="td-nome">NATALY MEURER</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">8</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-min">17.77%</span></td>
+                        </tr>
+                        <!-- 25 -->
+                        <tr data-qtd="4">
+                            <td class="td-num">25</td>
+                            <td class="td-matr">20261400252</td>
+                            <td class="td-nome">PAULA RAMOS DE MELLO</td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">4</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-min">8.88%</span></td>
+                        </tr>
+                        <!-- 26 -->
+                        <tr data-qtd="16">
+                            <td class="td-num">26</td>
+                            <td class="td-matr">20261400691</td>
+                            <td class="td-nome">PAULO HENRIQUE ROSA</td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="total-badge">16</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-low">35.55%</span></td>
+                        </tr>
+                        <!-- 27 -->
+                        <tr data-qtd="4">
+                            <td class="td-num">27</td>
+                            <td class="td-matr">20261400218</td>
+                            <td class="td-nome">SILVANA RODRIGUES SEARA</td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-full">4</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="pres-badge pres-zero">0</span></td>
+                            <td class="td-freq"><span class="total-badge">4</span></td>
+                            <td class="td-freq"><span class="perc-badge perc-min">8.88%</span></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" style="text-align: right; font-weight: 700;">Total de Aulas Presenciais Registradas por Encontro:</td>
+                            <td class="td-freq" style="color: #34d399;">68h</td>
+                            <td class="td-freq" style="color: #34d399;">60h</td>
+                            <td class="td-freq" style="color: #34d399;">48h</td>
+                            <td class="td-freq" style="color: #34d399;">60h</td>
+                            <td class="td-freq" style="color: #34d399;">44h</td>
+                            <td class="td-freq" style="color: #34d399;">48h</td>
+                            <td class="td-freq" style="color: #34d399;">40h</td>
+                            <td class="td-freq" style="color: #34d399;">52h</td>
+                            <td class="td-freq" style="color: #34d399;">44h</td>
+                            <td class="td-freq" style="color: #34d399;">464h</td>
+                            <td class="td-freq">—</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <!-- ═══ METADATA & INFORMAÇÕES DE ENCONTROS ═══ -->
+        <div class="info-card">
+            <div class="info-icon">ℹ️</div>
+            <div class="info-body">
+                <h4>Informações da Estrutura das Aulas e Carga Horária</h4>
+                <p>
+                    A unidade curricular de Metodologia da Pesquisa em Educação (PSJ0111) totalizou 9 encontros presenciais ao longo do semestre letivo de 2026.2. Cada encontro compreendeu 4 horas-aula (com duração de 55 minutos cada), totalizando 36 horas presenciais ministradas, integrando a carga horária regular da disciplina no IFSC Câmpus São José.
+                </p>
+                <div class="info-pills">
+                    <span class="info-pill">📅 Encontro 1: 23/07 — Aula Inaugural</span>
+                    <span class="info-pill">📅 Encontro 2: 30/07 — Discussão Ludwig</span>
+                    <span class="info-pill">📅 Encontro 3: 06/08 — Ética na Pesquisa</span>
+                    <span class="info-pill">📅 Encontro 4: 13/08 — Intenções de Pesquisa I</span>
+                    <span class="info-pill">📅 Encontro 5: 20/08 — Intenções de Pesquisa II</span>
+                    <span class="info-pill">📅 Encontro 6: 27/08 — CAPES &amp; Zotero</span>
+                    <span class="info-pill">📅 Encontro 7: 03/09 — Seminário I</span>
+                    <span class="info-pill">📅 Encontro 8: 10/09 — Seminário II</span>
+                    <span class="info-pill">📅 Encontro 9: 17/09 — Seminário III (Encerramento)</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ═══ JAVASCRIPT: FILTER & SEARCH ═══ -->
+    <script>
+        let currentFilter = 'all';
+
+        function filterTable() {
+            const input = document.getElementById('searchInput').value.toLowerCase().trim();
+            const rows = document.querySelectorAll('#tableBody tr');
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                const matricula = row.querySelector('.td-matr').innerText.toLowerCase();
+                const nome = row.querySelector('.td-nome').innerText.toLowerCase();
+                const qtd = parseInt(row.getAttribute('data-qtd'), 10);
+
+                const matchesSearch = matricula.includes(input) || nome.includes(input);
+
+                let matchesFilter = true;
+                if (currentFilter === 'full') {
+                    matchesFilter = (qtd === 36);
+                } else if (currentFilter === 'partial') {
+                    matchesFilter = (qtd < 36);
+                }
+
+                if (matchesSearch && matchesFilter) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            document.getElementById('stat-total-alunos').innerText = visibleCount;
+        }
+
+        function setFilter(type, btn) {
+            currentFilter = type;
+            document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterTable();
+        }
+    </script>
+</body>
+</html>
