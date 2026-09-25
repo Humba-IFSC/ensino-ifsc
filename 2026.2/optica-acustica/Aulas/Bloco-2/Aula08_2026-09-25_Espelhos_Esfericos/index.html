@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 08 / Lab 02 — Espelhos Esféricos (25/09 RAC e 28/09 Tele)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --c-brand: #06b6d4;
+            --c-surface: rgba(15,23,42,0.8);
+            --c-border: rgba(255,255,255,0.08);
+            --c-bg: #0a0e17;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--c-bg);
+            color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #0e7490 0%, #1e1b4b 60%, #0a0e17 100%);
+            padding: 3rem 1.5rem 2.5rem;
+            border-bottom: 1px solid rgba(6,182,212,0.25);
+            text-align: center;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+        .badge {
+            background: rgba(6,182,212,0.15);
+            color: #67e8f9;
+            border: 1px solid rgba(6,182,212,0.35);
+            padding: 0.35rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+        .nav-links {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.8rem;
+        }
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(255,255,255,0.06);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-back:hover {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        .btn-lab {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(6,182,212,0.2);
+            color: #67e8f9;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(6,182,212,0.4);
+            font-size: 0.82rem;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+        .btn-lab:hover {
+            background: rgba(6,182,212,0.3);
+            color: #fff;
+        }
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(239,68,68,0.2);
+            color: #fca5a5;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(239,68,68,0.4);
+            font-size: 0.82rem;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+        .btn-pdf:hover {
+            background: rgba(239,68,68,0.3);
+            color: #fff;
+        }
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.1rem;
+            font-weight: 800;
+            margin: 0.4rem 0;
+            letter-spacing: -0.02em;
+        }
+        .card {
+            background: var(--c-surface);
+            border: 1px solid var(--c-border);
+            border-radius: 1rem;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        ul {
+            color: #cbd5e1;
+            font-size: 0.92rem;
+            padding-left: 1.2rem;
+            margin: 0.5rem 0;
+        }
+        li {
+            margin-bottom: 0.45rem;
+        }
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.8rem;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <span class="badge">🔬 Aula 08 / Lab 02 · Bloco 2</span>
+    <h1>Lab 02 — Espelhos Esféricos</h1>
+    <p style="color: #94a3b8; font-size: 1rem; margin: 0; max-width: 650px; margin: 0.5rem auto 0;">
+        Determinação da Distância Focal, Raio de Curvatura, Validação da Equação de Gauss e Fator de Ampliação Linear
+    </p>
+    <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap;">
+        <span class="btn-back" style="border-color: rgba(6,182,212,0.3); color:#67e8f9;">❄️ Refrigeração (FCA060906): 25/09/2026</span>
+        <span class="btn-back" style="border-color: rgba(16,185,129,0.3); color:#6ee7b7;">📗 Telecomunicações (FSC060805): 28/09/2026</span>
+    </div>
+</header>
+
+<main class="container">
+    <div class="nav-links">
+        <a href="../../../../FCA060906/index.html" class="btn-back">❄️ Dashboard Refrigeração</a>
+        <a href="../../../../FSC060805/index.html" class="btn-back">📗 Dashboard Telecomunicações</a>
+        <a href="../../../index.html" class="btn-back">🏠 Central Óptica e Acústica</a>
+        <a href="../../../Laboratorios/Lab_2026-09-25_Espelhos_Esfericos.html" class="btn-lab">🧪 Guia Interativo & Calculadora</a>
+        <a href="../../../Laboratorios/roteiro_pratico_espelhos_esfericos.pdf" target="_blank" class="btn-pdf">📥 Baixar Roteiro (PDF)</a>
+    </div>
+
+    <div class="card" style="border-color: rgba(6,182,212,0.3);">
+        <h2 style="color: #38bdf8; font-size: 1.25rem; margin-top: 0;">🎯 Foco Experimental & Metodologia da Aula</h2>
+        <ul>
+            <li><strong>Demonstração Coletiva (Banco Azeheb):</strong> Rastreamento dos raios paralelos incidentes para demonstrar o foco real no espelho côncavo e a divergência com foco virtual no espelho convexo.</li>
+            <li><strong>Determinação Direta de $R$ e $f_{ref}$ (Etapa A):</strong> Localização do Centro de Curvatura ($C$) pelo alinhamento transversal do anteparo e vela até obter imagem invertida de mesmo tamanho ($i = -o \implies p = p' = R$).</li>
+            <li><strong>Mapeamento em 5 Ensaios (Etapa B):</strong> Coleta de distâncias de objeto ($p$) e imagem ($p'$) para cálculo de $f_{exp} = \frac{p \cdot p'}{p + p'}$ e validação da ampliação $A = \frac{i}{o} = -\frac{p'}{p}$.</li>
+            <li><strong>Condições de Nitidez de Gauss:</strong> Discussão das limitações práticas impostas pela aberração esférica e raios não-paraxiais.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2 style="color: #34d399; font-size: 1.25rem; margin-top: 0;">📚 Documentos e Recursos Disponíveis</h2>
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+            <a href="../../../Laboratorios/Lab_2026-09-25_Espelhos_Esfericos.html" class="btn-lab">🧪 Roteiro Interativo com Calculadora (HTML)</a>
+            <a href="../../../Laboratorios/roteiro_pratico_espelhos_esfericos.pdf" target="_blank" class="btn-pdf">📥 Roteiro Prático Oficial (PDF)</a>
+            <a href="../../../Caps_Ramalho/Reflexao-Espelhos_Fisica_Vol2.pdf" target="_blank" class="btn-back">📖 Cap. 12 Ramalho — Espelhos Esféricos (PDF)</a>
+            <a href="../Aula07/quiz.html" class="btn-back">📝 Quiz de Fixação (Espelhos Esféricos)</a>
+            <a href="../Aula08-EP/OGRef-Orientacao-Estudos.pdf" target="_blank" class="btn-back">📖 Guia de Estudos EP (PDF)</a>
+        </div>
+    </div>
+
+    <div class="page-nav">
+        <a href="../Aula07/quiz.html" class="btn-back">← Aula 07 (Espelhos Esféricos & Quiz)</a>
+        <a href="../../../Avaliacoes/Avaliacao_2_Espelhos.md" target="_blank" class="btn-back">Próxima: Avaliação 2 (Óptica e Espelhos) →</a>
+    </div>
+</main>
+
+<footer>
+    &copy; 2026 Prof. Dr. Humberto Luz Oliveira — IFSC Câmpus São José
+</footer>
+
+</body>
+</html>

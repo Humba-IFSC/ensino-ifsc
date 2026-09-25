@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 02 — Espelhos Esféricos: Foco, Gauss e Ampliação Linear | IFSC 2026.2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --c-brand: #06b6d4;
+            --c-brand-glow: rgba(6, 182, 212, 0.2);
+            --c-accent: #38bdf8;
+            --c-surface: rgba(15, 23, 42, 0.85);
+            --c-border: rgba(255, 255, 255, 0.08);
+            --c-bg: #0a0e17;
+            --c-success: #10b981;
+            --c-warning: #f59e0b;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--c-bg);
+            color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #083344 0%, #0f172a 50%, #0a0e17 100%);
+            padding: 3.5rem 1.5rem 2.8rem;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+            text-align: center;
+            position: relative;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+        .badge {
+            background: rgba(6, 182, 212, 0.15);
+            color: #67e8f9;
+            border: 1px solid rgba(6, 182, 212, 0.35);
+            padding: 0.35rem 0.95rem;
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 0.85rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-link:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        .btn-primary {
+            background: rgba(6, 182, 212, 0.18);
+            color: #67e8f9;
+            border-color: rgba(6, 182, 212, 0.4);
+        }
+        .btn-primary:hover {
+            background: rgba(6, 182, 212, 0.3);
+            color: #fff;
+        }
+        .btn-pdf {
+            background: rgba(239, 68, 68, 0.18);
+            color: #fca5a5;
+            border-color: rgba(239, 68, 68, 0.4);
+        }
+        .btn-pdf:hover {
+            background: rgba(239, 68, 68, 0.28);
+            color: #fff;
+        }
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin: 0.4rem 0 0.8rem;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+        .card {
+            background: var(--c-surface);
+            border: 1px solid var(--c-border);
+            border-radius: 1rem;
+            padding: 1.8rem;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+            transition: border-color 0.2s;
+        }
+        .card:hover {
+            border-color: rgba(6, 182, 212, 0.25);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+        .card-icon {
+            font-size: 1.4rem;
+        }
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #f8fafc;
+            margin: 0;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+        .subcard {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 0.75rem;
+            padding: 1.2rem;
+        }
+        .subcard h4 {
+            margin: 0 0 0.5rem 0;
+            color: #38bdf8;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+        ul, ol {
+            color: #cbd5e1;
+            padding-left: 1.3rem;
+            margin: 0.5rem 0;
+            font-size: 0.92rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .formula-box {
+            background: rgba(6, 182, 212, 0.08);
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            border-radius: 0.75rem;
+            padding: 1.2rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        /* Table Styles */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 1rem 0;
+            border-radius: 0.75rem;
+            border: 1px solid var(--c-border);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        th, td {
+            padding: 0.75rem 0.6rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        th {
+            background: rgba(15, 23, 42, 0.95);
+            color: #93c5fd;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        input[type="number"] {
+            width: 70px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #67e8f9;
+            padding: 0.35rem 0.4rem;
+            border-radius: 0.4rem;
+            text-align: center;
+            font-family: monospace;
+            font-size: 0.85rem;
+        }
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #06b6d4;
+            box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.25);
+        }
+        .calc-out {
+            font-family: monospace;
+            font-weight: 700;
+            color: #34d399;
+        }
+        details {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+        details[open] {
+            border-color: rgba(6, 182, 212, 0.3);
+            background: rgba(6, 182, 212, 0.03);
+        }
+        summary {
+            cursor: pointer;
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: #e2e8f0;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after {
+            content: "➕";
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+        details[open] summary::after {
+            content: "➖";
+        }
+        .details-content {
+            padding: 0 1.25rem 1.25rem;
+            font-size: 0.88rem;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            line-height: 1.6;
+        }
+        .step-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #06b6d4;
+            color: #0a0e17;
+            font-weight: 800;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.8rem;
+            padding: 2rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <span class="badge">🔬 Roteiro Prático II · Óptica Geométrica</span>
+    <h1>Espelhos Esféricos: Foco, Gauss & Ampliação</h1>
+    <p style="color: #94a3b8; font-size: 1rem; max-width: 720px; margin: 0 auto; font-weight: 300;">
+        Determinação direta do Raio de Curvatura e Foco, Mapeamento Experimental das Posições de Objeto e Imagem e Validação da Equação de Pontos Conjugados de Gauss.
+    </p>
+    <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap;">
+        <span class="btn-link" style="border-color: rgba(6,182,212,0.3); color:#67e8f9;">❄️ RAC: 25/09/2026</span>
+        <span class="btn-link" style="border-color: rgba(16,185,129,0.3); color:#6ee7b7;">📗 Tele: 28/09/2026</span>
+        <span class="btn-link">👨‍🏫 Prof. Humberto L. Oliveira</span>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="nav-bar">
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <a href="../../FCA060906/index.html" class="btn-link">❄️ Painel Refrigeração</a>
+            <a href="../../FSC060805/index.html" class="btn-link">📗 Painel Telecomunicações</a>
+            <a href="../index.html" class="btn-link">🏠 Central Óptica & Acústica</a>
+        </div>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <a href="roteiro_pratico_espelhos_esfericos.pdf" target="_blank" class="btn-link btn-pdf">
+                📥 Baixar PDF Oficial
+            </a>
+            <a href="#calculadora" class="btn-link btn-primary">
+                🧮 Calculadora de Dados
+            </a>
+        </div>
+    </div>
+
+    <!-- ══ CARD 1: OBJETIVOS & FUNDAMENTAÇÃO ══ -->
+    <div class="card">
+        <div class="card-header">
+            <span class="card-icon">🎯</span>
+            <h2 class="card-title">1. Objetivos & Fundamentação Teórica</h2>
+        </div>
+        <div class="grid-2">
+            <div class="subcard">
+                <h4>Objetivos Pedagógicos</h4>
+                <ul>
+                    <li><strong>Qualitativo:</strong> Rastrear no banco óptico o trajeto dos feixes luminosos incidentes e refletidos, identificando foco real ($F$) no espelho côncavo e foco virtual ($F'$) no convexo.</li>
+                    <li><strong>Quantitativo:</strong> Mapear distâncias do objeto ($p$) e da imagem projetada ($p'$), medindo as respectivas alturas ($o$ e $i$) para verificar a igualdade $A = \frac{i}{o} = -\frac{p'}{p}$.</li>
+                    <li><strong>Investigativo:</strong> Localizar o Centro de Curvatura ($C$) pela igualdade $p = p' = R$ com imagem invertida de mesmo tamanho ($i = -o$).</li>
+                </ul>
+            </div>
+            <div class="subcard">
+                <h4>Equações Fundamentais</h4>
+                <div class="formula-box">
+                    <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">Equação de Gauss (Pontos Conjugados):</p>
+                    <p style="margin: 0.3rem 0; font-size: 1.15rem; font-weight: 700; color: #38bdf8;">
+                        $$\frac{1}{f} = \frac{1}{p} + \frac{1}{p'} \implies f = \frac{p \cdot p'}{p + p'}$$
+                    </p>
+                    <p style="margin: 0.6rem 0 0; font-size: 0.85rem; color: #94a3b8;">Fator de Ampliação Linear ($A$):</p>
+                    <p style="margin: 0.3rem 0; font-size: 1.1rem; font-weight: 700; color: #34d399;">
+                        $$A = \frac{i}{o} = -\frac{p'}{p}$$
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 1.2rem; padding: 0.85rem 1rem; border-radius: 0.6rem; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25);">
+            <strong style="color: #fbbf24; font-size: 0.85rem;">⚠️ Convenção de Sinais de Gauss:</strong>
+            <span style="font-size: 0.83rem; color: #cbd5e1;"> Imagens invertidas projetadas no anteparo possuem altura negativa ($i < 0$) e ampliação negativa ($A < 0$). Imagens direitas (observadas no espelho) possuem altura positiva ($i > 0$) e $A > 0$. Para o espelho côncavo, $f > 0$; para o convexo, $f < 0$.</span>
+        </div>
+    </div>
+
+    <!-- ══ CARD 2: EQUIPAMENTOS ══ -->
+    <div class="card">
+        <div class="card-header">
+            <span class="card-icon">🛠️</span>
+            <h2 class="card-title">2. Materiais & Dispositivos do Experimento</h2>
+        </div>
+        <div class="grid-2">
+            <div class="subcard">
+                <h4 style="color:#a78bfa;">A) Bancada Principal (Sistema Azeheb)</h4>
+                <ul>
+                    <li>Trilho de alumínio óptico com escala milimetrada;</li>
+                    <li>Fonte luminosa com colimador de feixes paralelos laser/LED;</li>
+                    <li>Espelhos côncavo e convexo em cavaleiros articulados;</li>
+                    <li>Disco angular com transferidor para rastreamento visual das trajetórias refletidas.</li>
+                </ul>
+            </div>
+            <div class="subcard">
+                <h4 style="color:#38bdf8;">B) Bancadas das Equipes (Coleta de Dados)</h4>
+                <ul>
+                    <li>Trilho óptico graduado com cavaleiros móveis de precisão;</li>
+                    <li>Fonte luminosa objeto: vela ou dispositivo com padrão iluminado;</li>
+                    <li>Espelho esférico côncavo ($f$ nominal entre 15 e 20 cm) e convexo;</li>
+                    <li>Anteparo branco milimetrado para projeção nítida de imagem real;</li>
+                    <li>Régua milimetrada para aferição das dimensões $o$ e $i$.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ CARD 3: ROTEIRO PASSO A PASSO ══ -->
+    <div class="card">
+        <div class="card-header">
+            <span class="card-icon">🧪</span>
+            <h2 class="card-title">3. Procedimento Experimental</h2>
+        </div>
+
+        <h3 style="font-size: 1rem; color: #38bdf8; margin: 1rem 0 0.5rem;"><span class="step-pill">1</span> Parte 1: Demonstração Coletiva no Banco Azeheb (~25 min)</h3>
+        <p style="font-size: 0.88rem; color: #cbd5e1; margin-bottom: 0.75rem;">
+            O professor posiciona feixes paralelos incidentes sobre o eixo principal:
+        </p>
+        <ul style="margin-bottom: 1.5rem;">
+            <li><strong>Espelho Côncavo:</strong> Os raios convergem para o ponto focal real $F$. Mede-se a distância $VF$ diretamente na régua do banco para referência.</li>
+            <li><strong>Espelho Convexo:</strong> Os raios emergem divergindo. Os prolongamentos retilíneos virtuais convergem para o foco virtual $F'$ situado atrás do espelho.</li>
+        </ul>
+
+        <h3 style="font-size: 1rem; color: #38bdf8; margin: 1rem 0 0.5rem;"><span class="step-pill">2</span> Parte 2: Atividade em Grupos — Medições Práticas (~60 min)</h3>
+        
+        <div class="subcard" style="margin-bottom: 1rem;">
+            <strong style="color: #67e8f9; font-size: 0.9rem;">Etapa A: Determinação Direta do Centro de Curvatura ($C$) e Raio ($R$)</strong>
+            <ol style="margin-top: 0.5rem;">
+                <li>Posicione a vela e coloque o anteparo branco imediatamente ao seu lado no mesmo suporte/plano transversal.</li>
+                <li>Desloque o espelho côncavo até projetar no anteparo uma chama nítida, invertida e com exatamente a mesma altura ($|i| = o$).</li>
+                <li>Como imagem e objeto estão no mesmo plano transversal e têm mesmo tamanho, ambos estão no <strong>Centro de Curvatura ($C$)</strong>, portanto $p = p' = R$.</li>
+                <li>Anote a distância do vértice ao plano do anteparo: este é o raio experimental $R$, e $f_{ref} = \frac{R}{2}$.</li>
+            </ol>
+        </div>
+
+        <div class="subcard">
+            <strong style="color: #67e8f9; font-size: 0.9rem;">Etapa B: Os 5 Ensaios de Posicionamento e Projeção</strong>
+            <ol style="margin-top: 0.5rem;">
+                <li><strong>Ensaio 1 ($p > R$):</strong> Objeto antes de $C$. A imagem projetada será real, invertida e menor, localizada entre $C$ e $F$.</li>
+                <li><strong>Ensaio 2 ($p = R$):</strong> Objeto em $C$. A imagem será real, invertida e de mesmo tamanho, localizada sobre $C$ ($p' = R$).</li>
+                <li><strong>Ensaio 3 ($f < p < R$):</strong> Objeto entre $C$ e $F$. A imagem projetada será real, invertida e maior ($p' > R$).</li>
+                <li><strong>Ensaio 4 ($p < f$):</strong> Objeto entre $F$ e $V$. Imagem virtual, direita e maior (vista olhando para a superfície do espelho, sem anteparo).</li>
+                <li><strong>Ensaio 5 (Convexo):</strong> Objeto em qualquer posição diante do espelho convexo. Imagem virtual, direita e menor (vista no espelho).</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- ══ CARD 4: CALCULADORA INTERATIVA ══ -->
+    <div class="card" id="calculadora" style="border-color: rgba(6, 182, 212, 0.4);">
+        <div class="card-header">
+            <span class="card-icon">🧮</span>
+            <div>
+                <h2 class="card-title">4. Tabela de Coleta & Calculadora Interativa</h2>
+                <p style="margin: 0; font-size: 0.8rem; color: #94a3b8;">Insira os dados coletados na bancada para calcular automaticamente $f_{exp}$, ampliações e erro percentual.</p>
+            </div>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 0.6rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <label style="font-size: 0.88rem; font-weight: 600; color: #e2e8f0;">
+                Raio de Curvatura $R$ medido no Centro $C$ (cm):
+                <input type="number" id="input_R" value="38" step="0.1" style="width: 80px; margin-left: 0.5rem;" oninput="recalcularTabela()">
+            </label>
+            <div style="font-size: 0.85rem; color: #94a3b8;">
+                Foco de Referência: <span id="span_f_ref" style="color: #67e8f9; font-weight: 700;">19.00 cm</span>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ensaio</th>
+                        <th>Posição / Região</th>
+                        <th>$p$ (cm)</th>
+                        <th>$p'$ (cm)</th>
+                        <th>$o$ (cm)</th>
+                        <th>$i$ (cm)</th>
+                        <th>$f_{exp}$ (cm)</th>
+                        <th>$A_1 = \frac{i}{o}$</th>
+                        <th>$A_2 = -\frac{p'}{p}$</th>
+                        <th>Erro $A$ (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1</strong></td>
+                        <td style="text-align: left;">Antes de $C$ ($p > R$)</td>
+                        <td><input type="number" id="p1" value="50.0" step="0.1" oninput="recalcularTabela()"></td>
+                        <td><input type="number" id="pl1" value="30.6" step="0.1" oninput="recalcularTabela()"></td>
+                        <td><input type="number" id="o1" value="4.0" step="0.1" oninput="recalcularTabela()"></td>
+                        <td><input type="number" id="i1" value="-2.4" step="0.1" oninput="recalcularTabela()"></td>
+                        <td class="calc-out" id="f1">—</td>
+                        <td class="calc-out" id="a1_1">—</td>
+                        <td class="calc-out" id="a2_1">—</td>
+                        <td class="calc-out" id="err1">—</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2</strong></td>
+                        <td style="text-align: left;">Sobre $C$ ($p = R$)</td>
+                        <td><input type="number" id="p2" value="38.0" step="0.1" oninput="recalcularTabela()"></td>
+                        <td><input type="number" id="pl2" value="38.0" step="0.1" oninput="recalcularTabela()"></td>
+                        <td><input type="number" id="o2" value="4.0" step="0.1" oninput="recalcularTabela()"></td>
+                        <td><input type="number" id="i2" value="-4.0" step="0.1" oninput="recalcularTabela()"></td>
+                        <td class="calc-out" id="f2">—</td>
+                        <td class="calc-out" id="a1_2">—</td>
+                        <td class="calc-out" id="a2_2">—</td>
+                        <td class="calc-out" id="err2">—</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3</strong></td>
+                        <td style="text-align: left;">Entre $C$ e $F$ ($f < p < R$)</td>
+                        <td><input type="number" id="p3" value="28.0" step="0.1" oninput="recalcularTabela()"></td>
+                        <td><input type="number" id="pl3" value="59.1" step="0.1" oninput="recalcularTabela()"></td>
+                        <td><input type="number" id="o3" value="4.0" step="0.1" oninput="recalcularTabela()"></td>
+                        <td><input type="number" id="i3" value="-8.4" step="0.1" oninput="recalcularTabela()"></td>
+                        <td class="calc-out" id="f3">—</td>
+                        <td class="calc-out" id="a1_3">—</td>
+                        <td class="calc-out" id="a2_3">—</td>
+                        <td class="calc-out" id="err3">—</td>
+                    </tr>
+                    <tr style="opacity: 0.85;">
+                        <td><strong>4</strong></td>
+                        <td style="text-align: left;">Entre $F$ e $V$ ($p < f$)</td>
+                        <td><input type="number" id="p4" value="12.0" step="0.1" disabled></td>
+                        <td><em style="color:#fcd34d;">Virtual</em></td>
+                        <td><input type="number" id="o4" value="4.0" step="0.1" disabled></td>
+                        <td><input type="number" id="i4" value="6.5" step="0.1" disabled></td>
+                        <td>—</td>
+                        <td style="color:#6ee7b7;">+1.63</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr style="opacity: 0.85;">
+                        <td><strong>5</strong></td>
+                        <td style="text-align: left;">Espelho Convexo</td>
+                        <td><input type="number" id="p5" value="30.0" step="0.1" disabled></td>
+                        <td><em style="color:#fcd34d;">Virtual</em></td>
+                        <td><input type="number" id="o5" value="4.0" step="0.1" disabled></td>
+                        <td><input type="number" id="i5" value="1.5" step="0.1" disabled></td>
+                        <td>—</td>
+                        <td style="color:#6ee7b7;">+0.38</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 0.6rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <strong style="color: #34d399; font-size: 0.95rem;">Média da Distância Focal ($f_{médio}$):</strong>
+                <span id="span_f_medio" style="font-family: monospace; font-size: 1.1rem; font-weight: 800; color: #fff; margin-left: 0.5rem;">—</span>
+            </div>
+            <div>
+                <strong style="color: #34d399; font-size: 0.95rem;">Desvio Relativo em relação a $f_{ref}$:</strong>
+                <span id="span_desvio_f" style="font-family: monospace; font-size: 1.1rem; font-weight: 800; color: #6ee7b7; margin-left: 0.5rem;">—</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ CARD 5: QUESTÕES DE DISCUSSÃO ══ -->
+    <div class="card">
+        <div class="card-header">
+            <span class="card-icon">💡</span>
+            <h2 class="card-title">5. Questões para Discussão & Fechamento</h2>
+        </div>
+
+        <details>
+            <summary>Questão 1: Por que as imagens virtuais (Ensaio 4 no côncavo e Ensaio 5 no convexo) não podem ser capturadas no anteparo?</summary>
+            <div class="details-content">
+                <p><strong>Explicação Física:</strong> Imagens reais são formadas pela convergência e cruzamento efetivo dos raios de luz físicos refletidos pelo espelho. Por isso, a energia luminosa incide concretamente sobre a superfície do anteparo e pode ser projetada.</p>
+                <p>Já as imagens virtuais resultam do cruzamento dos <em>prolongamentos ideais</em> dos raios divergentes atrás da superfície refletora. Como não há feixes físicos de luz convergindo naquele ponto, o anteparo não intercepta luz concentrada, impossibilitando a projeção. A imagem virtual só pode ser percebida pelo sistema óptico do olho humano (ou de uma câmera), cujas lentes convergem esses feixes divergentes sobre a retina.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Questão 2: Quais foram as principais fontes de incerteza experimental na determinação de $p'$ e da altura $i$?</summary>
+            <div class="details-content">
+                <p><strong>Principais fatores de incerteza no laboratório:</strong></p>
+                <ul>
+                    <li><strong>Critério de nitidez do anteparo:</strong> A transição entre imagem perfeitamente focalizada e ligeiramente desfocada possui uma faixa de tolerância de alguns milímetros ao longo do trilho óptico.</li>
+                    <li><strong>Espessura e flutuação da chama:</strong> Uma vela não é uma fonte pontual ideal; a chama tem largura finita e oscila ligeiramente com correntes de ar na bancada, dificultando a medição exata de $o$ e $i$ com a régua.</li>
+                    <li><strong>Paralaxe na leitura:</strong> Erro angular ao alinhar a régua com o índice de medição dos cavaleiros no trilho graduado.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>Questão 3: Como as condições de nitidez de Gauss foram mantidas na prática e qual o efeito da abertura angular do espelho?</summary>
+            <div class="details-content">
+                <p><strong>Condições de Nitidez de Gauss:</strong> Para que um espelho esférico seja considerado estigmático (formação pontual e nítida de imagem):</p>
+                <ol>
+                    <li>O ângulo de abertura do espelho deve ser pequeno ($\alpha \le 10^\circ$).</li>
+                    <li>Os feixes luminosos devem ser paraxiais (pouco inclinados e próximos ao eixo principal).</li>
+                </ol>
+                <p>Caso o espelho tenha grande abertura relativa, os raios marginais (que atingem a borda do espelho) convergem mais próximos do vértice do que os raios centrais, provocando o fenômeno de <strong>aberração esférica</strong> e gerando uma projeção borrada ou com auréolas luminosas.</p>
+            </div>
+        </details>
+    </div>
+
+    <!-- ══ NAVEGAÇÃO DE AULAS ══ -->
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
+        <a href="../Aulas/Bloco-2/Aula07/quiz.html" class="btn-link">← Aula 07: Quiz de Espelhos</a>
+        <a href="../Aulas/Bloco-2/Aula08-EP/OGRef-Orientacao-Estudos.pdf" target="_blank" class="btn-link">Próximo: Guia de Estudos EP →</a>
+    </div>
+
+</main>
+
+<footer>
+    <p>Instituto Federal de Santa Catarina — Câmpus São José</p>
+    <p>Prof. Dr. Humberto Luz Oliveira · Ensino 2026.2</p>
+</footer>
+
+<script>
+function recalcularTabela() {
+    const R = parseFloat(document.getElementById('input_R').value) || 0;
+    const f_ref = R / 2;
+    document.getElementById('span_f_ref').textContent = f_ref.toFixed(2) + ' cm';
+
+    const ensaios = [1, 2, 3];
+    let focos = [];
+
+    ensaios.forEach(num => {
+        const p = parseFloat(document.getElementById('p' + num).value);
+        const pl = parseFloat(document.getElementById('pl' + num).value);
+        const o = parseFloat(document.getElementById('o' + num).value);
+        const i = parseFloat(document.getElementById('i' + num).value);
+
+        if (!isNaN(p) && !isNaN(pl) && (p + pl) !== 0) {
+            const f_exp = (p * pl) / (p + pl);
+            document.getElementById('f' + num).textContent = f_exp.toFixed(2);
+            focos.push(f_exp);
+        } else {
+            document.getElementById('f' + num).textContent = '—';
+        }
+
+        let a1 = NaN, a2 = NaN;
+        if (!isNaN(i) && !isNaN(o) && o !== 0) {
+            a1 = i / o;
+            document.getElementById('a1_' + num).textContent = a1.toFixed(2);
+        } else {
+            document.getElementById('a1_' + num).textContent = '—';
+        }
+
+        if (!isNaN(pl) && !isNaN(p) && p !== 0) {
+            a2 = -(pl / p);
+            document.getElementById('a2_' + num).textContent = a2.toFixed(2);
+        } else {
+            document.getElementById('a2_' + num).textContent = '—';
+        }
+
+        if (!isNaN(a1) && !isNaN(a2) && a2 !== 0) {
+            const err = Math.abs((a1 - a2) / a2) * 100;
+            document.getElementById('err' + num).textContent = err.toFixed(1) + '%';
+        } else {
+            document.getElementById('err' + num).textContent = '—';
+        }
+    });
+
+    if (focos.length > 0) {
+        const f_medio = focos.reduce((a, b) => a + b, 0) / focos.length;
+        document.getElementById('span_f_medio').textContent = f_medio.toFixed(2) + ' cm';
+        if (f_ref > 0) {
+            const desvio = Math.abs((f_medio - f_ref) / f_ref) * 100;
+            document.getElementById('span_desvio_f').textContent = desvio.toFixed(1) + '%';
+        } else {
+            document.getElementById('span_desvio_f').textContent = '—';
+        }
+    } else {
+        document.getElementById('span_f_medio').textContent = '—';
+        document.getElementById('span_desvio_f').textContent = '—';
+    }
+}
+
+// Inicializar na carga da página
+window.addEventListener('DOMContentLoaded', recalcularTabela);
+</script>
+
+</body>
+</html>
