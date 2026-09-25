@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roteiro da Aula 10 — Lab 02: Radiação de Corpo Negro (25/09/2026)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --c-brand: #f59e0b;
+            --c-accent: #38bdf8;
+            --c-surface: rgba(15, 23, 42, 0.85);
+            --c-border: rgba(255, 255, 255, 0.08);
+            --c-bg: #0a0e17;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--c-bg);
+            color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #78350f 0%, #1e1b4b 60%, #0a0e17 100%);
+            padding: 3rem 1.5rem 2.5rem;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        .badge {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 0.35rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.14);
+            color: #fff;
+            transform: translateX(-2px);
+        }
+        .btn-lab {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(245, 158, 11, 0.2);
+            color: #fbbf24;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            font-size: 0.82rem;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+        .btn-lab:hover {
+            background: rgba(245, 158, 11, 0.3);
+            color: #fff;
+        }
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            font-size: 0.82rem;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+        .btn-pdf:hover {
+            background: rgba(239, 68, 68, 0.3);
+            color: #fff;
+        }
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.1rem;
+            font-weight: 800;
+            margin: 0.4rem 0;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fef08a, #f59e0b, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background: var(--c-surface);
+            border: 1px solid var(--c-border);
+            border-radius: 1rem;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+        }
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        ol, ul {
+            color: #cbd5e1;
+            font-size: 0.94rem;
+            padding-left: 1.3rem;
+        }
+        li {
+            margin-bottom: 0.7rem;
+        }
+        .step-num {
+            color: #fbbf24;
+            font-weight: 700;
+        }
+        .callout {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.25rem;
+            border-radius: 0 0.6rem 0.6rem 0;
+            font-size: 0.92rem;
+            color: #fef3c7;
+            margin: 1.2rem 0;
+        }
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.82rem;
+            margin-top: 3rem;
+            padding: 2rem 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <span class="badge">🔬 Roteiro Pedagógico da Aula 10 · 25/09/2026</span>
+    <h1>Aula 10: Lab 02 — Radiação de Corpo Negro</h1>
+    <p style="color: #cbd5e1; font-size: 1.05rem; margin: 0;">Da Irradiância à Emissividade (A Física das Ilhas de Calor)</p>
+    <p style="color: #94a3b8; font-size: 0.88rem; margin: 0.3rem 0 0;">FCA060903 & FSC060806 · Termologia e Termodinâmica · IFSC Câmpus São José</p>
+</header>
+
+<main class="container">
+    <div class="nav-links">
+        <a href="index.html" class="btn-back">← Voltar à Aula 10</a>
+        <a href="../../../../FCA060903/index.html" class="btn-back">Dashboard FCA060903</a>
+        <a href="../../../../FSC060806/index.html" class="btn-back">Dashboard FSC060806</a>
+        <a href="../../../index.html" class="btn-back">🏠 Central Termodinâmica</a>
+        <a href="../../../Laboratorios/Lab_2026-09-25_Radiacao_Corpo_Negro.html" class="btn-lab">🧪 Guia Interativo do Lab</a>
+        <a href="../../../Laboratorios/Roteiro-II-Radia%C3%A7%C3%A3o-Corpo-Negro.pdf" target="_blank" class="btn-pdf">📥 PDF Oficial</a>
+    </div>
+
+    <div class="card">
+        <h2 style="color: #fbbf24;">🎯 Visão Geral da Atividade</h2>
+        <div class="callout">
+            <strong>Missão do Dia:</strong> Investigação da taxa de absorção de radiação luminosa (Albedo e Irradiância) e perda térmica por emissão no infravermelho entre blocos de alumínio preto fosco e branco fosco sob lâmpada de 100 W, aplicando a <strong>Lei de Stefan-Boltzmann</strong>.
+        </div>
+        <ul>
+            <li><strong>Fundamentação Teórica:</strong> Mecanismos de propagação de calor (Condução, Convecção e Radiação) ministrados nas aulas de 11/09 e 18/09.</li>
+            <li><strong>Conexão Experimental:</strong> Consolidação da demonstração do <em>Radiômetro de Crookes</em> realizada no encontro anterior (18/09), transportando a observação da rotação das palhetas pretas e de alumínio para a quantificação termodinâmica precisa.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2 style="color: #38bdf8;">⏱️ Cronograma e Roteiro de Execução (100 Minutos)</h2>
+        <ol>
+            <li>
+                <strong class="step-num">1. Abertura & Conexão Fenomenológica (15 min):</strong><br>
+                Recapitulação da aula de 18/09: demonstração do Radiômetro de Crookes, gradiente térmico entre faces opostas e conversão de energia radiante em mecânica. Apresentação do desafio quantitativo com os blocos de alumínio.
+            </li>
+            <li>
+                <strong class="step-num">2. Coleta de Parâmetros e Montagem (10 min):</strong><br>
+                Pesagem dos blocos ($m_{\text{preto}}$, $m_{\text{branco}}$) na balança de precisão; medição da área iluminada ($A_{\text{ilum}}$) e superficial exposta ($A_{\text{sup}}$); anotação de $T_A$ (em °C e Kelvin); posicionamento da lâmpada de 100 W a exatamente 10 cm, equidistante dos blocos.
+            </li>
+            <li>
+                <strong class="step-num">3. Execução Experimental — Aquecimento e Resfriamento (28 min):</strong><br>
+                • <strong>Aquecimento (0 a 14 min):</strong> Lâmpada ligada, anotação da temperatura a cada 2 minutos.<br>
+                • <strong>Resfriamento (14 a 28 min):</strong> Lâmpada desligada no escuro, anotação contínua a cada 2 minutos.
+            </li>
+            <li>
+                <strong class="step-num">4. Tratamento de Dados & Cálculos (25 min):</strong><br>
+                • Cálculo da energia absorvida: $Q_{\text{abs}} = m \cdot c \cdot \Delta T$ ($c_{\text{Al}} = 900\text{ J/(kg}\cdot\text{K)}$).<br>
+                • Cálculo da Irradiância incidente: $I = \frac{Q_{\text{abs}}}{A_{\text{ilum}} \cdot 840\text{ s}}$ $[\text{W/m}^2]$.<br>
+                • Cálculo da potência de resfriamento inicial $P_{\text{resf}}$ (14 a 18 min, $\Delta t = 240\text{ s}$) e isolamento da Emissividade $\varepsilon$ via Lei de Stefan-Boltzmann: $\varepsilon = \frac{P_{\text{resf}}}{A_{\text{sup}} \cdot \sigma \cdot (T^4 - T_A^4)}$.
+            </li>
+            <li>
+                <strong class="step-num">5. Debate Conceitual Integrado (20 min):</strong><br>
+                Discussão em grupo e respostas às 4 questões conceituais:
+                <ul>
+                    <li>Albedo e absorção térmica sob o sol;</li>
+                    <li>Lei de Kirchhoff da Radiação (*"bom absorvedor é bom emissor"*);</li>
+                    <li>O paradoxo térmico das ilhas de calor urbanas;</li>
+                    <li>Limitações do modelo analítico (convecção natural do ar).</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="card">
+        <h2 style="color: #4ade80;">📚 Recursos e Acessos Diretos</h2>
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+            <a href="../../../Laboratorios/Lab_2026-09-25_Radiacao_Corpo_Negro.html" class="btn-lab">🧪 Guia Interativo do Experimento (HTML)</a>
+            <a href="../../../Laboratorios/Roteiro-II-Radia%C3%A7%C3%A3o-Corpo-Negro.pdf" target="_blank" class="btn-pdf">📥 Roteiro Oficial em PDF</a>
+            <a href="../../../Caps_Ramalho/Cap.7_Mecanismos_Propaga%C3%A7%C3%A3o_Calor.pdf" target="_blank" class="btn-back">📖 Cap. 7 — Transferência de Calor (PDF)</a>
+        </div>
+    </div>
+
+    <div class="page-nav">
+        <a href="../Aula09_2026-09-18/index.html" class="btn-back">← Aula 09 (Transferência II & Crookes)</a>
+        <a href="../Aula11_2026-10-02/index.html" class="btn-back">Próxima: Aula 11 (AVA 2) →</a>
+    </div>
+</main>
+
+<footer>
+    &copy; 2026 Prof. Dr. Humberto Luz Oliveira — Instituto Federal de Santa Catarina (IFSC Câmpus São José)
+</footer>
+
+</body>
+</html>
