@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 10 — Exercícios de Fixação do Bloco 2 (25/09/2026)</title>
+    <title>Aula 10 — Lab 02: Radiação de Corpo Negro (25/09/2026)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --c-brand: #f59e0b; --c-surface: rgba(15,23,42,0.75); --c-border: rgba(255,255,255,0.08); }
         body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #f0f4f8; margin: 0; padding: 0; line-height: 1.6; }
-        .header { background: linear-gradient(135deg, #78350f 0%, #0f172a 60%, #0a0e17 100%); padding: 3rem 1.5rem 2.5rem; border-bottom: 1px solid rgba(245,158,11,0.2); text-align: center; }
+        .header { background: linear-gradient(135deg, #78350f 0%, #1e1b4b 60%, #0a0e17 100%); padding: 3rem 1.5rem 2.5rem; border-bottom: 1px solid rgba(245,158,11,0.2); text-align: center; }
         .container { max-width: 850px; margin: 0 auto; padding: 2rem 1.5rem; }
         .badge { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); padding: 0.35rem 0.9rem; border-radius: 9999px; font-size: 0.78rem; font-weight: 600; display: inline-block; margin-bottom: 0.75rem; }
-        .btn-back { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.06); color: #cbd5e1; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.1); font-size: 0.82rem; font-weight: 600; transition: all 0.2s; margin-bottom: 1.5rem; }
+        .nav-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .btn-back { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.06); color: #cbd5e1; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.1); font-size: 0.82rem; font-weight: 600; transition: all 0.2s; }
         .btn-back:hover { background: rgba(255,255,255,0.12); color: #fff; }
-        h1 { font-size: 2rem; font-weight: 800; margin: 0.4rem 0; letter-spacing: -0.02em; }
+        .btn-lab { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(245,158,11,0.2); color: #fbbf24; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid rgba(245,158,11,0.4); font-size: 0.82rem; font-weight: 700; transition: all 0.2s; }
+        .btn-lab:hover { background: rgba(245,158,11,0.3); color: #fff; }
+        .btn-pdf { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(239,68,68,0.2); color: #fca5a5; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid rgba(239,68,68,0.4); font-size: 0.82rem; font-weight: 700; transition: all 0.2s; }
+        .btn-pdf:hover { background: rgba(239,68,68,0.3); color: #fff; }
+        h1 { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; margin: 0.4rem 0; letter-spacing: -0.02em; }
         .card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 1rem; padding: 1.8rem; margin-bottom: 1.5rem; }
         ul { color: #cbd5e1; font-size: 0.92rem; padding-left: 1.2rem; }
         li { margin-bottom: 0.4rem; }
@@ -25,20 +30,38 @@
 <body>
 
 <header class="header">
-    <span class="badge">🧠 Aula 10 · 25/09/2026 · Bloco 2</span>
-    <h1>Exercícios de Fixação do Bloco 2</h1>
-    <p style="color: #94a3b8; font-size: 1rem; margin: 0;">Diagramas de Fase e Lei de Fourier</p>
+    <span class="badge">🔬 Aula 10 · 25/09/2026 · Bloco 2</span>
+    <h1>Lab 02 — Radiação de Corpo Negro</h1>
+    <p style="color: #94a3b8; font-size: 1rem; margin: 0;">Da Irradiância à Emissividade: A Física das Ilhas de Calor Urbanas</p>
 </header>
 
 <main class="container">
-    <a href="../../../FSC060806/index.html" class="btn-back">← Voltar ao Dashboard</a>
+    <div class="nav-links">
+        <a href="../../../FCA060903/index.html" class="btn-back">← Dashboard FCA060903</a>
+        <a href="../../../FSC060806/index.html" class="btn-back">← Dashboard FSC060806</a>
+        <a href="../../index.html" class="btn-back">🏠 Central Termodinâmica</a>
+        <a href="../../../termodinamica/Laboratorios/Lab_2026-09-25_Radiacao_Corpo_Negro.html" class="btn-lab">🧪 Guia Interativo do Lab 02</a>
+        <a href="../../../termodinamica/Laboratorios/Roteiro-II-Radia%C3%A7%C3%A3o-Corpo-Negro.pdf" target="_blank" class="btn-pdf">📥 Baixar Roteiro em PDF</a>
+    </div>
+
+    <div class="card" style="border-color: rgba(245,158,11,0.25);">
+        <h2 style="color: #fbbf24; font-size: 1.2rem; margin-top: 0;">🎯 Foco Experimental & Pedagógico</h2>
+        <ul>
+            <li><strong>Conexão Teórica:</strong> Consolidação dos mecanismos de propagação de calor abordados nas aulas de 11/09 e 18/09, conectando com a demonstração prática do <em>Radiômetro de Crookes</em>.</li>
+            <li><strong>Fase de Aquecimento (14 min):</strong> Medição da temperatura dos blocos de alumínio preto fosco e branco fosco sob lâmpada de 100 W para cálculo da <strong>Irradiância ($I$)</strong> e análise do <strong>Albedo</strong>.</li>
+            <li><strong>Fase de Resfriamento (14 min):</strong> Monitoramento da taxa de perda térmica no escuro para determinação da <strong>Emissividade ($\varepsilon$)</strong> através da <strong>Lei de Stefan-Boltzmann</strong>.</li>
+            <li><strong>Física Urbana:</strong> Discussão do fenômeno das <em>Ilhas de Calor</em> (comportamento térmico do asfalto/concreto) e validação da <em>Lei de Kirchhoff</em>.</li>
+        </ul>
+    </div>
 
     <div class="card">
-        <h2 style="color: #fbbf24; font-size: 1.2rem; margin-top: 0;">🎯 Foco Pedagógico</h2>
-        <ul>
-            <li>Resolução de problemas de fluxo de calor em paredes simples e compostas.</li>
-            <li>Análise gráfica de diagramas $p \times T$.</li>
-        </ul>
+        <h2 style="color: #38bdf8; font-size: 1.2rem; margin-top: 0;">📚 Documentos e Recursos da Aula</h2>
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+            <a href="Aula10_2026-09-25.md" class="btn-back">📖 Roteiro da Aula (MD)</a>
+            <a href="../../Laboratorios/Lab_2026-09-25_Radiacao_Corpo_Negro.md" class="btn-back">🔬 Roteiro de Laboratório (MD)</a>
+            <a href="../../Laboratorios/Lab_2026-09-25_Radiacao_Corpo_Negro.html" class="btn-lab">🌐 Página Completa do Experimento</a>
+            <a href="../../Laboratorios/Roteiro-II-Radia%C3%A7%C3%A3o-Corpo-Negro.pdf" target="_blank" class="btn-pdf">📥 PDF Oficial do Laboratório</a>
+        </div>
     </div>
 </main>
 

@@ -11,9 +11,9 @@
 | **21/08** | **1** | **Aula05** | **Aula para Exercícios de Fixação.**  • Resolução de exercícios unindo aquecimento sensível com mudança de estado da matéria. |
 | **28/08** | **1** | **Aula06** | 📝 **Avaliação 1** (Foco: Calorimetria, Trocas de Calor e Mudança de Fase). |
 | **04/09** | **2** | **Aula07** | **Conteúdo Teórico 1: Diagramas de Fases.**  • *Capítulo 6:* Curvas de fusão, vaporização e sublimação; ponto triplo e influência da pressão no ponto de fusão/ebulição. |
-| **11/09** | **2** | **Aula08** | **Conteúdo Teórico 2: Mecanismos de Transferência de Calor.**  • *Capítulo 7:* Condução térmica (Lei de Fourier), Convecção térmica nos fluidos e Irradiação térmica. |
-| **18/09** | **2** | **Aula09** | **Atividade Prática / Laboratório do Bloco 2.**  • *Prática:* O experimento do regelo (influência da pressão no gelo) ou "O gelo que não derrete" demonstrando convecção. |
-| **25/09** | **2** | **Aula10** | **Aula para Exercícios de Fixação.**  • Análise de diagramas *p* x *T* e cálculo de fluxo de calor. |
+| **11/09** | **2** | **Aula08** | **Conteúdo Teórico 2: Mecanismos de Transferência de Calor (Parte 1).**  • *Capítulo 7:* Condução térmica (Lei de Fourier) e introdução à convecção. |
+| **18/09** | **2** | **Aula09** | **Conteúdo Teórico 2: Mecanismos de Transferência (Parte 2) & Demonstração.**  • *Capítulo 7:* Convecção em fluidos, radiação térmica e demonstração experimental do Radiômetro de Crookes (pressão rarefeita e rotação por radiação). |
+| **25/09** | **2** | **Aula10** | **Atividade Prática / Laboratório do Bloco 2: Radiação de Corpo Negro.**  • *Prática:* Da Irradiância à Emissividade (A Física das Ilhas de Calor). Comparação entre blocos de alumínio preto e branco sob lâmpada de 100 W e Lei de Stefan-Boltzmann. |
 | **02/10** | **2** | **Aula11** | 📝 **Avaliação 2** (Foco: Diagramas de Fase e Propagação do Calor). |
 | **09/10** | **2** | **Aula12** | **Conselho de Classe** *(Semana de Conselho)*. |
 | **16/10** | **3** | **Aula13** | **Conteúdo Teórico 1: A 1ª Lei da Termodinâmica e Transformações Gasosas.**  • *Capítulo 9:* Relação entre Trabalho, Energia Interna e Calor trocado. Inserção cirúrgica da análise das transformações isotérmicas, isobáricas, isocóricas e adiabáticas no contexto do balanço energético. |
