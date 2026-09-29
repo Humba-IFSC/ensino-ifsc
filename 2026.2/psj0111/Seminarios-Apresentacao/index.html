@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acervo de Seminários das Metodologias | PSJ0111 — IFSC 2026.2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0a0e17;
+            --bg-card: rgba(15, 23, 42, 0.85);
+            --bg-card-inner: rgba(30, 41, 59, 0.6);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-active: rgba(56, 189, 248, 0.4);
+            --brand-green: #10b981;
+            --brand-cyan: #38bdf8;
+            --brand-purple: #c084fc;
+            --brand-amber: #fbbf24;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --radius-lg: 16px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+        header {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 138, 0.3) 50%, rgba(10, 14, 23, 1) 100%);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+            padding: 40px 24px;
+            text-align: center;
+        }
+        .header-container { max-width: 980px; margin: 0 auto; }
+        .badge-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #34d399;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        .header-sub {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 720px;
+            margin: 0 auto 16px;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-nav:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        .main-container { max-width: 980px; margin: 30px auto; padding: 0 20px; }
+        .stats-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(56, 189, 248, 0.08) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .session-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+        .session-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding-bottom: 14px;
+            margin-bottom: 18px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .session-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .seminar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 16px;
+        }
+        .seminar-card {
+            background: var(--bg-card-inner);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+        }
+        .seminar-card:hover {
+            border-color: var(--border-active);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+        .seminar-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .seminar-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .seminar-authors {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            margin-bottom: 14px;
+            line-height: 1.4;
+        }
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+        .btn-download-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(239, 68, 68, 0.18);
+            border: 1px solid rgba(239, 68, 68, 0.45);
+            color: #fca5a5;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-download-pdf:hover {
+            background: rgba(239, 68, 68, 0.3);
+            color: #fff;
+        }
+        .btn-download-pptx {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(245, 158, 11, 0.18);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: #fde047;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-download-pptx:hover {
+            background: rgba(245, 158, 11, 0.3);
+            color: #fff;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <span class="badge-top">✓ Acervo 100% Concluído · 8 de 8 Metodologias</span>
+        <h1>Acervo Digital dos Seminários das Metodologias</h1>
+        <p class="header-sub">
+            Apresentações de slides em formato PDF e PPTX compartilhadas pelos acadêmicos da disciplina <strong>PSJ0111 (Metodologia da Pesquisa em Educação)</strong> — Especialização em Educação Ambiental, IFSC Câmpus São José (2026.2).
+        </p>
+        <div class="nav-links">
+            <a href="../index.html" class="btn-nav">🏠 Portal PSJ0111</a>
+            <a href="../aula07/index.html" class="btn-nav">📋 Roteiro e Cronograma (Aula 07)</a>
+            <a href="../aula08/index.html" class="btn-nav">📖 Aula 08 (Dia 2)</a>
+            <a href="../aula09/index.html" class="btn-nav">📖 Aula 09 (Dia 3)</a>
+            <a href="../../index.html" class="btn-nav">🌐 Hub Central 2026.2</a>
+        </div>
+    </div>
+</header>
+
+<main class="main-container">
+
+    <!-- BARRA DE STATUS -->
+    <div class="stats-card">
+        <div>
+            <h3 style="font-family:'Outfit', sans-serif; font-size:1.15rem; color:#34d399; margin-bottom:4px;">
+                🎉 Repositório Permanente Concluído
+            </h3>
+            <p style="font-size:0.88rem; color:#cbd5e1; margin:0;">
+                Todas as 8 metodologias contam com seus slides arquivados para consulta dos cursistas, orientações de TCC e futuras turmas do curso.
+            </p>
+        </div>
+        <div style="text-align:right;">
+            <span style="font-family:'Outfit', sans-serif; font-size:1.8rem; font-weight:800; color:#fff;">8 / 8</span>
+            <span style="display:block; font-size:0.75rem; color:#94a3b8; text-transform:uppercase;">Slides Disponíveis</span>
+        </div>
+    </div>
+
+    <!-- ═══ SESSÃO 1: DIA 1 (03/09/2026 — AULA 07) ═══ -->
+    <div class="session-block">
+        <div class="session-header">
+            <div class="session-title" style="color: var(--brand-amber);">
+                <span>🗓️</span> Dia 1 — Abertura dos Seminários (Aula 07)
+            </div>
+            <span style="font-size:0.82rem; color:var(--text-muted); font-weight:600;">03/09/2026 · IFSC Câmpus São José</span>
+        </div>
+
+        <div class="seminar-grid">
+            <!-- 1ª -->
+            <div class="seminar-card">
+                <div>
+                    <span class="seminar-badge" style="background:rgba(251,191,36,0.15); color:#fbbf24; border:1px solid rgba(251,191,36,0.35);">1ª Apresentação</span>
+                    <h3 class="seminar-title">📚 Pesquisa Bibliográfica</h3>
+                    <p class="seminar-authors">
+                        <strong>Autores:</strong> Gabriel Beck de Albuquerque e Paulo Henrique Rosa
+                    </p>
+                </div>
+                <div class="btn-group">
+                    <a href="Bibliografica-Gabriel-Paulo.pdf" target="_blank" rel="noopener" class="btn-download-pdf">📥 Slides PDF</a>
+                    <a href="Seminário das Metodologias_ Pesquisa bibliográfica.pptx" target="_blank" rel="noopener" class="btn-download-pptx">📊 PPTX</a>
+                </div>
+            </div>
+
+            <!-- 2ª -->
+            <div class="seminar-card">
+                <div>
+                    <span class="seminar-badge" style="background:rgba(251,191,36,0.15); color:#fbbf24; border:1px solid rgba(251,191,36,0.35);">2ª Apresentação</span>
+                    <h3 class="seminar-title">🔄 Pesquisa-ação</h3>
+                    <p class="seminar-authors">
+                        <strong>Autores:</strong> André Barbosa da Silva, Eduardo Kimoto Hosokawa e Elisa Duarte Macedo
+                    </p>
+                </div>
+                <div class="btn-group">
+                    <a href="Pesquisa-acao-andre-eduardo-elisa.pdf" target="_blank" rel="noopener" class="btn-download-pdf">📥 Slides PDF</a>
+                </div>
+            </div>
+
+            <!-- 3ª -->
+            <div class="seminar-card">
+                <div>
+                    <span class="seminar-badge" style="background:rgba(251,191,36,0.15); color:#fbbf24; border:1px solid rgba(251,191,36,0.35);">3ª Apresentação</span>
+                    <h3 class="seminar-title">📝 Análise Textual Discursiva (ATD)</h3>
+                    <p class="seminar-authors">
+                        <strong>Autoras:</strong> Marina Luíza Borges Costa e Mariana Camargo Oliveira
+                    </p>
+                </div>
+                <div class="btn-group">
+                    <a href="ATD-Marina-e-Mariana.pdf" target="_blank" rel="noopener" class="btn-download-pdf">📥 Slides PDF</a>
+                    <a href="ATD - Marina e Mariana.pptx" target="_blank" rel="noopener" class="btn-download-pptx">📊 PPTX</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ SESSÃO 2: DIA 2 (10/09/2026 — AULA 08) ═══ -->
+    <div class="session-block">
+        <div class="session-header">
+            <div class="session-title" style="color: var(--brand-cyan);">
+                <span>🗓️</span> Dia 2 — Métodos Qualitativos e Participantes (Aula 08)
+            </div>
+            <span style="font-size:0.82rem; color:var(--text-muted); font-weight:600;">10/09/2026 · IFSC Câmpus São José</span>
+        </div>
+
+        <div class="seminar-grid">
+            <!-- 4ª -->
+            <div class="seminar-card">
+                <div>
+                    <span class="seminar-badge" style="background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.35);">4ª Apresentação</span>
+                    <h3 class="seminar-title">🗺️ Pesquisa Cartográfica em Educação</h3>
+                    <p class="seminar-authors">
+                        <strong>Autores:</strong> Paula Ramos de Mello, Fábio Luiz Zandonai e Lígia Wherli Siqueira
+                    </p>
+                </div>
+                <div class="btn-group">
+                    <a href="Cartografica-Fabio-Ligia-Paula.pdf" target="_blank" rel="noopener" class="btn-download-pdf">📥 Slides PDF</a>
+                </div>
+            </div>
+
+            <!-- 5ª -->
+            <div class="seminar-card">
+                <div>
+                    <span class="seminar-badge" style="background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.35);">5ª Apresentação</span>
+                    <h3 class="seminar-title">🔍 Análise de Conteúdo (AC)</h3>
+                    <p class="seminar-authors">
+                        <strong>Autoras:</strong> Franciane Prazeres, Nataly Meurer e Fernanda Martins da Silva
+                    </p>
+                </div>
+                <div class="btn-group">
+                    <a href="AC-Fran-Fer-Nat.pdf" target="_blank" rel="noopener" class="btn-download-pdf">📥 Slides PDF</a>
+                </div>
+            </div>
+
+            <!-- 6ª -->
+            <div class="seminar-card">
+                <div>
+                    <span class="seminar-badge" style="background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.35);">6ª Apresentação</span>
+                    <h3 class="seminar-title">🌐 Pesquisa Etnográfica em Educação</h3>
+                    <p class="seminar-authors">
+                        <strong>Autores:</strong> Mariana de Sá Rodrigues da Silva e Francisco Souza da Silva Castro
+                    </p>
+                </div>
+                <div class="btn-group">
+                    <a href="Etnográfica-Francisco-Mariana_Sa.pdf" target="_blank" rel="noopener" class="btn-download-pdf">📥 Slides PDF</a>
+                    <a href="Pesquisa Etnográfica em Educação_.pptx" target="_blank" rel="noopener" class="btn-download-pptx">📊 PPTX</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ SESSÃO 3: DIA 3 (17/09/2026 — AULA 09) ═══ -->
+    <div class="session-block">
+        <div class="session-header">
+            <div class="session-title" style="color: var(--brand-purple);">
+                <span>🗓️</span> Dia 3 — Encerramento e Síntese Metodológica (Aula 09)
+            </div>
+            <span style="font-size:0.82rem; color:var(--text-muted); font-weight:600;">17/09/2026 · IFSC Câmpus São José</span>
+        </div>
+
+        <div class="seminar-grid">
+            <!-- 7ª -->
+            <div class="seminar-card" style="border-color: rgba(192, 132, 252, 0.35);">
+                <div>
+                    <span class="seminar-badge" style="background:rgba(192,132,252,0.15); color:#c084fc; border:1px solid rgba(192,132,252,0.35);">7ª Apresentação</span>
+                    <h3 class="seminar-title">📊 Estudo de Caso em Educação Ambiental</h3>
+                    <p class="seminar-authors">
+                        <strong>Autores:</strong> Silvana Rodrigues Seara, Márcio Alexandre Botti e Adenir
+                    </p>
+                </div>
+                <div class="btn-group">
+                    <a href="Estudo-de-Caso-Silvana-Marcos-adeni.pdf" target="_blank" rel="noopener" class="btn-download-pdf">📥 Slides PDF</a>
+                </div>
+            </div>
+
+            <!-- 8ª -->
+            <div class="seminar-card">
+                <div>
+                    <span class="seminar-badge" style="background:rgba(192,132,252,0.15); color:#c084fc; border:1px solid rgba(192,132,252,0.35);">8ª Apresentação</span>
+                    <h3 class="seminar-title">💬 Análise do Discurso (AD)</h3>
+                    <p class="seminar-authors">
+                        <strong>Autor:</strong> Edecio João Porto Júnior
+                    </p>
+                </div>
+                <div class="btn-group">
+                    <a href="AD-Edecio.pdf" target="_blank" rel="noopener" class="btn-download-pdf">📥 Slides PDF</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <p>Instituto Federal de Santa Catarina — Câmpus São José</p>
+    <p>Especialização em Educação Ambiental com Ênfase na Formação de Professores</p>
+    <p>Prof. Dr. Humberto Luz Oliveira · Profª. Dra. Joce Mary Mello Giotto · Prof. Dr. Volmir Von Dentz</p>
+</footer>
+
+</body>
+</html>
