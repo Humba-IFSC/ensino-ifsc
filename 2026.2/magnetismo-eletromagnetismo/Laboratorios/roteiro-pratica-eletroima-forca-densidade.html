@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 02 — Força Magnética, Permeabilidade Relativa e Densidade de Espiras em Eletroímãs | IFSC 2026.2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --c-brand: #0ea5e9;
+            --c-brand-glow: rgba(14, 165, 233, 0.25);
+            --c-accent: #38bdf8;
+            --c-surface: rgba(15, 23, 42, 0.85);
+            --c-surface-card: rgba(30, 41, 59, 0.7);
+            --c-border: rgba(255, 255, 255, 0.08);
+            --c-border-active: rgba(14, 165, 233, 0.4);
+            --c-bg: #0a0e17;
+            --c-success: #10b981;
+            --c-warning: #f59e0b;
+            --c-danger: #ef4444;
+            --c-purple: #a855f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--c-bg);
+            color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #072540 0%, #0f172a 50%, #0a0e17 100%);
+            padding: 3.5rem 1.5rem 2.8rem;
+            border-bottom: 1px solid rgba(14, 165, 233, 0.25);
+            text-align: center;
+            position: relative;
+        }
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+        .badge {
+            background: rgba(14, 165, 233, 0.15);
+            color: #7dd3fc;
+            border: 1px solid rgba(14, 165, 233, 0.35);
+            padding: 0.35rem 0.95rem;
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 0.85rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .badge-purple {
+            background: rgba(168, 85, 247, 0.15);
+            color: #d8b4fe;
+            border: 1px solid rgba(168, 85, 247, 0.35);
+            padding: 0.35rem 0.95rem;
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 0.85rem;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-link:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        .btn-primary {
+            background: rgba(14, 165, 233, 0.2);
+            color: #7dd3fc;
+            border-color: rgba(14, 165, 233, 0.45);
+        }
+        .btn-primary:hover {
+            background: rgba(14, 165, 233, 0.35);
+            color: #fff;
+        }
+        .btn-pdf {
+            background: rgba(239, 68, 68, 0.18);
+            color: #fca5a5;
+            border-color: rgba(239, 68, 68, 0.35);
+        }
+        .btn-pdf:hover {
+            background: rgba(239, 68, 68, 0.3);
+            color: #fff;
+        }
+        .btn-docx {
+            background: rgba(59, 130, 246, 0.18);
+            color: #93c5fd;
+            border-color: rgba(59, 130, 246, 0.35);
+        }
+        .btn-docx:hover {
+            background: rgba(59, 130, 246, 0.3);
+            color: #fff;
+        }
+        .card {
+            background: var(--c-surface);
+            border: 1px solid var(--c-border);
+            border-radius: 1rem;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid var(--c-border);
+            padding-bottom: 0.85rem;
+        }
+        .card-icon {
+            font-size: 1.5rem;
+        }
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #f8fafc;
+            margin: 0;
+        }
+        .formula-box {
+            background: rgba(14, 165, 233, 0.08);
+            border-left: 4px solid var(--c-brand);
+            padding: 1.2rem;
+            border-radius: 0 0.75rem 0.75rem 0;
+            margin: 1.25rem 0;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+        .param-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--c-border);
+            border-radius: 0.6rem;
+            padding: 0.85rem 1rem;
+        }
+        .param-label {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: block;
+        }
+        .param-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-top: 0.2rem;
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin: 1.25rem 0;
+        }
+        th, td {
+            padding: 0.75rem 0.85rem;
+            border: 1px solid var(--c-border);
+            text-align: center;
+        }
+        th {
+            background: rgba(15, 23, 42, 0.95);
+            color: #cbd5e1;
+            font-weight: 600;
+        }
+        input[type="number"] {
+            width: 90px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.4rem;
+            color: #fff;
+            padding: 0.35rem 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+            font-family: monospace;
+            transition: border-color 0.2s;
+        }
+        input[type="number"]:focus {
+            outline: none;
+            border-color: var(--c-brand);
+            box-shadow: 0 0 0 2px var(--c-brand-glow);
+        }
+        .calc-res {
+            font-weight: 700;
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: #38bdf8;
+        }
+        details {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--c-border);
+            border-radius: 0.6rem;
+            margin-bottom: 0.85rem;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+        details[open] {
+            border-color: var(--c-border-active);
+            background: rgba(14, 165, 233, 0.05);
+        }
+        summary {
+            padding: 0.9rem 1.2rem;
+            font-weight: 600;
+            font-size: 0.92rem;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #f1f5f9;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::before {
+            content: '▶';
+            font-size: 0.75rem;
+            color: var(--c-brand);
+            transition: transform 0.2s;
+        }
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+        .details-content {
+            padding: 0.2rem 1.2rem 1.2rem 2.4rem;
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            line-height: 1.65;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .diagram-container {
+            background: rgba(10, 15, 26, 0.8);
+            border: 1px solid var(--c-border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        .step-list {
+            padding-left: 1.25rem;
+            margin: 0.75rem 0;
+        }
+        .step-list li {
+            margin-bottom: 0.6rem;
+            color: #cbd5e1;
+            font-size: 0.92rem;
+        }
+        footer {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            font-size: 0.8rem;
+            color: #64748b;
+            border-top: 1px solid var(--c-border);
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div style="display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.75rem;">
+        <span class="badge">IFSC · Câmpus São José</span>
+        <span class="badge badge-purple">Magnetismo e Eletromagnetismo 2026.2</span>
+    </div>
+    <h1 style="font-family:'Outfit', sans-serif; font-size:clamp(1.6rem, 3.5vw, 2.4rem); font-weight:800; margin:0 0 0.85rem; color:#fff; letter-spacing:-0.02em;">
+        Laboratório 02: Força Magnética, Permeabilidade Relativa e Densidade de Espiras em Eletroímãs
+    </h1>
+    <p style="max-width:760px; margin:0 auto; font-size:0.95rem; color:#94a3b8;">
+        Determinação experimental de $\mu_r$ (Alumínio, Aço e Ferro Doce) e validação da proporcionalidade quadrática ($F_m \propto N^2$) contra a aceleração da gravidade.
+    </p>
+    <div style="margin-top:1.25rem; display:flex; justify-content:center; gap:0.6rem; flex-wrap:wrap;">
+        <span style="font-size:0.8rem; background:rgba(255,255,255,0.06); padding:0.3rem 0.8rem; border-radius:0.5rem; color:#38bdf8;">
+            📅 RAC (FCA060905): <strong>29/09/2026</strong>
+        </span>
+        <span style="font-size:0.8rem; background:rgba(255,255,255,0.06); padding:0.3rem 0.8rem; border-radius:0.5rem; color:#38bdf8;">
+            📅 Tele (FSC060804): <strong>05/10/2026</strong>
+        </span>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- ══ BARRA DE NAVEGAÇÃO E AÇÕES ══ -->
+    <div class="nav-bar">
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <a href="../../index.html" class="btn-link">🏠 Hub Geral</a>
+            <a href="../index.html" class="btn-link">🧲 Hub Magnetismo</a>
+            <a href="../../FSC060804/index.html" class="btn-link">📗 Tele (FSC060804)</a>
+            <a href="../../FCA060905/index.html" class="btn-link">📘 RAC (FCA060905)</a>
+        </div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <a href="roteiro-pratica-eletroima-forca-densidade.pdf" target="_blank" class="btn-link btn-pdf">📥 Roteiro PDF</a>
+            <a href="roteiro-pratica-eletroima-forca-densidade.docx" target="_blank" class="btn-link btn-docx">📄 Roteiro DOCX</a>
+        </div>
+    </div>
+
+    <!-- ══ CARD 1: OBJETIVOS DA PRÁTICA ══ -->
+    <div class="card">
+        <div class="card-header">
+            <span class="card-icon">🎯</span>
+            <h2 class="card-title">1. Objetivos da Prática</h2>
+        </div>
+        <div class="grid-3">
+            <div class="param-item">
+                <span class="param-label">1.1 Determinação de $\mu_r$</span>
+                <p style="font-size:0.85rem; color:#cbd5e1; margin:0.4rem 0 0;">
+                    Determinar experimental e analiticamente a permeabilidade magnética relativa ($\mu_r$) de núcleos cilíndricos de <strong>Alumínio</strong>, <strong>Aço Galvanizado</strong> e <strong>Ferro Doce</strong> a partir da massa máxima erguida pelo eletroímã.
+                </p>
+            </div>
+            <div class="param-item">
+                <span class="param-label">1.2 Estudo da Densidade de Espiras</span>
+                <p style="font-size:0.85rem; color:#cbd5e1; margin:0.4rem 0 0;">
+                    Quantificar o impacto do número de espiras ($N = 50$ vs $N = 100$) e da densidade linear de enrolamento ($n = N/L$) na força magnética de atração ($F_m$) e na capacidade de carga contra a gravidade.
+                </p>
+            </div>
+            <div class="param-item">
+                <span class="param-label">1.3 Investigação & Argumentação</span>
+                <p style="font-size:0.85rem; color:#cbd5e1; margin:0.4rem 0 0;">
+                    Formular hipóteses embasadas na Lei de Ampère e na densidade de energia magnética no entreferro, justificando por que a força magnética cresce com o quadrado de $N$ ($F_m \propto N^2$).
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ CARD 2: MODELO MATEMÁTICO & FUNDAMENTAÇÃO ══ -->
+    <div class="card">
+        <div class="card-header">
+            <span class="card-icon">📐</span>
+            <h2 class="card-title">2. Fundamentação Teórica e Modelagem Matemática</h2>
+        </div>
+        
+        <p style="font-size:0.92rem; color:#cbd5e1;">
+            Um solenoide de comprimento $L$ percorrido por uma corrente contínua $i$ estabelece em seu interior um campo magnético. Ao introduzirmos um núcleo cilíndrico com permeabilidade magnética relativa $\mu_r$, os domínios de Weiss alinham-se favoravelmente, intensificando a indução magnética:
+        </p>
+
+        <div class="formula-box">
+            <strong style="color:#7dd3fc; display:block; margin-bottom:0.4rem;">Equação (1) — Campo Magnético no Núcleo do Solenoide:</strong>
+            $$B = \mu_r \cdot \mu_0 \cdot n \cdot i = \mu_r \cdot \mu_0 \cdot \left(\frac{N}{L}\right) \cdot i$$
+        </div>
+
+        <p style="font-size:0.92rem; color:#cbd5e1;">
+            A força atrativa magnética ($F_m$) desenvolvida no polo do eletroímã em contato com uma armadura/massa ferromagnética de seção reta $A$ deriva da pressão magnética no entreferro ($P_{\text{mag}} = \frac{B^2}{2\mu_0\mu_r}$):
+        </p>
+
+        <div class="formula-box">
+            <strong style="color:#7dd3fc; display:block; margin-bottom:0.4rem;">Equação (2) — Força Atrativa no Polo do Eletroímã:</strong>
+            $$F_m = \frac{B^2 \cdot A}{2 \cdot \mu_0 \cdot \mu_r} = \frac{\mu_r \cdot \mu_0 \cdot n^2 \cdot i^2 \cdot A}{2} = \frac{\mu_r \cdot \mu_0 \cdot N^2 \cdot i^2 \cdot \pi \cdot R^2}{2 \cdot L^2}$$
+        </div>
+
+        <p style="font-size:0.92rem; color:#cbd5e1;">
+            No limiar de sustentação vertical estática contra a gravidade, a força magnética equilibra exatamente a força peso ($F_m = P = m_{\text{exp}} \cdot g$). Isolando a permeabilidade magnética relativa ($\mu_r$):
+        </p>
+
+        <div class="formula-box" style="border-left-color:#34d399; background:rgba(16, 185, 129, 0.08);">
+            <strong style="color:#6ee7b7; display:block; margin-bottom:0.4rem;">Equação (3) — Determinação Experimental de $\mu_r$:</strong>
+            $$\mu_r = \frac{2 \cdot m_{\text{exp}} \cdot g}{\mu_0 \cdot n^2 \cdot i^2 \cdot A} = \frac{2 \cdot m_{\text{exp}} \cdot g \cdot L^2}{\mu_0 \cdot N^2 \cdot i^2 \cdot \pi \cdot R^2}$$
+        </div>
+
+        <div style="background:rgba(251, 191, 36, 0.08); border-left:4px solid #f59e0b; padding:1rem; border-radius:0 0.6rem 0.6rem 0; margin-top:1rem;">
+            <strong style="color:#fbbf24;">⚡ Conclusão Didática Crucial: Proporcionalidade Quadrática $F_m \propto N^2$</strong>
+            <p style="font-size:0.88rem; color:#cbd5e1; margin:0.3rem 0 0;">
+                Como a corrente $i$, o comprimento $L$, o raio $R$ e o núcleo $\mu_r$ são mantidos fixos, ao dobrar o número de espiras de $N_1 = 50$ para $N_2 = 100$ ($2\times$), o campo magnético dobra ($B \propto N$), mas a <strong>força magnética atrativa quadruplica ($F_m \propto N^2 \implies 2^2 = 4\times$)</strong>!
+            </p>
+        </div>
+    </div>
+
+    <!-- ══ CARD 3: PARÂMETROS PADRÃO DE BANCADA ══ -->
+    <div class="card">
+        <div class="card-header">
+            <span class="card-icon">🧰</span>
+            <h2 class="card-title">3. Parâmetros de Bancada e Constantes</h2>
+        </div>
+        <div class="grid-3">
+            <div class="param-item">
+                <span class="param-label">Corrente da Fonte ($i$)</span>
+                <span class="param-val">2,0 A (CC)</span>
+            </div>
+            <div class="param-item">
+                <span class="param-label">Raio do Núcleo ($R$)</span>
+                <span class="param-val">1,0 cm (0,01 m)</span>
+            </div>
+            <div class="param-item">
+                <span class="param-label">Comprimento ($L$)</span>
+                <span class="param-val">4,0 cm (0,04 m)</span>
+            </div>
+            <div class="param-item">
+                <span class="param-label">Área Transversal ($A = \pi R^2$)</span>
+                <span class="param-val">$3,1416 \times 10^{-4}\text{ m}^2$</span>
+            </div>
+            <div class="param-item">
+                <span class="param-label">Solenoide 1 ($N_1 = 50$)</span>
+                <span class="param-val">$n_1 = 1250\text{ esp/m}$</span>
+            </div>
+            <div class="param-item">
+                <span class="param-label">Solenoide 2 ($N_2 = 100$)</span>
+                <span class="param-val">$n_2 = 2500\text{ esp/m}$</span>
+            </div>
+            <div class="param-item">
+                <span class="param-label">Permeabilidade Vácuo ($\mu_0$)</span>
+                <span class="param-val">$4\pi \times 10^{-7}\text{ T}\cdot\text{m/A}$</span>
+            </div>
+            <div class="param-item">
+                <span class="param-label">Aceleração Gravidade ($g$)</span>
+                <span class="param-val">$9,8\text{ m/s}^2$</span>
+            </div>
+            <div class="param-item">
+                <span class="param-label">Constante de Escala ($k_1$)</span>
+                <span class="param-val">$\mu_r \approx 7,944 \cdot m_{\text{g}}$</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ CARD 4: PARTE A - CALCULADORA INTERATIVA DE PERMEABILIDADE ══ -->
+    <div class="card">
+        <div class="card-header">
+            <span class="card-icon">🔬</span>
+            <h2 class="card-title">4. Ensaio Parte A — Determinação de $\mu_r$ com $N = 50$ Espiras</h2>
+        </div>
+        <p style="font-size:0.9rem; color:#94a3b8;">
+            Insira nos campos abaixo a massa medida na balança digital (em gramas) para cada núcleo cilíndrico testado. A calculadora computará automaticamente a força peso equivalente ($F_m = m \cdot g$) e a permeabilidade magnética relativa ($\mu_r$).
+        </p>
+
+        <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Núcleo Metálico</th>
+                        <th>Espiras ($N$)</th>
+                        <th>Corrente ($i$)</th>
+                        <th>Massa Medida $m_{\text{exp}}$ (g)</th>
+                        <th>Força $F_m$ (N)</th>
+                        <th>$\mu_r$ Experimental</th>
+                        <th>Comportamento Magnético</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:700; color:#e2e8f0; text-align:left;">Alumínio</td>
+                        <td>50</td>
+                        <td>2,0 A</td>
+                        <td><input type="number" id="m_al" value="0.10" step="0.05" oninput="calcularParteA()"></td>
+                        <td><span id="f_al" class="calc-res">0.001 N</span></td>
+                        <td><span id="ur_al" class="calc-res" style="color:#94a3b8;">~ 0.8</span></td>
+                        <td><span style="color:#64748b; font-size:0.8rem; font-weight:600;">Paramagnético ($\mu_r \approx 1$)</span></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700; color:#38bdf8; text-align:left;">Aço Galvanizado</td>
+                        <td>50</td>
+                        <td>2,0 A</td>
+                        <td><input type="number" id="m_aco" value="48.0" step="1" oninput="calcularParteA()"></td>
+                        <td><span id="f_aco" class="calc-res">0.470 N</span></td>
+                        <td><span id="ur_aco" class="calc-res" style="color:#38bdf8;">381</span></td>
+                        <td><span style="color:#38bdf8; font-size:0.8rem; font-weight:600;">Ferromagnético Médio</span></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700; color:#34d399; text-align:left;">Ferro Doce</td>
+                        <td>50</td>
+                        <td>2,0 A</td>
+                        <td><input type="number" id="m_ferro" value="160.0" step="1" oninput="calcularParteA()"></td>
+                        <td><span id="f_ferro" class="calc-res">1.568 N</span></td>
+                        <td><span id="ur_ferro" class="calc-res" style="color:#34d399;">1271</span></td>
+                        <td><span style="color:#34d399; font-size:0.8rem; font-weight:600;">Ferromagnético Forte</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.03); border:1px solid var(--c-border); border-radius:0.6rem; padding:1rem; margin-top:1rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+            <div>
+                <span class="param-label">Razão Ferro Doce / Aço:</span>
+                <span id="razao_ferro_aco" style="font-size:1.1rem; font-weight:800; color:#34d399;">3.33 ×</span>
+            </div>
+            <div>
+                <span class="param-label">Ganho em relação ao Alumínio:</span>
+                <span id="razao_ferro_al" style="font-size:1.1rem; font-weight:800; color:#38bdf8;">1600 ×</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ CARD 5: PARTE B - DENSIDADE DE ESPIRAS E LEI QUADRÁTICA ══ -->
+    <div class="card">
+        <div class="card-header">
+            <span class="card-icon">⚡</span>
+            <h2 class="card-title">5. Ensaio Parte B — Estudo do Número de Espiras ($N = 50$ vs $N = 100$)</h2>
+        </div>
+        <p style="font-size:0.9rem; color:#94a3b8;">
+            Mantendo o mesmo núcleo ferromagnético e a mesma corrente de 2,0 A, compare a massa máxima erguida com $N = 50$ e $N = 100$ espiras.
+        </p>
+
+        <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Configuração</th>
+                        <th>Espiras ($N$)</th>
+                        <th>Densidade ($n = N/L$)</th>
+                        <th>Corrente ($i$)</th>
+                        <th>Massa Medida (g)</th>
+                        <th>Razão Experimental ($m_{100}/m_{50}$)</th>
+                        <th>Previsão Teórica ($N^2$)</th>
+                        <th>Desvio Relativo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:700; text-align:left;">Solenoide 1 (50 espiras)</td>
+                        <td>50</td>
+                        <td>1250 esp/m</td>
+                        <td>2,0 A</td>
+                        <td><input type="number" id="m50_exp" value="48.0" step="1" oninput="calcularParteB()"></td>
+                        <td>1,00 × (Ref.)</td>
+                        <td>1,00 ×</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700; color:#38bdf8; text-align:left;">Solenoide 2 (100 espiras)</td>
+                        <td>100</td>
+                        <td>2500 esp/m</td>
+                        <td>2,0 A</td>
+                        <td><input type="number" id="m100_exp" value="184.0" step="1" oninput="calcularParteB()"></td>
+                        <td><span id="razao_exp_b" class="calc-res">3.83 ×</span></td>
+                        <td><span style="color:#fbbf24; font-weight:700;">4.00 ×</span></td>
+                        <td><span id="desvio_b" class="calc-res" style="color:#34d399;">-4.2%</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="box_analise_b" style="margin-top:1rem; padding:1rem; background:rgba(14, 165, 233, 0.08); border:1px solid rgba(14, 165, 233, 0.25); border-radius:0.6rem;">
+            <strong style="color:#7dd3fc; display:block; margin-bottom:0.3rem;">Diagnóstico Experimental:</strong>
+            <span id="msg_analise_b" style="font-size:0.88rem; color:#cbd5e1;">
+                Excelente concordância! A razão experimental de 3.83× está muito próxima do valor teórico ideal de 4.00× (desvio de apenas 4.2%). Pequenas perdas decorrem da saturação magnética e dispersão de campo nas extremidades.
+            </span>
+        </div>
+    </div>
+
+    <!-- ══ CARD 6: QUESTÕES DE DISCUSSÃO & ARGUMENTAÇÃO ══ -->
+    <div class="card">
+        <div class="card-header">
+            <span class="card-icon">💡</span>
+            <h2 class="card-title">6. Questões de Análise, Hipóteses e Fechamento</h2>
+        </div>
+
+        <details>
+            <summary>Questão 1: Por que o núcleo de Alumínio ergueu massa quase nula, enquanto o Aço e o Ferro Doce sustentaram massas expressivas?</summary>
+            <div class="details-content">
+                <p><strong>Fundamentação Física:</strong> O Alumínio é uma substância <em>paramagnética</em>. Nos materiais paramagnéticos, os átomos possuem dipolos magnéticos permanentes, porém orientados aleatoriamente devido à agitação térmica. Ao aplicar o campo externo do solenoide, o alinhamento dos dipolos é extremamente fraco ($\mu_r \approx 1,000022$), não havendo amplificação macroscópica de campo.</p>
+                <p>Já o Aço e o Ferro Doce são materiais <em>ferromagnéticos</em>, caracterizados pela existência de <strong>domínios magnéticos de Weiss</strong>. Sob a ação do campo magnético externo, as paredes de domínio se deslocam e os momentos magnéticos giram em conjunto, alinhando centenas de bilhões de dipolos na mesma direção. Isso amplifica o vetor indução magnética por centenas ou milhares de vezes ($\mu_r \sim 300\text{ a }2000$), gerando uma densidade de energia magnética ($B^2 / 2\mu$) suficiente para desenvolver força mecânica expressiva contra a gravidade.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Questão 2: Formulação da Hipótese Teórica: ao dobrar as espiras ($N = 50 \to 100$), a força dobra ($2\times$) ou quadruplica ($4\times$)?</summary>
+            <div class="details-content">
+                <p><strong>Dedução e Argumento Teórico:</strong></p>
+                <ol>
+                    <li>Pela Lei de Ampère, o campo magnético no interior do solenoide depende linearmente da densidade linear de espiras: $B \propto n = \dfrac{N}{L}$. Logo, dobrando $N$ com $L$ e $i$ constantes, $B$ dobra ($2\times$).</li>
+                    <li>A força magnética atrativa resulta da pressão exercida pela densidade de energia magnética no entreferro polo-armadura:
+                    $$F_m = \frac{B^2 \cdot A}{2 \mu} \propto B^2 \propto N^2$$</li>
+                    <li>Substituindo $B_{\text{novo}} = 2 \cdot B_{\text{antigo}}$, temos:
+                    $$F_{m,\text{novo}} \propto (2 \cdot B)^2 = 4 \cdot B^2 = 4 \cdot F_{m,\text{antigo}}$$</li>
+                </ol>
+                <p>Portanto, a hipótese fisicamente fundamentada prevê que a força magnética e a massa sustentada quadruplicam (fator de $4\times$), e não apenas dobram.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Questão 3: Quais fatores de bancada explicam eventuais desvios entre o fator experimental e o ideal de 4,0×?</summary>
+            <div class="details-content">
+                <p><strong>Principais Limitações e Efeitos Práticos:</strong></p>
+                <ul>
+                    <li><strong>Saturação Magnética do Núcleo ($B_{\text{sat}}$):</strong> A permeabilidade relativa $\mu_r$ não é uma constante estrita; ela varia com a curva de histerese $B \times H$. Quando o campo aplicado $H = n \cdot i$ atinge valores elevados com $N = 100$, o núcleo se aproxima do joelho de saturação, reduzindo o valor incremental de $\mu_r$.</li>
+                    <li><strong>Dispersão de Linhas de Fluxo Magnético (Fringing Flux):</strong> Em solenoides reais de comprimento finito ($L = 4\text{ cm}$), há dispersão lateral de linhas nas extremidades, de modo que nem todo o fluxo atravessa perpendicularmente a área de contato dos clipes.</li>
+                    <li><strong>Aquecimento Ôhmico (Efeito Joule):</strong> Ao operar com $N = 100$, a resistência do enrolamento dobra ($R = \rho \frac{\ell}{S}$). Se a fonte não mantiver a regulação ativa de corrente de forma perfeitamente rígida, ou se o aquecimento elevar a resistência interna, a corrente real pode sofrer pequenas oscilações.</li>
+                </ul>
+            </div>
+        </details>
+    </div>
+
+    <!-- ══ CRONOGRAMA DAS TURMAS ══ -->
+    <div class="card" style="border-color:rgba(14, 165, 233, 0.3);">
+        <div class="card-header">
+            <span class="card-icon">🗓️</span>
+            <h2 class="card-title">7. Agenda do Experimento nas Turmas</h2>
+        </div>
+        <div class="grid-2">
+            <div style="background:rgba(255,255,255,0.02); border:1px solid var(--c-border); border-radius:0.6rem; padding:1.2rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                    <strong style="color:#38bdf8; font-size:1rem;">Turma RAC — FCA060905</strong>
+                    <span class="badge" style="margin:0;">Terça-feira</span>
+                </div>
+                <ul class="step-list" style="padding-left:1.1rem; font-size:0.86rem;">
+                    <li><strong>22/09:</strong> Dúvidas e Resolução de Exercícios do Bloco 2.</li>
+                    <li><strong>29/09:</strong> 🔬 <strong>Realização do Laboratório 2 (Eletroímã & $\mu_r$)</strong>.</li>
+                    <li><strong>06/10:</strong> 📝 <strong>Avaliação 2 do Bloco 2</strong> (Cap. 14 Ramalho).</li>
+                    <li><strong>Semana 13/10:</strong> Conselho de Classe Intermediário.</li>
+                </ul>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); border:1px solid var(--c-border); border-radius:0.6rem; padding:1.2rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                    <strong style="color:#7dd3fc; font-size:1rem;">Turma Tele — FSC060804</strong>
+                    <span class="badge" style="margin:0;">Segunda-feira</span>
+                </div>
+                <ul class="step-list" style="padding-left:1.1rem; font-size:0.86rem;">
+                    <li><strong>28/09:</strong> Dúvidas e Exercícios de Fixação do Bloco 2.</li>
+                    <li><strong>05/10:</strong> 🔬 <strong>Realização do Laboratório 2 (Eletroímã & $\mu_r$)</strong>.</li>
+                    <li><strong>12/10:</strong> 🔴 Feriado N. Sra. Aparecida (Conselhos na semana de 13/10).</li>
+                    <li><strong>19/10:</strong> 📡 Início do Conteúdo do Bloco 3 (Indução Magnética).</li>
+                    <li><strong>26/10:</strong> 📝 <strong>Avaliação 2 do Bloco 2</strong> (Força Magnética e Matéria).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <p>Instituto Federal de Santa Catarina — Câmpus São José</p>
+    <p>Área de Eletrotécnica / Telecomunicações / Refrigeração e Ar Condicionado</p>
+    <p>Prof. Humberto Luz Oliveira · Ensino 2026.2</p>
+</footer>
+
+<script>
+const G = 9.8;
+const MU0 = 4 * Math.PI * 1e-7;
+const I_CURR = 2.0;
+const L_LEN = 0.04;
+const R_RAD = 0.01;
+const AREA = Math.PI * Math.pow(R_RAD, 2);
+
+function calcMuR(m_grams, N) {
+    if (isNaN(m_grams) || m_grams <= 0) return 0;
+    const m_kg = m_grams / 1000.0;
+    const n = N / L_LEN;
+    // mu_r = (2 * m * g) / (mu0 * n^2 * i^2 * A)
+    const denom = MU0 * Math.pow(n, 2) * Math.pow(I_CURR, 2) * AREA;
+    const numer = 2.0 * m_kg * G;
+    return numer / denom;
+}
+
+function calcularParteA() {
+    const m_al = parseFloat(document.getElementById('m_al').value) || 0;
+    const m_aco = parseFloat(document.getElementById('m_aco').value) || 0;
+    const m_ferro = parseFloat(document.getElementById('m_ferro').value) || 0;
+
+    const f_al = (m_al / 1000.0) * G;
+    const f_aco = (m_aco / 1000.0) * G;
+    const f_ferro = (m_ferro / 1000.0) * G;
+
+    const ur_al = calcMuR(m_al, 50);
+    const ur_aco = calcMuR(m_aco, 50);
+    const ur_ferro = calcMuR(m_ferro, 50);
+
+    document.getElementById('f_al').textContent = f_al.toFixed(4) + ' N';
+    document.getElementById('f_aco').textContent = f_aco.toFixed(3) + ' N';
+    document.getElementById('f_ferro').textContent = f_ferro.toFixed(3) + ' N';
+
+    document.getElementById('ur_al').textContent = ur_al > 0 ? ur_al.toFixed(1) : '—';
+    document.getElementById('ur_aco').textContent = ur_aco > 0 ? ur_aco.toFixed(0) : '—';
+    document.getElementById('ur_ferro').textContent = ur_ferro > 0 ? ur_ferro.toFixed(0) : '—';
+
+    if (m_aco > 0) {
+        const r_fe_aco = m_ferro / m_aco;
+        document.getElementById('razao_ferro_aco').textContent = r_fe_aco.toFixed(2) + ' ×';
+    }
+    if (m_al > 0) {
+        const r_fe_al = m_ferro / m_al;
+        document.getElementById('razao_ferro_al').textContent = r_fe_al.toFixed(0) + ' ×';
+    }
+}
+
+function calcularParteB() {
+    const m50 = parseFloat(document.getElementById('m50_exp').value) || 0;
+    const m100 = parseFloat(document.getElementById('m100_exp').value) || 0;
+
+    if (m50 > 0 && m100 > 0) {
+        const razao = m100 / m50;
+        const desvio = ((razao - 4.0) / 4.0) * 100;
+
+        document.getElementById('razao_exp_b').textContent = razao.toFixed(2) + ' ×';
+        document.getElementById('desvio_b').textContent = (desvio > 0 ? '+' : '') + desvio.toFixed(1) + '%';
+
+        let msg = '';
+        if (Math.abs(desvio) <= 15) {
+            msg = `Excelente concordância! A razão experimental de ${razao.toFixed(2)}× confirma a proporcionalidade quadrática prevista de 4.00× (desvio de ${desvio.toFixed(1)}%). O crescimento acentuado valida que a força magnética depende do quadrado das espiras (Fm ∝ N²).`;
+            document.getElementById('desvio_b').style.color = '#34d399';
+        } else if (desvio < -15) {
+            msg = `A razão experimental foi de ${razao.toFixed(2)}× (abaixo dos 4.00× teóricos). Isso é esperado em bancadas com núcleos de aço/ferro que atingem saturação magnética (B_sat), além de dispersão de linhas de campo nas bordas e perda resistiva Joule.`;
+            document.getElementById('desvio_b').style.color = '#fbbf24';
+        } else {
+            msg = `A razão foi de ${razao.toFixed(2)}×. Verifique se o alinhamento mecânico dos clipes e o tempo de acionamento foram rigorosamente controlados para ambos os ensaios.`;
+            document.getElementById('desvio_b').style.color = '#38bdf8';
+        }
+        document.getElementById('msg_analise_b').textContent = msg;
+    } else {
+        document.getElementById('razao_exp_b').textContent = '—';
+        document.getElementById('desvio_b').textContent = '—';
+    }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    calcularParteA();
+    calcularParteB();
+});
+</script>
+
+</body>
+</html>
