@@ -3,22 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 11 — Dúvidas e Exercícios (02/10/2026)</title>
+    <title>Aula 11 — Dúvidas, Exercícios e Roteiro dos Gráficos (02/10/2026)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] } };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        :root { --c-cyan: #06b6d4; --c-surface: rgba(15,23,42,0.75); --c-border: rgba(255,255,255,0.08); }
+        :root {
+            --c-cyan: #06b6d4;
+            --c-orange: #f97316;
+            --c-surface: rgba(15,23,42,0.85);
+            --c-border: rgba(255,255,255,0.08);
+            --c-card: rgba(30,41,59,0.5);
+        }
         body { font-family: 'Inter', sans-serif; background: #0a0e17; color: #f0f4f8; margin: 0; padding: 0; line-height: 1.6; }
-        .header { background: linear-gradient(135deg, #0e7490 0%, #0f172a 60%, #0a0e17 100%); padding: 3rem 1.5rem 2.5rem; border-bottom: 1px solid rgba(6,182,212,0.2); text-align: center; }
-        .container { max-width: 850px; margin: 0 auto; padding: 2rem 1.5rem; }
+        .header { background: linear-gradient(135deg, #0e7490 0%, #164e63 40%, #0f172a 80%, #0a0e17 100%); padding: 3.5rem 1.5rem 2.8rem; border-bottom: 1px solid rgba(6,182,212,0.25); text-align: center; }
+        .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
         .badge { background: rgba(6,182,212,0.15); color: #67e8f9; border: 1px solid rgba(6,182,212,0.3); padding: 0.35rem 0.9rem; border-radius: 9999px; font-size: 0.78rem; font-weight: 600; display: inline-block; margin-bottom: 0.75rem; }
-        .btn-back { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.06); color: #cbd5e1; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.1); font-size: 0.82rem; font-weight: 600; transition: all 0.2s; margin-bottom: 1rem; }
-        .btn-back:hover { background: rgba(255,255,255,0.12); color: #fff; }
-        h1 { font-size: 2rem; font-weight: 800; margin: 0.4rem 0; letter-spacing: -0.02em; }
-        .card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 1rem; padding: 1.8rem; margin-bottom: 1.5rem; }
+        .badge-alert { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); padding: 0.35rem 0.9rem; border-radius: 9999px; font-size: 0.78rem; font-weight: 600; display: inline-block; }
+        .btn-back { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.06); color: #cbd5e1; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.1); font-size: 0.82rem; font-weight: 600; transition: all 0.2s; }
+        .btn-back:hover { background: rgba(255,255,255,0.12); color: #fff; transform: translateY(-1px); }
+        .btn-accent { background: rgba(6,182,212,0.15); color: #67e8f9; border: 1px solid rgba(6,182,212,0.3); text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.82rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s; }
+        .btn-accent:hover { background: rgba(6,182,212,0.25); color: #cffaff; }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; margin: 0.4rem 0; letter-spacing: -0.02em; }
+        .card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 1rem; padding: 1.8rem; margin-bottom: 1.8rem; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .card-inner { background: var(--c-card); border: 1px solid rgba(255,255,255,0.05); border-radius: 0.75rem; padding: 1.25rem; margin-top: 1rem; }
+        .code-box { background: #050811; border: 1px solid rgba(255,255,255,0.08); border-radius: 0.6rem; padding: 1rem; overflow-x: auto; font-family: monospace; font-size: 0.85rem; color: #e2e8f0; }
+        table.data-spec { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.85rem; }
+        table.data-spec th, table.data-spec td { border: 1px solid rgba(255,255,255,0.08); padding: 0.6rem 0.8rem; text-align: left; }
+        table.data-spec th { background: rgba(255,255,255,0.04); color: #67e8f9; font-weight: 600; }
         ul { color: #cbd5e1; font-size: 0.92rem; padding-left: 1.2rem; }
-        li { margin-bottom: 0.4rem; }
+        li { margin-bottom: 0.45rem; }
+        .tab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .tool-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 0.75rem; padding: 1.2rem; }
         footer { text-align: center; color: #64748b; font-size: 0.8rem; margin-top: 3rem; padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
@@ -26,30 +46,229 @@
 
 <header class="header">
     <span class="badge">💡 Aula 11 · 02/10/2026 · Bloco 2</span>
-    <h1>Aula de Dúvidas e Exercícios</h1>
-    <p style="color: #94a3b8; font-size: 1rem; margin: 0;">Preparação para a Avaliação Parte 2 - Bloco II</p>
+    <h1>Aula de Dúvidas, Exercícios e Roteiro dos Gráficos</h1>
+    <p style="color: #cbd5e1; font-size: 1.05rem; margin: 0.5rem auto 0; max-width: 720px;">
+        Orientações oficiais para a confecção dos dois gráficos do <strong>Roteiro II — Radiação de Corpo Negro</strong> para as turmas <strong>FSC060806 (Telecom)</strong> e <strong>FCA060903 (Refrigeração)</strong>.
+    </p>
 </header>
 
 <main class="container">
-    <div class="nav-links" style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.5rem;">
-        <a href="../../../../FCA060903/index.html" class="btn-back">← Dashboard FCA060903</a>
-        <a href="../../../../FSC060806/index.html" class="btn-back">← Dashboard FSC060806</a>
-        <a href="../../../index.html" class="btn-back">🏠 Central Termodinâmica</a>
+    <div class="nav-links" style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.5rem; align-items:center; justify-content:space-between;">
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <a href="../../../../FCA060903/index.html" class="btn-back">← Dashboard FCA060903</a>
+            <a href="../../../../FSC060806/index.html" class="btn-back">← Dashboard FSC060806</a>
+            <a href="../../../index.html" class="btn-back">🏠 Central Termodinâmica</a>
+        </div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <a href="../../../Laboratorios/roteiro-construcao-graficos-radiacao.pdf" target="_blank" class="btn-accent" style="background:rgba(16,185,129,0.2); color:#6ee7b7; border-color:rgba(16,185,129,0.4);">📄 Guia dos Gráficos (PDF)</a>
+            <a href="../../../Laboratorios/Roteiro-II-Radia%C3%A7%C3%A3o-Corpo-Negro.pdf" target="_blank" class="btn-accent">📥 Roteiro Lab II (PDF)</a>
+        </div>
     </div>
 
+    <!-- BOX DE AVISO OFICIAL E PRAZO -->
+    <div class="card" style="border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.03);">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+            <span class="badge-alert">📅 Prazo e Orientações de Entrega</span>
+            <span style="font-size:0.85rem; color:#cbd5e1; font-weight:600;">Data de Entrega: <strong>23/10/2026</strong></span>
+        </div>
+        <h2 style="color: #fbbf24; font-size: 1.25rem; margin: 0.75rem 0 0.4rem;">Construção dos Gráficos com Calma e Rigor Metodológico</h2>
+        <p style="font-size:0.92rem; color:#cbd5e1; margin:0;">
+            Atendendo à solicitação das turmas de Termodinâmica, organizamos este roteiro detalhado para que as equipes possam tratar os dados experimentais coletados na bancada com calma. A entrega do relatório com os dois gráficos e as respectivas planilhas de dados deverá ser realizada no dia <strong>23/10/2026</strong> (data da Avaliação Parte 2 - Bloco II).
+        </p>
+        <div style="margin-top:1rem; padding:0.8rem 1rem; background:rgba(0,0,0,0.3); border-radius:0.5rem; font-size:0.85rem; color:#94a3b8;">
+            📦 <strong>O que entregar:</strong> 1) Relatório final formatado em <strong>PDF</strong> contendo os 2 gráficos científicos com títulos, eixos identificados e discussão conceitual; 2) A <strong>Planilha de Dados</strong> original (<code>.xlsx</code>, <code>.ods</code>, <code>.csv</code>) ou script de código (<code>.py</code>, <code>.m</code>).
+        </div>
+    </div>
+
+    <!-- GRÁFICO 1 -->
     <div class="card">
-        <h2 style="color: #67e8f9; font-size: 1.2rem; margin-top: 0;">📋 Conteúdo Programático Revisado</h2>
-        <ul>
-            <li>Diagramas de Fase $p \times T$, Ponto Triplo, Ponto Crítico e Regelo.</li>
-            <li>Condução Térmica e Lei de Fourier.</li>
-            <li>Convecção nos Fluidos e Irradiação Térmica (Corpo Negro, Lei de Stefan-Boltzmann).</li>
-            <li>Resolução orientada de dúvidas teóricas e práticas de laboratório.</li>
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+            <span style="background:rgba(6,182,212,0.15); color:#67e8f9; padding:0.3rem 0.7rem; border-radius:6px; font-weight:700; font-size:0.8rem;">Gráfico 1</span>
+            <h2 style="color: #f1f5f9; font-size: 1.25rem; margin:0;">Curva Completa de Aquecimento e Resfriamento ($T \times t$)</h2>
+        </div>
+        <p style="font-size:0.92rem; color:#cbd5e1; margin-top:0.75rem;">
+            Este gráfico tem por objetivo ilustrar a resposta térmica contínua de ambos os blocos de alumínio (preto e branco) ao longo de todo o experimento (28 minutos).
+        </p>
+
+        <div class="card-inner">
+            <h3 style="color:#67e8f9; font-size:1rem; margin-top:0;">📋 Diretrizes de Construção:</h3>
+            <ul>
+                <li><strong>Eixo das Abscissas ($X$):</strong> Tempo ($t$) em minutos ($0, 2, 4, \dots, 28\text{ min}$) ou segundos.</li>
+                <li><strong>Eixo das Ordenadas ($Y$):</strong> Temperatura ($T$) em graus Celsius ($^\circ\text{C}$) ou Kelvin ($\text{K}$).</li>
+                <li><strong>Duas Séries Comparativas:</strong>
+                    <ul>
+                        <li><strong style="color:#f87171;">Bloco Preto Fosco:</strong> Marcadores circulares ou quadrados com linha sólida escura/vermelha.</li>
+                        <li><strong style="color:#38bdf8;">Bloco Branco Fosco:</strong> Marcadores triangulares ou circulares com linha azul ou cinza.</li>
+                    </ul>
+                </li>
+                <li><strong>Linha Vertical Divisória em $t = 14\text{ min}$ (Opcional, mas muito recomendada):</strong> Linha tracejada indicando o instante em que a lâmpada foi desligada, separando a <em>Fase 1 (Aquecimento)</em> da <em>Fase 2 (Resfriamento)</em>.</li>
+            </ul>
+
+            <table class="data-spec">
+                <thead>
+                    <tr>
+                        <th>Tempo (min)</th>
+                        <th>Temperatura Preto (°C)</th>
+                        <th>Temperatura Branco (°C)</th>
+                        <th>Regime Experimental</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$0$ a $14\text{ min}$ (passo 2 min)</td>
+                        <td>Valores medidos</td>
+                        <td>Valores medidos</td>
+                        <td>Lâmpada ligada (Aquecimento radiativo)</td>
+                    </tr>
+                    <tr>
+                        <td>$14$ a $28\text{ min}$ (passo 2 min)</td>
+                        <td>Valores medidos</td>
+                        <td>Valores medidos</td>
+                        <td>Lâmpada desligada (Resfriamento convectivo/radiativo)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top:1rem; font-size:0.88rem; color:#94a3b8;">
+            💡 <strong>Interpretação Física Obrigatória:</strong> Compare as inclinações iniciais ($\Delta T/\Delta t$) entre 0 e 4 minutos e a temperatura máxima atingida aos 14 minutos. Explique como isso comprova o menor <em>Albedo</em> (maior absorção radiativa) do bloco preto.
+        </div>
+    </div>
+
+    <!-- GRÁFICO 2 -->
+    <div class="card">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+            <span style="background:rgba(168,85,247,0.15); color:#d8b4fe; padding:0.3rem 0.7rem; border-radius:6px; font-weight:700; font-size:0.8rem;">Gráfico 2</span>
+            <h2 style="color: #f1f5f9; font-size: 1.25rem; margin:0;">Taxa de Resfriamento e Validação da Lei de Stefan-Boltzmann</h2>
+        </div>
+        <p style="font-size:0.92rem; color:#cbd5e1; margin-top:0.75rem;">
+            O segundo gráfico foca na perda térmica (resfriamento no escuro). As equipes podem optar por uma das duas abordagens analíticas abaixo:
+        </p>
+
+        <div class="tab-grid">
+            <div class="tool-card">
+                <h3 style="color:#d8b4fe; font-size:1rem; margin-top:0;">Opção A: Curva Comparativa de Resfriamento</h3>
+                <p style="font-size:0.85rem; color:#cbd5e1;">
+                    Gráfico de $T \times t$ restrito ao intervalo dos 14 aos 28 minutos.
+                </p>
+                <ul style="font-size:0.82rem;">
+                    <li><strong>Eixo X:</strong> Tempo pós-lâmpada (0 a 14 min de resfriamento).</li>
+                    <li><strong>Eixo Y:</strong> Temperatura do bloco ($T$) ou queda térmica ($\Delta T = T(t) - T_A$).</li>
+                    <li><strong>Destaque:</strong> Evidenciar a inclinação inicial (14 a 18 min), comprovando a <strong>Lei de Kirchhoff</strong>: o bloco que mais absorveu calor é também o que perde calor com maior velocidade.</li>
+                </ul>
+            </div>
+
+            <div class="tool-card" style="border-color:rgba(168,85,247,0.3); background:rgba(168,85,247,0.04);">
+                <h3 style="color:#c084fc; font-size:1rem; margin-top:0;">Opção B: Ajuste de Stefan-Boltzmann (Recomendada)</h3>
+                <p style="font-size:0.85rem; color:#cbd5e1;">
+                    Linearização da Lei de Stefan-Boltzmann: $P_{\text{resf}} = \varepsilon \cdot A_{\text{sup}} \cdot \sigma \cdot (T^4 - T_A^4)$.
+                </p>
+                <ul style="font-size:0.82rem;">
+                    <li><strong>Eixo X:</strong> Gradiente térmico quádruplo $(T^4 - T_A^4)$ em $\text{K}^4$.</li>
+                    <li><strong>Eixo Y:</strong> Potência de resfriamento $P_{\text{resf}} = \frac{m \cdot c \cdot |\Delta T|}{\Delta t}$ em Watts ($\text{W}$).</li>
+                    <li><strong>Ajuste Linear:</strong> A reta passando pela origem tem inclinação $m = \varepsilon \cdot A_{\text{sup}} \cdot \sigma$, permitindo determinar a emissividade $\varepsilon$.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOFTWARES E CÓDIGOS -->
+    <div class="card">
+        <h2 style="color: #67e8f9; font-size: 1.25rem; margin-top: 0;">💻 Softwares e Ferramentas Permitidos</h2>
+        <p style="font-size:0.92rem; color:#cbd5e1;">
+            Vocês podem utilizar qualquer uma das seguintes opções para produzir os gráficos e planilhas:
+        </p>
+
+        <div class="tab-grid">
+            <!-- Sheets / Excel -->
+            <div class="tool-card">
+                <strong style="color:#34d399; display:block; margin-bottom:0.4rem;">📊 Google Planilhas / Excel / Calc</strong>
+                <p style="font-size:0.82rem; color:#cbd5e1; margin:0 0 0.5rem;">
+                    Ideal para montagem rápida e automática.
+                </p>
+                <ul style="font-size:0.8rem; margin:0; padding-left:1.1rem;">
+                    <li>Organize os dados em 3 colunas: <code>Tempo</code>, <code>Preto</code>, <code>Branco</code>.</li>
+                    <li>Selecione as colunas e clique em <em>Inserir Gráfico</em>.</li>
+                    <li>Escolha obrigatoriamente <strong>Gráfico de Dispersão (Scatter Plot)</strong>.</li>
+                    <li>Personalize título dos eixos com grandezas e unidades.</li>
+                </ul>
+            </div>
+
+            <!-- Python -->
+            <div class="tool-card">
+                <strong style="color:#38bdf8; display:block; margin-bottom:0.4rem;">🐍 Python (Matplotlib / Seaborn)</strong>
+                <p style="font-size:0.82rem; color:#cbd5e1; margin:0 0 0.5rem;">
+                    Padrão profissional para artigos e relatórios científicos.
+                </p>
+                <div class="code-box" style="font-size:0.75rem; padding:0.6rem;">
+<pre style="margin:0;">import matplotlib.pyplot as plt
+
+t = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28]
+t_preto = [...]   # insira seus dados
+t_branco = [...]  # insira seus dados
+
+plt.figure(figsize=(8, 4.5))
+plt.plot(t, t_preto, 'ro-', label='Bloco Preto', lw=1.8)
+plt.plot(t, t_branco, 'bs--', label='Bloco Branco', lw=1.8)
+plt.axvline(14, color='gray', linestyle=':', label='Desligamento (14 min)')
+plt.title('Curva de Aquecimento e Resfriamento')
+plt.xlabel('Tempo (min)')
+plt.ylabel('Temperatura (°C)')
+plt.grid(True, alpha=0.3)
+plt.legend()
+plt.tight_layout()
+plt.savefig('grafico_lab_corpo_negro.pdf')</pre>
+                </div>
+            </div>
+
+            <!-- Octave / Matlab -->
+            <div class="tool-card">
+                <strong style="color:#f59e0b; display:block; margin-bottom:0.4rem;">📐 GNU Octave / MATLAB</strong>
+                <p style="font-size:0.82rem; color:#cbd5e1; margin:0 0 0.5rem;">
+                    Ambiente direto de matrizes e vetores.
+                </p>
+                <div class="code-box" style="font-size:0.75rem; padding:0.6rem;">
+<pre style="margin:0;">t = 0:2:28;
+plot(t, T_preto, 'r-o', t, T_branco, 'b--s', 'LineWidth', 1.5);
+xline(14, '--k', 'Lâmpada Desligada');
+xlabel('Tempo (min)');
+ylabel('Temperatura (^oC)');
+legend('Bloco Preto', 'Bloco Branco');
+grid on;
+print -dpdf grafico_octave.pdf</pre>
+                </div>
+            </div>
+
+            <!-- SciDAVis / Origin / Gnuplot -->
+            <div class="tool-card">
+                <strong style="color:#e879f9; display:block; margin-bottom:0.4rem;">🔬 SciDAVis / Origin / Gnuplot</strong>
+                <p style="font-size:0.82rem; color:#cbd5e1; margin:0 0 0.5rem;">
+                    Softwares dedicados à física experimental.
+                </p>
+                <ul style="font-size:0.8rem; margin:0; padding-left:1.1rem;">
+                    <li>Defina a coluna de tempo como tipo <code>X</code> e temperaturas como <code>Y</code>.</li>
+                    <li>Utilize a ferramenta <em>Analysis &rarr; Fit Linear</em> para obter $R^2$ e coeficiente angular.</li>
+                    <li>Exporte diretamente em PDF ou PNG de 300 DPI.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKLIST FINAL -->
+    <div class="card" style="border-color: rgba(34,197,94,0.3); background: rgba(34,197,94,0.03);">
+        <h2 style="color: #4ade80; font-size: 1.25rem; margin-top: 0;">✅ Checklist de Qualidade do Relatório</h2>
+        <ul style="margin-bottom:0;">
+            <li><strong>Eixos rotulados com unidades:</strong> Verifique se nenhum eixo está sem unidade (ex: <code>Tempo (min)</code>, <code>Temperatura (°C)</code>, <code>Potência (W)</code>).</li>
+            <li><strong>Símbolos experimentais:</strong> Os pontos medidos devem estar visíveis com marcadores.</li>
+            <li><strong>Legenda explicativa:</strong> Deve estar visível e distinguindo claramente o Bloco Preto do Bloco Branco.</li>
+            <li><strong>Interpretação conceitual anexada:</strong> Responda às 4 perguntas conceituais do roteiro (Albedo, Kirchhoff, Ilhas de Calor e Convecção residual).</li>
+            <li><strong>Arquivos enviados:</strong> Relatório em <strong>PDF</strong> + <strong>Planilha/Script</strong> até <strong>23/10/2026</strong>.</li>
         </ul>
     </div>
 </main>
 
 <footer>
-    &copy; 2026 Prof. Dr. Humberto Luz Oliveira — IFSC Câmpus São José
+    &copy; 2026 Prof. Dr. Humberto Luz Oliveira — Física / Termodinâmica — IFSC Câmpus São José
 </footer>
 
 </body>

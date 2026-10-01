@@ -59,7 +59,7 @@ Atenção especial às segundas-feiras, pois feriados frequentes exigirão reman
 | **Julho** | 22/07 (Qua) | **Início do Semestre Letivo 2026.2** | Começar a aplicação da grade de rotina base. |
 | **Setembro** | 07/09 (Seg) | 🔴 Feriado: Independência do Brasil | Sem atividades. **Remanejar TCCs e Atendimentos.** |
 | **Setembro** | 12/09 (Sáb) | Sábado Letivo | Planejar reposição ou atividade extra se necessário. |
-| **Outubro** | 02/10 (Sex) | 💡 **Aula de Dúvidas e Exercícios (Bloco II)** | Preparatório para a Avaliação Parte 2 nas turmas de sexta-feira. |
+| **Outubro** | 02/10 (Sex) | 💡 **Dúvidas & Roteiro dos Gráficos (Lab II)** | Preparatório para a Avaliação Parte 2 e orientações para gráficos do Lab II (entrega em 23/10). |
 | **Outubro** | 09/10 (Sex) | 🏥 **Ausência Docente (Tratamento de Saúde)** | Consultar coordenações sobre dispensa ou substituição. |
 | **Outubro** | 12/10 (Seg) | 🔴 Feriado: N. Sra. Aparecida | Sem atividades. **Remanejar demandas de segunda.** |
 | **Outubro** | 12 a 16/10 | 📋 **Semana de Conselho de Classe** | Sem aula de Física na sexta 16/10 (ver com coordenações se terá atividade). |
