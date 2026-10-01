@@ -1,6 +1,6 @@
 ---
 course: "Acústica e Óptica Geométrica"
-date: 2026-10-02
+date: 2026-10-23
 block: 2
 type: "Avaliação"
 tags:
@@ -8,7 +8,7 @@ tags:
   - avaliacao
 ---
 
-# 📝 Avaliação 2: Óptica Geométrica e Espelhos (02/10)
+# 📝 Avaliação 2: Óptica Geométrica e Espelhos (23/10)
 
 > [!important] **Planejamento da Avaliação**
 > - **Tipo:** Prova escrita individual sem consulta.

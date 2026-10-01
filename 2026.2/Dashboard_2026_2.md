@@ -59,8 +59,11 @@ Atenção especial às segundas-feiras, pois feriados frequentes exigirão reman
 | **Julho** | 22/07 (Qua) | **Início do Semestre Letivo 2026.2** | Começar a aplicação da grade de rotina base. |
 | **Setembro** | 07/09 (Seg) | 🔴 Feriado: Independência do Brasil | Sem atividades. **Remanejar TCCs e Atendimentos.** |
 | **Setembro** | 12/09 (Sáb) | Sábado Letivo | Planejar reposição ou atividade extra se necessário. |
-| **Outubro** | 05 a 09/10 | **Conselhos de Classe Intermediários** | Reduzir tempo de escrita/pesquisa na quarta. |
+| **Outubro** | 02/10 (Sex) | 💡 **Aula de Dúvidas e Exercícios (Bloco II)** | Preparatório para a Avaliação Parte 2 nas turmas de sexta-feira. |
+| **Outubro** | 09/10 (Sex) | 🏥 **Ausência Docente (Tratamento de Saúde)** | Consultar coordenações sobre dispensa ou substituição. |
 | **Outubro** | 12/10 (Seg) | 🔴 Feriado: N. Sra. Aparecida | Sem atividades. **Remanejar demandas de segunda.** |
+| **Outubro** | 12 a 16/10 | 📋 **Semana de Conselho de Classe** | Sem aula de Física na sexta 16/10 (ver com coordenações se terá atividade). |
+| **Outubro** | 23/10 (Sex) | 📝 **Avaliação Parte 2 - Bloco II** | Prova teórica individual e conteúdos práticos para as turmas de sexta. |
 | **Outubro** | 30/10 (Sex) | 🔴 Feriado: Dia do Servidor Público (Transferido de 28/10) | Sem atividades. Não há aulas de sexta-feira (FSC060806, FCA060903, FCA060906). |
 | **Novembro** | 02/11 (Seg) | 🔴 Feriado: Dia de Finados | Sem atividades. **Quarta segunda-feira comprometida.** |
 | **Novembro** | 07/11 (Sáb) | Sábado Letivo | Planejar atividade institucional. |
