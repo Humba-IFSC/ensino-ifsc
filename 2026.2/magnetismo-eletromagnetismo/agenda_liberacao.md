@@ -55,9 +55,9 @@ Para liberar o acesso de uma aula nos cronogramas `FSC060804/index.html` e `FCA0
 | **15/09/2026** | 8 | Aula 08 | Força sobre Condutores e Fenômenos Magnéticos | `badge-done` (✓ Conteúdo) |
 | **22/09/2026** | 9 | Aula 09 | Dúvidas e Resolução de Exercícios (Bloco 2 — Cap. 14) | `badge-done` (✓ Concluída) |
 | **29/09/2026** | 10 | Aula 10 (Lab 02) | Atividade Prática / Laboratório do Bloco 2: Força Magnética e Permeabilidade em Eletroímãs | `badge-lab` (🔬 Lab 02) |
-| **06/10/2026** | 11 | Aula 11 (AVA 2) | Avaliação Parte 2 do Bloco 2 (Capítulo 14 do Ramalho) | `badge-ava` (📝 Avaliação 2) |
+| **06/10/2026** | 11 | Aula 11 | Dúvidas, Revisão e Exercícios Preparatórios (Cap. 14) | `badge-done` (✓ Revisão) |
 | **13/10/2026** | 12 | — | Semana Pedagógica — Conselhos de Classe Intermediários | `badge-holiday` (📋 Conselho) |
-| **20/10/2026** | 13 | Aula 12 | Início do Bloco 3: Indução Eletromagnética (Fluxo e Lei de Lenz) | `badge-soon` (Em breve) |
+| **20/10/2026** | 13 | Aula 12 (AVA 2) | Avaliação Parte 2 do Bloco 2 & Início do Bloco 3 (Fluxo e Lenz) | `badge-ava` (📝 Avaliação 2) |
 | **27/10/2026** | 14 | Aula 13 | Leis da Indução e Corrente Alternada | `badge-soon` (Em breve) |
 | **03/11/2026** | 15 | Aula 14 (Lab 03) | Atividade Prática / Laboratório do Bloco 3 | `badge-lab` (🔬 Lab 03) |
 | **10/11/2026** | 16 | Aula 15 | Exercícios de Fixação Bloco 3 | `badge-done` (📝 Exercícios) |
