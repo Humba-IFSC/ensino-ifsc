@@ -57,8 +57,8 @@ Para liberar o acesso de uma aula nos cronogramas `FSC060804/index.html` e `FCA0
 | **29/09/2026** | 10 | Aula 10 (Lab 02) | Atividade Prática / Laboratório do Bloco 2: Força Magnética e Permeabilidade em Eletroímãs | `badge-lab` (🔬 Lab 02) |
 | **06/10/2026** | 11 | Aula 11 | Dúvidas, Revisão e Exercícios Preparatórios (Cap. 14) | `badge-done` (✓ Revisão) |
 | **13/10/2026** | 12 | — | Semana Pedagógica — Conselhos de Classe Intermediários | `badge-holiday` (📋 Conselho) |
-| **20/10/2026** | 13 | Aula 12 (AVA 2) | Avaliação Parte 2 do Bloco 2 & Início do Bloco 3 (Fluxo e Lenz) | `badge-ava` (📝 Avaliação 2) |
-| **27/10/2026** | 14 | Aula 13 | Leis da Indução e Corrente Alternada | `badge-soon` (Em breve) |
+| **20/10/2026** | 13 | Aula 12 (AVA 2) | Avaliação Parte 2 do Bloco 2 (Força Magnética e Matéria) | `badge-ava` (📝 Avaliação 2) |
+| **27/10/2026** | 14 | Aula 13 | Início do Bloco 3: Fluxo Magnético e Indução Eletromagnética (Lei de Lenz) | `badge-done` (✓ Início Bloco 3) |
 | **03/11/2026** | 15 | Aula 14 (Lab 03) | Atividade Prática / Laboratório do Bloco 3 | `badge-lab` (🔬 Lab 03) |
 | **10/11/2026** | 16 | Aula 15 | Exercícios de Fixação Bloco 3 | `badge-done` (📝 Exercícios) |
 | **17/11/2026** | 17 | Aula 16 (AVA 3) | Avaliação 3 — Indução e Corrente Alternada | `badge-ava` (📝 Avaliação 3) |
