@@ -69,8 +69,13 @@ Atenção especial às segundas-feiras, pois feriados frequentes exigirão reman
 | **Novembro** | 02/11 (Seg) | 🔴 Feriado: Dia de Finados | Sem atividades. **Quarta segunda-feira comprometida.** |
 | **Novembro** | 07/11 (Sáb) | Sábado Letivo | Planejar atividade institucional. |
 | **Novembro** | 20/11 (Sex) | 🔴 Feriado: Consciência Negra | Sem atividades. Não há aulas de sexta (Termo/Óptica). |
-| **Dezembro** | 07 a 11/12 | **Conselhos de Classe Finais** | Reduzir tempo de escrita/pesquisa na quarta. |
-| **Dezembro** | 11/12 (Sex) | **Fim do Semestre Letivo 2026.2** | Último dia de aulas com os alunos. |
+| **Novembro** | 27/11 (Sex) | 💡 **Exercícios e Dúvidas (RAC)** | Aula extra preparatória para a Avaliação 3 (`FCA060906`). |
+| **Novembro** | 28/11 (Sáb) | 💡 **Sábado Letivo: Exercícios e Dúvidas (Tele)** | Aula extra preparatória para a Avaliação 3 (`FSC060805`). |
+| **Novembro** | 30/11 (Seg) | 📝 **Avaliação 3 — Refração e Lentes (Tele)** | Avaliação Parcial - Parte 3 para Telecomunicações (`FSC060805`). |
+| **Dezembro** | 04/12 (Sex) | 📝 **Avaliação 3 — Refração e Lentes (RAC)** | Avaliação Parcial - Parte 3 para Refrigeração (`FCA060906`). |
+| **Dezembro** | 07/12 (Seg) | 📝 **Recuperação Final (Tele)** | Prova de reposição e recuperação final para `FSC060805`. |
+| **Dezembro** | 07 a 11/12 | 📋 **Conselhos de Classe Finais** | Reduzir tempo de escrita/pesquisa na quarta. |
+| **Dezembro** | 11/12 (Sex) | 📝 **Recuperação Final (RAC) & Fim do Semestre** | Prova de reposição/recuperação (`FCA060906`) e encerramento oficial do semestre letivo 2026.2. |
 
 ---
 
