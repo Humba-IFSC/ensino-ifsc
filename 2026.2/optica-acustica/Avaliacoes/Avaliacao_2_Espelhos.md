@@ -1,6 +1,6 @@
 ---
 course: "Acústica e Óptica Geométrica"
-date: 2026-10-23
+date: 2026-10-26
 block: 2
 type: "Avaliação"
 tags:
@@ -8,16 +8,19 @@ tags:
   - avaliacao
 ---
 
-# 📝 Avaliação 2: Óptica Geométrica e Espelhos (23/10)
+# 📝 Avaliação 2: Óptica Geométrica e Espelhos (26/10)
 
 > [!important] **Planejamento da Avaliação**
 > - **Tipo:** Prova escrita individual sem consulta.
+> - **Data:** 26/10/2026 (Segunda-feira — Dia letivo confirmado).
 > - **Bloco:** 2
 > - **Conteúdo Avaliado:**
 >   - Princípios da Óptica Geométrica e sombras/penumbras (Capítulo 10).
 >   - Reflexão da luz e propriedades geométricas de espelhos planos (Capítulo 11).
 >   - Espelhos esféricos côncavos e convexos (Capítulo 12).
 >   - Construção gráfica de imagens e Equação de Gauss para espelhos.
+> - **Simulado Oficial:**
+>   - [[Óptica_Acústica/Avaliacoes/Simulado_Avaliacoes_Optica_Provas_A_B_C_D.pdf|Simulado de Avaliações — Bloco II: Provas A, B, C e D (PDF)]]
 
 ---
 
@@ -25,6 +28,7 @@ tags:
 - Revisar o material de referência:
   - [[Óptica_Acústica/Caps_Ramalho/Cap.11-Reflexao-Espelhos.pdf|Capítulos 10 e 11 - Reflexão]]
   - [[Óptica_Acústica/Caps_Ramalho/Reflexao-Espelhos_Fisica_Vol2.pdf|Capítulo 12 - Espelhos Esféricos]]
+  - [[Óptica_Acústica/Avaliacoes/Simulado_Avaliacoes_Optica_Provas_A_B_C_D.pdf|Simulado Oficial com Gabarito Comentado (PDF)]]
 
 ---
 

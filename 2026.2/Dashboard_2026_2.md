@@ -63,8 +63,9 @@ Atenção especial às segundas-feiras, pois feriados frequentes exigirão reman
 | **Outubro** | 09/10 (Sex) | 🏥 **Ausência Docente (Tratamento de Saúde)** | Consultar coordenações sobre dispensa ou substituição. |
 | **Outubro** | 12/10 (Seg) | 🔴 Feriado: N. Sra. Aparecida | Sem atividades. **Remanejar demandas de segunda.** |
 | **Outubro** | 12 a 16/10 | 📋 **Semana de Conselho de Classe** | Sem aula de Física na sexta 16/10 (ver com coordenações se terá atividade). |
-| **Outubro** | 23/10 (Sex) | 📝 **Avaliação Parte 2 - Bloco II** | Prova teórica individual e conteúdos práticos para as turmas de sexta. |
-| **Outubro** | 30/10 (Sex) | 🔴 Feriado: Dia do Servidor Público (Transferido de 28/10) | Sem atividades. Não há aulas de sexta-feira (FSC060806, FCA060903, FCA060906). |
+| **Outubro** | 23/10 (Sex) | 📝 **Avaliação Parte 2 - Bloco II (Termo)** | Prova teórica de Termodinâmica e entrega de relatórios do Lab II. Plantão de dúvidas de Óptica. |
+| **Outubro** | 26/10 (Seg) | 📝 **Avaliação 2 — Óptica e Espelhos** | Prova escrita individual sem consulta (`FSC060805` e `FCA060906`). **Dia letivo confirmado**, com simulado oficial (Provas A, B, C e D). |
+| **Outubro** | 28/10 (Qua) | 🔴 Feriado: Dia do Servidor Público | Feriado mantido na quarta-feira (não será adiantado nem transferido). |
 | **Novembro** | 02/11 (Seg) | 🔴 Feriado: Dia de Finados | Sem atividades. **Quarta segunda-feira comprometida.** |
 | **Novembro** | 07/11 (Sáb) | Sábado Letivo | Planejar atividade institucional. |
 | **Novembro** | 20/11 (Sex) | 🔴 Feriado: Consciência Negra | Sem atividades. Não há aulas de sexta (Termo/Óptica). |

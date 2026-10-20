@@ -28,8 +28,7 @@ Para liberar o acesso de uma aula nos cronogramas `FCA060906/index.html` e `FSC0
 | **11/09/2026** | 8 | Aula 06 | Espelhos Esféricos Côncavos e Convexos | `badge-done` (✓ Concluída) |
 | **18/09/2026** | 9 | Lab 02 | Prática: Simetria no Espelho Plano | `badge-lab` (🔬 Laboratório) |
 | **25/09/2026** | 10 | Aula 07 | Resolução de Exercícios de Espelhos | `badge-done` (✓ Concluída) |
-| **02/10/2026** | 11 | AVA 2 | Avaliação Escrita 2 — Óptica e Espelhos | `badge-ava` (📝 Avaliação 2) |
-| **23/10/2026** | 14 | Aula 08 | Início do Bloco 3: Refração Luminosa | `badge-done` (✓ Concluída) |
+| **26/10/2026** | 14 | AVA 2 | Avaliação Escrita 2 — Óptica e Espelhos + Simulado Oficial | `badge-ava` (📝 Avaliação 2) |
 | **30/10/2026** | 15 | Aula 09 | Lentes Esféricas Delgadas | `badge-done` (✓ Concluída) |
 | **06/11/2026** | 16 | Lab 03 | Prática: Foco de Lente Convergente | `badge-lab` (🔬 Laboratório) |
 | **13/11/2026** | 17 | Aula 10 | Resolução de Exercícios de Refração/Lentes | `badge-done` (✓ Concluída) |
