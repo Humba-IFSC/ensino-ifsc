@@ -8,11 +8,13 @@ tags:
   - avaliacao
 ---
 
-# 📝 Avaliação 2: Óptica Geométrica e Espelhos (26/10)
+# 📝 Avaliação 2: Óptica Geométrica e Espelhos
 
 > [!important] **Planejamento da Avaliação**
 > - **Tipo:** Prova escrita individual sem consulta.
-> - **Data:** 26/10/2026 (Segunda-feira — Dia letivo confirmado).
+> - **Datas de Aplicação:**
+>   - **Refrigeração e Ar Condicionado (`FCA060906`):** Sexta-feira, **23/10/2026** (Semana 14).
+>   - **Telecomunicações (`FSC060805`):** Segunda-feira, **26/10/2026** (Semana 14 — Dia letivo confirmado).
 > - **Bloco:** 2
 > - **Conteúdo Avaliado:**
 >   - Princípios da Óptica Geométrica e sombras/penumbras (Capítulo 10).
